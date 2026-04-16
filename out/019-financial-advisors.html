@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>19 – Financial Advisors</title>
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
+    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
+    code { font-family: monospace; font-size: 85%; }
+    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+    th { background: #f6f8fa; }
+  </style>
+</head>
+<body>
+  <section id="financial-advisors" class="api-block-1"><h2 class="section-title-1">Financial Advisors</h2><div class="row"><p>Financial Advisors are able to manage their allocation groups from the TWS API.</p><p><strong>Note:</strong> Modifications made through the API will effect orders placed through TWS, the TWS API, Client Portal, and the Client Portal API.</p></div></section>
+<section id="request-fa" class="api-block-2"><h3 class="section-title-2">Request FA Groups and Profiles</h3><div class="row"><h4><span style="color: #800000">EClient.requestFA (</span></h4><p><strong>faDataType:</strong> int. The configuration to change. Set to 1 or 3 as defined in the table below.<br> )</p><p>Requests the FA configuration as set in TWS for the given FA Group or Profile.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.requestFA(1)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>&nbsp;</p><h4>requestFA FA Data Types</h4><p>&nbsp;</p><table><tbody><tr><th>Type Code</th><th>Type Name</th><th>Description</th></tr><tr><td>1</td><td>Groups</td><td>offer traders a way to create a group of accounts and apply a single allocation method to all accounts in the group.</td></tr><tr><td>3</td><td>Account Aliases</td><td>let you easily identify the accounts by meaningful names rather than account numbers.</td></tr></tbody></table></div></section>
+<section id="receive-fa" class="api-block-2"><h3 class="section-title-2">Receiving FA Groups and Profiles</h3><div class="row"><h4><span style="color: #800000">EWrapper.receiveFA (</span></h4><p><strong>faDataType:</strong> int. Receive the faDataType value specified in the requestFA. See <a href="#fa-data-types">FA Data Types</a></p><p><strong>faXmlData:</strong> String. The xml-formatted configuration.<br> )</p><p>Receives the Financial Advisor’s configuration available in the TWS.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def receiveFA(self, faData: FaDataType, cxml: str):
+	print("Receiving FA: ", faData)
+	open('log/fa.xml', 'w').write(cxml)</pre><p>&nbsp;</p></div></div></div></section>
+<section id="replace-fa" class="api-block-2"><h3 class="section-title-2">Replace FA Allocations</h3><div class="row"><h4><span style="color: #800000">EClient.replaceFA (</span></h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>faDataType:</strong> int. The configuration structure to change. Set to 1 or 3 as defined above.</p><p><strong>xml:</strong> String. XML configuration for allocation profiles or group. See <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#allocation-format">Allocation Method XML Format</a> for more details.<br> )</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.replaceFa(reqId, 1, xml)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>&nbsp;</p><h4>replaceFA FA Data Types</h4><p>&nbsp;</p><table><tbody><tr><th>replaceFA Type Code</th><th>Type Name</th><th>Description</th></tr><tr><td>1</td><td>Groups</td><td>offer traders a way to create a group of accounts and apply a single allocation method to all accounts in the group.</td></tr><tr><td>2</td><td>Account Aliases</td><td>let you easily identify the accounts by meaningful names rather than account numbers.</td></tr></tbody></table><p>&nbsp;</p><p><strong>Note:&nbsp;</strong></p><p>In order to confirm that your FA changes were saved, you may wait for the <a class="el" title="notifies the end of the FA replace. " href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-methods-e-f/#receive-fa">EWrapper.replaceFAEnd</a> callback, which provides the corresponding reqId.&nbsp;In addition, after saving changes, it is advised to verify the new FA setup via <a class="el" title="Requests the FA configuration A Financial Advisor can define three different configurations: ..." href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-methods-e-f/#request-fa">EClient.requestFA</a>. If it is called before changes are fully saved, you may receive an error, such as <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-ref/#api-error-codes">error 10230</a>. See <a class="el" href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-ref/#api-error-codes">Message Codes</a>.</p><p>&nbsp;</p><p><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#replace-fa">EClient.replaceFA</a> only accepts faDataType 1 now.&nbsp;Otherwise, it may trigger <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#api-error-codes">error 585</a>.</p></div><div class="row"><h4><span style="color: #800000">EWrapper.replaceFAEnd (</span></h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>text:</strong> String. the message text.</p><p>)</p><p>Marks the ending of the replaceFA reception.</p><p>&nbsp;</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def replaceFAEnd(self, reqId: int, text: str):
+    super().replaceFAEnd(reqId, text)
+    print("ReplaceFAEnd.", "ReqId:", reqId, "Text:", text)</pre><p>&nbsp;</p></div></div></div></section>
+<section id="fa-allocation-methods" class="api-block-2"><h3 class="section-title-2">Allocation Methods and Groups</h3><div class="row"><p>A number of methods for account allocations are available with Financial Advisor and IBroker account structures to specify how trades should be distributed across multiple accounts.</p><p>Allocation Groups can be created or modified in the Trader Workstation directly as described in <a href="https://www.ibkrguides.com/tws/usersguidebook/financialadvisors/create%20an%20account%20group%20for%20share%20allocation.htm">TWS: Allocations and Transfers</a>.</p><p>Alternatively, allocation groups can be created or modified through the&nbsp;<a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#replace-fa">EClient.replaceFA()</a>&nbsp;method in the API.</p><p>Interactive Brokers supports two forms of allocation methods. Allocation methods that have calculations completed by Interactive Brokers, and a set of allocation methods calculated by the user and then specified.</p></div><div class="row"><h4>IB-computed allocation methods</h4><ul><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#available-equity-xml">Available Equity</a></li><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#equal-quantity-xml">Equal Quantity</a></li><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#nlv-xml">Net Liquidation Value</a></li></ul><h4>User-specified allocation methods</h4><h6>Formerly known as Allocation Profiles</h6><ul><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#cash-xml">Cash Quantity</a></li><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#percentage-xml">Percentages</a></li><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#ratio-xml">Ratios</a></li><li><a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#shares-xml">Shares</a></li></ul></div></section>
+<section id="allocation-format" class="api-block-2"><h3 class="section-title-2">Allocation Method XML Format</h3><div class="row"><p>Allocation methods for financial advisor’s allocation groups are created using an XML format. The content below signifies the supported allocation groups and how to format them in their respective XML.</p></div></section>
+<section id="available-equity-xml" class="api-block-3"><h3 class="section-title-2">Available Equity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares based on the amount of available equity in each account. The system calculates ratios based on the Available Equity in each account and allocates shares based on these ratios.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with available equity in the amounts of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+    &lt;name&gt;MyTestProfile2&lt;/name&gt;
+    &lt;defaultMethod&gt;AvailableEquity&lt;/defaultMethod&gt;
+    &lt;ListOfAccts varName="list"&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202167&lt;/acct&gt;
+      &lt;/Account&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202168&lt;/acct&gt;
+      &lt;/Account&gt;
+    &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div></section>
+<section id="shares-xml" class="api-block-3"><h3 class="section-title-2">Contracts Or Shares</h3><div class="row"><p>This method allocates the absolute number of shares you enter to each account listed. If you use this method, the order size is calculated by adding together the number of shares allocated to each account in the profile.</p><p>&nbsp;</p><p><strong>Example:</strong></p><p>Assume an order for 300 shares of stock ABC is transmitted.</p><p>In the example code shown in the right side, you can see that:</p><ol><li>Account A is set to receive 100.0 shares while Account B is set to receive 200.0 shares. Account A should receive 100 shares and Account B should receive 200 shares.</li></ol><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+  &lt;name&gt;MyTestProfile2&lt;/name&gt;
+  &lt;defaultMethod&gt;ContractsOrShares&lt;/defaultMethod&gt;
+  
+  &lt;ListOfAccts varName="list"&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202167&lt;/acct&gt;
+    &lt;amount&gt;100.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202168&lt;/acct&gt;
+    &lt;amount&gt;200.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div></section>
+<section id="equal-quantity-xml" class="api-block-3"><h3 class="section-title-2">Equal Quantity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares equally between all accounts in the group.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 400 shares of stock ABC. If your Account Group includes four accounts, each account receives 100 shares. If your Account Group includes six accounts, each account receives 66 shares, and then 1 share is allocated to each account until all are distributed.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+    &lt;name&gt;MyTestProfile2&lt;/name&gt;
+    &lt;defaultMethod&gt;Equal&lt;/defaultMethod&gt;
+    &lt;ListOfAccts varName="list"&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202167&lt;/acct&gt;
+      &lt;/Account&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202168&lt;/acct&gt;
+      &lt;/Account&gt;
+    &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre></div></section>
+<section id="cash-xml" class="api-block-3"><h3 class="section-title-2">MonetaryAmount</h3><div class="row"><p>The Monetary Amount method calculates the number of units to be allocated based on the monetary value assigned to each account.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+  &lt;name&gt;MyTestProfile2&lt;/name&gt;
+  &lt;defaultMethod&gt;MonetaryAmount&lt;/defaultMethod&gt;
+  
+  &lt;ListOfAccts varName="list"&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202167&lt;/acct&gt;
+    &lt;amount&gt;1000.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202168&lt;/acct&gt;
+    &lt;amount&gt;2000.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div></section>
+<section id="nlv-xml" class="api-block-3"><h3 class="section-title-2">Net Liquidation Value</h3><div class="row"><p>Requires you to specify an order size.&nbsp;This method distributes shares based on the net liquidation value of each account. The system calculates ratios based on the Net Liquidation value in each account and allocates shares based on these ratios.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with Net Liquidation values of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+    &lt;name&gt;MyTestProfile2&lt;/name&gt;
+    &lt;defaultMethod&gt;NetLiq&lt;/defaultMethod&gt;
+    &lt;ListOfAccts varName="list"&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202167&lt;/acct&gt;
+      &lt;/Account&gt;
+      &lt;Account&gt;
+        &lt;acct&gt;DU6202168&lt;/acct&gt;
+      &lt;/Account&gt;
+    &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre></div></section>
+<section id="percentage-xml" class="api-block-3"><h3 class="section-title-2">Percentages</h3><div class="row"><p>This method will split the total number of shares in the order between listed accounts based on the percentages you indicate.</p><p>&nbsp;</p><p><strong>Example:</strong></p><p>Assume an order for 300 shares of stock ABC is transmitted.</p><p>In the example code shown in the right side, you can see that:</p><ol><li>Account A is set to have 60.0 percentage while Account B is set to have 40.0 percentage. Account A should receive 180 shares and Account B should receive 120 shares.</li></ol><p>&nbsp;</p><p>While making modifications to allocations for profiles, the method uses an enumerated value. The number shown below demonstrates precisely what profile corresponds to which value.</p><table class="doxtable"><tbody><tr><th><b>BUY ORDER</b></th><td><em>Positive Percent</em></td><td><em>Negative Percent</em></td></tr><tr><td>Long Position</td><td>Increases position</td><td>No effect</td></tr><tr><td>Short Position</td><td>No effect</td><td>Decreases position</td></tr></tbody></table><table class="doxtable"><tbody><tr><th><b>SELL ORDER</b></th><td><em>Positive Percent</em></td><td><em>Negative Percent</em></td></tr><tr><td>Long Position</td><td>No effect</td><td>Decreases position</td></tr><tr><td>Short Position</td><td>Increases position</td><td>No effect</td></tr></tbody></table><p>&nbsp;</p><p><strong>Note:</strong><br> Do not specify an order size. Since the quantity is calculated by the system, the order size is displayed in the Quantity field after the order is acknowledged. This method increases or decreases an already existing position. Positive percents will increase a position, negative percents will decrease a position. For exmaple, to fully close out a position, you just need to specify percentage to be -100.</p><p>&nbsp;</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+  &lt;name&gt;MyTestProfile2&lt;/name&gt;
+  &lt;defaultMethod&gt;Percent&lt;/defaultMethod&gt;
+  &lt;ListOfAccts varName="list"&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202167&lt;/acct&gt;
+    &lt;amount&gt;60.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202168&lt;/acct&gt;
+    &lt;amount&gt;40.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div></section>
+<section id="ratio-xml" class="api-block-3"><h3 class="section-title-2">Ratios</h3><div class="row"><p>This method calculates the allocation of shares based on the ratios you enter.</p><p><strong>Example:</strong></p><p>Assume an order for 300 shares of stock ABC is transmitted.</p><p>In the example code shown in the right side, you can see that:</p><ol><li>A ratio of 1.0 and 2.0 is set to Account A and Account B. Account A should receive 100 shares and Account B should receive 200 shares.</li></ol><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ListOfGroups&gt;
+  &lt;Group&gt;
+  &lt;name&gt;MyTestProfile2&lt;/name&gt;
+  &lt;defaultMethod&gt;Ratio&lt;/defaultMethod&gt;
+  
+  &lt;ListOfAccts varName="list"&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202167&lt;/acct&gt;
+    &lt;amount&gt;1.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;Account&gt;
+    &lt;acct&gt;DU6202168&lt;/acct&gt;
+    &lt;amount&gt;2.0&lt;/amount&gt;
+  &lt;/Account&gt;
+  &lt;/ListOfAccts&gt;
+  &lt;/Group&gt;
+&lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div></section>
+<section id="model-portfolios" class="api-block-2"><h3 class="section-title-2">Model Portfolios and the API</h3><div class="row"><p>Advisors can use Model Portfolios to easily invest some or all of a client’s assets into one or multiple custom-created portfolios, rather than tediously managing individual investments in single instruments.</p><p><a class="linkexternal" href="https://www.interactivebrokers.com/en/index.php?f=20917" target="_blank" rel="noopener">More about Model Portfolios</a></p><p>The TWS API can access model portfolios in accounts where this functionality is available and a specific model has previously been setup in TWS. API functionality allows the client application to request model position update subscriptions, request model account update subscriptions, or place orders to a specific model.</p><p>Model Portfolio functionality&nbsp;<b>not</b>&nbsp;available in the TWS API:</p><ul><li>Portfolio Model Creation</li><li>Portfolio Model Rebalancing</li><li>Portfolio Model Position or Cash Transfer</li></ul></div><div class="row"><p>To request position updates from a specific model, the function&nbsp;<a class="el" title="Requests position subscription for account and/or model Initially all positions are returned..." href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#request-positions-multi">IBApi::EClient::reqPositionsMulti</a>&nbsp;can be used:&nbsp;<a class="el" href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#positions-multi">Position Update Subscription by Model</a></p><p>To request model account updates, there is the function&nbsp;<a class="el" title="Requests account updates for account and/or model. " href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#request-model-account-update">IBApi::EClient::reqAccountUpdatesMulti</a>, see:&nbsp;<a class="el" href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#model-account-update">Account Value Update Subscriptions by Model</a></p></div><div class="row"><p>To place an order to a model, the IBApi.Order.ModelCode field must be set accordingly, for example:</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">modelOrder = Order()
+modelOrder.account = "DF12345"
+modelOrder.modelCode = "Technology" # model for tech stocks first created in TWS
+self.placeOrder(self.nextOrderId(), contract, modelOrder)</pre><p>&nbsp;</p></div></div></div></section>
+<section id="unification-groups-profiles" class="api-block-2"><h3 class="section-title-2">Unification of Groups and Profiles</h3><div class="row"><p>With TWS/IBGW build 983+, the API settings will have a new flag/checkbox,&nbsp;<b>“Use Account Groups with Allocation Methods”</b>&nbsp;(enabled by default for new users). If not enabled, groups and profiles would behave the same as before. If it is checked, group and profile functionality will be merged.</p><p>With TWS/IBGW Build 10.20+, this setting is now enabled by default, and moving forward into new versions, the two systems can be deemed as interchangeable for modifying allocation groups, placing orders, requesting account or portfolio summaries, or requesting multiple positions.</p></div></section>
+<section id="fa-orders" class="api-block-2"><h3 class="section-title-2">Order Placement</h3><div class="row"><p>For advisors to place orders to their <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/twsapi-doc/#replace-fa">allocation groups</a> users would simply declare their allocation group name in the order object. This would be done with the Order’s faGroup field. The example to the right references a standard market order placed to our allocation group, MyTestProfile.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+order.action = "BUY"
+order.orderType = "MKT"
+order.totalQuantity = 50
+order.faGroup = "MyTestProfile"</pre><p>&nbsp;</p></div></div></div></section>
+</body>
+</html>

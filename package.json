@@ -6,7 +6,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "split": "tsx lib/split.ts"
+    "split": "tsx lib/split.ts",
+    "serve": "npx serve ./out"
   },
   "keywords": [
     "tws",
