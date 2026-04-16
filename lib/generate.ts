@@ -11,6 +11,7 @@ const OUTPUT_DIR = path.join(REPO_ROOT, "out");
 const SOURCE_FILE = path.join(OUTPUT_DIR, "source.html");
 const IMG_DIR = path.join(OUTPUT_DIR, "images");
 const MD_OUT_DIR = path.join(REPO_ROOT, "md-out");
+const SKILL_TPL = path.join(REPO_ROOT, "templates/SKILL.md");
 
 // 1. Setup Directories
 [OUTPUT_DIR, MD_OUT_DIR].forEach((dir) => {
@@ -187,8 +188,14 @@ async function makeMarkdown() {
     mdIndexLinks.push(`* [${title}](${mdFileName})`);
   }
 
-  const indexMd = `# TWS API Reference Index\n\n${mdIndexLinks.join("\n")}`;
+  const tocMd = mdIndexLinks.join("\n");
+  const indexMd = `# TWS API Reference Index\n\n${tocMd}`;
   fs.writeFileSync(path.join(MD_OUT_DIR, "index.md"), indexMd);
+
+  const skillTpl = fs.readFileSync(SKILL_TPL, "utf8");
+  const skillMd = skillTpl.replace("{{TOC}}", tocMd);
+  fs.writeFileSync(path.join(MD_OUT_DIR, "SKILL.md"), skillMd);
+
   console.log("Markdown conversion complete.");
 }
 

@@ -14,7 +14,7 @@ Add this to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "tws-api-reference": {
-      "command": "npx",
+      "command": "/absolute/path/to/npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
@@ -24,6 +24,17 @@ Add this to your `claude_desktop_config.json`:
   }
 }
 ```
+
+### Adding `SKILL.md` to Antigravity.
+
+If you are using Antigravity, you can install the TWS API skill as follows:
+
+```bash
+pnpm run install-skill
+```
+
+> [!NOTE]
+> To make changes applied, you need to restart Claude Desktop or Antigravity.
 
 ## Updating and Contribution
 

@@ -8,6 +8,7 @@
   "scripts": {
     "generate": "tsx lib/generate.ts",
     "serve": "npx -y serve ./out",
+    "install-skill": "tsx lib/install-skill.ts",
     "mcp": "npx -y @modelcontextprotocol/server-filesystem ./out"
   },
   "keywords": [
