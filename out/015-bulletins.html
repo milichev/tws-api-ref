@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>15 – Bulletins</title>
-  <style>
-    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
-    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
-    code { font-family: monospace; font-size: 85%; }
-    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
-    th { background: #f6f8fa; }
-  </style>
-</head>
-<body>
-  <section id="bulletins" class="api-block-1"><h2 class="section-title-1">Bulletins</h2><div class="row"><p>From time to time, IB sends out important&nbsp;<a class="linkexternal" href="https://ibkrguides.com/tws/usersguidebook/realtimeactivitymonitoring/bulletins%20and%20system%20status.htm" target="_blank" rel="noopener">News Bulletins</a>, which can be accessed via the TWS API through the EClient.reqNewsBulletins. Bulletins are delivered via IBApi.EWrapper.updateNewsBulletin whenever there is a new bulletin. In order to stop receiving bulletins you need to cancel the subscription.</p></div></section>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Bulletins</title></head><body><section id="bulletins" class="api-block-1"><h2 class="section-title-1">Bulletins</h2><div class="row"><p>From time to time, IB sends out important&nbsp;<a class="linkexternal" href="https://ibkrguides.com/tws/usersguidebook/realtimeactivitymonitoring/bulletins%20and%20system%20status.htm" target="_blank" rel="noopener">News Bulletins</a>, which can be accessed via the TWS API through the EClient.reqNewsBulletins. Bulletins are delivered via IBApi.EWrapper.updateNewsBulletin whenever there is a new bulletin. In order to stop receiving bulletins you need to cancel the subscription.</p></div></section>
 <section id="request-ib-bulletins" class="api-block-2"><h3 class="section-title-2">Request IB Bulletins</h3><div class="row"><h4><span style="color: #800000">EClient.reqNewsBulletins (</span></h4><p><strong>allMessages:</strong> bool. If set to true, will return all the existing bulletins for the current day, set to false to receive only the new bulletins.<br> )</p><p>Subscribes to IB’s News Bulletins.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqNewsBulletins(True)</pre><p>&nbsp;</p></div></div></div></section>
 <section id="receive-ib-bulletins" class="api-block-2"><h3 class="section-title-2">Receive IB Bulletins</h3><div class="row"><h4><span style="color: #800000">EWrapper.updateNewsBulletin (</span></h4><p><strong>msgId:</strong> int. The bulletin’s identifier.</p><p><strong>msgType:</strong> int. 1: Regular news bulletin; 2: Exchange no longer available for trading; 3: Exchange is available for trading.</p><p><strong>message:</strong> String. The news bulletin context.</p><p><strong>origExchange:</strong> String. The exchange where the message comes from.<br> )</p><p>Provides IB’s bulletins</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def updateNewsBulletin(self, msgId: int, msgType: int, newsMessage: str, originExch: str):
   print("News Bulletins. MsgId:", msgId, "Type:", msgType, "Message:", newsMessage, "Exchange of Origin: ", originExch)</pre><p>&nbsp;</p></div></div></div></section>
 <section id="cancel-ib-bulletins" class="api-block-2"><h3 class="section-title-2">Cancel Bulletin Request</h3><div class="row"><h4><span style="color: #800000">EClient.cancelNewsBulletin ()</span></h4><p>Cancels IB’s news bulletin subscription.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.cancelNewsBulletins()
-</pre><p>&nbsp;</p></div></div></div></section>
-</body>
-</html>
+</pre><p>&nbsp;</p></div></div></div></section></body></html>

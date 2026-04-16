@@ -1,18 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
 import { load as loadCheerio } from "cheerio";
+import TurndownService from "turndown";
+// @ts-ignore
+import { gfm } from "turndown-plugin-gfm";
 
 const REF_HTML_URL = "https://ibkrcampus.com/campus/ibkr-api-page/twsapi-doc/";
 const REPO_ROOT = path.dirname(import.meta.dirname || ".");
 const OUTPUT_DIR = path.join(REPO_ROOT, "out");
 const SOURCE_FILE = path.join(OUTPUT_DIR, "source.html");
 const IMG_DIR = path.join(OUTPUT_DIR, "images");
+const MD_OUT_DIR = path.join(REPO_ROOT, "md-out");
 
-// 1. Setup Directory
-if (fs.existsSync(OUTPUT_DIR)) {
-  fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
-}
-fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+// 1. Setup Directories
+[OUTPUT_DIR, MD_OUT_DIR].forEach((dir) => {
+  if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
+});
 fs.mkdirSync(IMG_DIR, { recursive: true });
 
 function cleanHtml(html: string): string {
@@ -22,7 +26,6 @@ function cleanHtml(html: string): string {
 
   pageContent.find(".copy-link").remove();
 
-  // Process Python code snippets
   pageContent
     .find("ul.nav-tabs > li.nav-item > button.tab-python")
     .each((_, btn) => {
@@ -40,25 +43,20 @@ function cleanHtml(html: string): string {
       $ul.parent().remove();
     });
 
-  // Cleanup image containers
   pageContent.find("p > img").each((_, img) => {
     const $img = $(img);
-    const $p = $img.parent();
-    if ($p.next("div").length) $p.before($img);
+    if ($img.parent().next("div").length) $img.parent().before($img);
   });
 
-  // Unwrap
   ["div.row > div.entry-content", "section > .inner-col", "p > div"].forEach(
     (s) => {
       $(s).each((_, el) => {
-        const $el = $(el);
-        $el.replaceWith($el.contents());
+        $(el).replaceWith($(el).contents());
       });
     },
   );
 
   $("script, style").remove();
-
   return `<!DOCTYPE html><html lang="en"><body>${pageContent.html()}</body></html>`;
 }
 
@@ -84,15 +82,10 @@ async function fetchImages(html: string) {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Status ${res.status}`);
 
-      const buffer = Buffer.from(await res.arrayBuffer());
-      fs.writeFileSync(localPath, buffer);
+      fs.writeFileSync(localPath, Buffer.from(await res.arrayBuffer()));
 
-      // Sanitize <img> attributes
       const alt = $img.attr("alt");
-      const attribs = img.attribs;
-      for (const attr in attribs) {
-        $img.removeAttr(attr);
-      }
+      for (const attr in img.attribs) $img.removeAttr(attr);
 
       $img.attr("src", `./images/${fileName}`);
       if (alt) $img.attr("alt", alt);
@@ -113,9 +106,7 @@ async function fetchSrc() {
 async function split(html: string) {
   console.log("Splitting sections...");
   const $ = loadCheerio(html);
-  const indexLinks: string[] = [];
   const allContent = $("body").children();
-
   const groups: { title: string; nodes: any[] }[] = [];
   let currentGroup: { title: string; nodes: any[] } | null = null;
 
@@ -129,10 +120,7 @@ async function split(html: string) {
       currentGroup = { title: title || "Untitled Section", nodes: [] };
       groups.push(currentGroup);
     }
-
-    if (currentGroup) {
-      currentGroup.nodes.push($el.clone());
-    }
+    if (currentGroup) currentGroup.nodes.push($el.clone());
   });
 
   groups.forEach((group, index) => {
@@ -142,39 +130,44 @@ async function split(html: string) {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/-+/g, "-")
       .replace(/(^-|-$)/g, "");
-
     const fileName = `${pos}-${slug}.html`;
     const sectionHtml = group.nodes.map((n) => $.html(n)).join("\n");
 
-    const fileHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>${index + 1} – ${group.title}</title>
-  <style>
-    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
-    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
-    code { font-family: monospace; font-size: 85%; }
-    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
-    th { background: #f6f8fa; }
-  </style>
-</head>
-<body>
-  ${sectionHtml}
-</body>
-</html>`;
-
+    const fileHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${group.title}</title></head><body>${sectionHtml}</body></html>`;
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), fileHtml);
-    indexLinks.push(
-      `<li><code>${pos}</code> <a href="${fileName}">${group.title}</a></li>`,
-    );
   });
+}
 
-  const indexHtml = `<!DOCTYPE html><html><body><h1>API Index</h1><ul>${indexLinks.join("")}</ul></body></html>`;
-  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), indexHtml);
-  console.log(`Done. Created ${groups.length} files.`);
+async function makeMarkdown() {
+  console.log("Converting to Markdown...");
+
+  // 1. Create symlink for images to avoid duplication
+  const mdImgPath = path.join(MD_OUT_DIR, "images");
+  if (!fs.existsSync(mdImgPath)) {
+    fs.symlinkSync(IMG_DIR, mdImgPath, "dir");
+  }
+
+  const turndownService = new TurndownService({
+    headingStyle: "atx",
+    codeBlockStyle: "fenced",
+  });
+  turndownService.use(gfm);
+
+  const files = fs
+    .readdirSync(OUTPUT_DIR)
+    .filter((f) => f.endsWith(".html") && f !== "source.html");
+
+  for (const file of files) {
+    const html = fs.readFileSync(path.join(OUTPUT_DIR, file), "utf8");
+    const $ = loadCheerio(html);
+
+    // Convert body content to MD
+    const markdown = turndownService.turndown($("body").html() || "");
+    const mdFileName = file.replace(".html", ".md");
+
+    fs.writeFileSync(path.join(MD_OUT_DIR, mdFileName), markdown);
+  }
+  console.log("Markdown conversion complete.");
 }
 
 const rawSourceHtml = await fetchSrc();
@@ -182,3 +175,4 @@ const cleanHtmlText = cleanHtml(rawSourceHtml);
 const finalHtml = await fetchImages(cleanHtmlText);
 fs.writeFileSync(SOURCE_FILE, finalHtml);
 await split(finalHtml);
+await makeMarkdown();

@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>4 – TWS Settings</title>
-  <style>
-    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
-    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
-    code { font-family: monospace; font-size: 85%; }
-    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
-    th { background: #f6f8fa; }
-  </style>
-</head>
-<body>
-  <section id="tws-settings" class="api-block-1"><h2 class="section-title-1">TWS Settings</h2><div class="row"><p>Some TWS Settings affect API.</p></div></section>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>TWS Settings</title></head><body><section id="tws-settings" class="api-block-1"><h2 class="section-title-1">TWS Settings</h2><div class="row"><p>Some TWS Settings affect API.</p></div></section>
 <section id="tws-config-api" class="api-block-2"><h3 class="section-title-2">TWS Configuration For API Use</h3><div class="row"><p>The settings required to use the TWS API with the Trader Workstation are managed in the Global Configuration under “API” -&gt; “Settings”</p><p>In this section, only the most important API settings for API connection are covered.</p><p>Please:</p><ul><li>Enable “ActiveX and Socket Clients”</li><li>Disable “Read-Only API”</li><li>Verify the “Socket Port” value</li></ul><p><img src="./images/API-settings-700x489.png" alt="TWS Global Configuration window displaying API Settings and the required API configuration."></p></div></section>
 <section id="tws-config" class="api-block-2"><h3 class="section-title-2">Best Practice: Configure TWS / IB Gateway</h3><div class="row"><p>The information listed below are not required or necessary in order to operate the TWS API. However, these steps include many references which can help improve the day to day usage of the TWS API that is not explicitly offered as a callable method within the API itself.</p></div></section>
 <section id="nltws" class="api-block-3"><h3 class="section-title-2">"Never Lock Trader Workstation" Setting</h3><div class="row"><p>Note: For IBHK API users, it is commended to use IB Gateway instead of TWS. It is because all IBHK users cannot choose “Never Lock Trader Workstation” in TWS – Global Configuration – Lock and Exit. If there is inactivity, TWS will be locked and there will be API disconnection.</p></div></section>
@@ -25,6 +9,4 @@
 <section id="bp-smart-algo" class="api-block-3"><h3 class="section-title-2">SMART Algorithm</h3><div class="row"><p>In TWS Global Configuration – Orders – Smart Routing, you can set your SMART order routing algorithm. For available SMART Routing via TWS API, please visit: <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/contracts/#smart-routing">https://www.interactivebrokers.com/campus/ibkr-api-page/contracts/#smart-routing</a></p><p><img src="./images/%E6%93%B7%E5%8F%96-1-700x440.png" alt="TWS Global Configuration window displaying Smart Routing."></p></div></section>
 <section id="bp-alloc-setup" class="api-block-3"><h3 class="section-title-2">Allocation Setup (For Financial Advisors)</h3><div class="row"><p>In TWS Global Configuration – Advisor Setup – Presets, you can need to choose Allocation Preference in order to avoid wrong allocation result.</p><p><img src="./images/Advisor-setup-700x524.png" alt="TWS Global Configuration window displaying Presets for Advisors."></p></div></section>
 <section id="int-order-resubmit" class="api-block-2"><h3 class="section-title-2">Intelligent Order Resubmission</h3><div class="row"><p>The TWS Setting listed in the Global Configuration under API -&gt; Setting for <strong>Maintain and resubmit orders when connection is restored</strong>, is enabled by default in TWS 10.28 and above. When this setting is checked, all orders received while connectivity is lost will be saved and automatically resubmitted when connectivity is restored. Please note, if the Trader Workstation is closed during this time, the orders are deleted regardless of the setting.</p><p>Beginning with Trader Workstation and IB Gateway 10.40, the Global Configuration -&gt; API -&gt; Settings will provide a new setting for “Maintain and resubmit orders when connection is restored.” This setting will automatically maintain or submit any orders on the platform after a network disconnect or the <a href="/campus/ibkr-api-page/twsapi-doc/#bp-reauthenticate">auto-restart behavior</a>.</p></div></section>
-<section id="invalid-format-disconnect" class="api-block-2"><h3 class="section-title-2">Disconnect on Invalid Format</h3><div class="row"><p>The TWS Setting listed in the Global Configuration under API -&gt; Setting for <strong>Maintain connection upon receiving incorrectly formatted fields</strong>, is enabled by default in TWS 10.28 and above. For clients operating on Client Version 100 and above, users will not disconnect from fields with invalid value submissions when the setting is enabled.</p></div></section>
-</body>
-</html>
+<section id="invalid-format-disconnect" class="api-block-2"><h3 class="section-title-2">Disconnect on Invalid Format</h3><div class="row"><p>The TWS Setting listed in the Global Configuration under API -&gt; Setting for <strong>Maintain connection upon receiving incorrectly formatted fields</strong>, is enabled by default in TWS 10.28 and above. For clients operating on Client Version 100 and above, users will not disconnect from fields with invalid value submissions when the setting is enabled.</p></div></section></body></html>

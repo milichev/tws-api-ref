@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>19 – Financial Advisors</title>
-  <style>
-    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
-    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
-    code { font-family: monospace; font-size: 85%; }
-    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
-    th { background: #f6f8fa; }
-  </style>
-</head>
-<body>
-  <section id="financial-advisors" class="api-block-1"><h2 class="section-title-1">Financial Advisors</h2><div class="row"><p>Financial Advisors are able to manage their allocation groups from the TWS API.</p><p><strong>Note:</strong> Modifications made through the API will effect orders placed through TWS, the TWS API, Client Portal, and the Client Portal API.</p></div></section>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Financial Advisors</title></head><body><section id="financial-advisors" class="api-block-1"><h2 class="section-title-1">Financial Advisors</h2><div class="row"><p>Financial Advisors are able to manage their allocation groups from the TWS API.</p><p><strong>Note:</strong> Modifications made through the API will effect orders placed through TWS, the TWS API, Client Portal, and the Client Portal API.</p></div></section>
 <section id="request-fa" class="api-block-2"><h3 class="section-title-2">Request FA Groups and Profiles</h3><div class="row"><h4><span style="color: #800000">EClient.requestFA (</span></h4><p><strong>faDataType:</strong> int. The configuration to change. Set to 1 or 3 as defined in the table below.<br> )</p><p>Requests the FA configuration as set in TWS for the given FA Group or Profile.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.requestFA(1)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>&nbsp;</p><h4>requestFA FA Data Types</h4><p>&nbsp;</p><table><tbody><tr><th>Type Code</th><th>Type Name</th><th>Description</th></tr><tr><td>1</td><td>Groups</td><td>offer traders a way to create a group of accounts and apply a single allocation method to all accounts in the group.</td></tr><tr><td>3</td><td>Account Aliases</td><td>let you easily identify the accounts by meaningful names rather than account numbers.</td></tr></tbody></table></div></section>
 <section id="receive-fa" class="api-block-2"><h3 class="section-title-2">Receiving FA Groups and Profiles</h3><div class="row"><h4><span style="color: #800000">EWrapper.receiveFA (</span></h4><p><strong>faDataType:</strong> int. Receive the faDataType value specified in the requestFA. See <a href="#fa-data-types">FA Data Types</a></p><p><strong>faXmlData:</strong> String. The xml-formatted configuration.<br> )</p><p>Receives the Financial Advisor’s configuration available in the TWS.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def receiveFA(self, faData: FaDataType, cxml: str):
 	print("Receiving FA: ", faData)
@@ -149,6 +133,4 @@ self.placeOrder(self.nextOrderId(), contract, modelOrder)</pre><p>&nbsp;</p></di
 order.action = "BUY"
 order.orderType = "MKT"
 order.totalQuantity = 50
-order.faGroup = "MyTestProfile"</pre><p>&nbsp;</p></div></div></div></section>
-</body>
-</html>
+order.faGroup = "MyTestProfile"</pre><p>&nbsp;</p></div></div></div></section></body></html>
