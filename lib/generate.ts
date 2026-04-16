@@ -158,7 +158,7 @@ async function makeMarkdown() {
 
   const mdImgPath = path.join(MD_OUT_DIR, "images");
   if (!fs.existsSync(mdImgPath)) {
-    fs.symlinkSync(IMG_DIR, mdImgPath, "dir");
+    fs.symlinkSync("../out/images", mdImgPath, "dir");
   }
 
   const turndownService = new TurndownService({
