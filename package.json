@@ -1,0 +1,30 @@
+{
+  "name": "@vadymecum/tws-api-ref",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "split": "tsx lib/split.ts"
+  },
+  "keywords": [
+    "tws",
+    "api",
+    "ibkr",
+    "interactive",
+    "brokers"
+  ],
+  "author": {
+    "name": "Vadym Milichev",
+    "email": "vadim.milichev@gmail.com"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "cheerio": "^1.2.0",
+    "domhandler": "^6.0.1",
+    "tsx": "^4.21.0"
+  }
+}
