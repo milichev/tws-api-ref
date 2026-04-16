@@ -1,8 +1,8 @@
 {
   "name": "@vadymecum/tws-api-ref",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cleaned, section-split, and Markdown-formatted IBKR TWS API documentation. Optimized for LLM context windows and Agentic workflows.",
+  "main": "lib/split.ts",
   "type": "module",
   "private": true,
   "scripts": {

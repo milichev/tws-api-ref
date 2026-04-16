@@ -123,6 +123,7 @@ async function split(html: string) {
     if (currentGroup) currentGroup.nodes.push($el.clone());
   });
 
+  const indexLinks: string[] = [];
   groups.forEach((group, index) => {
     const pos = (index + 1).toString().padStart(3, "0");
     const slug = group.title
@@ -133,15 +134,28 @@ async function split(html: string) {
     const fileName = `${pos}-${slug}.html`;
     const sectionHtml = group.nodes.map((n) => $.html(n)).join("\n");
 
-    const fileHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${group.title}</title></head><body>${sectionHtml}</body></html>`;
+    const fileHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${group.title}</title><style>
+    body { font-family: sans-serif; line-height: 1.6; padding: 2rem; color: #1a1a1a; max-width: 900px; margin: auto; }
+    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #d0d7de; }
+    code { font-family: monospace; font-size: 85%; }
+    img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+    th { background: #f6f8fa; }
+  </style></head><body>${sectionHtml}</body></html>`;
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), fileHtml);
+    indexLinks.push(
+      `<li><code>${pos}</code> <a href="${fileName}">${group.title}</a></li>`,
+    );
   });
+
+  const indexHtml = `<!DOCTYPE html><html><body><h1>API Index</h1><ul>${indexLinks.join("")}</ul></body></html>`;
+  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), indexHtml);
 }
 
 async function makeMarkdown() {
   console.log("Converting to Markdown...");
 
-  // 1. Create symlink for images to avoid duplication
   const mdImgPath = path.join(MD_OUT_DIR, "images");
   if (!fs.existsSync(mdImgPath)) {
     fs.symlinkSync(IMG_DIR, mdImgPath, "dir");
@@ -155,18 +169,26 @@ async function makeMarkdown() {
 
   const files = fs
     .readdirSync(OUTPUT_DIR)
-    .filter((f) => f.endsWith(".html") && f !== "source.html");
+    .filter(
+      (f) => f.endsWith(".html") && f !== "source.html" && f !== "index.html",
+    );
+
+  const mdIndexLinks: string[] = [];
 
   for (const file of files) {
     const html = fs.readFileSync(path.join(OUTPUT_DIR, file), "utf8");
     const $ = loadCheerio(html);
+    const title = $("title").text() || file;
 
-    // Convert body content to MD
     const markdown = turndownService.turndown($("body").html() || "");
     const mdFileName = file.replace(".html", ".md");
 
     fs.writeFileSync(path.join(MD_OUT_DIR, mdFileName), markdown);
+    mdIndexLinks.push(`* [${title}](${mdFileName})`);
   }
+
+  const indexMd = `# TWS API Reference Index\n\n${mdIndexLinks.join("\n")}`;
+  fs.writeFileSync(path.join(MD_OUT_DIR, "index.md"), indexMd);
   console.log("Markdown conversion complete.");
 }
 
