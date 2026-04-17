@@ -1,0 +1,9 @@
+{{#if length }}
+<ul class="breadcrumb">
+  {{#each .}}
+  <li class="breadcrumb-item">
+    <a href="{{fileName}}">{{title}}</a>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}

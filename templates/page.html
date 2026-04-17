@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>{{title}}</title>
-    {{{ styles }}}
+    {{{styles_block}}}
   </head>
   <body>
-    {{{ content }}}
+    {{> (lookup . 'layout') }}
   </body>
 </html>

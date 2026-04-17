@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>27.10 Trigger Methods</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.10-trigger-methods.html">27.10 Trigger Methods</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Trigger Methods</h3><div class="row"><p>The Trigger Method defined in the&nbsp;<a class="el" href="27.01-order-object.html">IBApi.Order</a>&nbsp;class specifies how simulated stop, stop-limit, and trailling stops, and conditional orders are triggered. Valid values are:</p><ul><li>0 – The default method for instrument</li><li>1 – “Double bid/ask” function, where stop orders are triggered based on two consecutive bid or ask prices.</li><li>2 – “Last” function, where stop orders are triggered based on the last price</li><li>3 – “Double last” function</li><li>4 – Bid/ask function</li><li>7 – Last or bid/ask function</li><li>8 – Mid-point function</li></ul><p>Below is a table which indicates whether a given secType is compatible with bid/ask-driven or last-driven trigger methods (method 7 only used in iBot alerts)</p></div><div class="row"><table class="doxtable"><tbody><tr><th>secType</th><th>Bid/Ask-driven (1, 4, 8)</th><th>Last-driven (2, 3)</th><th>Default behavior</th><th>Notes</th></tr><tr><td>STK</td><td>yes</td><td>yes</td><td>Last</td><td>The double bid/ask is used for OTC stocks</td></tr><tr><td>CFD</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>CFD – Index</td><td>yes</td><td>n/a</td><td>n/a</td><td>Ex IBUS500</td></tr><tr><td>OPT</td><td>yes</td><td>yes</td><td>US OPT: Double bid/ask, Other: Last</td><td></td></tr><tr><td>FOP</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>WAR</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>IOPT</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>FUT</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>COMBO</td><td>yes</td><td>yes</td><td>Last</td><td></td></tr><tr><td>CASH</td><td>yes</td><td>n/a</td><td>Bid/ask</td><td></td></tr><tr><td>CMDTY</td><td>yes</td><td>n/a</td><td>Last</td><td></td></tr><tr><td>IND</td><td>n/a</td><td>yes</td><td>n/a</td><td>For conditions only</td></tr></tbody></table></div><div class="row"><p><b>Important notes</b>&nbsp;:</p><ul><li>If an incompatible triggerMethod and secType are used in your API order, the order may never trigger.</li><li>These trigger methods only apply to stop orders simulated by IB. If a stop-variant is handled natively, the trigger method specified is ignored. See our&nbsp;<a class="linkexternal" href="https://www.interactivebrokers.com/en/index.php?f=609" target="_blank" rel="noopener">Stop Orders</a>&nbsp;page for more information.</li></ul></div>
+  </body>
+</html>

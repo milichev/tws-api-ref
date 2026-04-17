@@ -1,54 +1,98 @@
-import fs from "node:fs";
-import path from "node:path";
-import { load as loadCheerio } from "cheerio";
-import { getSlug, pageTpl, styles, writeFile } from "./utils";
+import type { Cheerio, CheerioAPI } from "cheerio";
+import type { AnyNode } from "domhandler";
+import { pageTpl, writeFile } from "./utils";
+
+export type Section = {
+  title: string;
+  level: number;
+  num?: string;
+  slug: string;
+  /** clone of the source elements to make manipulation pure */
+  content: Cheerio<AnyNode>;
+  children: Section[];
+  fileName?: string;
+  pageName?: string;
+};
+
+export type Breadcrumb = Pick<Section, "title" | "fileName" | "num">;
+
+/**
+ * Sets filenames for all sections in the tree.
+ */
+export function assignFilenames(
+  list: Section[],
+  pageName: string,
+  parentPrefix = "",
+) {
+  list.forEach((s, i) => {
+    const pos = (i + 1).toString().padStart(2, "0");
+    s.num = parentPrefix ? `${parentPrefix}.${pos}` : pos;
+    s.fileName = `${s.num}-${s.slug}.html`;
+    s.pageName = pageName;
+    if (s.children.length > 0) {
+      assignFilenames(s.children, pageName, s.num);
+    }
+  });
+}
 
 export async function splitHtml({
-  html,
+  $,
+  sections,
   outDir,
+  pageName,
+  title,
+  breadcrumb,
 }: {
-  html: string;
+  $: CheerioAPI;
+  sections: Section[];
   outDir: string;
+  pageName: string;
+  title: string;
+  breadcrumb: Breadcrumb[];
 }) {
-  console.log("Splitting sections...");
-  const $ = loadCheerio(html);
-  const allContent = $("body").children();
-  const groups: { title: string; nodes: any[] }[] = [];
-  let currentGroup: { title: string; nodes: any[] } | null = null;
+  console.log(`Splitting sections for ${pageName}...`);
 
-  allContent.each((_, el) => {
-    const $el = $(el);
-    const isH2 = el.tagName === "h2";
-    const foundH2Inside = $el.find("h2").first();
+  function process(list: Section[]) {
+    list.forEach((s) => {
+      const fileName = s.fileName!;
 
-    if (isH2 || foundH2Inside.length > 0) {
-      const title = (isH2 ? $el.text() : foundH2Inside.text()).trim();
-      currentGroup = { title: title || "Untitled Section", nodes: [] };
-      groups.push(currentGroup);
-    }
-    if (currentGroup) currentGroup.nodes.push($el.clone());
-  });
+      // Normalization: Adjust heading
+      const $content = s.content;
+      const hTag = `h${s.level + 1}`;
+      const hTitle = $content.find("h2, h3, h4").first();
+      const actualTitle = `${s.num} ${s.title}`;
 
-  const indexLinks: string[] = [];
-  groups.forEach((group, index) => {
-    const pos = (index + 1).toString().padStart(2, "0");
-    const slug = getSlug(group.title);
-    const fileName = `${pos}-${slug}.html`;
-    const sectionHtml = group.nodes.map((n) => $.html(n)).join("\n");
+      hTitle.replaceWith(`<${hTag} id="${s.slug}">${actualTitle}</${hTag}>`);
 
-    const fileHtml = pageTpl({
-      styles,
-      title: group.title,
-      content: sectionHtml,
+      breadcrumb.push({ title: actualTitle, fileName, num: s.num });
+      const fileHtml = pageTpl({
+        layout: "layout-chapter",
+        title: actualTitle,
+        breadcrumb,
+        content: $.html(s.content),
+      });
+
+      writeFile(fileName, fileHtml, outDir);
+
+      if (s.children.length > 0) {
+        process(s.children);
+      }
+      breadcrumb.pop();
     });
+  }
 
-    writeFile(fileName, fileHtml, outDir);
+  breadcrumb.push({ title, fileName: "index.html", num: "" });
 
-    indexLinks.push(
-      `<li><code>${pos}</code> <a href="${fileName}">${group.title}</a></li>`,
-    );
+  process(sections);
+
+  const indexHtml = pageTpl({
+    title: `${title}: Index`,
+    layout: "layout-index",
+    children: sections,
+    breadcrumb,
   });
 
-  const indexHtml = `<!DOCTYPE html><html><body><h1>API Index</h1><ul>${indexLinks.join("")}</ul></body></html>`;
-  fs.writeFileSync(path.join(outDir, "index.html"), indexHtml);
+  breadcrumb.pop();
+
+  writeFile("index.html", indexHtml, outDir);
 }

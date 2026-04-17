@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 ApiSettingsConfig</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">ProtoBuf Reference</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="04-api-settings-config.html">04 ApiSettingsConfig</a>
+      </li>
+    </ul>
+     <h2 class="section-title-1">ApiSettingsConfig</h2><div class="row"><p><strong>totalQuantityForMutualFunds</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the display of total quantity instead of monetary value for mutual fund positions.</p><p><strong>downloadOpenOrdersOnConnection</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically downloads all open orders when the API client establishes a connection to TWS.</p><p><strong>includeVirtualFxPositions</strong>:&nbsp;<code>Boolean</code>&nbsp;– Includes virtual foreign exchange positions in position updates sent to the API client.</p><p><strong>prepareDailyPnL</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the calculation and delivery of daily profit and loss data to the API client.</p><p><strong>sendStatusUpdatesForVolatilityOrders</strong>:&nbsp;<code>Boolean</code>&nbsp;– Configures the system to send status updates for orders with volatility-based parameters.</p><p><strong>encodeApiMessages</strong>:&nbsp;<code>String</code>&nbsp;– Specifies the character encoding format used for API message transmission (e.g., “osCodePage”).</p><p><strong>socketPort</strong>:&nbsp;<code>Integer</code>&nbsp;– Defines the TCP socket port number on which the API listens for incoming client connections.</p><p><strong>useNegativeAutoRange</strong>:&nbsp;<code>Boolean</code>&nbsp;– Allows the use of negative values in automatic range calculations for order parameters.</p><p><strong>createApiMessageLogFile</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the creation of a log file that records all API message traffic.</p><p><strong>includeMarketDataInLogFile</strong>:&nbsp;<code>Boolean</code>&nbsp;– Controls whether market data messages are included in the API message log file.</p><p><strong>exposeTradingScheduleToApi</strong>:&nbsp;<code>Boolean</code>&nbsp;– Makes trading schedule information available to API clients for contract and exchange queries.</p><p><strong>splitInsuredDepositFromCashBalance</strong>:&nbsp;<code>Boolean</code>&nbsp;– Separates insured deposit amounts from the total cash balance in account value reports.</p><p><strong>sendZeroPositionsForTodayOnly</strong>:&nbsp;<code>Boolean</code>&nbsp;– Limits the transmission of zero-quantity positions to only those closed during the current trading day.</p><p><strong>useAccountGroupsWithAllocationMethods</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the use of account groups when applying order allocation methods across multiple accounts.</p><p><strong>loggingLevel</strong>:&nbsp;<code>String</code>&nbsp;– Sets the verbosity level for API logging output (e.g., “error”, “warning”, “info”, “debug”).</p><p><strong>masterClientId</strong>:&nbsp;<code>Integer</code>&nbsp;– Designates a specific client ID as the master client with elevated privileges for API operations.</p><p><strong>bulkDataTimeout</strong>:&nbsp;<code>Integer</code>&nbsp;– Specifies the timeout duration in seconds for bulk data request operations.</p><p><strong>componentExchSeparator</strong>:&nbsp;<code>String</code>&nbsp;– Defines the character used to separate component exchange identifiers in composite contract symbols.</p><p><strong>roundAccountValuesToNearestWholeNumber</strong>:&nbsp;<code>Boolean</code>&nbsp;– Rounds all account value figures to the nearest whole number for simplified display.</p><p><strong>showAdvancedOrderRejectInUi</strong>:&nbsp;<code>Boolean</code>&nbsp;– Displays detailed order rejection messages in the TWS user interface for troubleshooting purposes.</p><p><strong>rejectMessagesAboveMaxRate</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically rejects API messages that exceed the configured maximum message rate threshold.</p><p><strong>maintainConnectionOnIncorrectFields</strong>:&nbsp;<code>Boolean</code>&nbsp;– Preserves the API connection even when requests contain incorrect or invalid field values.</p><p><strong>compatibilityModeNasdaqStocks</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables legacy compatibility mode for NASDAQ stock symbol formatting and handling.</p><p><strong>sendInstrumentTimezone</strong>:&nbsp;<code>String</code>&nbsp;– Specifies the timezone format for instrument trading hours and schedule data (e.g., “utc”, “exchange”).</p><p><strong>sendForexDataInCompatibilityMode</strong>:&nbsp;<code>Boolean</code>&nbsp;– Transmits foreign exchange market data using legacy format for backward compatibility with older API clients.</p><p><strong>maintainAndResubmitOrdersOnReconnect</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically preserves and resubmits active orders when the API client reconnects after a disconnection.</p><p><strong>historicalDataMaxSize</strong>:&nbsp;<code>Integer</code>&nbsp;– Sets the maximum size level for historical data requests to control bandwidth and processing requirements.</p><p><strong>autoReportNettingEventContractTrades</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically reports trades generated by netting events for contract position reconciliation.</p><p><strong>optionExerciseRequestType</strong>:&nbsp;<code>String</code>&nbsp;– Determines the type of option exercise requests accepted by the system (e.g., “final”, “preliminary”).</p><p><strong>trustedIPs</strong>:&nbsp;<code>List&lt;String&gt;</code>&nbsp;– Contains a collection of IP addresses that are authorized to establish API connections without additional authentication.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">apiSettingsConfigProto = ApiSettingsConfigProto()
+    apiSettingsConfigProto.totalQuantityForMutualFunds = True
+    apiSettingsConfigProto.downloadOpenOrdersOnConnection = True
+    apiSettingsConfigProto.includeVirtualFxPositions = True
+    apiSettingsConfigProto.prepareDailyPnL = True
+    apiSettingsConfigProto.sendStatusUpdatesForVolatilityOrders = True
+    apiSettingsConfigProto.encodeApiMessages = "osCodePage"
+    apiSettingsConfigProto.socketPort = 7497
+    apiSettingsConfigProto.useNegativeAutoRange = True
+    apiSettingsConfigProto.createApiMessageLogFile = True
+    apiSettingsConfigProto.includeMarketDataInLogFile = True
+    apiSettingsConfigProto.exposeTradingScheduleToApi = True
+    apiSettingsConfigProto.splitInsuredDepositFromCashBalance = True
+    apiSettingsConfigProto.sendZeroPositionsForTodayOnly = True
+    apiSettingsConfigProto.useAccountGroupsWithAllocationMethods = True
+    apiSettingsConfigProto.loggingLevel = "error"
+    apiSettingsConfigProto.masterClientId = 3
+    apiSettingsConfigProto.bulkDataTimeout = 25
+    apiSettingsConfigProto.componentExchSeparator = "#"
+    apiSettingsConfigProto.roundAccountValuesToNearestWholeNumber = True
+    apiSettingsConfigProto.showAdvancedOrderRejectInUi = True
+    apiSettingsConfigProto.rejectMessagesAboveMaxRate = True
+    apiSettingsConfigProto.maintainConnectionOnIncorrectFields = True
+    apiSettingsConfigProto.compatibilityModeNasdaqStocks = True
+    apiSettingsConfigProto.sendInstrumentTimezone = "utc"
+    apiSettingsConfigProto.sendForexDataInCompatibilityMode = True
+    apiSettingsConfigProto.maintainAndResubmitOrdersOnReconnect = True
+    apiSettingsConfigProto.historicalDataMaxSize = 4
+    apiSettingsConfigProto.autoReportNettingEventContractTrades = True
+    apiSettingsConfigProto.optionExerciseRequestType = "final"
+    apiSettingsConfigProto.trustedIPs.append("127.0.0.1")</pre><p>&nbsp;</p></div>
+  </body>
+</html>

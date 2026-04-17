@@ -77,8 +77,8 @@ if(localStorage.getItem('web') != null){
 createScriptElement({ source : "/scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js", loadfunction: bsLoaded  });
 createScriptElement({ source : "/scripts/common/js/lib.js?ver=9", loadfunction: storeCookie });
 createScriptElement({ source :  "/scripts/common/js/forge.all.min.js" });
-createScriptElement({ source : "/scripts/common/js/analytics/ibkrfingerprint.js?t=1776447897" }); 
-createScriptElement({ source : "/scripts/common/js/analytics/ibkranalyticscomb.js?t=1776447897" });
+createScriptElement({ source : "/scripts/common/js/analytics/ibkrfingerprint.js?t=1776468872" }); 
+createScriptElement({ source : "/scripts/common/js/analytics/ibkranalyticscomb.js?t=1776468872" });
 window.onload = function (){ checkWebCookie();}
 function bsLoaded() {
   createScriptElement({ source : "/scripts/common/js/appear/appear.min.js?ver=1" });
@@ -185,12 +185,12 @@ window.dataLayer.push({MenuLLC_ab_variant:'B'});
 <style type="text/css">
 @import url('/css/bootstrap-5.2.2/bootstrap.min.css') layer(bootstrap);
 </style>
-<link rel="preload" as="style" href="/css/ibkr/website.min.css?v=b176d3921e113e27608b93508b968c00">
-<link rel="stylesheet" type="text/css" media="all" href="/css/ibkr/website.min.css?v=b176d3921e113e27608b93508b968c00">
-<link rel="preload" as="style" href="/css/ibkr/theme-ibkr.min.css?v=b176d3921e113e27608b93508b968c00">
-<link rel="stylesheet" type="text/css" media="all" href="/css/ibkr/theme-ibkr.min.css?v=b176d3921e113e27608b93508b968c00">
+<link rel="preload" as="style" href="/css/ibkr/website.min.css?v=c1018ba586f0e9f6e118fc9a6028086f">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ibkr/website.min.css?v=c1018ba586f0e9f6e118fc9a6028086f">
+<link rel="preload" as="style" href="/css/ibkr/theme-ibkr.min.css?v=c1018ba586f0e9f6e118fc9a6028086f">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ibkr/theme-ibkr.min.css?v=c1018ba586f0e9f6e118fc9a6028086f">
 <script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch","rua.ceh":"false","rua.ueh":"false","rua.ieh.st":"0"}]);</script>
-                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="CGJ34-S5RKA-7ZQ8F-AJER9-TWWVG",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"CGJ34-S5RKA-7ZQ8F-AJER9-TWWVG";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="lt66ybyxf56j22pcogmq-f-08dc0beb6-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"39","ak.cp":"1131468","ak.ai":parseInt("665092",10),"ak.ol":"0","ak.cr":11,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"17a67faf","ak.r":51418,"ak.a2":n,"ak.m":"a","ak.n":"essl","ak.bpcip":"92.253.236.0","ak.cport":57904,"ak.gh":"23.46.206.29","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1776447897","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==TFX1lFMou1oiqtsmNADMy2osltHo18jOxtIgHPMF39Zvn09mNdfFCCWst5cVuPQlrKoq0NoFtWkSysoMp8rEtVVApzA0b92ksbciUftBjs+mWxG2ufGtOFZ8ObPVgB1IuKyZgUJEVKjA7cr8W9qpBPBEt1izyA/jeRuTF50y1KZqZhKmTmwxa2YuGcAqWDjc4UybE3DddDby/kiPNVoTsmSyYr6rIoqB47oEs4gRsjRlTAGug474en4FakjUrDB5noldvPUKwU938gmSqyxEIM4HlbdXQyM5wuBxrz45X0M0Fw8h7P95Rn3s9yJVBlRqFxjPc6bADBb3V/yX1l1pHIDnG0IF1Mx2LwKQEPp82ro6iDci4eClkLY4iuIRsc0WUTDNHKfW8h9UZ/ge7PDMaDRRrqQUs91HjHhoXvQDrZg=","ak.pv":"418","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="CGJ34-S5RKA-7ZQ8F-AJER9-TWWVG",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"CGJ34-S5RKA-7ZQ8F-AJER9-TWWVG";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="lt66ybyxf56j22pcyodq-f-f421f8faf-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"39","ak.cp":"1131468","ak.ai":parseInt("665092",10),"ak.ol":"0","ak.cr":12,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"3b3b6ec5","ak.r":51418,"ak.a2":n,"ak.m":"a","ak.n":"essl","ak.bpcip":"92.253.236.0","ak.cport":58035,"ak.gh":"23.46.206.7","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1776468871","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==mtmv6X5snm9gw1CZsA6iYom3+x9eeD+dUX1VTUw6uvYAtY3hdNQMloQW7ux+olUIqcc8DJIqsG5MA7kBUOk+rH1aECGD8Hvd/226NT0Xhw5OI1SNbCEvozSIxt+EENPb4MztSDuxqscwuX+NoCqQpuKUC3hESBq5MBpZZnT9r6FFH/tfVgw/EnxHdWsxhpB9XUeAt/ATdjUePhPoKoJefr453K8jgnpqJazhFQ1tmUmTk3FjV4uEsrrVcUebsaZQohmWDkvIA1cgVx/dlDngQ580sXHwN+F+cFmjU9yZrbqUXoDJfr60wVGSVg6y9SHF4gujUkWcBMl+lS6hjdyR7wkUo6nZGgoTqMCOMjoPD3V4/36LqH8zoOd/gAeXqv86BKCGSfo0O+wYKznz/G4RJ2fguKi8/I/+FTf9Dqwv3Ng=","ak.pv":"418","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
 <body>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NK9NSD');</script>
@@ -686,402 +686,22 @@ window.dataLayer.push({MenuLLC_ab_variant:'B'});
 <div class="ibkr-header" id="ibkr-header">
     <script>
 window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({BannerPersistentLLC:'B'});
+window.dataLayer.push({BannerPersistentLLC:'A'});
 </script>
 
 <style type="text/css">
-        .bandaid {
-            position: relative;
-        }
-        .bandaid .bandaid-text,
-        .bandaid a {
-            color: #fff !important;
-            font-size: 14px;
-            line-height: 1.3;
-        }
-        @layer legacy{
-            .bandaid .btn.btn-sm {
-                width: auto !important;
-                font-size: 12px !important;
-                line-height: 1 !important;
-                padding-right: .625rem !important;
-                padding-left: .625rem !important;
-            }
-            .bandaid .btn-sm.btn-outline.btn-default, 
-            .bandaid .btn-sm.btn-outline.btn-default:hover, 
-            .bandaid .btn-sm.btn-outline.btn-default:active, 
-            .bandaid .btn-sm.btn-outline.btn-default:focus {
-                color: white !important;
-                border-color: white !important;
-                font-weight: 600 !important;
-            }
-            .bandaid .btn-sm.btn-outline.btn-default:focus {
-                outline: solid 2px rgba(255,255,255,.5) !important;
-            }
-        }
-        .bandaid .carousel-item-next, .bandaid .carousel-item-prev, .bandaid .carousel-item.active {
-            display: flex;
-            height: 100%;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .ft-persistent-banner {
-            --info: #1257bf !important;
-        }
-        .ft-livedata, .ft-staticdata {
-            transition: opacity 300ms ease;
-        }
-        .ft-livedata {
-            display:flex;
-        }
-        .ft-livedata-disclosure {
-            display: flex;
-            text-align: end;
-            position: absolute;
-        }
-        .ft-livedata-disclosure-link {
-            display: block;
-        }
-        @media(max-width: 1023.98px) {
-            .ft-livedata {
-                flex-direction: column;
-            }
-            .ft-livedata-disclosure {
-                inset-inline-end: 0px;
-                bottom: 0px;
-            }
-            .ft-livedata-disclosure-link {
-                font-size: .625rem !important;
-                padding: .375rem 0px;
-            }
-        }
-        @media(min-width: 1024px) {
-            .ft-livedata-disclosure {
-                inset-inline-end: 0px;
-                top: 0px;
-                height: 100%;
-            }
-            .ft-livedata-disclosure-link {
-                margin: auto;
-                font-size: .6875rem !important;
-                padding: .5rem 1rem;
-            }
-        }
+        .bandaid .bandaid-text a{color:black;text-decoration: underline;}
+        .bandaid .bandaid-text a:hover{color:var(--white);}
     </style>
-<div class="ft-persistent-banner bandaid collapse show bg-info mb-0" id="bandaid">
-    <div class="container-fluid">
-		<div class="ft-staticdata w-100" id="carouselFtStatic">
-			<div class="row align-items-center justify-content-center">
-				<div class="col-12 text-center">
-					<!-- Static content displayed by default -->
-					<p class="bandaid-text fw-600 text-center text-white pt-2">Prediction markets are live <a href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=hpb5#/election-hub/grid" target="_self" class="mt-0 mb-0 pt-1 pb-1 btn btn-sm btn-outline btn-default text-white">View Markets</a></p>
-				</div>
-			</div>
-		</div>
-		<div class="ft-livedata w-100 position-relative align-items-center justify-content-center overflow-hidden" id="carouselFtData" style="display: none; opacity: 0;">
-            <!-- Dynamic carousel hidden by default -->
-            <div class="carousel slide m-auto h-100" data-bs-ride="carousel" data-bs-interval="10000">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-index="0">
-                        <p class="bandaid-text fw-600 text-center text-white pt-2 d-inline-flex gap-2 align-items-center flex-wrap justify-content-center">
-                            <span class="contract-question" id="name-0"></span>
-                            <span class="contract-data">
-                                <span class="contract-data-yes">Yes <span class="contract-data-yes-value" id="yesQuote-0"></span></span>,
-                                <span class="contract-no-yes">No <span class="contract-data-no-value" id="noQuote-0"></span></span>
-                            </span>
-                            <a id="link-0" href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=hpb6#/markets" target="_self" class="mt-0 mb-0 pt-1 pb-1 btn btn-sm btn-outline btn-default">View Markets</a>
-                        </p>
-                    </div>
-                    <div class="carousel-item" data-index="1">
-                        <p class="bandaid-text fw-600 text-center text-white pt-2 d-inline-flex gap-2 align-items-center flex-wrap justify-content-center">
-                            <span class="contract-question" id="name-1"></span>
-                            <span class="contract-data">
-                                <span class="contract-data-yes">Yes <span class="contract-data-yes-value" id="yesQuote-1"></span></span>,
-                                <span class="contract-no-yes">No <span class="contract-data-no-value" id="noQuote-1"></span></span>
-                            </span>
-                            <a id="link-1" href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=hpb6#/markets" target="_self" class="mt-0 mb-0 pt-1 pb-1 btn btn-sm btn-outline btn-default">View Markets</a>
-                        </p>
-                    </div>
-                    <div class="carousel-item" data-index="2">
-                        <p class="bandaid-text fw-600 text-center text-white pt-2 d-inline-flex gap-2 align-items-center flex-wrap justify-content-center">
-                            <span class="contract-question" id="name-2"></span>
-                            <span class="contract-data">
-                                <span class="contract-data-yes">Yes <span class="contract-data-yes-value" id="yesQuote-2"></span></span>,
-                                <span class="contract-no-yes">No <span class="contract-data-no-value" id="noQuote-2"></span></span>
-                            </span>
-                            <a id="link-2" href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=hpb6#/markets" target="_self" class="mt-0 mb-0 pt-1 pb-1 btn btn-sm btn-outline btn-default">View Markets</a>
-                        </p>
-                    </div>
-                    <div class="carousel-item" data-index="3">
-                        <p class="bandaid-text fw-600 text-center text-white pt-2 d-inline-flex gap-2 align-items-center flex-wrap justify-content-center">
-                            <span class="contract-question" id="name-3"></span>
-                            <span class="contract-data">
-                                <span class="contract-data-yes">Yes <span class="contract-data-yes-value" id="yesQuote-3"></span></span>,
-                                <span class="contract-no-yes">No <span class="contract-data-no-value" id="noQuote-3"></span></span>
-                            </span>
-                            <a id="link-3" href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=hpb6#/markets" target="_self" class="mt-0 mb-0 pt-1 pb-1 btn btn-sm btn-outline btn-default">View Markets</a>
-                        </p>
-                    </div>
+    <div class="bandaid collapse show bg-warning mb-0" id="bandaid">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <p class="bandaid-text fs-6 fw-600 text-center text-black pt-2">Political, Economic and Climate Forecast Contracts Are Live - <span class="d-inline d-md-none"><br /></span><a href="/sso/Login?forwardTo=100&sbanner=a1" target="_self">Client Login</a> | <a href="https://forecasttrader.interactivebrokers.com/eventtrader/?sbanner=a2#/election-hub/grid" target="_self">View Markets</a> | <a href="https://forecasttrader.interactivebrokers.com/en/home.php?sbanner=a3" target="_self">Learn More</a></p>
                 </div>
             </div>
-			<div class="ft-livedata-disclosure"><a class="ft-livedata-disclosure-link fw-600" data-bs-toggle="modal" data-bs-target="#modalFtLiveData"><i class="fa-solid fa-circle-info"></i> <span class="text-decoration-underline">Disclosure</span></a></div>
-		</div>
-	</div>
-</div>
-<script>
-    // Configuration: Which contracts to display
-    const CONTRACTS_TO_DISPLAY = ['republican', 'bitcoin', 'feddecision', 'climate'];
-    const MAX_ITEMS = 4;
-    const API_URL = 'https://www.interactivebrokers.com/response_handlers/fcastex/livedata.php';
-    // Configuration: Custom routes for specific contracts
-    const CONTRACT_ROUTES = {
-        'republican': '/election-hub/grid',
-        // Default route for all other contracts is '/markets'
-    };
-    /**
-     * Fetch forecast data from API
-     * Returns null if fetch fails
-     */
-    async function fetchForecastData() {
-        try {
-            const response = await fetch(API_URL);
-            if (!response.ok) {
-                return null;
-            }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            return null;
-        }
-    }
-    /**
-     * Validate that a value is a valid number
-     * Accepts numbers and numeric strings, rejects NaN, Infinity, null, undefined, empty strings
-     */
-    function isValidNumber(value) {
-        if (value === null || value === undefined || value === '') {
-            return false;
-        }
-        const numericValue = typeof value === 'number' ? value : parseFloat(value);
-        if (isNaN(numericValue) || !isFinite(numericValue)) {
-            return false;
-        }
-        // Ensure it's a valid probability (0 to 1)
-        if (numericValue < 0 || numericValue > 1) {
-            return false;
-        }
-        return true;
-    }
-    /**
-     * Sanitize contract key to prevent XSS attacks
-     * Only allows alphanumeric characters and underscores
-     */
-    function sanitizeContractKey(key) {
-        if (typeof key !== 'string') {
-            return '';
-        }
-        // Only allow alphanumeric characters and underscores
-        return key.replace(/[^a-zA-Z0-9_]/g, '');
-    }
-    /**
-     * Get the appropriate route for a contract
-     * Returns sanitized route path, defaults to '/markets'
-     */
-    function getContractRoute(contractKey) {
-        // Check if contract has a custom route
-        if (CONTRACT_ROUTES.hasOwnProperty(contractKey)) {
-            const route = CONTRACT_ROUTES[contractKey];
-            // Validate route is a string and starts with /
-            if (typeof route === 'string' && route.startsWith('/')) {
-                // Sanitize route to only allow safe characters
-                // Allow: letters, numbers, hyphens, underscores, forward slashes
-                const sanitizedRoute = route.replace(/[^a-zA-Z0-9\-_/]/g, '');
-                return sanitizedRoute;
-            }
-        }
-        // Default route
-        return '/markets';
-    }
-    /**
-     * Validate that a single item has all required fields with valid data
-     */
-    function isValidItem(item) {
-        // Check basic field existence
-        const hasRequiredFields = item &&
-            typeof item.question === 'string' &&  // Add type check
-            item.question !== '';
-        if (!hasRequiredFields) {
-            return false;
-        }
-        // Validate yesQuote is a valid number
-        if (!isValidNumber(item.yesQuote)) {
-            return false;
-        }
-        // Validate noQuote is a valid number
-        if (!isValidNumber(item.noQuote)) {
-            return false;
-        }
-        return true;
-    }
-    /**
-     * Extract and validate the contracts we want to display
-     * Returns array of valid items with their contract keys, or null if any are invalid
-     */
-    function getValidContracts(data) {
-        if (!data || typeof data !== 'object') {
-            return null;
-        }
-        const contracts = [];
-        // Extract desired contracts in order, keeping track of their keys
-        for (let contractKey of CONTRACTS_TO_DISPLAY) {
-            if (data[contractKey]) {
-                contracts.push({
-                    key: contractKey,
-                    data: data[contractKey]
-                });
-            }
-        }
-        // Limit to max items
-        const limitedContracts = contracts.slice(0, MAX_ITEMS);
-        if (limitedContracts.length === 0) {
-            return null;
-        }
-        // Validate ALL items have required fields with valid numeric data
-        const allValid = limitedContracts.every(contract => isValidItem(contract.data));
-        if (!allValid) {
-            return null;
-        }
-        return limitedContracts;
-    }
-    /**
-     * Format quote as percentage (e.g., 0.75 -> "75%")
-     */
-    function formatQuote(quote) {
-        const numericValue = typeof quote === 'number' ? quote : parseFloat(quote);
-        return `${(numericValue * 100).toFixed(0)}%`;
-    }
-    /**
-     * Populate carousel items with contract data
-     */
-    function populateCarouselItems(contracts) {
-        contracts.forEach((contract, index) => {
-            const nameEl = document.getElementById(`name-${index}`);
-            const yesQuoteEl = document.getElementById(`yesQuote-${index}`);
-            const noQuoteEl = document.getElementById(`noQuote-${index}`);
-            const linkEl = document.getElementById(`link-${index}`);
-            if (nameEl && yesQuoteEl && noQuoteEl && linkEl) {
-                nameEl.textContent = contract.data.question;
-                yesQuoteEl.textContent = formatQuote(contract.data.yesQuote);
-                noQuoteEl.textContent = formatQuote(contract.data.noQuote);
-                // Update link with sanitized contract key and appropriate route
-                const sanitizedKey = sanitizeContractKey(contract.key);
-                const route = getContractRoute(contract.key);
-                const baseUrl = 'https://forecasttrader.interactivebrokers.com/eventtrader/';
-                linkEl.href = `${baseUrl}?sbanner=${sanitizedKey}#${route}`;
-            }
-        });
-    }
-    /**
-     * Show dynamic carousel and hide static content
-     */
-    function showDynamicContent() {
-        const staticEl = document.getElementById('carouselFtStatic');
-        const dynamicEl = document.getElementById('carouselFtData');
-        if (staticEl) staticEl.style.display = 'none';
-        if (dynamicEl) dynamicEl.style.display = 'block';
-    }
-    /**
-     * Keep static content visible (default state)
-     */
-    function showStaticContent() {
-        // Static content is already visible by default, no action needed
-    }
-    /**
-     * Set carousel to height of tallest item to prevent jumping
-     * Measures without causing visual flash
-     */
-    function setCarouselHeight() {
-		const smDown = window.matchMedia('(max-width: 575.98px)');
-        const smUp = window.matchMedia('(min-width: 576px)');
-		const carousel = document.getElementById('carouselFtData');
-		if (!carousel) return;
-        const carouselContainer = carousel.querySelector('.carousel');
-        const carouselInner = carousel.querySelector('.carousel-inner');
-        const items = carousel.querySelectorAll('.carousel-item');
-        const carouselDisclosure = carousel.querySelector('.ft-livedata-disclosure');
-		const carouselDisclosureWidth = carouselDisclosure ? carouselDisclosure.offsetWidth : 0;
-        if (!carouselInner || items.length === 0) return;
-        // Set max-width. We need to do this first so that we have the wrapping place when it measures the height
-        if (smUp.matches) {
-            const carouselMaxWidth = carouselDisclosureWidth * 2
-            carouselContainer.style.maxWidth = `calc(100% - ${carouselMaxWidth}px)`;
-        } else {
-            carouselContainer.style.maxWidth = '';
-        }
-        // Find which item is currently active
-        let activeItem = null;
-        let activeIndex = -1;
-        items.forEach((item, index) => {
-            if (item.classList.contains('active')) {
-                activeItem = item;
-                activeIndex = index;
-            }
-        });
-        carouselInner.style.height = '';
-        // Make all items active. The carousel is set to opacity:0 until the height is renders
-        let maxHeight = 0;
-        items.forEach((item, index) => {
-            item.classList.add('active');
-            // Measure height
-			const height = item.offsetHeight;
-            if (height > maxHeight) maxHeight = height;
-        });
-        // Restore original state: only the original active item should be active
-        items.forEach((item, index) => {
-            if (index !== activeIndex) {
-                item.classList.remove('active');
-            }
-        });
-        // Set min-height and remove overflow hidden
-        if (maxHeight > 0) {
-            carouselInner.style.height = `${maxHeight}px`;
-            carousel.style.opacity = '';
-        }
-    }
-    /**
-     * Main initialization function
-     */
-    async function initializeBanner() {
-        // Fetch data from API
-        const data = await fetchForecastData();
-        // If fetch failed, show static content
-        if (!data) {
-            showStaticContent();
-            return;
-        }
-        // Validate and extract contracts
-        const validContracts = getValidContracts(data);
-        // If validation failed, show static content
-        if (!validContracts) {
-            showStaticContent();
-            return;
-        }
-        // Populate carousel with valid data
-        populateCarouselItems(validContracts);
-        // Switch to dynamic content (must be visible before measuring)
-        showDynamicContent();
-        // Set equal height for all carousel items (after content is visible)
-        setCarouselHeight();
-        // Recalculate height on window resize
-        if (!window._forecastCarouselResizeAdded) {
-            window.addEventListener('resize', setCarouselHeight);
-            window._forecastCarouselResizeAdded = true;
-        }
-    }
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', initializeBanner);
-</script>
+        </div>
+    </div>
 <script>
 $(function() {
   $.ajax({
@@ -1092,7 +712,7 @@ $(function() {
         'd': 'true'
       },
       headers: {
-        'X-AB-VARIANT': 'BannerPersistentLLC;B'
+        'X-AB-VARIANT': 'BannerPersistentLLC;A'
       },
       success: function(r) {
       },
@@ -2263,25 +1883,6 @@ $(function() {
     });
 });
 </script>
-<!-- MODAL START | MODAL ---------------------------------------------------------------------------------------------------- -->
-<div class="modal fade" id="modalFtLiveData" tabindex="-1" aria-hidden="true" aria-labelledby="modalLabel">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <p class="modal-title text-black" id="modalLabel">Disclosure</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <p class="text-black">Restrictions apply. Forecast Contracts on US election results are only available to eligible US residents. Displayed outcomes and prices are based on real-time market sentiment from ForecastEx LLC, an affiliate of IB LLC. For more information see <a href="https://ibkr.com/realfex" target="_blank" rel="noreferrer noopener">ibkr.com/realfex</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- MODAL END | MODAL ---------------------------------------------------------------------------------------------------- -->
 <div id="contents">
     <section class="page-title" id="page-title">
         <div class="container">

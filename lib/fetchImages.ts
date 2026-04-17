@@ -28,25 +28,28 @@ export async function fetchImages(
 
         try {
           const url = new URL(rawSrc, pageUrl).href;
-          const fileName = path.basename(new URL(url).pathname);
+          const urlObj = new URL(url);
+          const fileNameEncoded = path.basename(urlObj.pathname);
+          const fileName = decodeURIComponent(fileNameEncoded);
+          
           const localPath = path.join(imgDir, fileName);
-          if (fs.existsSync(localPath)) {
-            throw new Error(`Image file already exists: ${localPath}`);
+          
+          // If the file doesn't exist, we fetch it
+          if (!fs.existsSync(localPath)) {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Status ${res.status}: ${url}`);
+            fs.writeFileSync(localPath, Buffer.from(await res.arrayBuffer()));
+            imageCount++;
           }
-
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(`Status ${res.status}: ${url}`);
-
-          fs.writeFileSync(localPath, Buffer.from(await res.arrayBuffer()));
-          imageCount++;
 
           const alt = $img.attr("alt");
           for (const attr in img.attribs) $img.removeAttr(attr);
 
+          // We use the decoded fileName in the HTML src
           $img.attr("src", `./images/${fileName}`);
           if (alt) $img.attr("alt", alt);
         } catch (e) {
-          console.error(`Failed: ${rawSrc}`);
+          console.error(`Failed: ${rawSrc}`, e);
           $img.remove();
         }
       }),

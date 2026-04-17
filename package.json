@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "generate": "tsx lib/generate.ts",
-    "serve": "npx -y serve ./out",
+    "serve": "npx -y http-server ./out",
     "install-skill": "tsx lib/install-skill.ts",
     "mcp": "npx -y @modelcontextprotocol/server-filesystem ./out"
   },

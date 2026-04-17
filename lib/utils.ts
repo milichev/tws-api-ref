@@ -5,7 +5,16 @@ import H from "handlebars";
 export const REPO_ROOT = path.dirname(import.meta.dirname);
 
 export const pageTpl = getTpl("templates/page.html");
-export const styles = `<style>${readFile("templates/styles.css")}</style>`;
+
+H.registerPartial("toc-level", readFile("templates/toc-level.html"));
+H.registerPartial("layout-index", readFile("templates/layout-index.html"));
+H.registerPartial("layout-chapter", readFile("templates/layout-chapter.html"));
+H.registerPartial("breadcrumb", readFile("templates/breadcrumb.html"));
+
+H.registerHelper("styles_block", () => {
+  const css = readFile("templates/styles.css");
+  return new H.SafeString(`<style>\n${css}\n</style>`);
+});
 
 export function getTpl(tplPath: string) {
   return H.compile(readFile(tplPath), {});

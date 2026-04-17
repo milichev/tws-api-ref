@@ -1,0 +1,12 @@
+{{#if length }}
+<ul>
+  {{#each .}}
+  <li>
+    <div class="toc-text">
+      <code>{{num}}</code><a href="./{{fileName}}">{{title}}</a>
+    </div>
+    {{#if children}}{{> toc-level children}}{{/if}}
+  </li>
+  {{/each}}
+</ul>
+{{/if}}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>22.09 Available Tick Types</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.09-available-tick-types.html">22.09 Available Tick Types</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Available Tick Types</h3><div class="row"><p>EClient.reqMktData will return data to various methods such as EWrapper.tickPrice, EWrapper.tickSize, EWrapper.tickString, etc. The values returned are dependent upon the generic tick requested and the type of data returned. The table below references which tick ID will be returned upon requesting a given generic tick.</p><p>*RDD: These tick types are provided only when the user makes a request to <a href="20-delayed-market-data.html">EClient.reqMarketDataType(3)</a> prior to their market data request.</p><p>– : These ticks are returned by default and do not have any generic tick requirements.</p></div><div class="row"><table><tbody><tr><th>Tick Name</th><th>Description</th><th>Generic tick required</th><th>Delivery Method</th><th>Tick Id</th></tr><tr><td>Disable Default Market Data</td><td>Disables standard market data stream and allows the TWS &amp; API feed to prioritize other listed generic tick types.</td><td>mdoff</td><td>–</td><td>–</td></tr><tr><td>Bid Size</td><td>Number of contracts or lots offered at the bid price.</td><td>–</td><td>IBApi.EWrapper.tickSize</td><td>0</td></tr><tr><td>Bid Price</td><td>Highest priced bid for the contract.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>1</td></tr><tr><td>Ask Price</td><td>Lowest price offer on the contract.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>2</td></tr><tr><td>Ask Size</td><td>Number of contracts or lots offered at the ask price.</td><td>–</td><td>IBApi.EWrapper.tickSize</td><td>3</td></tr><tr><td>Last Price</td><td>Last price at which the contract traded (does not include some trades in RTVolume).</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>4</td></tr><tr><td>Last Size</td><td>Number of contracts or lots traded at the last price.</td><td>–</td><td>IBApi.EWrapper.tickSize</td><td>5</td></tr><tr><td>High</td><td>High price for the day.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>6</td></tr><tr><td>Low</td><td>Low price for the day.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>7</td></tr><tr><td>Volume</td><td>Trading volume for the day for the selected contract (US Stocks volume is display as <a href="https://www.investopedia.com/terms/r/roundlot.asp">Round Lots</a>).</td><td>–</td><td>IBApi.EWrapper.tickSize</td><td>8</td></tr><tr><td>Close Price</td><td>“The last available closing price for the&nbsp;previous&nbsp;day. For US Equities we use corporate action processing to get the closing price so the close price is adjusted to reflect forward and reverse splits and cash and stock dividends.”</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>9</td></tr><tr><td>Bid Option Computation</td><td>Computed Greeks and implied volatility based on the underlying stock price and the option bid price. See&nbsp;Option Greeks</td><td>–</td><td>IBApi.EWrapper.tickOptionComputation</td><td>10</td></tr><tr><td>Ask Option Computation</td><td>Computed Greeks and implied volatility based on the underlying stock price and the option ask price. See&nbsp;Option Greeks</td><td>–</td><td>IBApi.EWrapper.tickOptionComputation</td><td>11</td></tr><tr><td>Last Option Computation</td><td>Computed Greeks and implied volatility based on the underlying stock price and the option last traded price. See&nbsp;Option Greeks</td><td>–</td><td>IBApi.EWrapper.tickOptionComputation</td><td>12</td></tr><tr><td>Model Option Computation</td><td>Computed Greeks and implied volatility based on the underlying stock price and the option model price. Correspond to greeks shown in TWS. See&nbsp;Option Greeks</td><td>–</td><td>IBApi.EWrapper.tickOptionComputation</td><td>13</td></tr><tr><td>Open Tick</td><td>Current session’s opening price. Before open will refer to previous day. The official opening price requires a market data subscription to the native exchange of the instrument.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>14</td></tr><tr><td>Low 13 Weeks</td><td>Lowest price for the last 13 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>15</td></tr><tr><td>High 13 Weeks</td><td>Highest price for the last 13 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>16</td></tr><tr><td>Low 26 Weeks</td><td>Lowest price for the last 26 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>17</td></tr><tr><td>High 26 Weeks</td><td>Highest price for the last 26 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>18</td></tr><tr><td>Low 52 Weeks</td><td>Lowest price for the last 52 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>19</td></tr><tr><td>High 52 Weeks</td><td>Highest price for the last 52 weeks. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickPrice</td><td>20</td></tr><tr><td>Average Volume</td><td>The average daily trading volume over 90 days. Multiplier of 100. For stocks only.</td><td>165</td><td>IBApi.EWrapper.tickSize</td><td>21</td></tr><tr><td>Open Interest</td><td>“(Deprecated not currently in use) Total number of options that are not closed.”</td><td>–</td><td>IBApi.EWrapper.tickSize</td><td>22</td></tr><tr><td>Option Historical Volatility</td><td>The 30-day historical volatility (currently for stocks).</td><td>104</td><td>IBApi.EWrapper.tickGeneric</td><td>23</td></tr><tr><td>Option Implied Volatility</td><td>“A prediction of how volatile an underlying will be in the future. The IB 30-day volatility is the at-market volatility estimated for a maturity thirty calendar days forward of the current trading day and is based on option prices from two consecutive expiration months.”</td><td>106</td><td>IBApi.EWrapper.tickGeneric</td><td>24</td></tr><tr><td>Option Bid Exchange</td><td>Not Used.</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>25</td></tr><tr><td>Option Ask Exchange</td><td>Not Used.</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>26</td></tr><tr><td>Option Call Open Interest</td><td>Call option open interest.</td><td>101</td><td>IBApi.EWrapper.tickSize</td><td>27</td></tr><tr><td>Option Put Open Interest</td><td>Put option open interest.</td><td>101</td><td>IBApi.EWrapper.tickSize</td><td>28</td></tr><tr><td>Option Call Volume</td><td>Call option volume for the trading day.</td><td>100</td><td>IBApi.EWrapper.tickSize</td><td>29</td></tr><tr><td>Option Put Volume</td><td>Put option volume for the trading day.</td><td>100</td><td>IBApi.EWrapper.tickSize</td><td>30</td></tr><tr><td>Index Future Premium</td><td>The number of points that the index is over the cash index.</td><td>162</td><td>IBApi.EWrapper.tickGeneric</td><td>31</td></tr><tr><td>Bid Exchange</td><td>“For stock and options identifies the exchange(s) posting the bid price. See&nbsp;Component Exchanges”</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>32</td></tr><tr><td>Ask Exchange</td><td>“For stock and options identifies the exchange(s) posting the ask price. See&nbsp;Component Exchanges”</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>33</td></tr><tr><td>Auction Volume</td><td>The number of shares that would trade if no new orders were received and the auction were held now.</td><td>225</td><td>IBApi.EWrapper.tickSize</td><td>34</td></tr><tr><td>Auction Price</td><td>The price at which the auction would occur if no new orders were received and the auction were held now- the indicative price for the auction. Typically received after Auction imbalance (tick type 36)</td><td>225</td><td>IBApi.EWrapper.tickPrice</td><td>35</td></tr><tr><td>Auction Imbalance</td><td>The number of unmatched shares for the next auction; returns how many more shares are on one side of the auction than the other. Typically received after Auction Volume (tick type 34)</td><td>225</td><td>IBApi.EWrapper.tickSize</td><td>36</td></tr><tr><td>Mark Price</td><td>“The mark price is the current theoretical calculated value of an instrument. Since it is a calculated value it will typically have many digits of precision.”</td><td>232</td><td>IBApi.EWrapper.tickPrice</td><td>37</td></tr><tr><td>Bid EFP Computation</td><td>Computed EFP bid price</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>38</td></tr><tr><td>Ask EFP Computation</td><td>Computed EFP ask price</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>39</td></tr><tr><td>Last EFP Computation</td><td>Computed EFP last price</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>40</td></tr><tr><td>Open EFP Computation</td><td>Computed EFP open price</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>41</td></tr><tr><td>High EFP Computation</td><td>Computed high EFP traded price for the day</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>42</td></tr><tr><td>Low EFP Computation</td><td>Computed low EFP traded price for the day</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>43</td></tr><tr><td>Close EFP Computation</td><td>Computed closing EFP price for previous day</td><td>–</td><td>IBApi.EWrapper.tickEFP</td><td>44</td></tr><tr><td>Last Timestamp</td><td>Time of the last trade (in UNIX time).</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>45</td></tr><tr><td>Shortable</td><td>Describes the level of difficulty with which the contract can be sold short. See&nbsp;Shortable</td><td>236</td><td>IBApi.EWrapper.tickGeneric</td><td>46</td></tr><tr><td>RT Volume (Time &amp; Sales)</td><td>“Last trade details (Including both “”Last”” and “”Unreportable Last”” trades). See&nbsp;RT Volume”</td><td>233</td><td>IBApi.EWrapper.tickString</td><td>48</td></tr><tr><td>Halted</td><td>Indicates if a contract is halted. See&nbsp;Halted</td><td>–</td><td>IBApi.EWrapper.tickGeneric</td><td>49</td></tr><tr><td>Bid Yield</td><td>Implied yield of the bond if it is purchased at the current bid.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>50</td></tr><tr><td>Ask Yield</td><td>Implied yield of the bond if it is purchased at the current ask.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>51</td></tr><tr><td>Last Yield</td><td>Implied yield of the bond if it is purchased at the last price.</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>52</td></tr><tr><td>Custom Option Computation</td><td>Greek values are based off a user customized price.</td><td>–</td><td>IBApi.EWrapper.tickOptionComputation</td><td>53</td></tr><tr><td>Trade Count</td><td>Trade count for the day.</td><td>293</td><td>IBApi.EWrapper.tickGeneric</td><td>54</td></tr><tr><td>Trade Rate</td><td>Trade count per minute.</td><td>294</td><td>IBApi.EWrapper.tickGeneric</td><td>55</td></tr><tr><td>Volume Rate</td><td>Volume per minute.</td><td>295</td><td>IBApi.EWrapper.tickGeneric</td><td>56</td></tr><tr><td>Last RTH Trade</td><td>Last Regular Trading Hours traded price.</td><td>318</td><td>IBApi.EWrapper.tickPrice</td><td>57</td></tr><tr><td>RT Historical Volatility</td><td>30-day real time historical volatility.</td><td>411</td><td>IBApi.EWrapper.tickGeneric</td><td>58</td></tr><tr><td>IB Dividends</td><td>Contract’s dividends. See&nbsp;IB Dividends.</td><td>456</td><td>IBApi.EWrapper.tickString</td><td>59</td></tr><tr><td>Bond Factor Multiplier</td><td>The bond factor is a number that indicates the ratio of the current bond principal to the original principal</td><td>460</td><td>IBApi.EWrapper.tickGeneric</td><td>60</td></tr><tr><td>Regulatory Imbalance</td><td>The imbalance that is used to determine which at-the-open or at-the-close orders can be entered following the publishing of the regulatory imbalance.</td><td>225</td><td>IBApi.EWrapper.tickSize</td><td>61</td></tr><tr><td>News</td><td>Contract’s news feed.</td><td>292</td><td>IBApi.EWrapper.tickString</td><td>62</td></tr><tr><td>Short-Term Volume 3 Minutes</td><td>The past three minutes volume. Interpolation may be applied. For stocks only.</td><td>595</td><td>IBApi.EWrapper.tickSize</td><td>63</td></tr><tr><td>Short-Term Volume 5 Minutes</td><td>The past five minutes volume. Interpolation may be applied. For stocks only.</td><td>595</td><td>IBApi.EWrapper.tickSize</td><td>64</td></tr><tr><td>Short-Term Volume 10 Minutes</td><td>The past ten minutes volume. Interpolation may be applied. For stocks only.</td><td>595</td><td>IBApi.EWrapper.tickSize</td><td>65</td></tr><tr><td>Delayed Bid</td><td>Delayed bid price. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>66</td></tr><tr><td>Delayed Ask</td><td>Delayed ask price. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>67</td></tr><tr><td>Delayed Last</td><td>Delayed last traded price. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>68</td></tr><tr><td>Delayed Bid Size</td><td>Delayed bid size. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickSize</td><td>69</td></tr><tr><td>Delayed Ask Size</td><td>Delayed ask size. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickSize</td><td>70</td></tr><tr><td>Delayed Last Size</td><td>Delayed last size. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickSize</td><td>71</td></tr><tr><td>Delayed High Price</td><td>Delayed highest price of the day. See&nbsp;Market Data Types.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>72</td></tr><tr><td>Delayed Low Price</td><td>Delayed lowest price of the day. See&nbsp;Market Data Types</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>73</td></tr><tr><td>Delayed Volume</td><td>Delayed traded volume of the day. See&nbsp;Market Data Types</td><td>*RDD</td><td>IBApi.EWrapper.tickSize</td><td>74</td></tr><tr><td>Delayed Close</td><td>The&nbsp;prior&nbsp;day’s closing price.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>75</td></tr><tr><td>Delayed Open</td><td>Displays the current day’s Open price. The price will return 15 minutes after the Open price is made available.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>76</td></tr><tr><td>RT Trade Volume</td><td>“Last trade details that excludes “”Unreportable Trades””. See&nbsp;RT Trade Volume”</td><td>375</td><td>IBApi.EWrapper.tickString</td><td>77</td></tr><tr><td>Creditman mark price</td><td>Not currently available</td><td>–</td><td>IBApi.EWrapper.tickPrice</td><td>78</td></tr><tr><td>Creditman slow mark price</td><td>Slower mark price update used in system calculations</td><td>619</td><td>IBApi.EWrapper.tickPrice</td><td>79</td></tr><tr><td>Delayed Bid Option</td><td>Computed greeks based on delayed bid price. See&nbsp;Market Data Types&nbsp;and&nbsp;Option Greeks.</td><td>*RDD</td><td>IBApi.EWrapper.tickOptionComputation</td><td>80</td></tr><tr><td>Delayed Ask Option</td><td>Computed greeks based on delayed ask price. See&nbsp;Market Data Types&nbsp;and&nbsp;Option Greeks.</td><td>*RDD</td><td>IBApi.EWrapper.tickOptionComputation</td><td>81</td></tr><tr><td>Delayed Last Option</td><td>Computed greeks based on delayed last price. See&nbsp;Market Data Types&nbsp;and&nbsp;Option Greeks.</td><td>*RDD</td><td>IBApi.EWrapper.tickOptionComputation</td><td>82</td></tr><tr><td>Delayed Model Option</td><td>Computed Greeks and model’s implied volatility based on delayed stock and option prices.</td><td>*RDD</td><td>IBApi.EWrapper.tickOptionComputation</td><td>83</td></tr><tr><td>Last Exchange</td><td>Exchange of last traded price</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>84</td></tr><tr><td>Last Regulatory Time</td><td>Timestamp (in Unix ms time) of last trade returned with regulatory snapshot</td><td>–</td><td>IBApi.EWrapper.tickString</td><td>85</td></tr><tr><td>Futures Open Interest</td><td>Total number of outstanding futures contracts. *HSI open interest requested with generic tick 101</td><td>588</td><td>IBApi.EWrapper.tickSize</td><td>86</td></tr><tr><td>Average Option Volume</td><td>Average volume of the corresponding option contracts(TWS Build 970+ is required)</td><td>105</td><td>IBApi.EWrapper.tickSize</td><td>87</td></tr><tr><td>Delayed Last Timestamp</td><td>Delayed time of the last trade (in UNIX time) (TWS Build 970+ is required)</td><td>*RDD</td><td>IBApi.EWrapper.tickString</td><td>88</td></tr><tr><td>Shortable Shares</td><td>Number of shares available to short (TWS Build 974+ is required)</td><td>236</td><td>IBApi.EWrapper.tickSize</td><td>89</td></tr><tr><td>ETF Nav Last</td><td>The last price of Net Asset Value (NAV). For ETFs: Calculation is based on prices of ETF’s underlying securities. For NextShares: Value is provided by NASDAQ</td><td>577</td><td>IBApi.EWrapper.tickPrice</td><td>96</td></tr><tr><td>ETF Nav Frozen Last</td><td>ETF Nav Last for Frozen data</td><td>623</td><td>IBApi.EWrapper.tickPrice</td><td>97</td></tr><tr><td>ETF Nav High</td><td>The high price of ETF’s Net Asset Value (NAV)</td><td>614</td><td>IBApi.EWrapper.tickPrice</td><td>98</td></tr><tr><td>ETF Nav Low</td><td>The low price of ETF’s Net Asset Value (NAV)</td><td>614</td><td>IBApi.EWrapper.tickPrice</td><td>99</td></tr><tr><td>Estimated IPO – Midpoint</td><td>Midpoint is calculated based on IPO price range</td><td>586</td><td>IBApi.EWrapper.tickGeneric</td><td>101</td></tr><tr><td>Final IPO Price</td><td>Final price for IPO</td><td>586</td><td>IBApi.EWrapper.tickGeneric</td><td>102</td></tr><tr><td>Delayed Yield Bid</td><td>Delayed implied yield of the bond if it is purchased at the current bid.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>103</td></tr><tr><td>Delayed Yield Ask</td><td>Delayed implied yield of the bond if it is purchased at the current ask.</td><td>*RDD</td><td>IBApi.EWrapper.tickPrice</td><td>104</td></tr></tbody></table></div>
+  </body>
+</html>

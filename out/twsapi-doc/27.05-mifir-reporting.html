@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>27.05 MiFIR Transaction Reporting Fields</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.05-mifir-reporting.html">27.05 MiFIR Transaction Reporting Fields</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">MiFIR Transaction Reporting Fields</h3><div class="row"><p>For EEA investment firms required to comply with MiFIR reporting, and who have opted in to Enriched and Delegated Transaction Reporting, we have added four new order attributes to the Order class, and several new presets to TWS and IB Gateway Global Configuration.</p><p>New order attributes include:</p><ul><li><b>IBApi.Order.Mifid2DecisionMaker</b>&nbsp;– Used to send “investment decision within the firm” value (if&nbsp;IBApi.Order.Mifid2DecisionAlgo&nbsp;is not used).</li><li><b>IBApi.Order.Mifid2DecisionAlgo</b>&nbsp;– Used to send “investment decision within the firm” value (if&nbsp;IBApi.Order.Mifid2DecisionMaker&nbsp;is not used).</li><li><b>IBApi.Order.Mifid2ExecutionTrader</b>&nbsp;– Used to send “execution within the firm” value (if&nbsp;IBApi.Order.Mifid2ExecutionAlgo&nbsp;is not used).</li><li><b>IBApi.Order.Mifid2ExecutionAlgo</b>&nbsp;– Used to send “execution within the firm” value (if&nbsp;IBApi.Order.Mifid2ExecutionTrader&nbsp;is not used).</li></ul><p>New TWS and IB Gateway Order Presets can be found in the Orders &gt; MiFIR page of Global Configuration, and include TWS Decision-Maker Defaults, API Decision-Maker Defaults, and Executing Trader/Algo presets.</p><p>The following choices are available for the “investment decision within the firm”&nbsp;IBApi.Order.Mifid2DecisionMaker&nbsp;and&nbsp;IBApi.Order.Mifid2DecisionAlgo&nbsp;attributes:</p><ol><li>This field does not need to be reported if you are:<ul><li>Using the TWS API to transmit orders, AND</li><li>The investment decision is always made by the client, AND</li><li>None of these clients are an EEA investment firm with delegated reporting selected (the “delegated reporting firm”).</li></ul><p>You can configure the preset to indicate this via TWS Global Configuration using the Orders &gt; MiFIR page. In this scenario, the orders for the proprietary account will need to be placed via TWS.</p></li><li>If you are using the TWS API to transmit orders, and the investment decision is made by a person, or a group of people within a delegated reporting firm, with one person being the primary decision maker:<ul><li>Your TWS API program can, on each order, transmit a decision maker’s IB-assigned short code using the field&nbsp;IBApi.Order.Mifid2DecisionMaker. You can define persons who can be the decision-makers via IB Account Management. To obtain the short codes that IB assigned to those persons, please contact IB Client Services.</li><li>If your TWS API program is unable to transmit the above field, and the investment decision is either made by, or approved by, a single person who can be deemed to be the primary investment decision maker, you can pre-configure a default investment decision-maker that will be used for orders where the above fields are not present. You must define the investment decision-maker(s) in IB Account Management, and can then configure the default investment decision-maker in TWS Global Configuration using the Orders &gt; MiFIR page.</li></ul></li><li>If you are using the TWS API to transmit orders and the investment decision is made by an algorithm:<ul><li>Your TWS API program can, on each order, transmit a decision maker’s IB-assigned short code using the field&nbsp;IBApi.Order.Mifid2DecisionAlgo. You can define algorithms that can be the decision-makers via IB Account Management. To obtain the short codes that IB assigned to those persons, please contact IB Client Services.</li><li>If your TWS API program is unable to transmit the above field, and/or the investment decision is made by a single or primary decision-maker algorithm, you can pre-configure a default investment decision-maker algo that will be used for orders where the above field is not sent. You must define the investment decision-maker(s) in IB Account Management, and can then configure the default investment decision-maker in TWS Global Configuration using the Orders &gt; MiFIR page.<p><em>NOTE: Only ONE investment decision-maker, either a primary person or algorithm, should be provided on an order, or selected as the default.</em></p></li></ul></li></ol><p>The following choices are available for “execution within the firm”&nbsp;IBApi.Order.Mifid2ExecutionTrader&nbsp;and&nbsp;IBApi.Order.Mifid2ExecutionAlgo&nbsp;attributes:</p><ol type="1"><li>No additional information is needed if you are using the TWS API to transmit orders entered in a third-party trading interface, and you are the trader responsible for execution within the firm.</li><li>If your TWS API program transmits orders to IB automatically without human intervention, please contact&nbsp;<b>IB Client Services</b>&nbsp;to register the program or programs with IB as an algo. Only the primary program or algo needs to be registered and identified. You can then configure the default in TWS Global Configuration using the Orders &gt; MiFIR page.</li><li>Your TWS API program, on each order, can transmit the IB-assigned short code of the algo or person responsible for execution within the firm using the field&nbsp;IBApi.Order.Mifid2ExecutionAlgo&nbsp;(for the algorithm) or&nbsp;IBApi.Order.Mifid2ExecutionTrader&nbsp;(for the person).</li></ol><p>For more information, or to obtain short codes for persons or algos defined in IB Account Management, please contact IB Client Services.</p><p>To find out more about the MiFIR transaction reporting obligations, see the&nbsp;<a class="linkexternal" href="https://ibkr.info/node/2975" target="_blank" rel="noopener">MiFIR Enriched and Delegated Transaction Reporting for EEA Investment Firms</a>&nbsp;knowledge base article.</p></div>
+  </body>
+</html>
