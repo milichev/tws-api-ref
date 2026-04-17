@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ProtoBuf Reference</title>
+    <style>body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+</style>
+  </head>
+  <body>
+    <div class="col-12 page-content" data-bs-spy="scroll" data-bs-target="#sidemenu-nav" data-bs-offset="0" tabindex="0"><section id="intro" class="api-block-1"><h2 class="section-title-1">Introduction</h2><div class="row"><p>Beginning with TWSAPI version 10.35.01, Interactive Brokers has begun to produce the TWS API using Google’s Protocol Buffer. As a result, many new objects are produced using protocol buffer classes directly that developers will need to utilize and understand in order to produce effective code that can access all systems provided by the TWSAPI.</p></div><div class="row"><p>Users unfamiliar with Protocol Buffers should visit the official development page for more insight on what it is, what it may offer, and context for the built-in systems it provides.</p> <a href="https://protobuf.dev/" target="_blank" class="btn btn-xl btn-success btn-block">Protocol Buffer Documentatino</a></div></section><section id="functions" class="api-block-1"><h2 class="section-title-1">Important Protobuf Functions</h2><div class="row"><p>When interacting directly with protobuf classes, proto-specific functions need to be used.</p></div></section><section id="copy-from" class="api-block-2"><h3 class="section-title-2">CopyFrom</h3><div class="row"><h4>CopyFrom</h4><p>A standard method of the Message class of protobuf. Is used to copy items in a field from one object to another.<br> See <a href="https://protobuf.dev/getting-started/pythontutorial/#:~:text=the%20value%202.-,Standard%20Message%20Methods,-Each%20message%20class">See Details</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">apiConfigProto = ApiConfigProto()
+apiSettingsConfigProto = ApiSettingsConfigProto()
+
+apiSettingsConfigProto.createApiMessageLogFile = True
+apiSettingsConfigProto.includeMarketDataInLogFile = True
+apiSettingsConfigProto.loggingLevel = "Detail"
+        
+apiConfigProto.settings.CopyFrom(apiSettingsConfigProto)</pre><p>&nbsp;</p></div></div></div></section><section id="api-config" class="api-block-1"><h2 class="section-title-1">ApiConfig</h2><div class="row"><div><div><strong>precautions:</strong> <code>ApiPrecautionsConfig</code> –&nbsp; &nbsp;Container Object for API precautionary settings.</div><div><div><div><strong>settings:</strong> <code>ApiSettingsConfig</code> – Container object for API settings.</div></div></div></div><pre class="EnlighterJSRAW" data-enlighter-language="generic">apiConfig = ApiConfig()
+apiConfig.precautions = ApiPrecautionsConfig()
+apiConfig.settings = ApiSettingsConfig()</pre><p>&nbsp;</p></div></section><section id="api-settings-config" class="api-block-1"><h2 class="section-title-1">ApiSettingsConfig</h2><div class="row"><p><strong>totalQuantityForMutualFunds</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the display of total quantity instead of monetary value for mutual fund positions.</p><p><strong>downloadOpenOrdersOnConnection</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically downloads all open orders when the API client establishes a connection to TWS.</p><p><strong>includeVirtualFxPositions</strong>:&nbsp;<code>Boolean</code>&nbsp;– Includes virtual foreign exchange positions in position updates sent to the API client.</p><p><strong>prepareDailyPnL</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the calculation and delivery of daily profit and loss data to the API client.</p><p><strong>sendStatusUpdatesForVolatilityOrders</strong>:&nbsp;<code>Boolean</code>&nbsp;– Configures the system to send status updates for orders with volatility-based parameters.</p><p><strong>encodeApiMessages</strong>:&nbsp;<code>String</code>&nbsp;– Specifies the character encoding format used for API message transmission (e.g., “osCodePage”).</p><p><strong>socketPort</strong>:&nbsp;<code>Integer</code>&nbsp;– Defines the TCP socket port number on which the API listens for incoming client connections.</p><p><strong>useNegativeAutoRange</strong>:&nbsp;<code>Boolean</code>&nbsp;– Allows the use of negative values in automatic range calculations for order parameters.</p><p><strong>createApiMessageLogFile</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the creation of a log file that records all API message traffic.</p><p><strong>includeMarketDataInLogFile</strong>:&nbsp;<code>Boolean</code>&nbsp;– Controls whether market data messages are included in the API message log file.</p><p><strong>exposeTradingScheduleToApi</strong>:&nbsp;<code>Boolean</code>&nbsp;– Makes trading schedule information available to API clients for contract and exchange queries.</p><p><strong>splitInsuredDepositFromCashBalance</strong>:&nbsp;<code>Boolean</code>&nbsp;– Separates insured deposit amounts from the total cash balance in account value reports.</p><p><strong>sendZeroPositionsForTodayOnly</strong>:&nbsp;<code>Boolean</code>&nbsp;– Limits the transmission of zero-quantity positions to only those closed during the current trading day.</p><p><strong>useAccountGroupsWithAllocationMethods</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the use of account groups when applying order allocation methods across multiple accounts.</p><p><strong>loggingLevel</strong>:&nbsp;<code>String</code>&nbsp;– Sets the verbosity level for API logging output (e.g., “error”, “warning”, “info”, “debug”).</p><p><strong>masterClientId</strong>:&nbsp;<code>Integer</code>&nbsp;– Designates a specific client ID as the master client with elevated privileges for API operations.</p><p><strong>bulkDataTimeout</strong>:&nbsp;<code>Integer</code>&nbsp;– Specifies the timeout duration in seconds for bulk data request operations.</p><p><strong>componentExchSeparator</strong>:&nbsp;<code>String</code>&nbsp;– Defines the character used to separate component exchange identifiers in composite contract symbols.</p><p><strong>roundAccountValuesToNearestWholeNumber</strong>:&nbsp;<code>Boolean</code>&nbsp;– Rounds all account value figures to the nearest whole number for simplified display.</p><p><strong>showAdvancedOrderRejectInUi</strong>:&nbsp;<code>Boolean</code>&nbsp;– Displays detailed order rejection messages in the TWS user interface for troubleshooting purposes.</p><p><strong>rejectMessagesAboveMaxRate</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically rejects API messages that exceed the configured maximum message rate threshold.</p><p><strong>maintainConnectionOnIncorrectFields</strong>:&nbsp;<code>Boolean</code>&nbsp;– Preserves the API connection even when requests contain incorrect or invalid field values.</p><p><strong>compatibilityModeNasdaqStocks</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables legacy compatibility mode for NASDAQ stock symbol formatting and handling.</p><p><strong>sendInstrumentTimezone</strong>:&nbsp;<code>String</code>&nbsp;– Specifies the timezone format for instrument trading hours and schedule data (e.g., “utc”, “exchange”).</p><p><strong>sendForexDataInCompatibilityMode</strong>:&nbsp;<code>Boolean</code>&nbsp;– Transmits foreign exchange market data using legacy format for backward compatibility with older API clients.</p><p><strong>maintainAndResubmitOrdersOnReconnect</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically preserves and resubmits active orders when the API client reconnects after a disconnection.</p><p><strong>historicalDataMaxSize</strong>:&nbsp;<code>Integer</code>&nbsp;– Sets the maximum size level for historical data requests to control bandwidth and processing requirements.</p><p><strong>autoReportNettingEventContractTrades</strong>:&nbsp;<code>Boolean</code>&nbsp;– Automatically reports trades generated by netting events for contract position reconciliation.</p><p><strong>optionExerciseRequestType</strong>:&nbsp;<code>String</code>&nbsp;– Determines the type of option exercise requests accepted by the system (e.g., “final”, “preliminary”).</p><p><strong>trustedIPs</strong>:&nbsp;<code>List&lt;String&gt;</code>&nbsp;– Contains a collection of IP addresses that are authorized to establish API connections without additional authentication.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">apiSettingsConfigProto = ApiSettingsConfigProto()
+apiSettingsConfigProto.totalQuantityForMutualFunds = True
+apiSettingsConfigProto.downloadOpenOrdersOnConnection = True
+apiSettingsConfigProto.includeVirtualFxPositions = True
+apiSettingsConfigProto.prepareDailyPnL = True
+apiSettingsConfigProto.sendStatusUpdatesForVolatilityOrders = True
+apiSettingsConfigProto.encodeApiMessages = "osCodePage"
+apiSettingsConfigProto.socketPort = 7497
+apiSettingsConfigProto.useNegativeAutoRange = True
+apiSettingsConfigProto.createApiMessageLogFile = True
+apiSettingsConfigProto.includeMarketDataInLogFile = True
+apiSettingsConfigProto.exposeTradingScheduleToApi = True
+apiSettingsConfigProto.splitInsuredDepositFromCashBalance = True
+apiSettingsConfigProto.sendZeroPositionsForTodayOnly = True
+apiSettingsConfigProto.useAccountGroupsWithAllocationMethods = True
+apiSettingsConfigProto.loggingLevel = "error"
+apiSettingsConfigProto.masterClientId = 3
+apiSettingsConfigProto.bulkDataTimeout = 25
+apiSettingsConfigProto.componentExchSeparator = "#"
+apiSettingsConfigProto.roundAccountValuesToNearestWholeNumber = True
+apiSettingsConfigProto.showAdvancedOrderRejectInUi = True
+apiSettingsConfigProto.rejectMessagesAboveMaxRate = True
+apiSettingsConfigProto.maintainConnectionOnIncorrectFields = True
+apiSettingsConfigProto.compatibilityModeNasdaqStocks = True
+apiSettingsConfigProto.sendInstrumentTimezone = "utc"
+apiSettingsConfigProto.sendForexDataInCompatibilityMode = True
+apiSettingsConfigProto.maintainAndResubmitOrdersOnReconnect = True
+apiSettingsConfigProto.historicalDataMaxSize = 4
+apiSettingsConfigProto.autoReportNettingEventContractTrades = True
+apiSettingsConfigProto.optionExerciseRequestType = "final"
+apiSettingsConfigProto.trustedIPs.append("127.0.0.1")</pre><p>&nbsp;</p></div></section><section id="config-request" class="api-block-1"><h2 class="section-title-1">ConfigRequest</h2><div class="row"><p>reqId: <code>Integer</code> – Request identifier</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">configRequest = ConfigRequest()
+configRequest.reqId = 123</pre><p>&nbsp;</p></div></section><section id="config-response" class="api-block-1"><h2 class="section-title-1">ConfigResponse</h2><div class="row"><p><strong>reqId</strong>:&nbsp;<code>Integer</code> – Request identifier</p><p><strong>lockAndExit</strong>:&nbsp;<code>LockAndExitConfig</code>– Container object for all Lock And Exit Configurations.</p><p><strong>messages</strong>:&nbsp;<code>MessageConfig</code>– Container object for repeated message objects.</p><p><strong>api</strong>:&nbsp;<code>ApiConfig</code> – Container object for API Configuration page details</p><p><strong>orders</strong>:&nbsp;<code>OrdersConfig</code>– Container object for the Orders settings.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">reqId: 1784381601
+lockAndExit {
+  autoLogoffTime: "12:07"
+  autoLogoffPeriod: "AM"
+  autoLogoffType: "restart"
+}
+messages {
+  id: 3
+  title: "Simultaneous market data limit exceeded"
+  message: "&lt;html&gt;You have requested data for %s instruments simultaneously, which exceeds your current account limit of %s&lt;br&gt;lines of simultaneous market data. You can increase your data limit by subscribing to market data &lt;a href=\'#action\'&gt;Booster packs&lt;/a&gt;%s&lt;/html&gt;"
+  defaultAction: "Hidden"
+  enabled: false
+}
+...
+messages {
+  id: 11001
+  title: "Exchange-specific warning: LMTDOWN"
+  defaultAction: "Hidden"
+  enabled: true
+}
+api {
+  precautions {
+    bypassOrderPrecautions: true
+    ...
+    bypassRouteMarketableToBBO: false
+  }
+  settings {
+    readOnlyApi: false
+    totalQuantityForMutualFunds: false
+    ...
+    allowLocalhostOnly: false
+    trustedIPs: "127.0.0.1"
+  }
+}
+orders {
+  smartRouting {
+    seekPriceImprovement: false
+    doNotRouteToDarkPools: false
+    defaultAlgorithm: "SMART"
+  }
+}</pre><p>&nbsp;</p></div></section><section id="lock-and-exit" class="api-block-1"><h2 class="section-title-1">LockAndExit</h2><div class="row"><p><strong>autoLogoffTime:</strong> <code>String</code> – Time the system should automatically logout or shut down.</p><p><strong>autoLogoffPeriod:</strong> <code>String</code> – Declare autoLogoffTime as AM or PM.</p><p><strong>autoLogoffType:</strong> <code>String</code> – Declare if platform should logout or restart and continue running.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">lockAndExitProto = LockAndExitConfigProto()
+lockAndExitProto.autoLogoffTime = "11:59"
+lockAndExitProto.autoLogoffPeriod = "PM"
+lockAndExitProto.autoLogoffType = "restart"</pre><p>&nbsp;</p></div></section><section id="message-config" class="api-block-1"><h2 class="section-title-1">MessageConfig</h2><div class="row"><p><strong>id</strong>:&nbsp;<code>Integer</code>&nbsp;– Unique identifier that specifies the particular message type or category to be configured.</p><p><strong>enabled</strong>:&nbsp;<code>Boolean</code>&nbsp;– Controls whether the specified message type is active and will be transmitted to the API client.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">messageConfigProto.id&nbsp;=&nbsp;131
+messageConfigProto.enabled = False</pre><p>&nbsp;</p></div></section><section id="orders-config" class="api-block-1"><h2 class="section-title-1">OrdersConfig</h2><div class="row"><p><strong>smartRouting</strong>:&nbsp;<code>OrdersSmartRoutingConfig</code>&nbsp;– Container object declaring how Smart Routed orders should behave.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">ordersConfig = OrdersConfig()
+ordersConfig.smartRouting = OrdersSmartRoutingConfig()</pre><p>&nbsp;</p></div></section><section id="order-smart-routing-config" class="api-block-1"><h2 class="section-title-1">OrdersSmartRoutingConfig</h2><div class="row"><p><strong>seekPriceImprovement</strong>:&nbsp;<code>Boolean</code>&nbsp;– Enables the smart routing algorithm to actively search for better execution prices across available market venues.</p><p><strong>doNotRouteToDarkPools</strong>:&nbsp;<code>Boolean</code>&nbsp;– Prevents the smart routing system from directing orders to dark pool venues for execution.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">ordersSmartRoutingConfigProto.seekPriceImprovement = True
+ordersSmartRoutingConfigProto.doNotRouteToDarkPools = True</pre><p>&nbsp;</p></div></section><section id="update-config-request" class="api-block-1"><h2 class="section-title-1">UpdateConfigRequest</h2><div class="row"><p><strong>reqId</strong>:&nbsp;<code>Integer</code> – Request identifier</p><p><strong>lockAndExit</strong>:&nbsp;<code>LockAndExitConfig</code>– Container object for all Lock And Exit Configurations.</p><p><strong>messages</strong>:&nbsp;<code>MessageConfig</code>– Container object for repeated message objects.</p><p><strong>api</strong>:&nbsp;<code>ApiConfig</code> – Container object for API Configuration page details</p><p><strong>orders</strong>:&nbsp;<code>OrdersConfig</code>– Container object for the Orders settings.</p><p><strong>acceptedWarnings</strong>:&nbsp;<code>UpdateConfigWarning</code>– Container object for repeated warning objects</p><p><strong>resetApiOrderSequence</strong>:&nbsp;<code>Boolean</code> – Determine if the Order ID sequence should be reset to 0.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">updateConfigRequest = UpdateConfigRequest()
+updateConfigRequest.reqId = 123
+updateConfigRequest.lockAndExit = LockAndExitConfig
+updateConfigRequest.messages = MessageConfig
+updateConfigRequest.api = ApiConfig
+updateConfigRequest.orders = OrdersConfig
+updateConfigRequest.acceptedWarnings = UpdateConfigWarning
+updateConfigRequest.resetApiOrderSequence = True</pre><p>&nbsp;</p></div></section><section id="update-config-response" class="api-block-1"><h2 class="section-title-1">UpdateConfigResponse</h2><div class="row"><p><strong>reqId:</strong> <code>Integer</code> – Request identifier<br> <strong>status:</strong> <code>String</code> – Status of the request for modification.<br> <strong>message:</strong> <code>String</code> – Response message about the changes. Successful changes will return “Configuration updated”.<br> <strong>changedFields:</strong> <code>String</code> – List of fields changed by the updateConfigProtoBuf request.<br> <strong>errors:</strong> <code>String</code> – Any errors that arose during setting changes.<br> <strong>warnings:</strong> <code>UpdateConfigWarning</code> – Any additional warnings that arose from changing settings.</p><p>Success:</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">reqId: 1784381601
+status: "success"
+message: "Configuration updated"
+changedFields: "configuration.api.settings.createApiMessageLogFile"
+changedFields: "configuration.api.settings.includeMarketDataInLogFile"
+changedFields: "configuration.api.settings.loggingLevel"</pre><p>Failed:</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">reqId: 1784381601
+status: "error"
+message: "Validating configuration update request has failed"
+errors: "configuration.lockAndExit.autoLogoffTime"
+errors: "configuration.lockAndExit.autoLogoffPeriod"
+errors: "configuration.lockAndExit.autoLogoffType"</pre><p>&nbsp;</p></div></section><section id="update-config-warning" class="api-block-1"><h2 class="section-title-1">UpdateConfigWarning</h2><div class="row"><p><strong>messageId</strong>:&nbsp;<code>Integer</code>&nbsp;– Unique identifier that specifies the particular message type or category to be configured.</p><p><strong>title</strong>:&nbsp;<code>String</code> – Title of the warning message</p><p><strong>message</strong>:&nbsp;<code>String</code> – The content of the warning message.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">updateConfigWarning = UpdateConfigWarning()
+updateConfigWarning.messageId = 131
+messageConfigProto.enabled = False
+messageConfigProto.enabled = False</pre><p>&nbsp;</p></div></section></div>
+  </body>
+</html>

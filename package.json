@@ -29,6 +29,7 @@
     "@types/turndown": "^5.0.6",
     "cheerio": "^1.2.0",
     "domhandler": "^6.0.1",
+    "handlebars": "^4.7.9",
     "tsx": "^4.21.0",
     "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2"
