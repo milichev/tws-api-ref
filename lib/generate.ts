@@ -9,6 +9,7 @@ import {
   splitHtml,
 } from "./splitHtml";
 import { resolveLinks } from "./resolveLinks";
+import { makeMarkdown } from "./makeMarkdown";
 
 export const OUTPUT_DIR = path.join(REPO_ROOT, "out");
 export const MD_OUT_DIR = path.join(REPO_ROOT, "md-out");
@@ -104,4 +105,4 @@ const indexHtml = pageTpl({
 
 writeFile("index.html", indexHtml, OUTPUT_DIR);
 
-// await makeMarkdown();
+await makeMarkdown();

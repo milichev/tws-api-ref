@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -20,6 +25,13 @@
     "useDefineForClassFields": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["lib"],
-  "exclude": ["node_modules", ".pnpm", "**/node_modules", "**/.pnpm"]
+  "include": [
+    "lib"
+  ],
+  "exclude": [
+    "node_modules",
+    ".pnpm",
+    "**/node_modules",
+    "**/.pnpm"
+  ]
 }

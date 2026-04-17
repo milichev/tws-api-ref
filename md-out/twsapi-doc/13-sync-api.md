@@ -1,0 +1,77 @@
+*   [TWS API](../index.md)
+*   [TWS API Documentation](index.md)
+*   [13 Synchronous API](13-sync-api.md)
+
+## Synchronous API
+
+With the release of TWS API 10.40, Interactive Brokers has introduced the Synchronous API Wrapper class. This class provides a synchronous API structure, combining the functionality of EClient and EWrapper into a beginner-friendly interface.
+
+The current release is still in a Beta state, slowly rolling out only a portion of what is available in the larger Trader Workstation API configuration. The interface is exclusively available through the _Python_ programming language.
+
+The content shown here is an example of what the Sync Wrapper structure looks like. A larger example of all current functionality is available in the 10.40 release of the TWS API under `{TWS API}/samples/Python/Testbed/sync_test.py` .
+
+## 13 Synchronous API
+
+\# Import our Sync Wrapper and Contract objects
+    from ibapi.sync\_wrapper\_alt import \*
+    from datetime import datetime
+    
+    # Instantiate the reference for our sync class
+    app = TWSSyncWrapper(timeout=30)
+    
+    # make a connection to Trader Workstation
+    # In this case, we're connecting on Localhost with port 7496 and Client ID 0.
+    if not app.connect\_and\_start(host="127.0.0.1", port=7496, client\_id=8675309):
+        print("Failed to connect to TWS")
+        exit(1)
+    else:
+        print("Connected to TWS")
+     
+    # Create a contract class reference.
+    # In our case, we'll be testing with AAPL.
+    contract = Contract()
+    contract.symbol = "AAPL"
+    contract.secType = "STK"
+    contract.exchange = "SMART"
+    contract.primaryExchange = "ISLAND"
+    contract.currency = "USD"
+    
+    '''
+    Contract details requests will return all contracts the match the details
+    of our contract object in a list. Because a list is returned, we are 
+    taking the first (or 0 index) contract returned. 
+    '''
+    aapl\_contract = app.get\_contract\_details(contract)\[0\].contract
+    print(aapl\_contract)
+    
+    market\_data = app.get\_market\_data\_snapshot(aapl\_contract)
+    
+    order = Order()
+    order.action = "BUY"
+    order.orderType = "LMT"
+    order.totalQuantity = 100
+    order.lmtPrice = 258
+    
+    order\_status = app.place\_order\_sync(contract, order)
+    oid = order\_status\["orderId"\]
+    
+    print(app.get\_open\_orders()\[oid\]\['orderState'\].status)
+    
+    print(app.cancel\_order\_sync(oid, OrderCancel()))
+    
+    app.disconnect\_and\_stop()
+    exit()
+
+#### Response Sample
+
+ERROR -1 1761170335710 2104 Market data farm connection is OK:usbond
+    ERROR -1 1761170335711 2104 Market data farm connection is OK:usfarm.nj
+    ERROR -1 1761170335712 2104 Market data farm connection is OK:eufarm
+    ERROR -1 1761170335712 2104 Market data farm connection is OK:usfarm
+    ERROR -1 1761170335712 2106 HMDS data farm connection is OK:ushmds
+    ERROR -1 1761170335713 2158 Sec-def data farm connection is OK:secdefil
+    Connected to TWS
+    ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: SMART, PrimaryExchange: ISLAND, Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:
+    {'price': {1: {'price': 258.5, 'attrib': 2076793531408: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 2: {'price': 258.65, 'attrib': 2076793531536: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 4: {'price': 258.62, 'attrib': 2076793531600: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 6: {'price': 262.85, 'attrib': 2076793531856: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 7: {'price': 255.43, 'attrib': 2076793531920: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 9: {'price': 262.77, 'attrib': 2076793531984: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 14: {'price': 262.74, 'attrib': 2076793532048: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}}, 'size': {0: Decimal('1'), 3: Decimal('5'), 5: Decimal('3'), 8: Decimal('449348')}}
+    PreSubmitted
+    {'orderId': 358, 'status': 'PreSubmitted', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 1054257323, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}
