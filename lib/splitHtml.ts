@@ -1,58 +1,32 @@
 import type { Cheerio, CheerioAPI } from "cheerio";
 import type { AnyNode } from "domhandler";
 import { pageTpl, writeFile } from "./utils";
+import { type Chapter, type Breadcrumb } from "./generate";
 
-export type Section = {
-  title: string;
-  level: number;
-  num?: string;
-  slug: string;
-  /** clone of the source elements to make manipulation pure */
-  content: Cheerio<AnyNode>;
-  children: Section[];
-  fileName?: string;
-  pageName?: string;
-};
-
-export type Breadcrumb = Pick<Section, "title" | "fileName" | "num">;
+export type HtmlContent = Cheerio<AnyNode>;
 
 /**
- * Sets filenames for all sections in the tree.
+ * Sets filenames for all chapters in the tree.
  */
-export function assignFilenames(
-  list: Section[],
-  pageName: string,
-  parentPrefix = "",
-) {
-  list.forEach((s, i) => {
-    const pos = (i + 1).toString().padStart(2, "0");
-    s.num = parentPrefix ? `${parentPrefix}.${pos}` : pos;
-    s.fileName = `${s.num}-${s.slug}.html`;
-    s.pageName = pageName;
-    if (s.children.length > 0) {
-      assignFilenames(s.children, pageName, s.num);
-    }
-  });
-}
 
 export async function splitHtml({
   $,
-  sections,
+  chapters,
   outDir,
-  pageName,
+  sectionName,
   title,
   breadcrumb,
 }: {
   $: CheerioAPI;
-  sections: Section[];
+  chapters: Chapter<HtmlContent>[];
   outDir: string;
-  pageName: string;
+  sectionName: string;
   title: string;
-  breadcrumb: Breadcrumb[];
+  breadcrumb: Breadcrumb<HtmlContent>[];
 }) {
-  console.log(`Splitting sections for ${pageName}...`);
+  console.log(`Splitting ${sectionName} into chapters...`);
 
-  function process(list: Section[]) {
+  function process(list: Chapter<HtmlContent>[]) {
     list.forEach((s) => {
       const fileName = s.fileName!;
 
@@ -60,13 +34,13 @@ export async function splitHtml({
       const $content = s.content;
       const hTag = `h${s.level + 1}`;
       const hTitle = $content.find("h2, h3, h4").first();
-      const actualTitle = `${s.num} ${s.title}`;
+      const actualTitle = `${s.pos} ${s.title}`;
 
       hTitle.replaceWith(`<${hTag} id="${s.slug}">${actualTitle}</${hTag}>`);
 
-      breadcrumb.push({ title: actualTitle, fileName, num: s.num });
+      breadcrumb.push({ title: actualTitle, fileName });
       const fileHtml = pageTpl({
-        layout: "layout-chapter",
+        layout: "layout-chapter-html",
         title: actualTitle,
         breadcrumb,
         content: $.html(s.content),
@@ -81,14 +55,14 @@ export async function splitHtml({
     });
   }
 
-  breadcrumb.push({ title, fileName: "index.html", num: "" });
+  breadcrumb.push({ title, fileName: "index.html" });
 
-  process(sections);
+  process(chapters);
 
   const indexHtml = pageTpl({
-    title: `${title}: Index`,
+    title,
     layout: "layout-index",
-    children: sections,
+    children: chapters,
     breadcrumb,
   });
 

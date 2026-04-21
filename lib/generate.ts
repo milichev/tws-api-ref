@@ -1,108 +1,151 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fetchPage } from "./fetchPage";
+import { fetchIbkrSection } from "./fetchIbkrPage";
 import { pageTpl, REPO_ROOT, writeFile } from "./utils";
-import {
-  type Breadcrumb,
-  type Section,
-  assignFilenames,
-  splitHtml,
-} from "./splitHtml";
-import { resolveLinks } from "./resolveLinks";
 import { makeMarkdown } from "./makeMarkdown";
+import { fetchCtx7Section } from "./fetchCtx7Page";
+import { relinkIbkrSections } from "./relinkIbkrSections";
 
-export const OUTPUT_DIR = path.join(REPO_ROOT, "out");
-export const MD_OUT_DIR = path.join(REPO_ROOT, "md-out");
+export const HTML_DIR = path.join(REPO_ROOT, "html");
+export const SKILL_DIR = path.join(REPO_ROOT, "skill");
+
+[HTML_DIR, SKILL_DIR].forEach((dir) => {
+  if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
+});
+
 export const SKILL_TPL = path.join(REPO_ROOT, "templates/SKILL.md");
 
-export type PageInfo = ReturnType<typeof getPageInfos>[number];
+export type SectionUrls = typeof SECTION_URLS;
+export type SectionName = SectionUrls[number]["name"];
+export type SourceType = keyof typeof InTypeMap;
 
-const PAGE_URLS = {
-  "twsapi-doc": "https://ibkrcampus.com/campus/ibkr-api-page/twsapi-doc/",
-  "twsapi-ref": "https://ibkrcampus.com/campus/ibkr-api-page/twsapi-ref/",
-  "protobuf-ref":
-    "https://ibkrcampus.com/campus/ibkr-api-page/protobuf-reference/",
+export type SectionInfo = {
+  [K in SourceType]: {
+    name: SectionName;
+    type: K;
+    url: string;
+    dir: string;
+    file: string;
+    imageDir: string;
+  };
+}[SourceType];
+
+export type FetchInfo = (typeof fetchInfos)[number];
+export type IbkrFetchInfo = Extract<FetchInfo, { type: "ibkr" }>;
+export type Ctx7FetchInfo = Extract<FetchInfo, { type: "ctx7" }>;
+
+export type Chapter<Content> = {
+  sectionName: SectionName;
+  title: string;
+  fileName?: string;
+  level: number;
+  num?: number;
+  pos?: string;
+  content: Content;
+  children: Chapter<Content>[];
+  slug: string;
+  sourceLink?: string;
 };
 
-function getPageInfos(urls: Record<string, string>) {
-  return Object.entries(urls).map(([name, url]) => {
-    const pageDir = path.join(OUTPUT_DIR, name);
-    const imageDir = path.join(pageDir, "images");
-    const srcFilename = `${name}.src.html`;
-    return {
-      name,
-      url,
-      pageDir,
-      imageDir,
-      srcFilename,
-    };
-  });
+export type SlugMap = Map<
+  string,
+  { title: string; fileName: string; sectionName: SectionName }
+>;
+
+export type Breadcrumb<Content> = Pick<Chapter<Content>, "title" | "fileName">;
+
+export interface TocItem {
+  title: string;
+  fileName: string;
+  num: number;
+  pos: string;
 }
 
-function recreateOutDirs() {
-  [OUTPUT_DIR, MD_OUT_DIR].forEach((dir) => {
-    if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
-    fs.mkdirSync(dir, { recursive: true });
-  });
-}
+const InTypeMap = {
+  ibkr: { ext: "html", out: HTML_DIR, fetch: fetchIbkrSection },
+  ctx7: {
+    ext: "md",
+    out: path.join(SKILL_DIR, "docs"),
+    fetch: fetchCtx7Section,
+  },
+} as const;
 
-const pageInfos = getPageInfos(PAGE_URLS);
+export const IBKR_CAMPUS = "https://ibkrcampus.com/campus/ibkr-api-page";
 
-recreateOutDirs();
+const SECTION_URLS = [
+  {
+    type: "ibkr",
+    name: "twsapi-doc",
+    instruction: "TODO: when to use this docs",
+  },
+  {
+    type: "ibkr",
+    name: "twsapi-ref",
+    instruction: "TODO: when to use this docs",
+  },
+  {
+    type: "ibkr",
+    name: "protobuf-reference",
+    instruction: "TODO: when to use this docs",
+  },
+  {
+    type: "ctx7",
+    name: "ib-async",
+    instruction: "TODO: when to use this docs",
+    url: "https://context7.com/websites/ib-api-reloaded_github_io_ib_async/llms.txt?tokens=100000",
+  },
+] as const;
 
-const fetchInfos = await Promise.all(pageInfos.map(fetchPage));
-
-// 1. Assign filenames to all sections
-fetchInfos.forEach((info) => {
-  assignFilenames(info.sections, info.name);
+const sectionInfos = SECTION_URLS.map((info): SectionInfo => {
+  const { out, ext } = InTypeMap[info.type];
+  const dir = path.join(out, info.name);
+  const url = info.type === "ibkr" ? `${IBKR_CAMPUS}/${info.name}` : info.url;
+  return {
+    type: info.type,
+    name: info.name,
+    url,
+    dir,
+    file: `${info.name}.${ext}`,
+    imageDir: path.join(dir, "images"),
+  };
 });
 
-// 2. Build global slug map
-const slugMap = new Map<string, { pageName: string; fileName: string }>();
-
-function collectSlugs(sections: Section[]) {
-  sections.forEach((s) => {
-    if (s.slug) {
-      slugMap.set(s.slug, { pageName: s.pageName!, fileName: s.fileName! });
+const fetchInfos = await Promise.all(
+  sectionInfos.map((info) => {
+    console.info(`Fetching page: ${info.name} from ${info.url}...`);
+    switch (info.type) {
+      case "ibkr":
+        return fetchIbkrSection(info);
+      case "ctx7":
+        return fetchCtx7Section(info);
     }
-    if (s.children.length > 0) collectSlugs(s.children);
-  });
-}
+  }),
+);
 
-fetchInfos.forEach((info) => collectSlugs(info.sections));
-
-// 3. Resolve links using the global map and defined URLs
-fetchInfos.forEach((info) => {
-  resolveLinks(info.$, info.sections, slugMap, PAGE_URLS);
-});
-
-const title = "TWS API";
-const breadcrumb: Breadcrumb[] = [
-  { title, fileName: "../index.html", num: "" },
+const title = "IBKR TWS API";
+const breadcrumb: Breadcrumb<unknown>[] = [
+  { title, fileName: "../index.html" },
 ];
 
-// 4. Split and write files
-for (const info of fetchInfos) {
-  await splitHtml({
-    $: info.$,
-    sections: info.sections,
-    outDir: info.pageDir,
-    pageName: info.name,
-    title: info.title,
-    breadcrumb,
-  });
-}
+await relinkIbkrSections(
+  fetchInfos.filter((s) => s.type === "ibkr") as IbkrFetchInfo[],
+  breadcrumb,
+);
 
 const indexHtml = pageTpl({
   layout: "layout-index",
   title,
-  children: fetchInfos.map((info, i) => ({
-    title: info.title,
-    fileName: `${info.name}/index.html`,
-    num: (i + 1).toString().padStart(2, "0"),
-  })),
+  children: fetchInfos.map(
+    (info, i): TocItem => ({
+      title: info.title,
+      fileName: `${info.name}/index.html`,
+      num: i + 1,
+      pos: `${i + 1}`.padStart(2, "0"),
+    }),
+  ),
 });
 
-writeFile("index.html", indexHtml, OUTPUT_DIR);
+writeFile("index.html", indexHtml, HTML_DIR);
 
 await makeMarkdown();

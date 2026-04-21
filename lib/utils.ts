@@ -8,11 +8,24 @@ export const pageTpl = getTpl("templates/page.html");
 
 H.registerPartial("toc-level", readFile("templates/toc-level.html"));
 H.registerPartial("layout-index", readFile("templates/layout-index.html"));
-H.registerPartial("layout-chapter", readFile("templates/layout-chapter.html"));
-H.registerPartial("breadcrumb", readFile("templates/breadcrumb.html"));
+H.registerPartial(
+  "layout-chapter-html",
+  readFile("templates/layout-chapter.html"),
+);
+H.registerPartial("layout-chapter-md", readFile("templates/layout-chapter.md"));
+H.registerPartial("breadcrumb-html", readFile("templates/breadcrumb.html"));
+H.registerPartial("breadcrumb-md", readFile("templates/breadcrumb.md"));
 
+H.registerHelper(
+  "md-heading",
+  function (level: number, title: string, options: H.HelperOptions) {
+    // TODO: if options.fn exists, return options.fn(this), or should we use SafeString here to avoid escaping?
+    return `${"#".repeat(level + 2)} ${title}`;
+  },
+);
+
+const css = readFile("templates/styles.css");
 H.registerHelper("styles_block", () => {
-  const css = readFile("templates/styles.css");
   return new H.SafeString(`<style>\n${css}\n</style>`);
 });
 

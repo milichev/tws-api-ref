@@ -4,7 +4,7 @@ import path from "node:path";
 import TurndownService from "turndown";
 // @ts-ignore
 import { gfm } from "turndown-plugin-gfm";
-import { MD_OUT_DIR, OUTPUT_DIR, SKILL_TPL } from "./generate";
+import { SKILL_DIR, HTML_DIR, SKILL_TPL } from "./generate";
 
 export async function makeMarkdown() {
   console.log("Converting to Markdown...");
@@ -36,8 +36,8 @@ export async function makeMarkdown() {
   const allMdFiles: { title: string; relPath: string }[] = [];
 
   function processDir(relPath: string) {
-    const srcDir = path.join(OUTPUT_DIR, relPath);
-    const destDir = path.join(MD_OUT_DIR, relPath);
+    const srcDir = path.join(HTML_DIR, relPath);
+    const destDir = path.join(SKILL_DIR, relPath);
 
     if (!fs.existsSync(destDir)) {
       fs.mkdirSync(destDir, { recursive: true });
@@ -62,10 +62,10 @@ export async function makeMarkdown() {
       } else if (entry.name.endsWith(".html")) {
         const html = fs.readFileSync(path.join(srcDir, entry.name), "utf8");
         const $ = loadCheerio(html);
-        
+
         // Use the title from the page or the filename
         const title = $("title").text() || entry.name;
-        
+
         // We only want the main content, but for now we'll take the whole body
         // and let Turndown clean up the crumbs if possible, or we could target a specific selector.
         // Assuming we want to keep the structure the user built in the HTML.
@@ -74,9 +74,9 @@ export async function makeMarkdown() {
 
         const mdFileName = entry.name.replace(".html", ".md");
         const mdDestPath = path.join(destDir, mdFileName);
-        
+
         fs.writeFileSync(mdDestPath, markdown);
-        
+
         if (entry.name !== "index.html") {
           allMdFiles.push({ title, relPath: path.join(relPath, mdFileName) });
         }
@@ -93,7 +93,7 @@ export async function makeMarkdown() {
       .join("\n");
     const skillTpl = fs.readFileSync(SKILL_TPL, "utf8");
     const skillMd = skillTpl.replace("{{TOC}}", tocMd);
-    fs.writeFileSync(path.join(MD_OUT_DIR, "SKILL.md"), skillMd);
+    fs.writeFileSync(path.join(SKILL_DIR, "SKILL.md"), skillMd);
   }
 
   console.log("Markdown conversion complete.");
