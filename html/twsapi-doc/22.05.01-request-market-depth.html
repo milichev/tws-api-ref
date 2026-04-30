@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.05-market-depth.html">22.05 Market Depth (L2)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.05.01-request-market-depth.html">22.05.01 Request Market Depth</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Market Depth</h3><div class="row"><p><span style="color: #ff0000"><strong>Important:</strong> </span>Please note that the languages use different method names for requesting market depth.</p><p>The C# and Visual Basic APIs use&nbsp;<strong>reqMarketDepth()</strong>.</p><p>The Python, Java, and C++ APIs use&nbsp;<strong>reqMktDepth()</strong>.</p></div><div class="row"><h4 id="request-market-depth">22.05.01 Request Market Depth</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract for which the depth is being requested.</p><p><strong>numRows:</strong> int. The number of rows on each side of the order book.</p><p><strong>isSmartDepth:</strong> bool. Flag indicates that this is a Smart-routed market depth request. Supplying true will return data identical to the <a href="https://www.ibkrguides.com/traderworkstation/booktrader.htm">TWS Book Trader</a> while False returns direct routed data similar to the <a href="https://www.ibkrguides.com/traderworkstation/level-ii-market-depth.htm">TWS Market Depth tool</a>.</p><p><strong>mktDepthOptions:</strong> List. Internal use only. Leave an empty array or None type.<br> )</p><p>Requests the contract’s market depth (order book).</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqMktDepth(2001, contract, 5, False, [])</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Market Depth</h3><div class="row"><p><span style="color: #ff0000"><strong>Important:</strong> </span>Please note that the languages use different method names for requesting market depth.</p><p>The C# and Visual Basic APIs use&nbsp;<strong>reqMarketDepth()</strong>.</p><p>The Python, Java, and C++ APIs use&nbsp;<strong>reqMktDepth()</strong>.</p></div><div class="row"><h4 id="request-market-depth">22.05.01 Request Market Depth</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract for which the depth is being requested.</p><p><strong>numRows:</strong> int. The number of rows on each side of the order book.</p><p><strong>isSmartDepth:</strong> bool. Flag indicates that this is a Smart-routed market depth request. Supplying true will return data identical to the <a href="https://www.ibkrguides.com/traderworkstation/booktrader.htm">TWS Book Trader</a> while False returns direct routed data similar to the <a href="https://www.ibkrguides.com/traderworkstation/level-ii-market-depth.htm">TWS Market Depth tool</a>.</p><p><strong>mktDepthOptions:</strong> List. Internal use only. Leave an empty array or None type.<br> )</p><p>Requests the contract’s market depth (order book).</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqMktDepth(2001, contract, 5, False, [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

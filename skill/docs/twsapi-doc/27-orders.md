@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [27-orders.md](27 Orders) -> 
-
- 27 Orders
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [27 Orders](27-orders.md)
 
 
 ## Orders
@@ -49,7 +46,9 @@ Cancels an active order placed by from the same API client ID.
 
 **Note:** API clients cannot cancel individual orders placed by other clients. Only reqGlobalCancel is available.
 
+```python
 self.cancelOrder(orderId, OrderCancel())
+```
 
 ### Cancel All Open Orders
 
@@ -60,7 +59,9 @@ This method will cancel ALL open orders including those placed directly from TWS
 **orderCancel:** orderCancel. An OrderCancel object that can receive the manualOrderCancelTime, manualOrderIndicator, and extOperator fields. See [OrderCancel Reference](../undefined/index.md) for more insight on the OrderCancel class.  
 )
 
+```python
 self.reqGlobalCancel(OrderCancel())
+```
 
 ### Exercise Options
 
@@ -94,7 +95,9 @@ Exercises an options contract.
 
 **Note:** this function is affected by a TWS setting which specifies if an exercise request must be finalized.
 
+```python
 self.exerciseOptions(5003, contract, 1, 1, self.account, 1, "")
+```
 
 ### Minimum Price Increment
 
@@ -121,7 +124,9 @@ Requests details about a given market rule. The market rule for an instrument on
 
 A list of market rule ids can be obtained by invoking [EClient.reqContractDetails](https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details) on a particular contract. The returned market rule ID list will provide the market rule ID for the instrument in the correspond valid exchange list in contractDetails.
 
+```python
 self.reqMarketRule(26)
+```
 
 ### Receive Market Rule
 
@@ -134,10 +139,12 @@ self.reqMarketRule(26)
 
 Returns minimum price increment structure for a particular market rule ID market rule IDs for an instrument on valid exchanges can be obtained from the [contractDetails](https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details) object for that contract
 
+```python
 def marketRule(self, marketRuleId: int, priceIncrements: ListOfPriceIncrements):
 	print("Market Rule ID: ", marketRuleId)
 	for priceIncrement in priceIncrements:
 	print("Price Increment.", priceIncrement)
+```
 
 ### MiFIR Transaction Reporting Fields
 
@@ -211,7 +218,9 @@ An order can be sent to TWS but not transmitted to the IB server by setting the 
 
 Places or modifies an order.
 
+```python
 self.placeOrder(orderId, contract, order)
+```
 
 ### Adding a Profit Taker and Stop Loss
 
@@ -233,6 +242,7 @@ Consider using [EWrapper.NextValidId](../undefined/index.md)
 **PtOrderType** must always be set to “PRESET”.  
 Be sure to review your [Presets in Trader Workstation](/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php) prior to submitting orders as the Profit taker details will mirror these details as set.
 
+```python
 order = Order()
 order.orderId = 10000
 order.action = "BUY"
@@ -243,6 +253,7 @@ order.tif = "DAY"
 
 order.ptOrderType = "PRESET"
 order.ptOrderId = 10001
+```
 
 #### Stop Loss
 
@@ -254,6 +265,7 @@ Consider using [EWrapper.NextValidId](../undefined/index.md)
 **SlOrderType** must always be set to “PRESET”.  
 Be sure to review your [Presets in Trader Workstation](/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php) prior to submitting orders as the Stop loss details will mirror these details as set.
 
+```python
 order = Order()
 order.orderId = 10000
 order.action = "BUY"
@@ -264,6 +276,7 @@ order.tif = "DAY"
 
 order.slOrderType = "PRESET"
 order.slOrderId = 10002
+```
 
 ### Combo Orders
 
@@ -278,6 +291,7 @@ Spreads may be priced on a per-leg basis or a complete order.
 
 Combination orders may be priced per-leg with no more than 2 legs in a [NonGuaranteed](/lib/cstools/faq/#/content/1163249841) order. This is accomplished with the [OrderComboLeg](../undefined/index.md) class and defining a price in each object. The [OrderComboLeg](../undefined/index.md) should then be added to the [Order object’s](../undefined/index.md) [OrderComboLegs](../undefined/index.md) attribute in an array.
 
+```python
 order = Order()
 order.orderType = "LMT"
 
@@ -287,15 +301,18 @@ orderLeg1.price = 222
 orderLeg2 = OrderComboLeg()
 orderLeg2.price = 333
 
-order.orderComboLegs = \[orderLeg2, orderLeg1\]
+order.orderComboLegs = [orderLeg2, orderLeg1]
+```
 
 #### Price Overall Order
 
 To price an overall order, users would only need to define the lmtPrice or auxPrice values within the [Order object](../undefined/index.md) as they would if trading an individual contract.
 
+```python
 order = Order()
 order.orderType = "LMT"
 order.lmtPrice = 555
+```
 
 ### Trading The Overnight Session
 
@@ -305,17 +322,21 @@ In the event a user would like to designate a trade to take place during the Ove
 
 Users that would like to route orders to [Overnight](/en/trading/ordertypes.php?m=overnightTradingModal) without trading during the regular session must set the [Order Object’s](../undefined/index.md) includeOvernight value as True and designate the exchange value as “OVERNIGHT”.
 
+```python
 order = Order()
 order.exchange = "OVERNIGHT"
 order.includeOvernight = True
+```
 
 #### Routing as Overnight+DAY
 
 Users that would like to route orders to [Overnight+DAY](/en/trading/ordertypes.php?m=overnightSmartModal) to trade during the day and the overnight session must set the [Order Object’s](../undefined/index.md) includeOvernight value as True and designate the exchange value as “SMART”.
 
+```python
 order = Order()
 order.exchange = "SMART"
 order.includeOvernight = True
+```
 
 ### Understanding Order Precautions
 
@@ -368,6 +389,7 @@ To place a Pre-Borrow order, users must:
 *   Assign the contract’s security type to “SBL”
 *   Assign the order’s orderType to “MKT”
 
+```generic
 contract = Contract()
 contract.symbol = symbol
 contract.secType = "SBL"
@@ -378,6 +400,7 @@ order = Order()
 order.action = "BUY"
 order.orderType = "MKT"
 order.totalQuantity = quantity
+```
 
 ### Test Order Impact (WhatIf)
 
@@ -389,6 +412,7 @@ For example, most users want to check the margin details or available leverage o
 
 Python:
 
+```python
 def openOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
     print(orderId, contract, order, orderState.initMarginChange) 
 
@@ -399,11 +423,14 @@ order.whatIf = True
 .
 .
 .
-self.placeOrder(order\_id, contract, order)
+self.placeOrder(order_id, contract, order)
+```
 
 Expected output:
 
+```generic
 210 152791428,700,STK,,0,?,,SEHK,,HKD,700,700,False,,,,combo: 210,1,1832692965: MKT BUY 100@0 DAY 12567.5
+```
 
 You can see that 12567.5 is the initMarginChange which matches the Initial Margin Change result shown in TWS Order Ticket Preview.
 

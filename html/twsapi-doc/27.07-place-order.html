@@ -111,12 +111,18 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.07-place-order.html">27.07 Place Order</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Place Order</h3><div class="row"><p>Orders are submitted via the EClient.placeOrder method.</p><p>Immediately after an order is submitted correctly, the TWS will start sending events concerning the order’s activity via <a href="../undefined/index.html">EWrapper.openOrder</a> and <a href="../undefined/index.html">EWrapper.orderStatus</a></p><p>Advisors executing allocation orders will receive execution details and commissions for the allocation order itself. To receive allocation details and commissions for a specific subaccount <a href="../undefined/index.html">EClient.reqExecutions</a> can be used.</p><p>An order can be sent to TWS but not transmitted to the IB server by setting the Order.Transmit flag in the order class to False. Untransmitted orders will only be available within that TWS session (not for other usernames) and will be cleared on restart. Also, they can be cancelled or transmitted from the API but not viewed while they remain in the “untransmitted” state.</p></div><div class="row"><h3 id="place-order">27.07 Place Order</h3><p><strong>id:</strong> int. The order’s unique identifier. If a new order is placed with an order ID less than or equal to the order ID of a previous order an error will occur.</p><p><strong>contract:</strong> Contract. The order’s contract</p><p><strong>order:</strong> Order. The order object.<br> )</p><p>Places or modifies an order.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.placeOrder(orderId, contract, order)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Place Order</h3><div class="row"><p>Orders are submitted via the EClient.placeOrder method.</p><p>Immediately after an order is submitted correctly, the TWS will start sending events concerning the order’s activity via <a href="../undefined/index.html">EWrapper.openOrder</a> and <a href="../undefined/index.html">EWrapper.orderStatus</a></p><p>Advisors executing allocation orders will receive execution details and commissions for the allocation order itself. To receive allocation details and commissions for a specific subaccount <a href="../undefined/index.html">EClient.reqExecutions</a> can be used.</p><p>An order can be sent to TWS but not transmitted to the IB server by setting the Order.Transmit flag in the order class to False. Untransmitted orders will only be available within that TWS session (not for other usernames) and will be cleared on restart. Also, they can be cancelled or transmitted from the API but not viewed while they remain in the “untransmitted” state.</p></div><div class="row"><h3 id="place-order">27.07 Place Order</h3><p><strong>id:</strong> int. The order’s unique identifier. If a new order is placed with an order ID less than or equal to the order ID of a previous order an error will occur.</p><p><strong>contract:</strong> Contract. The order’s contract</p><p><strong>order:</strong> Order. The order object.<br> )</p><p>Places or modifies an order.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.placeOrder(orderId, contract, order)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

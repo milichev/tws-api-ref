@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.03-model-account-update.html">14.03 Account Update by Model</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.03.01-request-model-account-update.html">14.03.01 Requesting Account Update by Model</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Account Update by Model</h3><div class="row"><p>The IBApi.EClient.reqAccountUpdatesMulti can be used in any account structure to create simultaneous account value subscriptions from one or multiple accounts and/or models. As with IBApi.EClient.reqAccountUpdates the data returned will match that displayed within the TWS Account Window.</p></div><div class="row"><h4 id="request-model-account-update">14.03.01 Requesting Account Update by Model</h4><p><strong>reqId:</strong> int. Identifier to label the request</p><p><strong>account:</strong> String. Account values can be requested for a particular account</p><p><strong>modelCode:</strong> String. Values can also be requested for a model</p><p><strong>ledgerAndNLV:</strong> bool. returns light-weight request; only currency positions as opposed to account values and currency positions</p><p>)</p><p>Requests account updates for account and/or model.</p><p>IBApi.EClient.reqAccountUpdatesMulti cannot be used with Account=”All” in IBroker accounts with more than 50 subaccounts.</p><p>A profile name can be accepted in place of group in the account parameter for <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#financial-advisors">Financial Advisors</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAccountUpdatesMulti(reqId, self.account, "", True)</pre><p>&nbsp;</p><p>Code example:</p><div><div><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Requesting Account Update by Model</h3><div class="row"><p>The IBApi.EClient.reqAccountUpdatesMulti can be used in any account structure to create simultaneous account value subscriptions from one or multiple accounts and/or models. As with IBApi.EClient.reqAccountUpdates the data returned will match that displayed within the TWS Account Window.</p></div><div class="row"><h4 id="request-model-account-update">14.03.01 Requesting Account Update by Model</h4><p><strong>reqId:</strong> int. Identifier to label the request</p><p><strong>account:</strong> String. Account values can be requested for a particular account</p><p><strong>modelCode:</strong> String. Values can also be requested for a model</p><p><strong>ledgerAndNLV:</strong> bool. returns light-weight request; only currency positions as opposed to account values and currency positions</p><p>)</p><p>Requests account updates for account and/or model.</p><p>IBApi.EClient.reqAccountUpdatesMulti cannot be used with Account=”All” in IBroker accounts with more than 50 subaccounts.</p><p>A profile name can be accepted in place of group in the account parameter for <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#financial-advisors">Financial Advisors</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqAccountUpdatesMulti(reqId, self.account, "", True)</code></pre><p>&nbsp;</p><p>Code example:</p><div><div><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     import time
     
@@ -138,6 +147,6 @@ th {
     
     app.reqAccountUpdatesMulti(103, 'U123456', "", True)
     
-    app.run()</pre><p>&nbsp;</p></div></div></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div></div></div>
   </body>
 </html>

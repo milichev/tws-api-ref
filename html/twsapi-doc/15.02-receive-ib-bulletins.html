@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="15-bulletins.html">15 Bulletins</a>
       </li>
       <li class="breadcrumb-item">
         <a href="15.02-receive-ib-bulletins.html">15.02 Receive IB Bulletins</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive IB Bulletins</h3><div class="row"><h3 id="receive-ib-bulletins">15.02 Receive IB Bulletins</h3><p><strong>msgId:</strong> int. The bulletin’s identifier.</p><p><strong>msgType:</strong> int. 1: Regular news bulletin; 2: Exchange no longer available for trading; 3: Exchange is available for trading.</p><p><strong>message:</strong> String. The news bulletin context.</p><p><strong>origExchange:</strong> String. The exchange where the message comes from.<br> )</p><p>Provides IB’s bulletins</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def updateNewsBulletin(self, msgId: int, msgType: int, newsMessage: str, originExch: str):
-      print("News Bulletins. MsgId:", msgId, "Type:", msgType, "Message:", newsMessage, "Exchange of Origin: ", originExch)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive IB Bulletins</h3><div class="row"><h3 id="receive-ib-bulletins">15.02 Receive IB Bulletins</h3><p><strong>msgId:</strong> int. The bulletin’s identifier.</p><p><strong>msgType:</strong> int. 1: Regular news bulletin; 2: Exchange no longer available for trading; 3: Exchange is available for trading.</p><p><strong>message:</strong> String. The news bulletin context.</p><p><strong>origExchange:</strong> String. The exchange where the message comes from.<br> )</p><p>Provides IB’s bulletins</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def updateNewsBulletin(self, msgId: int, msgType: int, newsMessage: str, originExch: str):
+      print("News Bulletins. MsgId:", msgId, "Type:", msgType, "Message:", newsMessage, "Exchange of Origin: ", originExch)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

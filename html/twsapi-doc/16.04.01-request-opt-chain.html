@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.04-option-chain.html">16.04 Option Chains</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.04.01-request-opt-chain.html">16.04.01 Request Option Chains</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Option Chains</h3><div class="row"><h4 id="request-opt-chain">16.04.01 Request Option Chains</h4><p><strong>reqId:</strong> int. The ID chosen for the request</p><p><strong>underlyingSymbol:</strong> String. Contract symbol of the underlying.</p><p><strong>futFopExchange:</strong> String. The exchange on which the returned options are trading. Can be set to the empty string “” for all exchanges.</p><p><strong>underlyingSecType:</strong> String. The type of the underlying security, i.e. STK</p><p><strong>underlyingConId:</strong> int. The contract ID of the underlying security.<br> )</p><p>Requests security definition option parameters for viewing a contract’s option chain.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqSecDefOptParams(0, "IBM", "", "STK", 8314)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Option Chains</h3><div class="row"><h4 id="request-opt-chain">16.04.01 Request Option Chains</h4><p><strong>reqId:</strong> int. The ID chosen for the request</p><p><strong>underlyingSymbol:</strong> String. Contract symbol of the underlying.</p><p><strong>futFopExchange:</strong> String. The exchange on which the returned options are trading. Can be set to the empty string “” for all exchanges.</p><p><strong>underlyingSecType:</strong> String. The type of the underlying security, i.e. STK</p><p><strong>underlyingConId:</strong> int. The contract ID of the underlying security.<br> )</p><p>Requests security definition option parameters for viewing a contract’s option chain.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqSecDefOptParams(0, "IBM", "", "STK", 8314)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

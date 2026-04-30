@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [08-controller.md](IBC &amp; Controller) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [IBC &amp; Controller](08-controller.md)
 
- IBC & Controller
 
+# IBC & Controller
 
 ### Initialize and Start Watchdog
 

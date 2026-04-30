@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.06-request-active-orders.html">26.06 Requesting Currently Active Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.06.02-request-all-orders.html">26.06.02 All submitted orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">All submitted orders</h3><div class="row"><h4 id="request-all-orders">26.06.02 All submitted orders</h4><p>Requests all current open orders in associated accounts at the current moment. The existing orders will be received via the <a href="#open-order">openOrder</a> and <a href="26.05-order-status">orderStatus</a> events. Open orders are returned once; this function does not initiate a subscription.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAllOpenOrders()</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">All submitted orders</h3><div class="row"><h4 id="request-all-orders">26.06.02 All submitted orders</h4><p>Requests all current open orders in associated accounts at the current moment. The existing orders will be received via the <a href="#open-order">openOrder</a> and <a href="26.05-order-status">orderStatus</a> events. Open orders are returned once; this function does not initiate a subscription.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqAllOpenOrders()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

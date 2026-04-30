@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [04-tws-settings.md](04 TWS Settings) -> 
-
- 04 TWS Settings
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [04 TWS Settings](04-tws-settings.md)
 
 
 ## TWS Settings

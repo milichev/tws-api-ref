@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.06-historical-time-and-sales.html">21.06 Historical Time &amp; Sales</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.06.01-requesting-time-and-sales.html">21.06.01 Requesting Time and Sales data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Time and Sales data</h3><div class="row"><h4 id="requesting-time-and-sales">21.06.01 Requesting Time and Sales data</h4><p><b>requestId:</b><em> int</em>, id of the request</p><p><b>contract:</b><em> Contract</em>, Contract object that is subject of query.</p><p><b>startDateTime:</b><em> String</em>, i.e. “20170701 12:01:00”. Uses TWS timezone specified at login.</p><p><b>endDateTime:</b><em> String</em>, i.e. “20170701 13:01:00”. In TWS timezone. Exactly one of startDateTime or endDateTime must be defined.</p><p><b>numberOfTicks:</b><em> int</em>, Number of distinct data points. Max is 1000 per request.</p><p><b>whatToShow:</b><em> String</em>, (Bid_Ask, Midpoint, or Trades) Type of data requested.</p><p><b>useRth:</b><em> bool</em>, Data from regular trading hours (1), or all available hours (0).</p><p><b>ignoreSize:</b><em> bool</em>, Omit updates that reflect only changes in size, and not price. Applicable to Bid_Ask data requests.<br> <strong>Note:</strong> Options and Future Options will only display a value of 1, unless to indicate a removed bid/ask, which will instead return a price and size value of 0.</p><p><b>miscOptions:</b><em> list, </em>Should be defined as&nbsp;<em>null</em>; reserved for internal use.<br> )</p><p>Requests historical Time &amp; Sales data for an instrument.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqHistoricalTicks(18001, contract, "20170712 21:39:33 US/Eastern", "", 10, "TRADES", 1, True, [])</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Requesting Time and Sales data</h3><div class="row"><h4 id="requesting-time-and-sales">21.06.01 Requesting Time and Sales data</h4><p><b>requestId:</b><em> int</em>, id of the request</p><p><b>contract:</b><em> Contract</em>, Contract object that is subject of query.</p><p><b>startDateTime:</b><em> String</em>, i.e. “20170701 12:01:00”. Uses TWS timezone specified at login.</p><p><b>endDateTime:</b><em> String</em>, i.e. “20170701 13:01:00”. In TWS timezone. Exactly one of startDateTime or endDateTime must be defined.</p><p><b>numberOfTicks:</b><em> int</em>, Number of distinct data points. Max is 1000 per request.</p><p><b>whatToShow:</b><em> String</em>, (Bid_Ask, Midpoint, or Trades) Type of data requested.</p><p><b>useRth:</b><em> bool</em>, Data from regular trading hours (1), or all available hours (0).</p><p><b>ignoreSize:</b><em> bool</em>, Omit updates that reflect only changes in size, and not price. Applicable to Bid_Ask data requests.<br> <strong>Note:</strong> Options and Future Options will only display a value of 1, unless to indicate a removed bid/ask, which will instead return a price and size value of 0.</p><p><b>miscOptions:</b><em> list, </em>Should be defined as&nbsp;<em>null</em>; reserved for internal use.<br> )</p><p>Requests historical Time &amp; Sales data for an instrument.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqHistoricalTicks(18001, contract, "20170712 21:39:33 US/Eastern", "", 10, "TRADES", 1, True, [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

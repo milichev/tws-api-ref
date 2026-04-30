@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [23-market-scanner.md](23 Market Scanner) -> 
-
- 23 Market Scanner
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [23 Market Scanner](23-market-scanner.md)
 
 
 ## Market Scanner
@@ -30,7 +27,9 @@ A string containing all available XML-formatted parameters will then be returned
 
 Requests an XML list of scanner parameters valid in TWS.
 
+```python
 self.reqScannerParameters()
+```
 
 ### Receive Market Scanner Parameters
 
@@ -41,9 +40,11 @@ self.reqScannerParameters()
 
 Provides the xml-formatted parameters available from TWS market scanners (not all available in API).
 
+```python
 def scannerParameters(self, xml: str):
 	open('log/scanner.xml', 'w').write(xml)
 	print("ScannerParameters received.")
+```
 
 ### Market Scanner Subscription
 
@@ -86,7 +87,9 @@ All values used for the ScannerSubscription object are pulled from EClient.scann
 
 Starts a subscription to market scan results based on the provided parameters.
 
-self.reqScannerSubscription(7002, scannerSubscription, \[\], filterTagvalues)
+```python
+self.reqScannerSubscription(7002, scannerSubscription, [], filterTagvalues)
+```
 
 ### Receive Market Scanner Subscription
 
@@ -109,8 +112,10 @@ self.reqScannerSubscription(7002, scannerSubscription, \[\], filterTagvalues)
 
 Provides the data resulting from the market scanner request.
 
+```python
 def scannerData(self, reqId: int, rank: int, contractDetails: ContractDetails, distance: str, benchmark: str, projection: str, legsStr: str):
 	print("ScannerData. ReqId:", reqId, ScanData(contractDetails.contract, rank, distance, benchmark, projection, legsStr))
+```
 
 ### Cancel Market Scanner Subscription
 
@@ -121,4 +126,6 @@ def scannerData(self, reqId: int, rank: int, contractDetails: ContractDetails, d
 
 Cancels the specified scanner subscription using the tickerId.
 
+```python
 self.cancelScannerSubscription(7003)
+```

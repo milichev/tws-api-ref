@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="29-display-groups.html">29 TWS UI Display Groups</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="29.01-query-display-groups.html">29.01 Query Display Groups</a>
       </li>
       <li class="breadcrumb-item">
         <a href="29.01.02-receive-query-display-groups.html">29.01.02 Receive Query Display Groups</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Query Display Groups</h3><div class="row"><h4 id="receive-query-display-groups">29.01.02 Receive Query Display Groups</h4><p><strong>requestId:</strong> Request identifier used to track data.</p><p><strong>groups:</strong> String. Returns a list of integers representing visible Group ID separated by the “|” character, and sorted by most used group first.<br> )</p><p>A one-time response to querying the display groups.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def displayGroupList(self, reqId: int, groups: str):
-      print("DisplayGroupList. ReqId:", reqId, "Groups", groups)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Query Display Groups</h3><div class="row"><h4 id="receive-query-display-groups">29.01.02 Receive Query Display Groups</h4><p><strong>requestId:</strong> Request identifier used to track data.</p><p><strong>groups:</strong> String. Returns a list of integers representing visible Group ID separated by the “|” character, and sorted by most used group first.<br> )</p><p>A one-time response to querying the display groups.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def displayGroupList(self, reqId: int, groups: str):
+      print("DisplayGroupList. ReqId:", reqId, "Groups", groups)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

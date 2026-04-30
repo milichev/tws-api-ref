@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [03-bar-ref.md](03 Bar Class Reference) -> 
-
- 03 Bar Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [03 Bar Class Reference](03-bar-ref.md)
 
 
 ## Bar Class Reference

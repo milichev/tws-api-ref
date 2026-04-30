@@ -111,15 +111,18 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">Protobuf Reference</a>
       </li>
       <li class="breadcrumb-item">
         <a href="07-lock-and-exit.html">07 LockAndExit</a>
       </li>
     </ul>
-     <h2 class="section-title-1">LockAndExit</h2><div class="row"><p><strong>autoLogoffTime:</strong> <code>String</code> – Time the system should automatically logout or shut down.</p><p><strong>autoLogoffPeriod:</strong> <code>String</code> – Declare autoLogoffTime as AM or PM.</p><p><strong>autoLogoffType:</strong> <code>String</code> – Declare if platform should logout or restart and continue running.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">lockAndExitProto = LockAndExitConfigProto()
+     <h2 class="section-title-1">LockAndExit</h2><div class="row"><p><strong>autoLogoffTime:</strong> <code>String</code> – Time the system should automatically logout or shut down.</p><p><strong>autoLogoffPeriod:</strong> <code>String</code> – Declare autoLogoffTime as AM or PM.</p><p><strong>autoLogoffType:</strong> <code>String</code> – Declare if platform should logout or restart and continue running.</p><pre><code class="language-generic">lockAndExitProto = LockAndExitConfigProto()
     lockAndExitProto.autoLogoffTime = "11:59"
     lockAndExitProto.autoLogoffPeriod = "PM"
-    lockAndExitProto.autoLogoffType = "restart"</pre><p>&nbsp;</p></div>
+    lockAndExitProto.autoLogoffType = "restart"</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

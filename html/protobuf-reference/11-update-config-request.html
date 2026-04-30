@@ -111,19 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">Protobuf Reference</a>
       </li>
       <li class="breadcrumb-item">
         <a href="11-update-config-request.html">11 UpdateConfigRequest</a>
       </li>
     </ul>
-     <h2 class="section-title-1">UpdateConfigRequest</h2><div class="row"><p><strong>reqId</strong>:&nbsp;<code>Integer</code> – Request identifier</p><p><strong>lockAndExit</strong>:&nbsp;<code>LockAndExitConfig</code>– Container object for all Lock And Exit Configurations.</p><p><strong>messages</strong>:&nbsp;<code>MessageConfig</code>– Container object for repeated message objects.</p><p><strong>api</strong>:&nbsp;<code>ApiConfig</code> – Container object for API Configuration page details</p><p><strong>orders</strong>:&nbsp;<code>OrdersConfig</code>– Container object for the Orders settings.</p><p><strong>acceptedWarnings</strong>:&nbsp;<code>UpdateConfigWarning</code>– Container object for repeated warning objects</p><p><strong>resetApiOrderSequence</strong>:&nbsp;<code>Boolean</code> – Determine if the Order ID sequence should be reset to 0.</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">updateConfigRequest = UpdateConfigRequest()
+     <h2 class="section-title-1">UpdateConfigRequest</h2><div class="row"><p><strong>reqId</strong>:&nbsp;<code>Integer</code> – Request identifier</p><p><strong>lockAndExit</strong>:&nbsp;<code>LockAndExitConfig</code>– Container object for all Lock And Exit Configurations.</p><p><strong>messages</strong>:&nbsp;<code>MessageConfig</code>– Container object for repeated message objects.</p><p><strong>api</strong>:&nbsp;<code>ApiConfig</code> – Container object for API Configuration page details</p><p><strong>orders</strong>:&nbsp;<code>OrdersConfig</code>– Container object for the Orders settings.</p><p><strong>acceptedWarnings</strong>:&nbsp;<code>UpdateConfigWarning</code>– Container object for repeated warning objects</p><p><strong>resetApiOrderSequence</strong>:&nbsp;<code>Boolean</code> – Determine if the Order ID sequence should be reset to 0.</p><pre><code class="language-generic">updateConfigRequest = UpdateConfigRequest()
     updateConfigRequest.reqId = 123
     updateConfigRequest.lockAndExit = LockAndExitConfig
     updateConfigRequest.messages = MessageConfig
     updateConfigRequest.api = ApiConfig
     updateConfigRequest.orders = OrdersConfig
     updateConfigRequest.acceptedWarnings = UpdateConfigWarning
-    updateConfigRequest.resetApiOrderSequence = True</pre><p>&nbsp;</p></div>
+    updateConfigRequest.resetApiOrderSequence = True</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

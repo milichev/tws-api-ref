@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.06-request-active-orders.html">26.06 Requesting Currently Active Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.06.03-receive-tws-orders.html">26.06.03 Manually Submitted TWS Orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Manually Submitted TWS Orders</h3><div class="row"><h4 id="receive-tws-orders">26.06.03 Manually Submitted TWS Orders</h4><p><strong>autoBind:</strong> bool. If set to true, the newly created orders will be assigned an API order ID and implicitly associated with this client. If set to false, future orders will not be.<br> )</p><p>Requests status updates about future orders placed from TWS. Can only be used with client ID 0.</p><p><span style="color: #ff0000"><b>Important:</b></span>&nbsp;only those applications connecting with client Id 0 will be able to take over manually submitted orders</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAutoOpenOrders(True)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Manually Submitted TWS Orders</h3><div class="row"><h4 id="receive-tws-orders">26.06.03 Manually Submitted TWS Orders</h4><p><strong>autoBind:</strong> bool. If set to true, the newly created orders will be assigned an API order ID and implicitly associated with this client. If set to false, future orders will not be.<br> )</p><p>Requests status updates about future orders placed from TWS. Can only be used with client ID 0.</p><p><span style="color: #ff0000"><b>Important:</b></span>&nbsp;only those applications connecting with client Id 0 will be able to take over manually submitted orders</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqAutoOpenOrders(True)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [10-order-smart-routing-config.md](10 OrdersSmartRoutingConfig) -> 
-
- 10 OrdersSmartRoutingConfig
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [10 OrdersSmartRoutingConfig](10-order-smart-routing-config.md)
 
 
 ## OrdersSmartRoutingConfig
@@ -10,5 +7,7 @@
 
 **doNotRouteToDarkPools**: `Boolean` – Prevents the smart routing system from directing orders to dark pool venues for execution.
 
+```generic
 ordersSmartRoutingConfigProto.seekPriceImprovement = True
 ordersSmartRoutingConfigProto.doNotRouteToDarkPools = True
+```

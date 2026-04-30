@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [09-deltacontract-ref.md](09 DeltaNeutralContract Class Reference) -> 
-
- 09 DeltaNeutralContract Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [09 DeltaNeutralContract Class Reference](09-deltacontract-ref.md)
 
 
 ## DeltaNeutralContract Class Reference

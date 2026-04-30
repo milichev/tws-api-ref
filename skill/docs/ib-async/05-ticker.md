@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [05-ticker.md](Ticker Module) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [Ticker Module](05-ticker.md)
 
- Ticker Module
 
+# Ticker Module
 
 ### Initialize VolumeBars
 

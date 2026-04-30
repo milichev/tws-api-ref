@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="23-market-scanner.html">23 Market Scanner</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="23.02-market-scanner-subscription.html">23.02 Market Scanner Subscription</a>
       </li>
       <li class="breadcrumb-item">
         <a href="23.02.02-receive-scanner-subscription.html">23.02.02 Receive Market Scanner Subscription</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Market Scanner Subscription</h3><div class="row"><h4 id="receive-scanner-subscription">23.02.02 Receive Market Scanner Subscription</h4><p><strong>reqid:</strong> int. Request identifier used to track data.</p><p><strong>rank:</strong> int. The ranking position of the contract in the scanner sort.</p><p><strong>contractDetails:</strong> ContractDetails. Contract object of the resulting object.</p><p><strong>distance:</strong> String. Internal use only.</p><p><strong>benchmark:</strong> String. Internal use only.</p><p><strong>projection:</strong> String. Internal use only.</p><p><strong>legStr:</strong> String. Describes the combo legs when the scanner is returning EFP<br> )</p><p>Provides the data resulting from the market scanner request.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def scannerData(self, reqId: int, rank: int, contractDetails: ContractDetails, distance: str, benchmark: str, projection: str, legsStr: str):
-    	print("ScannerData. ReqId:", reqId, ScanData(contractDetails.contract, rank, distance, benchmark, projection, legsStr))</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Market Scanner Subscription</h3><div class="row"><h4 id="receive-scanner-subscription">23.02.02 Receive Market Scanner Subscription</h4><p><strong>reqid:</strong> int. Request identifier used to track data.</p><p><strong>rank:</strong> int. The ranking position of the contract in the scanner sort.</p><p><strong>contractDetails:</strong> ContractDetails. Contract object of the resulting object.</p><p><strong>distance:</strong> String. Internal use only.</p><p><strong>benchmark:</strong> String. Internal use only.</p><p><strong>projection:</strong> String. Internal use only.</p><p><strong>legStr:</strong> String. Describes the combo legs when the scanner is returning EFP<br> )</p><p>Provides the data resulting from the market scanner request.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def scannerData(self, reqId: int, rank: int, contractDetails: ContractDetails, distance: str, benchmark: str, projection: str, legsStr: str):
+    	print("ScannerData. ReqId:", reqId, ScanData(contractDetails.contract, rank, distance, benchmark, projection, legsStr))</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

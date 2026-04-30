@@ -51,6 +51,7 @@
 * NEXT PHASES:
   1. Relink pages from heterogeneous documents (TWS API Campus and ib_async Context7 pages) so that the resulting HTML and MD pages reference each other where needed.
   2. Resolve Markdown links in `skill/` (stubbed for now).
+  3. Resolve broken image links in `skill/` (currently pointing to relative paths not present in `skill/docs/`).
 
 ## RULES 
 

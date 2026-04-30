@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [15-bulletins.md](15 Bulletins) -> 
-
- 15 Bulletins
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [15 Bulletins](15-bulletins.md)
 
 
 ## Bulletins
@@ -17,7 +14,9 @@ From time to time, IB sends out important [News Bulletins](https://ibkrguides.c
 
 Subscribes to IB’s News Bulletins.
 
+```python
 self.reqNewsBulletins(True)
+```
 
 ### Receive IB Bulletins
 
@@ -34,8 +33,10 @@ self.reqNewsBulletins(True)
 
 Provides IB’s bulletins
 
+```python
 def updateNewsBulletin(self, msgId: int, msgType: int, newsMessage: str, originExch: str):
   print("News Bulletins. MsgId:", msgId, "Type:", msgType, "Message:", newsMessage, "Exchange of Origin: ", originExch)
+```
 
 ### Cancel Bulletin Request
 
@@ -43,4 +44,6 @@ def updateNewsBulletin(self, msgId: int, msgType: int, newsMessage: str, originE
 
 Cancels IB’s news bulletin subscription.
 
+```python
 self.cancelNewsBulletins()
+```

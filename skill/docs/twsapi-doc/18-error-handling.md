@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [18-error-handling.md](18 Error Handling) -> 
-
- 18 Error Handling
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [18 Error Handling](18-error-handling.md)
 
 
 ## Error Handling
@@ -33,9 +30,9 @@ The messages in the table below are not a consequence of any action performed by
 | Code | TWS message | Additional notes |
 | --- | --- | --- |
 | 1100 | Connectivity between IB and the TWS has been lost. | Your TWS/IB Gateway has been disconnected from IB servers. This can occur because of an internet connectivity issue, a nightly reset of the IB servers, or a competing session. |
-| 1101 | Connectivity between IB and TWS has been restored- data lost.\* | The TWS/IB Gateway has successfully reconnected to IB’s servers. Your market data requests have been lost and need to be re-submitted. |
+| 1101 | Connectivity between IB and TWS has been restored- data lost.* | The TWS/IB Gateway has successfully reconnected to IB’s servers. Your market data requests have been lost and need to be re-submitted. |
 | 1102 | Connectivity between IB and TWS has been restored- data maintained. | The TWS/IB Gateway has successfully reconnected to IB’s servers. Your market data requests have been recovered and there is no need for you to re-submit them. |
-| 1300 | TWS socket port has been reset and this connection is being dropped. Please reconnect on the new port – <port\_num> | The port number in the TWS/IBG settings has been changed during an active API connection. |
+| 1300 | TWS socket port has been reset and this connection is being dropped. Please reconnect on the new port – <port_num> | The port number in the TWS/IBG settings has been changed during an active API connection. |
 
 ### Error Codes
 
@@ -60,7 +57,7 @@ Part of requested market data requires additional subscription for API
 | 111 | The TIF (Tif type) and the order type are incompatible. | The time in force specified cannot be used with this order type. Please refer to order tickets in TWS for allowable combinations. |
 | 113 | The Tif option should be set to DAY for MOC and LOC orders. | Market-on-close or Limit-on-close orders should be sent with time in force set to ‘DAY’ |
 | 114 | Relative orders are valid for stocks only. | This error is deprecated. |
-| 115 | ““Relative orders for US stocks can only be submitted to SMART, SMART\_ECN, INSTINET, or PRIMEX.”” | This error is deprecated. |
+| 115 | ““Relative orders for US stocks can only be submitted to SMART, SMART_ECN, INSTINET, or PRIMEX.”” | This error is deprecated. |
 | 116 | The order cannot be transmitted to a dead exchange. | Exchange field is invalid. |
 | 117 | The block order size must be at least 50. | Caused by a block order submission using a quantity less than 50. |
 | 118 | VWAP orders must be routed through the VWAP exchange. |  |
@@ -126,7 +123,7 @@ Part of requested market data requires additional subscription for API
 | 306 | Error processing DDE request: | An issue with a DDE request prevented it from processing. |
 | 307 | Invalid request topic: | The ‘topic’ field in a DDE request is invalid. |
 | 308 | Unable to create the ‘API’ page in TWS as the maximum number of pages already exists. | ““An order placed from the API will automatically open a new page in classic TWS, however there are already the maximum number of pages open.”” |
-| 309 | ““Max number (3) of market depth requests has been reached. Note: TWS currently limits users to a maximum of 3 distinct market depth requests. This same restriction applies to API clients, however API clients may make multiple market depth requests for the same security.”” | “Maximum market depth requests exceeded. Please see our [Market Data Line Documentation](null) for more information.” |
+| 309 | ““Max number (3) of market depth requests has been reached. Note: TWS currently limits users to a maximum of 3 distinct market depth requests. This same restriction applies to API clients, however API clients may make multiple market depth requests for the same security.”” | “Maximum market depth requests exceeded. Please see our Market Data Line Documentation for more information.” |
 | 310 | Can’t find the subscribed market depth with tickerId: | An attempt was made to cancel market depth for a ticker not currently active. |
 | 311 | The origin is invalid. | The origin field specified in the Order class is invalid. |
 | 312 | The combo details are invalid. | Combination contract specified has invalid parameters. |
@@ -170,7 +167,7 @@ Part of requested market data requires additional subscription for API
 | 351 | “The “”Regular Trading Hours only”” flag is not valid for this order.” |  |
 | 352 | Short sale slot value of 2 (delivered from elsewhere) requires location. | You need to specify designatedLocation for your order. |
 | 353 | Short sale slot value of 1 requires no location be specified. | You do not need to specify designatedLocation for your order. |
-| 354 | Requested market data is not subscribed. Check API status by selecting the Account menu then under Management choose Market Data Subscription Manager and/or availability of delayed data. | You do not have live market data available in your account for the specified instruments. For further details please refer to our [Market Data Subscriptions page](/campus/ibkr-api-page/market-data-subscriptions/). |
+| 354 | Requested market data is not subscribed. Check API status by selecting the Account menu then under Management choose Market Data Subscription Manager and/or availability of delayed data. | You do not have live market data available in your account for the specified instruments. For further details please refer to our Market Data Subscriptions page. |
 | 355 | Order size does not conform to market rule. | Check order size parameters for the specified contract from the TWS Contract Details. |
 | 356 | Smart-combo order does not support OCA group. | Remove OCA group from your order. |
 | 357 | Your client version is out of date. |  |
@@ -402,9 +399,9 @@ Part of requested market data requires additional subscription for API
 | 10025 | Invalid leg2 to Mkt time1 API. | This error is deprecated |
 | 10026 | Invalid leg2 to Mkt time2 API. | This error is deprecated |
 | 10027 | Invalid combo routing tag API. | This error is deprecated |
-| 10089 |  | The market data subscribed with the user does not extend support for API use. See [TWS vs API Data](/campus/ibkr-api-page/market-data-subscriptions/#tws-vs-api) for more details. |
+| 10089 |  | The market data subscribed with the user does not extend support for API use. See TWS vs API Data for more details. |
 | 10090 | Part of requested market data is not subscribed. | Indicates that some tick types requested require additional market data subscriptions not held in the account. This commonly occurs for instance if a user has options subscriptions but not the underlying stock so the system cannot calculate the real time Greek values (other default ticks will be returned). Or alternatively, if generic tick types are specified in a market data request without the associated subscriptions. |
-| 10091 |  | The market data subscribed with the user does not extend support for API use. See [TWS vs API Data](/campus/ibkr-api-page/market-data-subscriptions/#tws-vs-api) for more details. |
+| 10091 |  | The market data subscribed with the user does not extend support for API use. See TWS vs API Data for more details. |
 | 10147 | Order to be canceled was not found. |  |
 | 10148 | ““OrderId that needs to be cancelled can not be cancelled, state:”” | An attempt was made to cancel an order that had already been filled by the system. |
 | 10186 | Requested market data is not subscribed. Delayed market data is not enabled | See Market Data Types on how to enable delayed data. |
@@ -460,16 +457,14 @@ Part of requested market data requires additional subscription for API
 | 10294 | Cash quantity set on the order does not match total monetary amount of the Group. |  |
 | 10295 | Orders to harvest Capital Loss must use the DAY time-in-force. |  |
 | 10295 | Only daily resolution supported for Schedule requests |  |
-| 10296 | “The Smart Routing features \\””Seek Price Improvement\\”” (aka \\””Route to Dark Pools\\””) and \\””Do not route to Dark Pools\\”” are mutually exclusive.  
-Enabling both will result in the order being rejected. Please choose only one of these commands.%s” |  |
+| 10296 | “The Smart Routing features \””Seek Price Improvement\”” (aka \””Route to Dark Pools\””) and \””Do not route to Dark Pools\”” are mutually exclusive.Enabling both will result in the order being rejected. Please choose only one of these commands.%s” |  |
 | 10297 | Not Held attribute is invalid for this order. |  |
 | 10298 | Cannot trade an instrument with currency different from model currency |  |
 | 10299 | Expected what to show is %s | please use that instead of %s. |
 | 10300 | %s: The date | time |
 | 10301 | %s: The date | time |
 | 10302 | Min trade trade quantity is not allowed for this order |  |
-| 10303 | Invalid min trade quantity value (%s).  
-It must be a positive integer | not exceeding the total order size. |
+| 10303 | Invalid min trade quantity value (%s).It must be a positive integer | not exceeding the total order size. |
 | 10304 | Minimum Competing Size value must be non-negative. |  |
 | 10305 | Compete against best bid or offer Offset dollar value must be positive | multiple of a cent. |
 | 10306 | Mid offsets are not allowed |  |
@@ -493,13 +488,12 @@ It must be a positive integer | not exceeding the total order size. |
 | 10327 | OCA group type revision is not allowed |  |
 | 10328 | Connection lost | order data could not be resolved |
 | 10329 | This order will be directly routed to %s. |  |
-| 10330 | The expiry date/time format is invalid.\\nThe correct format is yyyyMM | yyyyMMdd HH:mm:ss (operator or instrument time zone) or yyyyMMdd-HH:mm:ss (UTC time zone). |
+| 10330 | The expiry date/time format is invalid.\nThe correct format is yyyyMM | yyyyMMdd HH:mm:ss (operator or instrument time zone) or yyyyMMdd-HH:mm:ss (UTC time zone). |
 | 10331 | Any stop warning |  |
 | 10332 | Cryptocurrency volatility warning |  |
 | 10333 | Option Exercise at-the-money warning |  |
 | 10334 | Confirm Omnibus Order Account |  |
-| 10335 | “Order presets cannot be applied as configured. Please review  
-%s Settings and Rapid Order Entry Configuration for consistency.” |  |
+| 10335 | “Order presets cannot be applied as configured. Please review%s Settings and Rapid Order Entry Configuration for consistency.” |  |
 | 10336 | Per-leg executing broker configuration is not supported |  |
 | 10337 | Misc options key=%s is invalid in %s request. Valid keys are: %s |  |
 | 10338 | Misc options value=%s is invalid for key=%s in %s request. Valid values are: %s |  |
@@ -511,8 +505,7 @@ It must be a positive integer | not exceeding the total order size. |
 | 10344 | Price value must be between 0.02 and 0.99 with a maximum of two decimal places. |  |
 | 10345 | You cannot trade a %s |  |
 | 10346 | Market data for %s cannot be delivered because ticker for the same financial instrument is displayed on %s |  |
-| 10347 | This security has limited liquidity. If you choose to trade this security | there is a heightened risk that you may not be able to close your position  
-at the time you wish |
+| 10347 | This security has limited liquidity. If you choose to trade this security | there is a heightened risk that you may not be able to close your positionat the time you wish |
 | WinError 10038 | An operation was attempted on something that is not a socket. | This indicates socket connection was closed improperly. |
 
 ### Receiving Error Messages
@@ -532,8 +525,10 @@ Note: This is only implemented for TWS API 10.33+
 **advancedOrderRejectJson:** String. Advanced order reject description in json format.  
 )
 
+```python
 def error(self, reqId: TickerId, errorTime: int, errorCode: int, errorString: str, advancedOrderRejectJson = ""):
   print("Error. Id:", reqId, errorTime, "Code:", errorCode, "Msg:", errorString, "AdvancedOrderRejectJson:", advancedOrderRejectJson)
+```
 
 ### Common Error Resolution
 

@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [23-order-ref.md](23 Order Class Reference) -> 
-
- 23 Order Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [23 Order Class Reference](23-order-ref.md)
 
 
 ## Order Class Reference
@@ -38,8 +35,7 @@
 | ConditionsCancelOrder | bool | Conditions can determine if an order should become active or canceled. |
 | ConditionsIgnoreRth | bool | Indicates whether or not conditions will also be valid outside Regular Trading Hours. |
 | ContinuousUpdate | int | Specifies whether TWS will automatically update the limit price of the order as the underlying price moves. VOL orders only. |
-| Deactivate | Boolean | Determines if the order is Active (False) or Deactivated (True). Orders that are deactivated are not submitted and will not execute, though they can be reviewed and transmitted via API, Trader Workstation, or Client Portal.  
-This is unique from the Transmit field as orders submitted as Transmit=False will not leave the current TWS instance, and will be erased upon logout. Deactivated orders will persist internally at Interactive Brokers. |
+| Deactivate | Boolean | Determines if the order is Active (False) or Deactivated (True). Orders that are deactivated are not submitted and will not execute, though they can be reviewed and transmitted via API, Trader Workstation, or Client Portal.This is unique from the Transmit field as orders submitted as Transmit=False will not leave the current TWS instance, and will be erased upon logout. Deactivated orders will persist internally at Interactive Brokers. |
 | Delta | double | The stock’s Delta. For orders on BOX only. |
 | DeltaNeutralAuxPrice | double | Use this field to enter a value if the value in the deltaNeutralOrderType field is an order type that requires an Aux price |
 | DeltaNeutralClearingAccount | string | Specifies the beneficiary of the Delta Neutral order. |
@@ -56,9 +52,7 @@ This is unique from the Transmit field as orders submitted as Transmit=False wil
 | DiscretionaryUpToLimitPrice | bool | Set to true to convert order of type ‘Primary Peg’ to ‘D-Peg’. |
 | DisplaySize | int | The publicly disclosed order size |
 | DontUseAutoPriceForHedge | bool | Don’t use auto price for hedge. |
-| Duration | int | Specifies the number of seconds the order should remain active. For GTD orders only.  
-Users that would prefer to specify an exact date should user the “GoodTillDate” parameter instead.  
-Both values cannot be specified at the same time. |
+| Duration | int | Specifies the number of seconds the order should remain active. For GTD orders only.Users that would prefer to specify an exact date should user the “GoodTillDate” parameter instead.Both values cannot be specified at the same time. |
 | ExemptCode | int | Only available with IB Execution-Only accounts with applicable securities. Mark order as exempt from short sale uptick rule. |
 | ExtOperator | String | Following CME Rule 576, the ExtOperator field will signify if the unique API operator at the time of trading for order management. |
 | FaGroup | string | The Financial Advisor group the trade will be allocated to. Use an empty string if not applicable. |
@@ -66,12 +60,8 @@ Both values cannot be specified at the same time. |
 | FaPercentage | string | The Financial Advisor percentage concerning the trade’s allocation. Use an empty string if not applicable. |
 | FilledQuantity | decimal | Specifies the initial order quantity to be filled. |
 | GoodAfterTime | string | Specifies the date and time after which the order will be active. Format: yyyymmdd hh:mm:ss {optional Timezone}. |
-| GoodTillDate | string | The date and time when the order should cancel if not already filled. Only valid for orders using the “GTD” tif.  
-Users that would prefer to specify a number of seconds should use the Duration parameter instead.  
-Both values cannot be specified at the same time. |
-| HedgeMaxSize | integer | hedgeMaxSize (also referred to as “Max Hedging Size”) is a user-supplied parameter that caps the maximum number of shares that can be shorted in a beta  
-hedge child order. It provides an upper bound for risk and credit assessment purposes. Applied only to beta hedge orders (sell side only) for stocks in IB-  
-cleared accounts. |
+| GoodTillDate | string | The date and time when the order should cancel if not already filled. Only valid for orders using the “GTD” tif.Users that would prefer to specify a number of seconds should use the Duration parameter instead.Both values cannot be specified at the same time. |
+| HedgeMaxSize | integer | hedgeMaxSize (also referred to as “Max Hedging Size”) is a user-supplied parameter that caps the maximum number of shares that can be shorted in a betahedge child order. It provides an upper bound for risk and credit assessment purposes. Applied only to beta hedge orders (sell side only) for stocks in IB-cleared accounts. |
 | HedgeParam | string | For hedge orders. Beta = x for Beta hedge orders |
 | HedgeType | string | For hedge orders. Possible values include: D – Delta B – Beta F – FX P – Pair |
 | Hidden | bool | If set to true, the order will not be visible when viewing the market depth. This option only applies to orders routed to the NASDAQ exchange. |
@@ -137,6 +127,7 @@ cleared accounts. |
 | SettlingFirm | string | Indicates the firm which will settle the trade. Institutions only. |
 | Shareholder | string | Identifies the Shareholder. |
 | ShortSaleSlot | int | For institutions only. Valid values are: 1 – Broker holds shares 2 – Shares come from elsewhere. |
+|  |
 | SlOrderId | int | Order identifier of the attached stop loss from presets. |
 | SlOrderType | string | Order type for the attach stop loss from presets. Must be “PRESET”. |
 | SmartComboRoutingParams | List | Advanced parameters for Smart combo routing. These features are for both guaranteed and nonguaranteed combination orders routed to Smart |
@@ -150,17 +141,8 @@ cleared accounts. |
 | Tif | string | The time in force. Valid values are: DAY – Valid for the day only. GTC – Good until canceled. The order will continue to work within the system and in the marketplace until it executes or is canceled. GTC orders will be automatically be cancelled under the following conditions: If a corporate action on a security results in a stock split (forward or reverse) |
 | TotalQuantity | decimal | The number of positions being bought/sold. |
 | TrailStopPrice | double | Trail stop price for TRAIL LIMIT orders. |
-| TrailingPercent | double | Specifies the trailing amount of a trailing stop order as a percentage. Observe the following guidelines when using the trailingPercent field:
-
-Guidelines
-
-*   This field is mutually exclusive with the existing trailing amount. That is, the API client can send one or the other but not both.
-*   This field is read AFTER the stop price (barrier price) as follows: deltaNeutralAuxPrice stopPrice, trailingPercent, scale order attributes.
-*   The field will also be sent to the API in the openOrder message if the API client version is >= 56. It is sent after the stopPrice field as follows: stopPrice, trailingPct, basisPoint.
-
- |
-| Transmit | bool | Specifies whether the order will be transmitted by TWS. If set to false, the order will be created at TWS but will not be sent.  
-Users implementing directly from Protobuf should be aware that Transmit should be implicitly set to ‘true’ when placing orders to transmit an order. |
+| TrailingPercent | double | Specifies the trailing amount of a trailing stop order as a percentage. Observe the following guidelines when using the trailingPercent field:GuidelinesThis field is mutually exclusive with the existing trailing amount. That is, the API client can send one or the other but not both.This field is read AFTER the stop price (barrier price) as follows: deltaNeutralAuxPrice stopPrice, trailingPercent, scale order attributes.The field will also be sent to the API in the openOrder message if the API client version is >= 56. It is sent after the stopPrice field as follows: stopPrice, trailingPct, basisPoint. |
+| Transmit | bool | Specifies whether the order will be transmitted by TWS. If set to false, the order will be created at TWS but will not be sent.Users implementing directly from Protobuf should be aware that Transmit should be implicitly set to ‘true’ when placing orders to transmit an order. |
 | TriggerMethod | int | Specifies how Simulated Stop |
 | TriggerPrice | double | Adjusted Stop orders: specifies the trigger price to execute. |
 | UsePriceMgmtAlgo | bool | Specifies wether to use Price Management Algo. CTCI users only. |
@@ -183,28 +165,28 @@ Users implementing directly from Protobuf should be aware that Transmit should b
 | --- | --- | --- |
 | CUSTOMER = 0 | static int |  |
 | FIRM = 1 | static int |  |
-| OPT\_UNKNOWN = ‘?’ | static char |  |
-| OPT\_BROKER\_DEALER = ‘b’ | static char |  |
-| OPT\_CUSTOMER = ‘c’ | static char |  |
-| OPT\_FIRM = ‘f’ | static char |  |
-| OPT\_ISEMM = ‘m’ | static char |  |
-| OPT\_FARMM = ‘n’ | static char |  |
-| OPT\_SPECIALIST = ‘y’ | static char |  |
-| AUCTION\_MATCH = 1 | static int |  |
-| AUCTION\_IMPROVEMENT = 2 | static int |  |
-| AUCTION\_TRANSPARENT = 3 | static int |  |
-| EMPTY\_STR = “” | static string |  |
-| COMPETE\_AGAINST\_BEST\_OFFSET\_UP\_TO\_MID = double.PositiveInfinity | static double | static int |
+| OPT_UNKNOWN = ‘?’ | static char |  |
+| OPT_BROKER_DEALER = ‘b’ | static char |  |
+| OPT_CUSTOMER = ‘c’ | static char |  |
+| OPT_FIRM = ‘f’ | static char |  |
+| OPT_ISEMM = ‘m’ | static char |  |
+| OPT_FARMM = ‘n’ | static char |  |
+| OPT_SPECIALIST = ‘y’ | static char |  |
+| AUCTION_MATCH = 1 | static int |  |
+| AUCTION_IMPROVEMENT = 2 | static int |  |
+| AUCTION_TRANSPARENT = 3 | static int |  |
+| EMPTY_STR = “” | static string |  |
+| COMPETE_AGAINST_BEST_OFFSET_UP_TO_MID = double.PositiveInfinity | static double | static int |
 | FIRM = 1 | static int |  |
-| OPT\_UNKNOWN = ‘?’ | static char |  |
-| OPT\_BROKER\_DEALER = ‘b’ | static char |  |
-| OPT\_CUSTOMER = ‘c’ | static char |  |
-| OPT\_FIRM = ‘f’ | static char |  |
-| OPT\_ISEMM = ‘m’ | static char |  |
-| OPT\_FARMM = ‘n’ | static char |  |
-| OPT\_SPECIALIST = ‘y’ | static char |  |
-| AUCTION\_MATCH = 1 | static int |  |
-| AUCTION\_IMPROVEMENT = 2 | static int |  |
-| AUCTION\_TRANSPARENT = 3 | static int |  |
-| EMPTY\_STR = “” | static string |  |
-| COMPETE\_AGAINST\_BEST\_OFFSET\_UP\_TO\_MID = double.PositiveInfinity | static double | None |
+| OPT_UNKNOWN = ‘?’ | static char |  |
+| OPT_BROKER_DEALER = ‘b’ | static char |  |
+| OPT_CUSTOMER = ‘c’ | static char |  |
+| OPT_FIRM = ‘f’ | static char |  |
+| OPT_ISEMM = ‘m’ | static char |  |
+| OPT_FARMM = ‘n’ | static char |  |
+| OPT_SPECIALIST = ‘y’ | static char |  |
+| AUCTION_MATCH = 1 | static int |  |
+| AUCTION_IMPROVEMENT = 2 | static int |  |
+| AUCTION_TRANSPARENT = 3 | static int |  |
+| EMPTY_STR = “” | static string |  |
+| COMPETE_AGAINST_BEST_OFFSET_UP_TO_MID = double.PositiveInfinity | static double | None |

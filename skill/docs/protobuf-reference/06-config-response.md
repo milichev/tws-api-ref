@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [06-config-response.md](06 ConfigResponse) -> 
-
- 06 ConfigResponse
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [06 ConfigResponse](06-config-response.md)
 
 
 ## ConfigResponse
@@ -16,6 +13,7 @@
 
 **orders**: `OrdersConfig`– Container object for the Orders settings.
 
+```generic
 reqId: 1784381601
 lockAndExit {
   autoLogoffTime: "12:07"
@@ -25,7 +23,7 @@ lockAndExit {
 messages {
   id: 3
   title: "Simultaneous market data limit exceeded"
-  message: "<html>You have requested data for %s instruments simultaneously, which exceeds your current account limit of %s<br>lines of simultaneous market data. You can increase your data limit by subscribing to market data <a href=\\'#action\\'>Booster packs</a>%s</html>"
+  message: "<html>You have requested data for %s instruments simultaneously, which exceeds your current account limit of %s<br>lines of simultaneous market data. You can increase your data limit by subscribing to market data <a href=\'#action\'>Booster packs</a>%s</html>"
   defaultAction: "Hidden"
   enabled: false
 }
@@ -57,3 +55,4 @@ orders {
     defaultAlgorithm: "SMART"
   }
 }
+```

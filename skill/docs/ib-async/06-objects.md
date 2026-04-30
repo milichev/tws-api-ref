@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [06-objects.md](Objects &amp; Types) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [Objects &amp; Types](06-objects.md)
 
- Objects & Types
 
+# Objects & Types
 
 ### Asynchronous Start for IBC
 

@@ -111,15 +111,24 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.03-component-exchange.html">22.03 Component Exchanges</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.03.02-receive-component-exchange.html">22.03.02 Receive Component Exchanges</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Component Exchanges</h3><div class="row"><h4 id="receive-component-exchange">22.03.02 Receive Component Exchanges</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>smartComponentMap:</strong> SmartComponentMap. Unique object containing a map of all key-value pairs<br> )</p><p>Containing a bit number to exchange + exchange abbreviation dictionary. All IDs can be initially retrieved using <a href="22.08.07-exchange-component-mapping">reqTickParams</a>.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def smartComponents(self, reqId:int, smartComponentMap:SmartComponentMap):
+     <h3 class="section-title-2">Receive Component Exchanges</h3><div class="row"><h4 id="receive-component-exchange">22.03.02 Receive Component Exchanges</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>smartComponentMap:</strong> SmartComponentMap. Unique object containing a map of all key-value pairs<br> )</p><p>Containing a bit number to exchange + exchange abbreviation dictionary. All IDs can be initially retrieved using <a href="22.08.07-exchange-component-mapping">reqTickParams</a>.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def smartComponents(self, reqId:int, smartComponentMap:SmartComponentMap):
     	print("SmartComponents:")
     	for smartComponent in smartComponentMap:
-    		print("SmartComponent.", smartComponent)</pre><p>&nbsp;</p></div></div></div>
+    		print("SmartComponent.", smartComponent)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

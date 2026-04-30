@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.03-exec-details.html">26.03 Execution Details</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.03.04-receive-exec-details.html">26.03.04 Receive Execution Details</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Execution Details</h3><div class="row"><h4 id="receive-exec-details">26.03.04 Receive Execution Details</h4><p><strong>reqId:</strong> int. The request’s identifier.</p><p><strong>contract:</strong> Contract. The Contract of the Order.</p><p><strong>execution:</strong> Execution. The Execution details.<br> )</p><p>Provides the executions which happened in the last 24 hours.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def execDetails(self, reqId: int, contract: Contract, execution: Execution):
-      print("ExecDetails. ReqId:", reqId, "Symbol:", contract.symbol, "SecType:", contract.secType, "Currency:", contract.currency, execution)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.execDetailsEnd (</span></h4><p><strong>reqId:</strong> int. The request’s identifier<br> )</p><p>Indicates the end of the Execution reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def execDetailsEnd(self, reqId: int):
-    	print("ExecDetailsEnd. ReqId:", reqId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Execution Details</h3><div class="row"><h4 id="receive-exec-details">26.03.04 Receive Execution Details</h4><p><strong>reqId:</strong> int. The request’s identifier.</p><p><strong>contract:</strong> Contract. The Contract of the Order.</p><p><strong>execution:</strong> Execution. The Execution details.<br> )</p><p>Provides the executions which happened in the last 24 hours.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def execDetails(self, reqId: int, contract: Contract, execution: Execution):
+      print("ExecDetails. ReqId:", reqId, "Symbol:", contract.symbol, "SecType:", contract.secType, "Currency:", contract.currency, execution)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.execDetailsEnd (</span></h4><p><strong>reqId:</strong> int. The request’s identifier<br> )</p><p>Indicates the end of the Execution reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def execDetailsEnd(self, reqId: int):
+    	print("ExecDetailsEnd. ReqId:", reqId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="20-delayed-market-data.html">20 Market Data: Delayed</a>
       </li>
       <li class="breadcrumb-item">
         <a href="20.03-receive-md-type.html">20.03 Receive Market Data Type</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Market Data Type</h3><div class="row"><h3 id="receive-md-type">20.03 Receive Market Data Type</h3><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>marketDataType:</strong> int. Type of market data to retrieve.<br> )</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def marketDataType(self, reqId: TickerId, marketDataType: int):
-    	print("MarketDataType. ReqId:", reqId, "Type:", marketDataType)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Market Data Type</h3><div class="row"><h3 id="receive-md-type">20.03 Receive Market Data Type</h3><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>marketDataType:</strong> int. Type of market data to retrieve.<br> )</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def marketDataType(self, reqId: TickerId, marketDataType: int):
+    	print("MarketDataType. ReqId:", reqId, "Type:", marketDataType)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

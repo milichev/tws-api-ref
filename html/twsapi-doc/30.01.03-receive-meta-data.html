@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="30-wsh.html">30 Wall Street Horizon</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="30.01-meta-data.html">30.01 Meta Data</a>
       </li>
       <li class="breadcrumb-item">
         <a href="30.01.03-receive-meta-data.html">30.01.03 Receive Meta Data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Meta Data</h3><div class="row"><h4 id="receive-meta-data">30.01.03 Receive Meta Data</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>dataJson:</strong> String. metadata in json format.<br> )</p><p>Returns meta data from the WSH calendar</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def wshMetaData(self, reqId: int, dataJson: str):
-    	print("WshMetaData.", "ReqId:", reqId, "Data JSON:", dataJson)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>Once the json content has been received, the specific event types used to filter <a href="../undefined/index.html">EClient.reqWshEventData()</a> are listed under “meta_data” -&gt; “event_types”.</p><p>The “name” field will express what the filter will return, such as “Board of Directors Meeting”</p><p>The “tag” field will return the filter used in your JSON query. The related example would be “wshe_bod”.</p></div>
+     <h3 class="section-title-2">Receive Meta Data</h3><div class="row"><h4 id="receive-meta-data">30.01.03 Receive Meta Data</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>dataJson:</strong> String. metadata in json format.<br> )</p><p>Returns meta data from the WSH calendar</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def wshMetaData(self, reqId: int, dataJson: str):
+    	print("WshMetaData.", "ReqId:", reqId, "Data JSON:", dataJson)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><p>Once the json content has been received, the specific event types used to filter <a href="../undefined/index.html">EClient.reqWshEventData()</a> are listed under “meta_data” -&gt; “event_types”.</p><p>The “name” field will express what the filter will return, such as “Board of Directors Meeting”</p><p>The “tag” field will return the filter used in your JSON query. The related example would be “wshe_bod”.</p></div>
   </body>
 </html>

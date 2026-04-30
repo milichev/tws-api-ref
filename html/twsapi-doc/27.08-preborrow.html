@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.08-preborrow.html">27.08 Pre-Borrow Shares For Shorting</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Pre-Borrow Shares For Shorting</h3><div class="row"><p>The TWS API supports the ability to pre-borrow shares for shorting.</p><ul><li>See <a href="About Pre-Borrows">here</a> for Pre-Borrow Eligibility</li><li>See <a href="https://www.interactivebrokers.com/en/pricing/other-fees.php#:~:text=Stock%20Loan-,Pre%2DBorrows,-Universal">here</a> for pricing details</li></ul><p>To place a Pre-Borrow order, users must:</p><ul><li>Assign the contract’s exchange to “PREBORROW”</li><li>Assign the contract’s security type to “SBL”</li><li> Assign the order’s orderType to “MKT”</li></ul><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="generic">contract = Contract()
+     <h3 class="section-title-2">Pre-Borrow Shares For Shorting</h3><div class="row"><p>The TWS API supports the ability to pre-borrow shares for shorting.</p><ul><li>See <a href="About Pre-Borrows">here</a> for Pre-Borrow Eligibility</li><li>See <a href="https://www.interactivebrokers.com/en/pricing/other-fees.php#:~:text=Stock%20Loan-,Pre%2DBorrows,-Universal">here</a> for pricing details</li></ul><p>To place a Pre-Borrow order, users must:</p><ul><li>Assign the contract’s exchange to “PREBORROW”</li><li>Assign the contract’s security type to “SBL”</li><li> Assign the order’s orderType to “MKT”</li></ul><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-generic">contract = Contract()
     contract.symbol = symbol
     contract.secType = "SBL"
     contract.exchange = "PREBORROW"
@@ -127,6 +133,6 @@ th {
     order.action = "BUY"
     order.orderType = "MKT"
     order.totalQuantity = quantity
-    </pre><p>&nbsp;</p></div></div></div>
+    </code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

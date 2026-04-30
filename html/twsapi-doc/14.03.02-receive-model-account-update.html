@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.03-model-account-update.html">14.03 Account Update by Model</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.03.02-receive-model-account-update.html">14.03.02 Receiving Account Updates by Model</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Account Updates by Model</h3><div class="row"><p>The resulting account and portfolio information will be delivered via the IBApi.EWrapper.accountUpdateMulti and IBApi.EWrapper.accountUpdateMultiEnd</p></div><div class="row"><h4 id="receive-model-account-update">14.03.02 Receiving Account Updates by Model</h4><p><strong>requestId:</strong> int. The id of request.</p><p><strong>account:</strong> String. The account with updates.</p><p><strong>modelCode:</strong> String. The model code with updates.</p><p><strong>key:</strong> String. The name of parameter.</p><p><strong>value:</strong> String. The value of parameter.</p><p><strong>currency:</strong> String. The currency of parameter.<br> )</p><p>Provides the account updates.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str, value: str, currency: str):
-      print("AccountUpdateMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Key:", key, "Value:", value, "Currency:", currency)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.accountUpdateMultiEnd</span> (</h4><p><strong>requestId:</strong> int. The id of request</p><p>)</p><p>Indicates all the account updates have been transmitted.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def accountUpdateMultiEnd(self, reqId: int):
-        print("AccountUpdateMultiEnd. RequestId:", reqId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving Account Updates by Model</h3><div class="row"><p>The resulting account and portfolio information will be delivered via the IBApi.EWrapper.accountUpdateMulti and IBApi.EWrapper.accountUpdateMultiEnd</p></div><div class="row"><h4 id="receive-model-account-update">14.03.02 Receiving Account Updates by Model</h4><p><strong>requestId:</strong> int. The id of request.</p><p><strong>account:</strong> String. The account with updates.</p><p><strong>modelCode:</strong> String. The model code with updates.</p><p><strong>key:</strong> String. The name of parameter.</p><p><strong>value:</strong> String. The value of parameter.</p><p><strong>currency:</strong> String. The currency of parameter.<br> )</p><p>Provides the account updates.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str, value: str, currency: str):
+      print("AccountUpdateMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Key:", key, "Value:", value, "Currency:", currency)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.accountUpdateMultiEnd</span> (</h4><p><strong>requestId:</strong> int. The id of request</p><p>)</p><p>Indicates all the account updates have been transmitted.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def accountUpdateMultiEnd(self, reqId: int):
+        print("AccountUpdateMultiEnd. RequestId:", reqId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

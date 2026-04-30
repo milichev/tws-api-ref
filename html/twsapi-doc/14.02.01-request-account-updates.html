@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.02-account-updates.html">14.02 Account Updates</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.02.01-request-account-updates.html">14.02.01 Requesting Account Updates</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Account Updates</h3><div class="row"><p>Subscribes to a specific account’s information and portfolio. Through this method, a single account’s subscription can be started/stopped. As a result from the subscription, the account’s information, portfolio and last update time will be received at EWrapper.updateAccountValue, EWrapper.updatePortfolio, EWrapper.updateAccountTime respectively. All account values and positions will be returned initially, and then there will only be updates when there is a change in a position, or to an account value every 3 minutes if it has changed. Only one account can be subscribed at a time. A second subscription request for another account when the previous one is still active will cause the first one to be canceled in favor of the second one.</p></div><div class="row"><h4 id="request-account-updates">14.02.01 Requesting Account Updates</h4><p><strong>subscribe:</strong> bool. Set to true to start the subscription and to false to stop it.</p><p><strong>acctCode:</strong> String. The account id (i.e. U123456) for which the information is requested.</p><p>)</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAccountUpdates(True, self.account)</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Requesting Account Updates</h3><div class="row"><p>Subscribes to a specific account’s information and portfolio. Through this method, a single account’s subscription can be started/stopped. As a result from the subscription, the account’s information, portfolio and last update time will be received at EWrapper.updateAccountValue, EWrapper.updatePortfolio, EWrapper.updateAccountTime respectively. All account values and positions will be returned initially, and then there will only be updates when there is a change in a position, or to an account value every 3 minutes if it has changed. Only one account can be subscribed at a time. A second subscription request for another account when the previous one is still active will cause the first one to be canceled in favor of the second one.</p></div><div class="row"><h4 id="request-account-updates">14.02.01 Requesting Account Updates</h4><p><strong>subscribe:</strong> bool. Set to true to start the subscription and to false to stop it.</p><p><strong>acctCode:</strong> String. The account id (i.e. U123456) for which the information is requested.</p><p>)</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqAccountUpdates(True, self.account)</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     from ibapi.contract import Contract
     import time
@@ -144,6 +153,6 @@ th {
     time.sleep(1)
     
     app.reqAccountUpdates(True, 'U123456')
-    app.run()</pre><p>&nbsp;</p></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

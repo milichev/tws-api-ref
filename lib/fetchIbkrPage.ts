@@ -4,7 +4,7 @@ import { load as loadCheerio } from "cheerio";
 import type { CheerioAPI, Cheerio } from "cheerio";
 import type { Element } from "domhandler";
 import type { Chapter, SectionName, SectionInfo } from "./generate";
-import { fetchText, HTML_DIR, SKILL_DIR, writeFile } from "./utils";
+import { fetchText, HTML_DIR, SKILL_DIR, writeFile, REPO_ROOT } from "./utils";
 import { cleanupIbkrHtmlContent } from "./cleanupIbkrHtmlContent";
 import { fetchImages } from "./fetchImages";
 import { HtmlContent } from "./writeHtmlSections";
@@ -13,8 +13,7 @@ export async function fetchIbkrSection(info: SectionInfo) {
   const { url, sectionName } = info;
   const outDirHtml = path.join(HTML_DIR, sectionName);
   const imageDir = path.join(outDirHtml, "images");
-  const rawFilename = path.join(outDirHtml, `${sectionName}.raw.html`);
-  const indexFilename = path.join(outDirHtml, `index.html`);
+  const rawFilename = path.join(REPO_ROOT, "tmp", `${sectionName}.raw.html`);
   const outDirMd = path.join(SKILL_DIR, "docs", sectionName);
 
   fs.mkdirSync(imageDir, { recursive: true });
@@ -37,7 +36,6 @@ export async function fetchIbkrSection(info: SectionInfo) {
     outDirHtml,
     outDirMd,
     rawFilename,
-    indexFilename,
   } as const;
 }
 

@@ -1,5 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [index.md](Protobuf Reference) -> 
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md)
 
 # Protobuf Reference
 

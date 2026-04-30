@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [11-requests-limitations.md](11 Pacing Limitations) -> 
-
- 11 Pacing Limitations
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [11 Pacing Limitations](11-requests-limitations.md)
 
 
 ## Pacing Limitations

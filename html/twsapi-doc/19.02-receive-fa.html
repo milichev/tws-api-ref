@@ -111,14 +111,20 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19-financial-advisors.html">19 Financial Advisors</a>
       </li>
       <li class="breadcrumb-item">
         <a href="19.02-receive-fa.html">19.02 Receiving FA Groups and Profiles</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving FA Groups and Profiles</h3><div class="row"><h3 id="receive-fa">19.02 Receiving FA Groups and Profiles</h3><p><strong>faDataType:</strong> int. Receive the faDataType value specified in the requestFA. See <a href="#fa-data-types">FA Data Types</a></p><p><strong>faXmlData:</strong> String. The xml-formatted configuration.<br> )</p><p>Receives the Financial Advisor’s configuration available in the TWS.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def receiveFA(self, faData: FaDataType, cxml: str):
+     <h3 class="section-title-2">Receiving FA Groups and Profiles</h3><div class="row"><h3 id="receive-fa">19.02 Receiving FA Groups and Profiles</h3><p><strong>faDataType:</strong> int. Receive the faDataType value specified in the requestFA. See <a href="#fa-data-types">FA Data Types</a></p><p><strong>faXmlData:</strong> String. The xml-formatted configuration.<br> )</p><p>Receives the Financial Advisor’s configuration available in the TWS.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def receiveFA(self, faData: FaDataType, cxml: str):
     	print("Receiving FA: ", faData)
-    	open('log/fa.xml', 'w').write(cxml)</pre><p>&nbsp;</p></div></div></div>
+    	open('log/fa.xml', 'w').write(cxml)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

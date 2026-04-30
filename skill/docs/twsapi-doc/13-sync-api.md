@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [13-sync-api.md](13 Synchronous API) -> 
-
- 13 Synchronous API
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [13 Synchronous API](13-sync-api.md)
 
 
 ## Synchronous API
@@ -14,8 +11,9 @@ The content shown here is an example of what the Sync Wrapper structure looks li
 
 ## 13 Synchronous API
 
-\# Import our Sync Wrapper and Contract objects
-from ibapi.sync\_wrapper\_alt import \*
+```python
+# Import our Sync Wrapper and Contract objects
+from ibapi.sync_wrapper_alt import *
 from datetime import datetime
 
 # Instantiate the reference for our sync class
@@ -23,7 +21,7 @@ app = TWSSyncWrapper(timeout=30)
 
 # make a connection to Trader Workstation
 # In this case, we're connecting on Localhost with port 7496 and Client ID 0.
-if not app.connect\_and\_start(host="127.0.0.1", port=7496, client\_id=8675309):
+if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=8675309):
     print("Failed to connect to TWS")
     exit(1)
 else:
@@ -43,10 +41,10 @@ Contract details requests will return all contracts the match the details
 of our contract object in a list. Because a list is returned, we are 
 taking the first (or 0 index) contract returned. 
 '''
-aapl\_contract = app.get\_contract\_details(contract)\[0\].contract
-print(aapl\_contract)
+aapl_contract = app.get_contract_details(contract)[0].contract
+print(aapl_contract)
 
-market\_data = app.get\_market\_data\_snapshot(aapl\_contract)
+market_data = app.get_market_data_snapshot(aapl_contract)
 
 order = Order()
 order.action = "BUY"
@@ -54,18 +52,20 @@ order.orderType = "LMT"
 order.totalQuantity = 100
 order.lmtPrice = 258
 
-order\_status = app.place\_order\_sync(contract, order)
-oid = order\_status\["orderId"\]
+order_status = app.place_order_sync(contract, order)
+oid = order_status["orderId"]
 
-print(app.get\_open\_orders()\[oid\]\['orderState'\].status)
+print(app.get_open_orders()[oid]['orderState'].status)
 
-print(app.cancel\_order\_sync(oid, OrderCancel()))
+print(app.cancel_order_sync(oid, OrderCancel()))
 
-app.disconnect\_and\_stop()
+app.disconnect_and_stop()
 exit()
+```
 
 #### Response Sample
 
+```generic
 ERROR -1 1761170335710 2104 Market data farm connection is OK:usbond
 ERROR -1 1761170335711 2104 Market data farm connection is OK:usfarm.nj
 ERROR -1 1761170335712 2104 Market data farm connection is OK:eufarm
@@ -77,6 +77,7 @@ ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strik
 {'price': {1: {'price': 258.5, 'attrib': 2076793531408: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 2: {'price': 258.65, 'attrib': 2076793531536: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 4: {'price': 258.62, 'attrib': 2076793531600: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 6: {'price': 262.85, 'attrib': 2076793531856: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 7: {'price': 255.43, 'attrib': 2076793531920: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 9: {'price': 262.77, 'attrib': 2076793531984: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 14: {'price': 262.74, 'attrib': 2076793532048: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}}, 'size': {0: Decimal('1'), 3: Decimal('5'), 5: Decimal('3'), 8: Decimal('449348')}}
 PreSubmitted
 {'orderId': 358, 'status': 'PreSubmitted', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 1054257323, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}
+```
 
 ### TWSSyncWrapper Class
 
@@ -86,9 +87,11 @@ The TWSSyncWrapper class accepts a single argument, timeout. This will provide a
 
 Each function supports a timeout argument for unique endpoint timeout behavior.
 
-from ibapi.sync\_wrapper import TWSSyncWrapper
+```python
+from ibapi.sync_wrapper import TWSSyncWrapper
 
 app = TWSSyncWrapper(timeout=30)
+```
 
 ### Connect & Start Connection
 
@@ -108,7 +111,9 @@ Users should connect with a client\_id of 0 for [optimal order management functi
 
 #### )
 
-app.connect\_and\_start(host="127.0.0.1", port=7496, client\_id=0)
+```python
+app.connect_and_start(host="127.0.0.1", port=7496, client_id=0)
+```
 
 #### Response Object
 
@@ -118,14 +123,16 @@ The function call will return a single Boolean value, True or False, in referenc
 
 Developers may look to implement code such as this that will gracefully handle the connection procedure should it fail to connect rather than proceeding with the rest of the code implementation.
 
-\# Connect to TWS
+```python
+# Connect to TWS
 # If the connection succeeded, notify the user.
 # If the connection fails and False is returned, notify the user and gracefully exit the application.
-if not app.connect\_and\_start(host="127.0.0.1", port=7496, client\_id=0):
+if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
     print("Failed to connect to TWS")
     exit(1)
 else:
     print("Connected to TWS")
+```
 
 ### Disconnect & Stop Connection
 
@@ -133,7 +140,9 @@ Once a connection is no longer needed, developers should disconnect the session.
 
 ### 13.03 Disconnect & Stop Connection
 
-app.disconnect\_and\_stop()
+```python
+app.disconnect_and_stop()
+```
 
 The function call does not return after calling. As a result, None is automatically passed in the event the function is referenced.
 
@@ -147,13 +156,17 @@ Whenever a user would need to verify the current time used within Trader Worksta
 
 )
 
-app.get\_current\_time()
+```python
+app.get_current_time()
+```
 
 #### Response Object
 
 get\_current\_time() will return the current timestamp as an integer representing an epoch timestamp.
 
+```python
 1760478515
+```
 
 ### Next Valid ID
 
@@ -167,13 +180,17 @@ The same order identifier cannot be reused except to modify an existing order.
 
 #### )
 
-app.get\_next\_valid\_id()
+```python
+app.get_next_valid_id()
+```
 
 #### Response Object
 
 Requests to the get\_next\_valid\_id() function will return the next valid order ID, which may be used in order submission.
 
+```python
 123456789
+```
 
 ### Account Summary
 
@@ -191,9 +208,11 @@ Default value passed, “All”.
 
 #### )
 
-from ibapi.account\_summary\_tags import AccountSummaryTags
+```python
+from ibapi.account_summary_tags import AccountSummaryTags
 
-app.get\_account\_summary(AccountSummaryTags.AllTags, "All")
+app.get_account_summary(AccountSummaryTags.AllTags, "All")
+```
 
 Total size of the request may vary depending on number of accounts held in the account, and the number of tags requested.
 
@@ -211,7 +230,9 @@ Total size of the request may vary depending on number of accounts held in the a
 
 }
 
+```json
 {'U1234567': {'AccountType': {'value': 'LLC', 'currency': ''}, 'Cushion': {'value': '0.993764', 'currency': ''}, 'DayTradesRemaining': {'value': '-1', 'currency': ''}, 'LookAheadNextChange': {'value': '1760558400', 'currency': ''}, 'AccruedCash': {'value': '262079.00', 'currency': 'USD'}, 'AvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'BuyingPower': {'value': '1466299088.69', 'currency': 'USD'}, 'EquityWithLoanValue': {'value': '221042710.95', 'currency': 'USD'}, 'ExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'FullAvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'FullExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'FullInitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'FullMaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'GrossPositionValue': {'value': '2982965.22', 'currency': 'USD'}, 'InitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'LookAheadAvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'LookAheadExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'LookAheadInitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'LookAheadMaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'MaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'NetLiquidation': {'value': '221425500.56', 'currency': 'USD'}, 'PreviousDayEquityWithLoanValue': {'value': '205659145.23', 'currency': 'USD'}, 'TotalCashValue': {'value': '218181198.71', 'currency': 'USD'}}
+```
 
 ### Contract Details
 
@@ -227,18 +248,22 @@ Passing as much known information through a Contract Details will return all con
 
 #### )
 
+```python
 contract = Contract()
 contract.symbol = "AAPL"
 contract.secType = "STK"
 
-app.get\_contract\_details(contract=contract)
+app.get_contract_details(contract=contract)
+```
 
 #### Response Object
 
 The get\_contract\_details() function will return a list of [Contract](../undefined/index.md) objects.  
 Unless a relatively narrow scope is provided during the initial contract details request, multiple contract objects may be returned within the list. Please be aware that directly printing this information may result in the memory address being displayed.
 
-\[3039334541648: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: SMART, PrimaryExchange: ISLAND, Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:,NMS,0.01,ACTIVETIM,AD,ADDONT,ADJUST,ALERT,ALGO,ALLOC,AON,AVGCOST,BASKET,BENCHPX,CASHQTY,COND,CONDORDER,DARKONLY,DARKPOLL,DAY,DEACT,DEACTDIS,DEACTEOD,DIS,DUR,GAT,GTC,GTD,GTT,HID,IBKRATS,ICE,IMB,IOC,LIT,LMT,LOC,MIDPX,MIT,MKT,MOC,MTL,NGCOMB,NODARK,NONALGO,OCA,OPG,OPGREROUT,PEGBENCH,PEGMID,POSTATS,POSTONLY,PREOPGRTH,PRICECHK,REL,REL2MID,RELPCTOFS,RPI,RTH,SCALE,SCALEODD,SCALERST,SIZECHK,SMARTSTG,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,SWEEP,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF,SMART,AMEX,NYSE,CBOE,PHLX,ISE,CHX,ARCA,ISLAND,DRCTEDGE,BEX,BATS,EDGEA,BYX,IEX,EDGX,FOXRIVER,PEARL,NYSENAT,LTSE,MEMX,IBEOS,OVERNIGHT,TPLUS0,PSX,T24X,1,0,APPLE INC,,Technology,Computers,Computers,US/Eastern,20251015:0400-20251015:2000;20251016:0400-20251016:2000;20251017:0400-20251017:2000;20251018:CLOSED;20251019:CLOSED;20251020:0400-20251020:2000,20251015:0930-20251015:1600;20251016:0930-20251016:1600;20251017:0930-20251017:1600;20251018:CLOSED;20251019:CLOSED;20251020:0930-20251020:1600,,0,,,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,1,\[3039334542544: ISIN=US0378331005;\],,COMMON,,,,,,False,False,0,False,,,,,False,,0.0001,0.0001,100,None,,,, 3039334543504: ConId: 273982664,...\]
+```python
+[3039334541648: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: SMART, PrimaryExchange: ISLAND, Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:,NMS,0.01,ACTIVETIM,AD,ADDONT,ADJUST,ALERT,ALGO,ALLOC,AON,AVGCOST,BASKET,BENCHPX,CASHQTY,COND,CONDORDER,DARKONLY,DARKPOLL,DAY,DEACT,DEACTDIS,DEACTEOD,DIS,DUR,GAT,GTC,GTD,GTT,HID,IBKRATS,ICE,IMB,IOC,LIT,LMT,LOC,MIDPX,MIT,MKT,MOC,MTL,NGCOMB,NODARK,NONALGO,OCA,OPG,OPGREROUT,PEGBENCH,PEGMID,POSTATS,POSTONLY,PREOPGRTH,PRICECHK,REL,REL2MID,RELPCTOFS,RPI,RTH,SCALE,SCALEODD,SCALERST,SIZECHK,SMARTSTG,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,SWEEP,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF,SMART,AMEX,NYSE,CBOE,PHLX,ISE,CHX,ARCA,ISLAND,DRCTEDGE,BEX,BATS,EDGEA,BYX,IEX,EDGX,FOXRIVER,PEARL,NYSENAT,LTSE,MEMX,IBEOS,OVERNIGHT,TPLUS0,PSX,T24X,1,0,APPLE INC,,Technology,Computers,Computers,US/Eastern,20251015:0400-20251015:2000;20251016:0400-20251016:2000;20251017:0400-20251017:2000;20251018:CLOSED;20251019:CLOSED;20251020:0400-20251020:2000,20251015:0930-20251015:1600;20251016:0930-20251016:1600;20251017:0930-20251017:1600;20251018:CLOSED;20251019:CLOSED;20251020:0930-20251020:1600,,0,,,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,1,[3039334542544: ISIN=US0378331005;],,COMMON,,,,,,False,False,0,False,,,,,False,,0.0001,0.0001,100,None,,,, 3039334543504: ConId: 273982664,...]
+```
 
 ### Live Market Data
 
@@ -261,6 +286,7 @@ Default: Set to True, returning a snapshot of data as soon as possible.
 
 #### )
 
+```python
 contract = Contract()
 contract.symbol = "AAPL"
 contract.secType = "STK"
@@ -268,7 +294,8 @@ contract.exchange = "SMART"
 contract.primaryExchange = "NASDAQ"
 contract.currency = "USD"
 
-market\_data = app.get\_market\_data\_snapshot(contract, "225,232", False)
+market_data = app.get_market_data_snapshot(contract, "225,232", False)
+```
 
 Data returned by get\_market\_data\_snapshot() is delivered as a json dictionary object, separating data into “price” and “size” tags. Values are then returned as the affiliated tick types alongside any price or attribute data.
 
@@ -280,7 +307,9 @@ Data returned by get\_market\_data\_snapshot() is delivered as a json dictionary
 
 }
 
-{'BID': 276.17, 'BID\_SIZE': Decimal('900'), 'ASK': 276.2, 'ASK\_SIZE': Decimal('300'), 'LAST\_TIMESTAMP': '1764009996', 'LAST': 276.18, 'LAST\_SIZE': Decimal('100'), 'VOLUME': Decimal('271511')}
+```JSON
+{'BID': 276.17, 'BID_SIZE': Decimal('900'), 'ASK': 276.2, 'ASK_SIZE': Decimal('300'), 'LAST_TIMESTAMP': '1764009996', 'LAST': 276.18, 'LAST_SIZE': Decimal('100'), 'VOLUME': Decimal('271511')}
+```
 
 ### Historical Market Data
 
@@ -309,6 +338,7 @@ Default: Set to 1, returning a datetime string.
 
 #### )
 
+```python
 contract = Contract()
 contract.symbol = "AAPL"
 contract.secType = "STK"
@@ -316,13 +346,16 @@ contract.exchange = "SMART"
 contract.primaryExchange = "NASDAQ"
 contract.currency = "USD"
 
-app.get\_historical\_data(contract=contract, end\_date\_time="", duration\_str="1 W", bar\_size\_setting="1 day", what\_to\_show="TRADES", use\_rth=True)
+app.get_historical_data(contract=contract, end_date_time="", duration_str="1 W", bar_size_setting="1 day", what_to_show="TRADES", use_rth=True)
+```
 
 #### Response Object
 
 Requesting historical bars will return return a list containing all [Bar](../undefined/index.md) objects for the duration. Please be aware that directly printing this information may result in the memory address being displayed.
 
-\[2524872613328: Date: 20251013, Open: 249.31, High: 249.69, Low: 245.56, Close: 247.66, Volume: 187465.43, WAP: 247.952, BarCount: 105768, 2524872614864: Date: 20251014, Open: 246.6, High: 248.85, Low: 244.7, Close: 247.77, Volume: 176034.99, WAP: 247.21, BarCount: 100507, 2524872615120: Date: 20251015, Open: 249.49, High: 251.82, Low: 247.47, Close: 249.34, Volume: 172136.46, WAP: 249.754, BarCount: 96331, 2524872615248: Date: 20251016, Open: 248.28, High: 249.04, Low: 245.13, Close: 247.45, Volume: 235179.94, WAP: 247.351, BarCount: 132811, 2524872615376: Date: 20251017, Open: 248.08, High: 253.38, Low: 247.27, Close: 252.29, Volume: 260673.48, WAP: 250.408, BarCount: 125863\]
+```python
+[2524872613328: Date: 20251013, Open: 249.31, High: 249.69, Low: 245.56, Close: 247.66, Volume: 187465.43, WAP: 247.952, BarCount: 105768, 2524872614864: Date: 20251014, Open: 246.6, High: 248.85, Low: 244.7, Close: 247.77, Volume: 176034.99, WAP: 247.21, BarCount: 100507, 2524872615120: Date: 20251015, Open: 249.49, High: 251.82, Low: 247.47, Close: 249.34, Volume: 172136.46, WAP: 249.754, BarCount: 96331, 2524872615248: Date: 20251016, Open: 248.28, High: 249.04, Low: 245.13, Close: 247.45, Volume: 235179.94, WAP: 247.351, BarCount: 132811, 2524872615376: Date: 20251017, Open: 248.08, High: 253.38, Low: 247.27, Close: 252.29, Volume: 260673.48, WAP: 250.408, BarCount: 125863]
+```
 
 ### Place Order
 
@@ -336,6 +369,7 @@ Requesting historical bars will return return a list containing all [Bar](../und
 
 #### )
 
+```python
 contract = Contract()
 contract.symbol = "AAPL"
 contract.secType = "STK"
@@ -349,7 +383,8 @@ order.orderType = "LMT"
 order.totalQuantity = 100
 order.lmtPrice = 250
 
-app.place\_order\_sync(contract, order)
+app.place_order_sync(contract, order)
+```
 
 Upon placing an order, a dictionary containing all of the order status’s information will be returned. As the response is static, refer to the [get\_open\_orders](../undefined/index.md) function more more details on the current order status.
 
@@ -370,7 +405,9 @@ mktCapPrice: Float. If an order is capped due to it exceeding the market price a
 }  
  
 
+```python
 {'orderId': 347, 'status': 'PreSubmitted', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 979867961, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}
+```
 
 ### Cancel Order
 
@@ -384,7 +421,9 @@ mktCapPrice: Float. If an order is capped due to it exceeding the market price a
 
 #### )
 
-app.cancel\_order\_sync(347, OrderCancel())
+```python
+app.cancel_order_sync(347, OrderCancel())
+```
 
 Upon cancellingan order, a dictionary containing all of the order status’s information will be returned. As the response is static, refer to the [get\_open\_orders](../undefined/index.md) function more more details on the current order status.
 
@@ -416,7 +455,9 @@ Upon cancellingan order, a dictionary containing all of the order status’s inf
 
 }
 
+```python
 {'orderId': 347, 'status': 'PendingCancel', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 1395073938, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}
+```
 
 ### Open Orders
 
@@ -426,7 +467,9 @@ Upon cancellingan order, a dictionary containing all of the order status’s inf
 
 #### )
 
-app.get\_open\_orders()
+```python
+app.get_open_orders()
+```
 
 All orders from the current day’s trading session are returned in a dictionary, using the orderId as the key to discover the specific order.
 
@@ -446,7 +489,9 @@ orderId: Integer. The identifier for the order. Relevant for order tracking, mod
 }  
  
 
+```python
 {351: {'orderId': 351, 'contract': 2172957720272: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: SMART, PrimaryExchange: , Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'order': 2172957719120: 351,8675309,979867965: LMT BUY 100@800 GTC, 'orderState': }}
+```
 
 ### Executions
 
@@ -460,7 +505,9 @@ Request all executions following the Execution Filter’s restrictions.
 
 #### )
 
-app.get\_open\_orders()
+```python
+app.get_open_orders()
+```
 
 All executions passed in the context of the ExecutionFilter are returned in a list.
 
@@ -475,7 +522,9 @@ All executions passed in the context of the ExecutionFilter are returned in a li
 }\]  
  
 
-\[{'contract': 1530250139984: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: IEX, PrimaryExchange: , Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'execution': 1530250140432: ExecId: 0000e0d5.68fa9014.01.01, Time: 20251022 14:56:24 US/Eastern, Account: U1234567, Exchange: IEX, Side: BOT, Shares: 100, Price: 256.62, PermId: 1395073936, ClientId: 8675309, OrderId: 355, Liquidation: 0, CumQty: 100, AvgPrice: 256.62, OrderRef: , EvRule: , EvMultiplier: 0, ModelCode: , LastLiquidity: 2, PendingPriceRevision: False, Submitter: csdem9545, OptExerciseOrLapseType: None}\]
+```python
+[{'contract': 1530250139984: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: IEX, PrimaryExchange: , Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'execution': 1530250140432: ExecId: 0000e0d5.68fa9014.01.01, Time: 20251022 14:56:24 US/Eastern, Account: U1234567, Exchange: IEX, Side: BOT, Shares: 100, Price: 256.62, PermId: 1395073936, ClientId: 8675309, OrderId: 355, Liquidation: 0, CumQty: 100, AvgPrice: 256.62, OrderRef: , EvRule: , EvMultiplier: 0, ModelCode: , LastLiquidity: 2, PendingPriceRevision: False, Submitter: csdem9545, OptExerciseOrLapseType: None}]
+```
 
 ### Positions
 
@@ -487,7 +536,9 @@ Request positions for all accounts available to the user.
 
 #### )
 
-app.get\_positions()
+```python
+app.get_positions()
+```
 
 All orders from the current day’s trading session are returned in a dictionary, using the orderId as the key to discover the specific order.
 
@@ -506,7 +557,9 @@ All orders from the current day’s trading session are returned in a dictionary
 }\]  
  
 
-{'U1234567': \[{'contract': 2333839861008: ConId: 340216238, Symbol: COIL, SecType: FUT, LastTradeDateOrContractMonth: 20251031, Strike: 0, Right: , Multiplier: 1000, Exchange: IPE, PrimaryExchange: , Currency: , LocalSymbol: COILZ5, TradingClass: COIL, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('4'), 'avgCost': 61359.9}\]}
+```python
+{'U1234567': [{'contract': 2333839861008: ConId: 340216238, Symbol: COIL, SecType: FUT, LastTradeDateOrContractMonth: 20251031, Strike: 0, Right: , Multiplier: 1000, Exchange: IPE, PrimaryExchange: , Currency: , LocalSymbol: COILZ5, TradingClass: COIL, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('4'), 'avgCost': 61359.9}]}
+```
 
 ### Portfolio
 
@@ -520,7 +573,9 @@ Request portfolio details for the selected account or accounts available to the 
 
 #### )
 
-app.get\_portfolio("")
+```python
+app.get_portfolio("")
+```
 
 #### Response Object
 
@@ -547,4 +602,6 @@ app.get\_portfolio("")
 }\]  
  
 
-\[{'contract': 1957652380880: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: ISLAND, PrimaryExchange: , Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('202635'), 'marketPrice': 258.57998655, 'marketValue': 52397355.58, 'averageCost': 263.3360764, 'unrealizedPNL': -963750.26, 'realizedPNL': 0.0, 'accountName': 'DU5240685'}\]
+```python
+[{'contract': 1957652380880: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: ISLAND, PrimaryExchange: , Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('202635'), 'marketPrice': 258.57998655, 'marketValue': 52397355.58, 'averageCost': 263.3360764, 'unrealizedPNL': -963750.26, 'realizedPNL': 0.0, 'accountName': 'DU5240685'}]
+```

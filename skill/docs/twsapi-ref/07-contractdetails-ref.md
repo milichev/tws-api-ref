@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [07-contractdetails-ref.md](07 ContractDetails Class Reference) -> 
-
- 07 ContractDetails Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [07 ContractDetails Class Reference](07-contractdetails-ref.md)
 
 
 ## ContractDetails Class Reference

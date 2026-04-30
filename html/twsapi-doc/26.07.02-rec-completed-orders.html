@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.07-completed-orders.html">26.07 Retrieving Completed Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.07.02-rec-completed-orders.html">26.07.02 Receiving Completed Orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Completed Orders</h3><div class="row"><h4 id="rec-completed-orders">26.07.02 Receiving Completed Orders</h4><p><strong>contract:</strong>&nbsp;Contract. The order’s Contract.<br> <strong>order:</strong>&nbsp;Order. The currently active Order.<br> <strong>orderState:</strong> OrderState. The order’s OrderState<br> <span style="font-size: 0.95rem">)</span></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def completedOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
-        print(orderId, contract, order, orderState)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving Completed Orders</h3><div class="row"><h4 id="rec-completed-orders">26.07.02 Receiving Completed Orders</h4><p><strong>contract:</strong>&nbsp;Contract. The order’s Contract.<br> <strong>order:</strong>&nbsp;Order. The currently active Order.<br> <strong>orderState:</strong> OrderState. The order’s OrderState<br> <span style="font-size: 0.95rem">)</span></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def completedOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
+        print(orderId, contract, order, orderState)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

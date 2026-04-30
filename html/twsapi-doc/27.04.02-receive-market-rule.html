@@ -111,15 +111,24 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.04-market-price-increment.html">27.04 Minimum Price Increment</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.04.02-receive-market-rule.html">27.04.02 Receive Market Rule</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Market Rule</h3><div class="row"><h4 id="receive-market-rule">27.04.02 Receive Market Rule</h4><p><strong>marketRuleId:</strong> int. Market Rule ID requested.</p><p><strong>priceIncrements:</strong> PriceIncrement[]. Returns the available price increments based on the market rule.<br> )</p><p>Returns minimum price increment structure for a particular market rule ID market rule IDs for an instrument on valid exchanges can be obtained from the <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details">contractDetails</a> object for that contract</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def marketRule(self, marketRuleId: int, priceIncrements: ListOfPriceIncrements):
+     <h3 class="section-title-2">Receive Market Rule</h3><div class="row"><h4 id="receive-market-rule">27.04.02 Receive Market Rule</h4><p><strong>marketRuleId:</strong> int. Market Rule ID requested.</p><p><strong>priceIncrements:</strong> PriceIncrement[]. Returns the available price increments based on the market rule.<br> )</p><p>Returns minimum price increment structure for a particular market rule ID market rule IDs for an instrument on valid exchanges can be obtained from the <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details">contractDetails</a> object for that contract</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def marketRule(self, marketRuleId: int, priceIncrements: ListOfPriceIncrements):
     	print("Market Rule ID: ", marketRuleId)
     	for priceIncrement in priceIncrements:
-    	print("Price Increment.", priceIncrement)</pre><p>&nbsp;</p></div></div></div>
+    	print("Price Increment.", priceIncrement)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

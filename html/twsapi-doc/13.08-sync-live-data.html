@@ -111,19 +111,25 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13.08-sync-live-data.html">13.08 Live Market Data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Live Market Data</h3><div class="row"><p>Users may request market data using get_market_data_snapshot() to retrieve available market data.<br> The request currently supports <a href="../undefined/index.html">tickPrice, tickSize, tickString, tickGeneric, tickNews, and tickOptionCompution</a> data.</p><h3 id="sync-live-data">13.08 Live Market Data</h3><p style="padding-left: 40px"><strong>contract:</strong> <a href="../undefined/index.html">Contract Object</a>. Contract to retrieve market data for.</p><p style="padding-left: 40px"><strong>generic_tick_list:</strong> String. String containing comma-separate values to determine addition data to retrieve.</p><p style="padding-left: 80px">Default: Automatically sends an empty string, returning only the basic data such as Last, Bid, and Ask. See <a href="../undefined/index.html">Available Tick Types</a> for more details.</p><p style="padding-left: 40px"><strong>snapshot:</strong> Boolean. Determine if a single snapshot should be returned or if data should be continuously updated until the timeout threshold has been reached.</p><p style="padding-left: 80px">Default: Set to True, returning a snapshot of data as soon as possible.</p><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Uses default timeout value passed to TWSSyncClass.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">contract = Contract()
+     <h3 class="section-title-2">Live Market Data</h3><div class="row"><p>Users may request market data using get_market_data_snapshot() to retrieve available market data.<br> The request currently supports <a href="../undefined/index.html">tickPrice, tickSize, tickString, tickGeneric, tickNews, and tickOptionCompution</a> data.</p><h3 id="sync-live-data">13.08 Live Market Data</h3><p style="padding-left: 40px"><strong>contract:</strong> <a href="../undefined/index.html">Contract Object</a>. Contract to retrieve market data for.</p><p style="padding-left: 40px"><strong>generic_tick_list:</strong> String. String containing comma-separate values to determine addition data to retrieve.</p><p style="padding-left: 80px">Default: Automatically sends an empty string, returning only the basic data such as Last, Bid, and Ask. See <a href="../undefined/index.html">Available Tick Types</a> for more details.</p><p style="padding-left: 40px"><strong>snapshot:</strong> Boolean. Determine if a single snapshot should be returned or if data should be continuously updated until the timeout threshold has been reached.</p><p style="padding-left: 80px">Default: Set to True, returning a snapshot of data as soon as possible.</p><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Uses default timeout value passed to TWSSyncClass.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">contract = Contract()
     contract.symbol = "AAPL"
     contract.secType = "STK"
     contract.exchange = "SMART"
     contract.primaryExchange = "NASDAQ"
     contract.currency = "USD"
     
-    market_data = app.get_market_data_snapshot(contract, "225,232", False)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>Data returned by get_market_data_snapshot() is delivered as a json dictionary object, separating data into “price” and “size” tags. Values are then returned as the affiliated tick types alongside any price or attribute data.</p><h4>Response Object</h4><p>{</p><p style="padding-left: 80px"><strong>{TickType}:</strong> Integer, Float String. The value of the tag. Can include price values (Float), Size values (Decimal), or direct information (string).</p><p>}</p><pre class="EnlighterJSRAW" data-enlighter-language="JSON">{'BID': 276.17, 'BID_SIZE': Decimal('900'), 'ASK': 276.2, 'ASK_SIZE': Decimal('300'), 'LAST_TIMESTAMP': '1764009996', 'LAST': 276.18, 'LAST_SIZE': Decimal('100'), 'VOLUME': Decimal('271511')}</pre><p>&nbsp;</p></div>
+    market_data = app.get_market_data_snapshot(contract, "225,232", False)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><p>Data returned by get_market_data_snapshot() is delivered as a json dictionary object, separating data into “price” and “size” tags. Values are then returned as the affiliated tick types alongside any price or attribute data.</p><h4>Response Object</h4><p>{</p><p style="padding-left: 80px"><strong>{TickType}:</strong> Integer, Float String. The value of the tag. Can include price values (Float), Size values (Decimal), or direct information (string).</p><p>}</p><pre><code class="language-JSON">{'BID': 276.17, 'BID_SIZE': Decimal('900'), 'ASK': 276.2, 'ASK_SIZE': Decimal('300'), 'LAST_TIMESTAMP': '1764009996', 'LAST': 276.18, 'LAST_SIZE': Decimal('100'), 'VOLUME': Decimal('271511')}</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

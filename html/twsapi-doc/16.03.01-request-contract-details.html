@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.03-contract-details.html">16.03 Contract Details</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.03.01-request-contract-details.html">16.03.01 Request Contract Details</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Contract Details</h3><div class="row"><h4 id="request-contract-details">16.03.01 Request Contract Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. the contract used as sample to query the available contracts.<br> Typically contains at least the Symbol, SecType, Exchange, and Currency.<br> )</p><p>Upon requesting EClient.reqContractDetails, all contracts matching the requested <a href="../undefined/index.html">Contract Object</a> will be returned to <a href="../undefined/index.html">EWrapper.contractDetails</a> or <a href="../undefined/index.html">EWrapper.bondContractDetails</a>.</p><p>When reqContractDetails is called for STK using symbol security type, exchange, and currency, TWS caches the contract data internally. Future order submissions for these contracts utilizing contract ID and exchange combination utilize the cached values to expedite order transmission speeds.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqContractDetails(reqId, contract)</pre></div></div></div>
+     <h3 class="section-title-2">Request Contract Details</h3><div class="row"><h4 id="request-contract-details">16.03.01 Request Contract Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. the contract used as sample to query the available contracts.<br> Typically contains at least the Symbol, SecType, Exchange, and Currency.<br> )</p><p>Upon requesting EClient.reqContractDetails, all contracts matching the requested <a href="../undefined/index.html">Contract Object</a> will be returned to <a href="../undefined/index.html">EWrapper.contractDetails</a> or <a href="../undefined/index.html">EWrapper.bondContractDetails</a>.</p><p>When reqContractDetails is called for STK using symbol security type, exchange, and currency, TWS caches the contract data internally. Future order submissions for these contracts utilizing contract ID and exchange combination utilize the cached values to expedite order transmission speeds.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqContractDetails(reqId, contract)</code></pre></div></div></div>
   </body>
 </html>

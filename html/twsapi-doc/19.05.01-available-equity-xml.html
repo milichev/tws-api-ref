@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19-financial-advisors.html">19 Financial Advisors</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19.05-allocation-format.html">19.05 Allocation Method XML Format</a>
       </li>
       <li class="breadcrumb-item">
         <a href="19.05.01-available-equity-xml.html">19.05.01 Available Equity</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Available Equity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares based on the amount of available equity in each account. The system calculates ratios based on the Available Equity in each account and allocates shares based on these ratios.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with available equity in the amounts of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+     <h3 class="section-title-2">Available Equity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares based on the amount of available equity in each account. The system calculates ratios based on the Available Equity in each account and allocates shares based on these ratios.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with available equity in the amounts of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.</p><pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
     &lt;ListOfGroups&gt;
       &lt;Group&gt;
         &lt;name&gt;MyTestProfile2&lt;/name&gt;
@@ -131,6 +140,6 @@ th {
           &lt;/Account&gt;
         &lt;/ListOfAccts&gt;
       &lt;/Group&gt;
-    &lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div>
+    &lt;/ListOfGroups&gt;</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

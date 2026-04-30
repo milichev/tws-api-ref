@@ -12,10 +12,13 @@ export async function writeRoot(sections: FetchInfo[]) {
     assignBaseFilenames(section.children);
   });
 
-  breadcrumb.push({
-    title: "IBKR TWS API",
-    fileName: "index.html",
-  });
+  const breadcrumbHtml: Breadcrumb<any>[] = [
+    { title: "IBKR TWS API", fileName: "index.html" },
+  ];
+
+  const breadcrumbMd: Breadcrumb<any>[] = [
+    { title: "IBKR TWS API", fileName: "../SKILL.md" },
+  ];
 
   // 2. Generate html/index.html (Section titles only)
   const indexHtml = pageHtmlTpl({
@@ -28,7 +31,7 @@ export async function writeRoot(sections: FetchInfo[]) {
           ? s.externalUrl
           : `${s.sectionName}/index.html`,
     })),
-    breadcrumb,
+    breadcrumb: breadcrumbHtml,
     flat: true, // Only show section titles
   });
   writeFile("index.html", indexHtml, HTML_DIR);
@@ -52,13 +55,11 @@ export async function writeRoot(sections: FetchInfo[]) {
       ...s,
       fileName: `./${s.sectionName}/index.md`,
     })),
-    breadcrumb,
+    breadcrumb: breadcrumbMd,
     isMd: true,
     flat: true,
   });
   writeFile("docs/index.md", docsIndexMd, SKILL_DIR);
 
-  await writeSections(sections, breadcrumb);
-
-  breadcrumb.pop();
+  await writeSections(sections, breadcrumbHtml);
 }

@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.08-watchlist-data.html">22.08 Top of Book (L1)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.08.07-exchange-component-mapping.html">22.08.07 Exchange Component Mapping</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Exchange Component Mapping</h3><div class="row"><p>A market data request is able to return data from multiple exchanges. After a market data request is made for an instrument covered by market data subscriptions, a message will be sent to function IBApi::EWrapper::tickReqParams with information about ‘minTick’, BBO exchange mapping, and available snapshot permissions.</p><p>The exchange mapping identifier bboExchange will be a symbol such as “a6” which can be used to decode the single letter exchange abbreviations returned to the bidExch, askExch, and lastExch fields by invoking the function IBApi::EClient::reqSmartComponents. More information about Component Exchanges.</p><p>The minTick returned to tickReqParams indicates the minimum increment in market data values returned to the API. It can differ from the minTick value in the ContractDetails class. For instance, combos will often have a minimum increment of 0.01 for market data and a minTick of 0.05 for order placement.</p></div><div class="row"><h4 id="exchange-component-mapping">22.08.07 Exchange Component Mapping</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>minTick:</strong> Minimum tick for the contract on the exchange.</p><p><strong>bboExchange:</strong> String. Exchange offering the best bid offer.</p><p><strong>snapshotPermissions:</strong> Based on the snapshot parameter in EClient.reqMktData.<br> )</p><p>Displays the ticker with BBO exchange.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def tickReqParams(self, tickerId:int, minTick:float, bboExchange:str, snapshotPermissions:int):
-    	print("TickReqParams. TickerId:", tickerId, "MinTick:", floatMaxString(minTick), "BboExchange:", bboExchange, "SnapshotPermissions:", intMaxString(snapshotPermissions))</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Exchange Component Mapping</h3><div class="row"><p>A market data request is able to return data from multiple exchanges. After a market data request is made for an instrument covered by market data subscriptions, a message will be sent to function IBApi::EWrapper::tickReqParams with information about ‘minTick’, BBO exchange mapping, and available snapshot permissions.</p><p>The exchange mapping identifier bboExchange will be a symbol such as “a6” which can be used to decode the single letter exchange abbreviations returned to the bidExch, askExch, and lastExch fields by invoking the function IBApi::EClient::reqSmartComponents. More information about Component Exchanges.</p><p>The minTick returned to tickReqParams indicates the minimum increment in market data values returned to the API. It can differ from the minTick value in the ContractDetails class. For instance, combos will often have a minimum increment of 0.01 for market data and a minTick of 0.05 for order placement.</p></div><div class="row"><h4 id="exchange-component-mapping">22.08.07 Exchange Component Mapping</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>minTick:</strong> Minimum tick for the contract on the exchange.</p><p><strong>bboExchange:</strong> String. Exchange offering the best bid offer.</p><p><strong>snapshotPermissions:</strong> Based on the snapshot parameter in EClient.reqMktData.<br> )</p><p>Displays the ticker with BBO exchange.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def tickReqParams(self, tickerId:int, minTick:float, bboExchange:str, snapshotPermissions:int):
+    	print("TickReqParams. TickerId:", tickerId, "MinTick:", floatMaxString(minTick), "BboExchange:", bboExchange, "SnapshotPermissions:", intMaxString(snapshotPermissions))</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

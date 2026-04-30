@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="23-market-scanner.html">23 Market Scanner</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="23.01-market-scan-params.html">23.01 Market Scanner Parameters</a>
       </li>
       <li class="breadcrumb-item">
         <a href="23.01.02-receive-market-scan-params.html">23.01.02 Receive Market Scanner Parameters</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Market Scanner Parameters</h3><div class="row"><h4 id="receive-market-scan-params">23.01.02 Receive Market Scanner Parameters</h4><p><strong>xml:</strong> String. The xml-formatted string with the available parameters.<br> )</p><p>Provides the xml-formatted parameters available from TWS market scanners (not all available in API).</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def scannerParameters(self, xml: str):
+     <h3 class="section-title-2">Receive Market Scanner Parameters</h3><div class="row"><h4 id="receive-market-scan-params">23.01.02 Receive Market Scanner Parameters</h4><p><strong>xml:</strong> String. The xml-formatted string with the available parameters.<br> )</p><p>Provides the xml-formatted parameters available from TWS market scanners (not all available in API).</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def scannerParameters(self, xml: str):
     	open('log/scanner.xml', 'w').write(xml)
-    	print("ScannerParameters received.")</pre><p>&nbsp;</p></div></div></div>
+    	print("ScannerParameters received.")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

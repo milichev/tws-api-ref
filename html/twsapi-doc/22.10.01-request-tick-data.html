@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.10-tick-by-tick.html">22.10 Tick By Tick Data</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.10.01-request-tick-data.html">22.10.01 Request Tick By Tick Data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Tick By Tick Data</h3><div class="row"><h4 id="request-tick-data">22.10.01 Request Tick By Tick Data</h4><p><strong>reqId:</strong> int. unique identifier of the request.</p><p><strong>contract:</strong> Contract. the contract for which tick-by-tick data is requested.</p><p><strong>tickType:</strong> String. tick-by-tick data type: “Last”, “AllLast”, “BidAsk” or “MidPoint”.</p><p><strong>numberOfTicks:</strong> int. If a non-zero value is entered, then historical tick data is first returned via one of the&nbsp; <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#receiving-time-and-sales">Historical Time and Sales Ewrapper Methods</a>&nbsp; respectively. (Max number of historical Ticks is 1000)</p><p><strong>ignoreSize:</strong> bool. Omit updates that reflect only changes in size, and not price.<em> Applicable to Bid_Ask data requests</em>.<br> )</p><p>Requests tick by tick or Time &amp; Sales data.</p><p>&nbsp;</p><p>Note:</p><p>The maximum number of simultaneous tick-by-tick subscriptions allowed for a user is 5% of the user’s total market data lines. See <a href="/campus/ibkr-api-page/market-data-subscriptions/#market-data-lines">Specialized Market Data Lines</a> for more information.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqTickByTickData(19001, contract, "Last", 0, True)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Tick By Tick Data</h3><div class="row"><h4 id="request-tick-data">22.10.01 Request Tick By Tick Data</h4><p><strong>reqId:</strong> int. unique identifier of the request.</p><p><strong>contract:</strong> Contract. the contract for which tick-by-tick data is requested.</p><p><strong>tickType:</strong> String. tick-by-tick data type: “Last”, “AllLast”, “BidAsk” or “MidPoint”.</p><p><strong>numberOfTicks:</strong> int. If a non-zero value is entered, then historical tick data is first returned via one of the&nbsp; <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#receiving-time-and-sales">Historical Time and Sales Ewrapper Methods</a>&nbsp; respectively. (Max number of historical Ticks is 1000)</p><p><strong>ignoreSize:</strong> bool. Omit updates that reflect only changes in size, and not price.<em> Applicable to Bid_Ask data requests</em>.<br> )</p><p>Requests tick by tick or Time &amp; Sales data.</p><p>&nbsp;</p><p>Note:</p><p>The maximum number of simultaneous tick-by-tick subscriptions allowed for a user is 5% of the user’s total market data lines. See <a href="/campus/ibkr-api-page/market-data-subscriptions/#market-data-lines">Specialized Market Data Lines</a> for more information.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqTickByTickData(19001, contract, "Last", 0, True)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

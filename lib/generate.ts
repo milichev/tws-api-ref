@@ -1,10 +1,13 @@
 import fs from "node:fs";
+import path from "node:path";
 import { fetchIbkrSection } from "./fetchIbkrPage";
-import { HTML_DIR, SKILL_DIR } from "./utils";
+import { HTML_DIR, SKILL_DIR, REPO_ROOT } from "./utils";
 import { fetchCtx7Section } from "./fetchCtx7Page";
 import { writeRoot } from "./writeRoot";
 
-[HTML_DIR, SKILL_DIR].forEach((dir) => {
+const TMP_DIR = path.join(REPO_ROOT, "tmp");
+
+[HTML_DIR, SKILL_DIR, TMP_DIR].forEach((dir) => {
   console.log(`Cleaning ${dir}`);
   if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
   fs.mkdirSync(dir, { recursive: true });

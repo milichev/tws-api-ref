@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [04-api-settings-config.md](04 ApiSettingsConfig) -> 
-
- 04 ApiSettingsConfig
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [04 ApiSettingsConfig](04-api-settings-config.md)
 
 
 ## ApiSettingsConfig
@@ -66,6 +63,7 @@
 
 **trustedIPs**: `List<String>` – Contains a collection of IP addresses that are authorized to establish API connections without additional authentication.
 
+```generic
 apiSettingsConfigProto = ApiSettingsConfigProto()
 apiSettingsConfigProto.totalQuantityForMutualFunds = True
 apiSettingsConfigProto.downloadOpenOrdersOnConnection = True
@@ -97,3 +95,4 @@ apiSettingsConfigProto.historicalDataMaxSize = 4
 apiSettingsConfigProto.autoReportNettingEventContractTrades = True
 apiSettingsConfigProto.optionExerciseRequestType = "final"
 apiSettingsConfigProto.trustedIPs.append("127.0.0.1")
+```

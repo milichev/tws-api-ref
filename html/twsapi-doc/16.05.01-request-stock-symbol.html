@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.05-stock-symbol-search.html">16.05 Stock Symbol Search</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.05.01-request-stock-symbol.html">16.05.01 Request Stock Contract Search</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Stock Contract Search</h3><div class="row"><h4 id="request-stock-symbol">16.05.01 Request Stock Contract Search</h4><p><strong>reqId: </strong>int. Request identifier used to track data.</p><p><strong>pattern:</strong> String. Either start of ticker symbol or (for larger strings) company name.<br> )</p><p>Requests matching stock symbols.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqMatchingSymbols(reqId, "IBM")</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Stock Contract Search</h3><div class="row"><h4 id="request-stock-symbol">16.05.01 Request Stock Contract Search</h4><p><strong>reqId: </strong>int. Request identifier used to track data.</p><p><strong>pattern:</strong> String. Either start of ticker symbol or (for larger strings) company name.<br> )</p><p>Requests matching stock symbols.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqMatchingSymbols(reqId, "IBM")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

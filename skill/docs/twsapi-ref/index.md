@@ -1,5 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [index.md](TWS API Reference) -> 
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md)
 
 # TWS API Reference
 

@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.01-account-summary.html">14.01 Account Summary</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.01.03-receiving-account-summary.html">14.01.03 Receiving Account Summary</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Account Summary</h3><div class="row"><h4 id="receiving-account-summary">14.01.03 Receiving Account Summary</h4><p><strong>reqId:</strong> int. the request’s unique identifier.</p><p><strong>account:</strong> String. the account id</p><p><strong>tag:</strong> String. the account’s attribute being received.</p><p><strong>value:</strong> String. the account’s attribute’s value.</p><p><strong>currency:</strong> String. the currency on which the value is expressed.</p><p>)</p><p>Receives the account information. This method will receive the account information just as it appears in the TWS’ Account Summary Window.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def accountSummary(self, reqId: int, account: str, tag: str, value: str,currency: str):
-      print("AccountSummary. ReqId:", reqId, "Account:", account,"Tag: ", tag, "Value:", value, "Currency:", currency)</pre></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.accountSummaryEnd(</span></h4><p><strong>reqId:</strong> String. The request’s identifier.</p><p>)</p><p>Notifies when all the accounts’ information has ben received. Requires TWS 967+ to receive accountSummaryEnd in linked account structures.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def accountSummaryEnd(self, reqId: int):
-        print("AccountSummaryEnd. ReqId:", reqId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving Account Summary</h3><div class="row"><h4 id="receiving-account-summary">14.01.03 Receiving Account Summary</h4><p><strong>reqId:</strong> int. the request’s unique identifier.</p><p><strong>account:</strong> String. the account id</p><p><strong>tag:</strong> String. the account’s attribute being received.</p><p><strong>value:</strong> String. the account’s attribute’s value.</p><p><strong>currency:</strong> String. the currency on which the value is expressed.</p><p>)</p><p>Receives the account information. This method will receive the account information just as it appears in the TWS’ Account Summary Window.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def accountSummary(self, reqId: int, account: str, tag: str, value: str,currency: str):
+      print("AccountSummary. ReqId:", reqId, "Account:", account,"Tag: ", tag, "Value:", value, "Currency:", currency)</code></pre></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.accountSummaryEnd(</span></h4><p><strong>reqId:</strong> String. The request’s identifier.</p><p>)</p><p>Notifies when all the accounts’ information has ben received. Requires TWS 967+ to receive accountSummaryEnd in linked account structures.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def accountSummaryEnd(self, reqId: int):
+        print("AccountSummaryEnd. ReqId:", reqId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

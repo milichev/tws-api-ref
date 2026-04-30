@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [16-contracts.md](16 Contracts (Financial Instruments)) -> 
-
- 16 Contracts (Financial Instruments)
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [16 Contracts (Financial Instruments)](16-contracts.md)
 
 
 ## Contracts (Financial Instruments)
@@ -111,7 +108,9 @@ Upon requesting EClient.reqContractDetails, all contracts matching the requested
 
 When reqContractDetails is called for STK using symbol security type, exchange, and currency, TWS caches the contract data internally. Future order submissions for these contracts utilizing contract ID and exchange combination utilize the cached values to expedite order transmission speeds.
 
+```python
 self.reqContractDetails(reqId, contract)
+```
 
 ### Receive Contract Details
 
@@ -124,8 +123,10 @@ self.reqContractDetails(reqId, contract)
 
 Receives the full contract’s definitions This method will return all contracts matching the requested via EClientSocket::reqContractDetails. For example, one can obtain the whole option chain with it.
 
+```python
 def contractDetails(self, reqId: int, contractDetails: ContractDetails):
   print(reqId, contractDetails)
+```
 
 #### EWrapper.contractDetailsEnd (
 
@@ -134,8 +135,10 @@ def contractDetails(self, reqId: int, contractDetails: ContractDetails):
 
 After all contracts matching the request were returned, this method will mark the end of their reception.
 
+```python
 def contractDetailsEnd(self, reqId: int):
 	print("ContractDetailsEnd. ReqId:", reqId)
+```
 
 ### Receive Bond Details
 
@@ -148,8 +151,10 @@ def contractDetailsEnd(self, reqId: int):
 
 Delivers the Bond contract data after this has been requested via reqContractDetails.
 
+```python
 def bondContractDetails(self, reqId: int, contractDetails: ContractDetails):
   printinstance(reqId, contractDetails)
+```
 
 ### Option Chains
 
@@ -179,7 +184,9 @@ One limitation of this technique is that the return of option chains will be thr
 
 Requests security definition option parameters for viewing a contract’s option chain.
 
+```python
 self.reqSecDefOptParams(0, "IBM", "", "STK", 8314)
+```
 
 ### Receive Option Chains
 
@@ -202,8 +209,10 @@ self.reqSecDefOptParams(0, "IBM", "", "STK", 8314)
 
 Returns the option chain for an underlying on an exchange specified in reqSecDefOptParams There will be multiple callbacks to securityDefinitionOptionParameter if multiple exchanges are specified in reqSecDefOptParams
 
+```python
 def securityDefinitionOptionParameter(self, reqId: int, exchange: str, underlyingConId: int, tradingClass: str, multiplier: str, expirations: SetOfString, strikes: SetOfFloat):
   print("SecurityDefinitionOptionParameter.", "ReqId:", reqId, "Exchange:", exchange, "Underlying conId:", underlyingConId, "TradingClass:", tradingClass, "Multiplier:", multiplier, "Expirations:", expirations, "Strikes:", strikes)
+```
 
 ### Stock Symbol Search
 
@@ -224,7 +233,9 @@ Matching stock contracts are returned to IBApi::EWrapper::symbolSamples with inf
 
 Requests matching stock symbols.
 
+```python
 self.reqMatchingSymbols(reqId, "IBM")
+```
 
 ### Receive Searched Stock Contract
 
@@ -237,6 +248,7 @@ self.reqMatchingSymbols(reqId, "IBM")
 
 Returns array of sample contract descriptions
 
+```python
 def symbolSamples(self, reqId: int, contractDescriptions: ListOfContractDescription):
 	print("Symbol Samples. Request Id: ", reqId)
 	for contractDescription in contractDescriptions:
@@ -253,3 +265,4 @@ def symbolSamples(self, reqId: int, contractDescriptions: ListOfContractDescript
 				contractDescription.contract.currency, derivSecTypes,
 				contractDescription.contract.description,
 				contractDescription.contract.issuerId))
+```

@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.07-place-order.html">27.07 Place Order</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.07.01-pt-sl.html">27.07.01 Adding a Profit Taker and Stop Loss</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Adding a Profit Taker and Stop Loss</h3><div class="row"><p>Users are able to bracket their order in two distinct ways:</p><ul><li>Manually construct each child of the parent. See <a href="/campus/ibkr-api-page/order-types/#bracket-orders">Bracket Orders</a> for more details.</li><li>Adding child orders based on TWS Presets.</li></ul><p>Adding a profit taker and stop loss from the same order object automated the order bracket process so that only order ID needs to be provided. This is best for users looking to trade with identical bracket parameters across orders.<br> &nbsp;</p></div><div class="row"><h4 id="pt-sl">27.07.01 Adding a Profit Taker and Stop Loss</h4><p>A profit taker can be added to an order using the <code>ptOrderId</code> and <code>ptOrderType</code> Order attributes.</p><p><strong>PtOrderId</strong> must be a unique order identifier.<br> Consider using <a href="../undefined/index.html">EWrapper.NextValidId</a></p><p><strong>PtOrderType</strong> must always be set to “PRESET”.<br> Be sure to review your <a href="/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php">Presets in Trader Workstation</a> prior to submitting orders as the Profit taker details will mirror these details as set.</p><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+     <h3 class="section-title-2">Adding a Profit Taker and Stop Loss</h3><div class="row"><p>Users are able to bracket their order in two distinct ways:</p><ul><li>Manually construct each child of the parent. See <a href="/campus/ibkr-api-page/order-types/#bracket-orders">Bracket Orders</a> for more details.</li><li>Adding child orders based on TWS Presets.</li></ul><p>Adding a profit taker and stop loss from the same order object automated the order bracket process so that only order ID needs to be provided. This is best for users looking to trade with identical bracket parameters across orders.<br> &nbsp;</p></div><div class="row"><h4 id="pt-sl">27.07.01 Adding a Profit Taker and Stop Loss</h4><p>A profit taker can be added to an order using the <code>ptOrderId</code> and <code>ptOrderType</code> Order attributes.</p><p><strong>PtOrderId</strong> must be a unique order identifier.<br> Consider using <a href="../undefined/index.html">EWrapper.NextValidId</a></p><p><strong>PtOrderType</strong> must always be set to “PRESET”.<br> Be sure to review your <a href="/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php">Presets in Trader Workstation</a> prior to submitting orders as the Profit taker details will mirror these details as set.</p><pre><code class="language-python">order = Order()
     order.orderId = 10000
     order.action = "BUY"
     order.orderType = "LMT"
@@ -126,7 +135,7 @@ th {
     order.tif = "DAY"
     
     order.ptOrderType = "PRESET"
-    order.ptOrderId = 10001</pre><p>&nbsp;</p></div><div class="row"><h4>Stop Loss</h4><p>A stop loss can be added to an order using the <code>slOrderId</code> and <code>slOrderType</code> Order attributes.</p><p><strong>SlOrderId</strong> must be a unique order identifier.<br> Consider using <a href="../undefined/index.html">EWrapper.NextValidId</a></p><p><strong>SlOrderType</strong> must always be set to “PRESET”.<br> Be sure to review your <a href="/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php">Presets in Trader Workstation</a> prior to submitting orders as the Stop loss details will mirror these details as set.</p><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+    order.ptOrderId = 10001</code></pre><p>&nbsp;</p></div><div class="row"><h4>Stop Loss</h4><p>A stop loss can be added to an order using the <code>slOrderId</code> and <code>slOrderType</code> Order attributes.</p><p><strong>SlOrderId</strong> must be a unique order identifier.<br> Consider using <a href="../undefined/index.html">EWrapper.NextValidId</a></p><p><strong>SlOrderType</strong> must always be set to “PRESET”.<br> Be sure to review your <a href="/en/?f=%2Fen%2Ftrading%2Ftws-order-presets.php">Presets in Trader Workstation</a> prior to submitting orders as the Stop loss details will mirror these details as set.</p><pre><code class="language-python">order = Order()
     order.orderId = 10000
     order.action = "BUY"
     order.orderType = "LMT"
@@ -135,6 +144,6 @@ th {
     order.tif = "DAY"
     
     order.slOrderType = "PRESET"
-    order.slOrderId = 10002</pre><p>&nbsp;</p></div>
+    order.slOrderId = 10002</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

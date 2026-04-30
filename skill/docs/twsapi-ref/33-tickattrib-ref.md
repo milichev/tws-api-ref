@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [33-tickattrib-ref.md](33 TickAttrib Class Reference) -> 
-
- 33 TickAttrib Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [33 TickAttrib Class Reference](33-tickattrib-ref.md)
 
 
 ## TickAttrib Class Reference

@@ -111,12 +111,18 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13.14-sync-positions.html">13.14 Positions</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Positions</h3><div class="row"><p>Request positions for all accounts available to the user.</p><h3 id="sync-positions">13.14 Positions</h3><p style="padding-left: 40px"><strong>timeout:</strong> Integer. A default value of 10 seconds is supplied.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">app.get_positions()</pre><p>&nbsp;</p></div></div></div><div class="row"><p>All orders from the current day’s trading session are returned in a dictionary, using the orderId as the key to discover the specific order.</p><h4>Response Object</h4><p>{<br> {Account ID}: List. List of all contracts<br> [{</p><p style="padding-left: 40px"><strong>contract:</strong> <a href="../undefined/index.html">Contract Object</a>. Contract to trade.</p><p style="padding-left: 40px"><strong>position:</strong> Decimal. The total number of shares held in the account.</p><p style="padding-left: 40px"><strong>avgCost:</strong> Float. The average price across executions for the position.</p><p>}]<br> &nbsp;</p><pre class="EnlighterJSRAW" data-enlighter-language="python">{'U1234567': [{'contract': 2333839861008: ConId: 340216238, Symbol: COIL, SecType: FUT, LastTradeDateOrContractMonth: 20251031, Strike: 0, Right: , Multiplier: 1000, Exchange: IPE, PrimaryExchange: , Currency: , LocalSymbol: COILZ5, TradingClass: COIL, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('4'), 'avgCost': 61359.9}]}</pre><p>&nbsp;</p></div>
+     <h3 class="section-title-2">Positions</h3><div class="row"><p>Request positions for all accounts available to the user.</p><h3 id="sync-positions">13.14 Positions</h3><p style="padding-left: 40px"><strong>timeout:</strong> Integer. A default value of 10 seconds is supplied.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">app.get_positions()</code></pre><p>&nbsp;</p></div></div></div><div class="row"><p>All orders from the current day’s trading session are returned in a dictionary, using the orderId as the key to discover the specific order.</p><h4>Response Object</h4><p>{<br> {Account ID}: List. List of all contracts<br> [{</p><p style="padding-left: 40px"><strong>contract:</strong> <a href="../undefined/index.html">Contract Object</a>. Contract to trade.</p><p style="padding-left: 40px"><strong>position:</strong> Decimal. The total number of shares held in the account.</p><p style="padding-left: 40px"><strong>avgCost:</strong> Float. The average price across executions for the position.</p><p>}]<br> &nbsp;</p><pre><code class="language-python">{'U1234567': [{'contract': 2333839861008: ConId: 340216238, Symbol: COIL, SecType: FUT, LastTradeDateOrContractMonth: 20251031, Strike: 0, Right: , Multiplier: 1000, Exchange: IPE, PrimaryExchange: , Currency: , LocalSymbol: COILZ5, TradingClass: COIL, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:, 'position': Decimal('4'), 'avgCost': 61359.9}]}</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

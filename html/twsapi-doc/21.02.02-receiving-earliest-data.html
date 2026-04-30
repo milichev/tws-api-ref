@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.02-earliest-data.html">21.02 Finding the Earliest Available Data Point</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.02.02-receiving-earliest-data.html">21.02.02 Receiving the Earliest Data Point</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving the Earliest Data Point</h3><div class="row"><h4 id="receiving-earliest-data">21.02.02 Receiving the Earliest Data Point</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>headTimestamp:</strong> String. Value identifying earliest data date<br> )</p><p>The data requested will be returned to EWrapper.headTimeStamp.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def headTimestamp(self, reqId, headTimestamp):
-            print(reqId, headTimestamp)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving the Earliest Data Point</h3><div class="row"><h4 id="receiving-earliest-data">21.02.02 Receiving the Earliest Data Point</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>headTimestamp:</strong> String. Value identifying earliest data date<br> )</p><p>The data requested will be returned to EWrapper.headTimeStamp.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def headTimestamp(self, reqId, headTimestamp):
+            print(reqId, headTimestamp)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [13-update-config-warning.md](13 UpdateConfigWarning) -> 
-
- 13 UpdateConfigWarning
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [13 UpdateConfigWarning](13-update-config-warning.md)
 
 
 ## UpdateConfigWarning
@@ -12,7 +9,9 @@
 
 **message**: `String` – The content of the warning message.
 
+```generic
 updateConfigWarning = UpdateConfigWarning()
 updateConfigWarning.messageId = 131
 messageConfigProto.enabled = False
 messageConfigProto.enabled = False
+```

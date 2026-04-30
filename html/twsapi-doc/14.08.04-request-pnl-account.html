@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.08-pnl.html">14.08 Profit &amp; Loss (PnL)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.08.04-request-pnl-account.html">14.08.04 Request P&amp;L for accounts</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request P&amp;L for accounts</h3><div class="row"><p>Subscribe using the IBApi::EClient::reqPnL function. Updates are sent to IBApi.EWrapper.pnl.</p><ul><li>Introducing broker accounts with less than 50 subaccounts can receive aggregate PnL for all subaccounts by specifying ‘All’ as the account code.</li><li>With requests for advisor accounts with many subaccounts and/or positions can take several seconds for aggregated P&amp;L to be computed and returned.</li><li>For account P&amp;L data the TWS setting “Prepare portfolio PnL data when downloading positions” must be checked.</li></ul></div><div class="row"><h4 id="request-pnl-account">14.08.04 Request P&amp;L for accounts</h4><p><strong>reqId:</strong> int. Request ID to track the data.</p><p><strong>account:</strong> String. Account for which to receive PnL updates</p><p><strong>modelCode:</strong> String. Specify to request PnL updates for a specific model.<br> )</p><p>Creates subscription for real time daily PnL and unrealized PnL updates.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqPnL(reqId, "U1234567", "")</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Request P&amp;L for accounts</h3><div class="row"><p>Subscribe using the IBApi::EClient::reqPnL function. Updates are sent to IBApi.EWrapper.pnl.</p><ul><li>Introducing broker accounts with less than 50 subaccounts can receive aggregate PnL for all subaccounts by specifying ‘All’ as the account code.</li><li>With requests for advisor accounts with many subaccounts and/or positions can take several seconds for aggregated P&amp;L to be computed and returned.</li><li>For account P&amp;L data the TWS setting “Prepare portfolio PnL data when downloading positions” must be checked.</li></ul></div><div class="row"><h4 id="request-pnl-account">14.08.04 Request P&amp;L for accounts</h4><p><strong>reqId:</strong> int. Request ID to track the data.</p><p><strong>account:</strong> String. Account for which to receive PnL updates</p><p><strong>modelCode:</strong> String. Specify to request PnL updates for a specific model.<br> )</p><p>Creates subscription for real time daily PnL and unrealized PnL updates.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqPnL(reqId, "U1234567", "")</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     import time
     
@@ -134,6 +143,6 @@ th {
     time.sleep(1)
     app.reqPnL(102, "U123456", "")
     
-    app.run()</pre><p>&nbsp;</p></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

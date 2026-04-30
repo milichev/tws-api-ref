@@ -111,12 +111,18 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13.04-sync-time.html">13.04 Current Time</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Current Time</h3><div class="row"><p>Whenever a user would need to verify the current time used within Trader Workstation or to verify the connection with the application, users may call the get_current_time() function.</p><h3 id="sync-time">13.04 Current Time</h3><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Timeout before the request disconnects. Function-specific timeout default of 1 second.</p><p>)</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">app.get_current_time()</pre><p>&nbsp;</p></div></div></div><div class="row"><h4>Response Object</h4><p>get_current_time() will return the current timestamp as an integer representing an epoch timestamp.</p><pre class="EnlighterJSRAW" data-enlighter-language="python">1760478515</pre><p>&nbsp;</p></div>
+     <h3 class="section-title-2">Current Time</h3><div class="row"><p>Whenever a user would need to verify the current time used within Trader Workstation or to verify the connection with the application, users may call the get_current_time() function.</p><h3 id="sync-time">13.04 Current Time</h3><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Timeout before the request disconnects. Function-specific timeout default of 1 second.</p><p>)</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">app.get_current_time()</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4>Response Object</h4><p>get_current_time() will return the current timestamp as an integer representing an epoch timestamp.</p><pre><code class="language-python">1760478515</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

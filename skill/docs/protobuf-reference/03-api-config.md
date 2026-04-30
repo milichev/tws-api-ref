@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [03-api-config.md](03 ApiConfig) -> 
-
- 03 ApiConfig
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [03 ApiConfig](03-api-config.md)
 
 
 ## ApiConfig
@@ -10,6 +7,8 @@
 
 **settings:** `ApiSettingsConfig` – Container object for API settings.
 
+```generic
 apiConfig = ApiConfig()
 apiConfig.precautions = ApiPrecautionsConfig()
 apiConfig.settings = ApiSettingsConfig()
+```

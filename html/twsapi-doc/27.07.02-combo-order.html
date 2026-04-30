@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.07-place-order.html">27.07 Place Order</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.07.02-combo-order.html">27.07.02 Combo Orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Combo Orders</h3><div class="row"><p>A user may create an order for a combination of symbols, referred to as a Spread or Combo, by the use of a <a href="/campus/ibkr-api-page/contracts/#twsapi-spreads">Spread Contract</a>.</p><p>Spreads may be priced on a per-leg basis or a complete order.</p><ul><li>Combo orders may only use price-per-leg on with two legs in a Non-Guaranteed spread.</li><li>Combo orders with more than 2 legs may only be placed with a price for the overall order and must not be NonGuaranteed.</li></ul><p>&nbsp;</p></div><div class="row"><h4 id="combo-order">27.07.02 Combo Orders</h4><p>Combination orders may be priced per-leg with no more than 2 legs in a <a href="/lib/cstools/faq/#/content/1163249841">NonGuaranteed</a> order. This is accomplished with the <a href="../undefined/index.html">OrderComboLeg</a> class and defining a price in each object. The <a href="../undefined/index.html">OrderComboLeg</a> should then be added to the <a href="../undefined/index.html">Order object’s</a> <a href="../undefined/index.html">OrderComboLegs</a> attribute in an array.</p><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+     <h3 class="section-title-2">Combo Orders</h3><div class="row"><p>A user may create an order for a combination of symbols, referred to as a Spread or Combo, by the use of a <a href="/campus/ibkr-api-page/contracts/#twsapi-spreads">Spread Contract</a>.</p><p>Spreads may be priced on a per-leg basis or a complete order.</p><ul><li>Combo orders may only use price-per-leg on with two legs in a Non-Guaranteed spread.</li><li>Combo orders with more than 2 legs may only be placed with a price for the overall order and must not be NonGuaranteed.</li></ul><p>&nbsp;</p></div><div class="row"><h4 id="combo-order">27.07.02 Combo Orders</h4><p>Combination orders may be priced per-leg with no more than 2 legs in a <a href="/lib/cstools/faq/#/content/1163249841">NonGuaranteed</a> order. This is accomplished with the <a href="../undefined/index.html">OrderComboLeg</a> class and defining a price in each object. The <a href="../undefined/index.html">OrderComboLeg</a> should then be added to the <a href="../undefined/index.html">Order object’s</a> <a href="../undefined/index.html">OrderComboLegs</a> attribute in an array.</p><pre><code class="language-python">order = Order()
     order.orderType = "LMT"
     
     orderLeg1 = OrderComboLeg()
@@ -126,8 +135,8 @@ th {
     orderLeg2 = OrderComboLeg()
     orderLeg2.price = 333
     
-    order.orderComboLegs = [orderLeg2, orderLeg1]</pre><p>&nbsp;</p></div><div class="row"><h4>Price Overall Order</h4><p>To price an overall order, users would only need to define the lmtPrice or auxPrice values within the <a href="../undefined/index.html">Order object</a> as they would if trading an individual contract.</p><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+    order.orderComboLegs = [orderLeg2, orderLeg1]</code></pre><p>&nbsp;</p></div><div class="row"><h4>Price Overall Order</h4><p>To price an overall order, users would only need to define the lmtPrice or auxPrice values within the <a href="../undefined/index.html">Order object</a> as they would if trading an individual contract.</p><pre><code class="language-python">order = Order()
     order.orderType = "LMT"
-    order.lmtPrice = 555</pre><p>&nbsp;</p></div>
+    order.lmtPrice = 555</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

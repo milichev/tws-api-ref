@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.05-histograms.html">21.05 Histogram Data</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.05.02-receiving-histogram-data.html">21.05.02 Receiving Histogram Data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Histogram Data</h3><div class="row"><h4 id="receiving-histogram-data">21.05.02 Receiving Histogram Data</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>data:</strong> HistogramEntry[]. Returned Tuple of histogram data, number of trades at specified price level.<br> )</p><p>Returns relevant histogram data.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def histogramData(self, reqId:int, items:HistogramDataList):
-    	print("HistogramData. reqid, items)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving Histogram Data</h3><div class="row"><h4 id="receiving-histogram-data">21.05.02 Receiving Histogram Data</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>data:</strong> HistogramEntry[]. Returned Tuple of histogram data, number of trades at specified price level.<br> )</p><p>Returns relevant histogram data.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def histogramData(self, reqId:int, items:HistogramDataList):
+    	print("HistogramData. reqid, items)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

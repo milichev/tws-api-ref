@@ -111,12 +111,18 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="29-display-groups.html">29 TWS UI Display Groups</a>
       </li>
       <li class="breadcrumb-item">
         <a href="29.03-update-display-groups.html">29.03 Update Display Group</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Update Display Group</h3><div class="row"><h3 id="update-display-groups">29.03 Update Display Group</h3><p><strong>requestId:</strong> int. Request identifier used for tracking data.</p><p><strong>contractInfo:</strong> String. An encoded value designating a unique IB contract. <span style="font-size: 0.95rem">Possible values include:</span></p><ul><li>none: Empty selection</li><li>contractID: Any non-combination contract. Examples 8314 for IBM SMART; 8314 for IBM ARCA</li><li>combo: If any combo is selected Note: This request from the API does not get a TWS response unless an error occurs.<br> )</li></ul><p>Updates the contract displayed in a TWS Window Group.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.updateDisplayGroup(19002, "8314@SMART")</pre><p>&nbsp;</p></div></div></div><div class="row"><p><strong>Note:</strong> This request from the API does not get a response from TWS unless an error occurs.</p><p>In this sample we have commanded TWS Windows that chained with Group #1 to display IBM@SMART. The screenshot of TWS Mosaic to the right shows that both the pink chained (Group #1) windows are now displaying IBM@SMART, while the green chained (Group #4) window remains unchanged.</p><p><img src="./images/display_groups_sample.png" alt="Chained windows displaying IBM@SMART."></p></div>
+     <h3 class="section-title-2">Update Display Group</h3><div class="row"><h3 id="update-display-groups">29.03 Update Display Group</h3><p><strong>requestId:</strong> int. Request identifier used for tracking data.</p><p><strong>contractInfo:</strong> String. An encoded value designating a unique IB contract. <span style="font-size: 0.95rem">Possible values include:</span></p><ul><li>none: Empty selection</li><li>contractID: Any non-combination contract. Examples 8314 for IBM SMART; 8314 for IBM ARCA</li><li>combo: If any combo is selected Note: This request from the API does not get a TWS response unless an error occurs.<br> )</li></ul><p>Updates the contract displayed in a TWS Window Group.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.updateDisplayGroup(19002, "8314@SMART")</code></pre><p>&nbsp;</p></div></div></div><div class="row"><p><strong>Note:</strong> This request from the API does not get a response from TWS unless an error occurs.</p><p>In this sample we have commanded TWS Windows that chained with Group #1 to display IBM@SMART. The screenshot of TWS Mosaic to the right shows that both the pink chained (Group #1) windows are now displaying IBM@SMART, while the green chained (Group #4) window remains unchanged.</p><p><img src="./images/display_groups_sample.png" alt="Chained windows displaying IBM@SMART."></p></div>
   </body>
 </html>

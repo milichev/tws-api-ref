@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.03-contract-details.html">16.03 Contract Details</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.03.03-receive-bond-details.html">16.03.03 Receive Bond Details</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Bond Details</h3><div class="row"><h4 id="receive-bond-details">16.03.03 Receive Bond Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. Contains the full contract object contents including all information about a specific traded instrument.<br> )</p><p>Delivers the Bond contract data after this has been requested via reqContractDetails.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def bondContractDetails(self, reqId: int, contractDetails: ContractDetails):
-      printinstance(reqId, contractDetails)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Bond Details</h3><div class="row"><h4 id="receive-bond-details">16.03.03 Receive Bond Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. Contains the full contract object contents including all information about a specific traded instrument.<br> )</p><p>Delivers the Bond contract data after this has been requested via reqContractDetails.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def bondContractDetails(self, reqId: int, contractDetails: ContractDetails):
+      printinstance(reqId, contractDetails)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

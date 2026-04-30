@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.06-positions.html">14.06 Positions</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.06.02-receive-positions.html">14.06.02 Receive Positions</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Positions</h3><div class="row"><h4 id="receive-positions">14.06.02 Receive Positions</h4><p><strong>account:</strong> String. The account holding the position.</p><p><strong>contract:</strong> Contract. The position’s Contract</p><p><strong>pos:</strong> decimal. The number of positions held. avgCost the average cost of the position.</p><p><strong>avgCost:</strong> double. The total average cost of all trades for the currently held position.<br> )</p><p>Provides the portfolio’s open positions. After the initial callback (only) of all positions, the IBApi.EWrapper.positionEnd function will be triggered.</p><p>For futures, the exchange field will not be populated in the position callback as some futures trade on multiple exchanges</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def position(self, account: str, contract: Contract, position: Decimal, avgCost: float):
-      print("Position.", "Account:", account, "Contract:", contract, "Position:", position, "Avg cost:", avgCost)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">Ewrapper.positionEnd()&nbsp;</span></h4><p>Indicates all the positions have been transmitted. Only returned after the initial callback of EWrapper.position.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def positionEnd(self):
-      print("PositionEnd")</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Positions</h3><div class="row"><h4 id="receive-positions">14.06.02 Receive Positions</h4><p><strong>account:</strong> String. The account holding the position.</p><p><strong>contract:</strong> Contract. The position’s Contract</p><p><strong>pos:</strong> decimal. The number of positions held. avgCost the average cost of the position.</p><p><strong>avgCost:</strong> double. The total average cost of all trades for the currently held position.<br> )</p><p>Provides the portfolio’s open positions. After the initial callback (only) of all positions, the IBApi.EWrapper.positionEnd function will be triggered.</p><p>For futures, the exchange field will not be populated in the position callback as some futures trade on multiple exchanges</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def position(self, account: str, contract: Contract, position: Decimal, avgCost: float):
+      print("Position.", "Account:", account, "Contract:", contract, "Position:", position, "Avg cost:", avgCost)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">Ewrapper.positionEnd()&nbsp;</span></h4><p>Indicates all the positions have been transmitted. Only returned after the initial callback of EWrapper.position.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def positionEnd(self):
+      print("PositionEnd")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

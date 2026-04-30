@@ -1,4 +1,4 @@
-  [index.html](IBKR TWS API) -> 
+[IBKR TWS API](../SKILL.md)
 
 # Documentation Sections
 

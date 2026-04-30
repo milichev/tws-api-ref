@@ -111,16 +111,25 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="17-ec.html">17 Event Trading</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="17.04-ec-orders.html">17.04 Order Submission</a>
       </li>
       <li class="breadcrumb-item">
         <a href="17.04.01-ec-order-example.html">17.04.01 Order Example</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Order Example</h3><div class="row"><p>Reviewing the same material as our <a href="../undefined/index.html">Contract Example</a>, we have all the tools needed to submit our order with some additional context available in the Order Ticket, featured on the right.</p><p>We are already aware that:</p><ul><li>ForecastEx contracts are always “BUY” orders.</li><li>Event Contracts only support “LMT” as the Order Type.</li></ul><p>This leaves us to decide the quantity, limit price, and time-in-force values.</p><p>We can set our limit price based on the values shown in the Order Ticket, or base the value on the Bid and Ask Price from our <a href="../undefined/index.html">Requested Market Data</a>.<br> &nbsp;</p><p><img src="./images/forecasttrader_gce_order_ticket-1-300x442.png" alt="Displays an example of an order ticket being filled out for a Forecast Contract. "></p></div><div class="row"><p>Given the information above, we are able to create a full order ticket.</p><p>Action: “BUY”</p><p>TotalQuantity: 1000</p><p>OrderType: “LMT”</p><p>LmtPrice: 0.57</p><p>Tif: “DAY”</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+     <h3 class="section-title-2">Order Example</h3><div class="row"><p>Reviewing the same material as our <a href="../undefined/index.html">Contract Example</a>, we have all the tools needed to submit our order with some additional context available in the Order Ticket, featured on the right.</p><p>We are already aware that:</p><ul><li>ForecastEx contracts are always “BUY” orders.</li><li>Event Contracts only support “LMT” as the Order Type.</li></ul><p>This leaves us to decide the quantity, limit price, and time-in-force values.</p><p>We can set our limit price based on the values shown in the Order Ticket, or base the value on the Bid and Ask Price from our <a href="../undefined/index.html">Requested Market Data</a>.<br> &nbsp;</p><p><img src="./images/forecasttrader_gce_order_ticket-1-300x442.png" alt="Displays an example of an order ticket being filled out for a Forecast Contract. "></p></div><div class="row"><p>Given the information above, we are able to create a full order ticket.</p><p>Action: “BUY”</p><p>TotalQuantity: 1000</p><p>OrderType: “LMT”</p><p>LmtPrice: 0.57</p><p>Tif: “DAY”</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">order = Order()
     order.action = "BUY"
     order.orderType = "LMT"
     order.totalQuantity = 1000
-    order.lmtPrice = 0.57</pre><p>&nbsp;</p></div></div></div>
+    order.lmtPrice = 0.57</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

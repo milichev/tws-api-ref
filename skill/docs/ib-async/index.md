@@ -1,5 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [index.md](ib_async Reference) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md)
 
 # ib_async Reference
 

@@ -111,16 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="28-setting-management.html">28 Setting Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="28.01-req-config.html">28.01 Request Configuration</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Configuration</h3><div class="row"><h3 id="req-config">28.01 Request Configuration</h3><p><strong>configRequestProto</strong>: <a href="../undefined/index.html">ConfigRequestProto</a><br> Contains the Proto object for the configuration request.<br> Must have the reqId field passed.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.protobuf.ConfigRequest_pb2 import ConfigRequest as ConfigRequestProto
+     <h3 class="section-title-2">Request Configuration</h3><div class="row"><h3 id="req-config">28.01 Request Configuration</h3><p><strong>configRequestProto</strong>: <a href="../undefined/index.html">ConfigRequestProto</a><br> Contains the Proto object for the configuration request.<br> Must have the reqId field passed.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">from ibapi.protobuf.ConfigRequest_pb2 import ConfigRequest as ConfigRequestProto
     
     configRequestProto = ConfigRequestProto()
     configRequestProto.reqId = 123
-    self.reqConfigProtoBuf(configRequestProto)</pre><p>&nbsp;</p></div></div></div>
+    self.reqConfigProtoBuf(configRequestProto)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

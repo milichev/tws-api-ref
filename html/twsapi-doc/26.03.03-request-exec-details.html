@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.03-exec-details.html">26.03 Execution Details</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.03.03-request-exec-details.html">26.03.03 Request Execution Details</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Execution Details</h3><div class="row"><h4 id="request-exec-details">26.03.03 Request Execution Details</h4><p><strong>reqId:</strong> int. The request’s unique identifier.</p><p><strong>filter:</strong> <a href="../undefined/index.html">ExecutionFilter</a>. The filter criteria used to determine which execution reports are returned.<br> )</p><p>Requests current day’s (since midnight) executions and commission report matching the filter. Only the current day’s executions can be retrieved.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqExecutions(10001, ExecutionFilter())</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Execution Details</h3><div class="row"><h4 id="request-exec-details">26.03.03 Request Execution Details</h4><p><strong>reqId:</strong> int. The request’s unique identifier.</p><p><strong>filter:</strong> <a href="../undefined/index.html">ExecutionFilter</a>. The filter criteria used to determine which execution reports are returned.<br> )</p><p>Requests current day’s (since midnight) executions and commission report matching the filter. Only the current day’s executions can be retrieved.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqExecutions(10001, ExecutionFilter())</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

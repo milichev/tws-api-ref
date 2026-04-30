@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.06-request-active-orders.html">26.06 Requesting Currently Active Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.06.01-request-api-orders.html">26.06.01 API client&#x27;s orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">API client's orders</h3><div class="row"><p>The IBApi.EClient.reqOpenOrders method allows to obtain all active orders submitted by the client application connected with the exact same client Id with which the order was sent to the TWS. If client 0 invokes reqOpenOrders, it will cause currently open orders placed from TWS manually to be ‘bound’, i.e. assigned an order ID so that they can be modified or cancelled by the API client 0.</p><p>When an order is bound by API client 0 there will be callback to IBApi::EWrapper::orderBound. This indicates the mapping between API order ID and permID. The <a href="26.06.04-order-bound-notification">IBApi.EWrapper.orderBound</a> callback in response to newly bound orders that indicates the mapping between the permID (unique account-wide) and API Order ID (specific to an API client). In the API settings in Global Configuration, is a setting checked by default “Use negative numbers to bind automatic orders” which will specify how manual TWS orders are assigned an API order ID.</p><p>Because binding the order will change the order ID, this function will be rejected when used with the API Read-Only Mode enabled. You can find the steps for disabling read-only mode at in <a href="../undefined/index.html">TWS Settings</a>.</p></div><div class="row"><h4 id="request-api-orders">26.06.01 API client's orders</h4><p>Requests all open orders places by this specific API client (identified by the API client id). For client ID 0, this will bind previous manual TWS orders.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqOpenOrders()</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">API client's orders</h3><div class="row"><p>The IBApi.EClient.reqOpenOrders method allows to obtain all active orders submitted by the client application connected with the exact same client Id with which the order was sent to the TWS. If client 0 invokes reqOpenOrders, it will cause currently open orders placed from TWS manually to be ‘bound’, i.e. assigned an order ID so that they can be modified or cancelled by the API client 0.</p><p>When an order is bound by API client 0 there will be callback to IBApi::EWrapper::orderBound. This indicates the mapping between API order ID and permID. The <a href="26.06.04-order-bound-notification">IBApi.EWrapper.orderBound</a> callback in response to newly bound orders that indicates the mapping between the permID (unique account-wide) and API Order ID (specific to an API client). In the API settings in Global Configuration, is a setting checked by default “Use negative numbers to bind automatic orders” which will specify how manual TWS orders are assigned an API order ID.</p><p>Because binding the order will change the order ID, this function will be rejected when used with the API Read-Only Mode enabled. You can find the steps for disabling read-only mode at in <a href="../undefined/index.html">TWS Settings</a>.</p></div><div class="row"><h4 id="request-api-orders">26.06.01 API client's orders</h4><p>Requests all open orders places by this specific API client (identified by the API client id). For client ID 0, this will bind previous manual TWS orders.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqOpenOrders()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

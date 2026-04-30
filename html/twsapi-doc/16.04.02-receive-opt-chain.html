@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.04-option-chain.html">16.04 Option Chains</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.04.02-receive-opt-chain.html">16.04.02 Receive Option Chains</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Option Chains</h3><div class="row"><h4 id="receive-opt-chain">16.04.02 Receive Option Chains</h4><p><strong>reqId:</strong> int. ID of the request initiating the callback.</p><p><strong>underlyingConId:</strong> int. The conID of the underlying security.</p><p><strong>tradingClass:</strong> String. The option trading class.</p><p><strong>multiplier:</strong> String. The option multiplier.</p><p><strong>exchange:</strong> String. Exchange for which the derivative is hosted.</p><p><strong>expirations:</strong> HashSet. A list of the expiries for the options of this underlying on this exchange.</p><p><strong>strikes:</strong> HashSet. A list of the possible strikes for options of this underlying on this exchange.<br> )</p><p>Returns the option chain for an underlying on an exchange specified in reqSecDefOptParams There will be multiple callbacks to securityDefinitionOptionParameter if multiple exchanges are specified in reqSecDefOptParams</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def securityDefinitionOptionParameter(self, reqId: int, exchange: str, underlyingConId: int, tradingClass: str, multiplier: str, expirations: SetOfString, strikes: SetOfFloat):
-      print("SecurityDefinitionOptionParameter.", "ReqId:", reqId, "Exchange:", exchange, "Underlying conId:", underlyingConId, "TradingClass:", tradingClass, "Multiplier:", multiplier, "Expirations:", expirations, "Strikes:", strikes)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Option Chains</h3><div class="row"><h4 id="receive-opt-chain">16.04.02 Receive Option Chains</h4><p><strong>reqId:</strong> int. ID of the request initiating the callback.</p><p><strong>underlyingConId:</strong> int. The conID of the underlying security.</p><p><strong>tradingClass:</strong> String. The option trading class.</p><p><strong>multiplier:</strong> String. The option multiplier.</p><p><strong>exchange:</strong> String. Exchange for which the derivative is hosted.</p><p><strong>expirations:</strong> HashSet. A list of the expiries for the options of this underlying on this exchange.</p><p><strong>strikes:</strong> HashSet. A list of the possible strikes for options of this underlying on this exchange.<br> )</p><p>Returns the option chain for an underlying on an exchange specified in reqSecDefOptParams There will be multiple callbacks to securityDefinitionOptionParameter if multiple exchanges are specified in reqSecDefOptParams</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def securityDefinitionOptionParameter(self, reqId: int, exchange: str, underlyingConId: int, tradingClass: str, multiplier: str, expirations: SetOfString, strikes: SetOfFloat):
+      print("SecurityDefinitionOptionParameter.", "ReqId:", reqId, "Exchange:", exchange, "Underlying conId:", underlyingConId, "TradingClass:", tradingClass, "Multiplier:", multiplier, "Expirations:", expirations, "Strikes:", strikes)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

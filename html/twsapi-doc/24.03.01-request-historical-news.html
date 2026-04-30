@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.03-historical-news.html">24.03 Historical News Headlines</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.03.01-request-historical-news.html">24.03.01 Requesting Historical News</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Historical News</h3><div class="row"><h4 id="request-historical-news">24.03.01 Requesting Historical News</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract id of ticker. See Contract Details for how to retrieve conId.</p><p><strong>providerCodes:</strong> String. A ‘+’-separated list of provider codes.</p><p><strong>startDateTime:</strong> String. Marks the (exclusive) start of the date range. The format is yyyy-MM-dd HH:mm:ss.<br> You can set either startDateTime or endDateTime. If both are set, endDateTime is ignored.</p><p><strong>endDateTime:</strong> String. Marks the (inclusive) end of the date range. The format is yyyy-MM-dd HH:mm:ss.<br> You can set either startDateTime or endDateTime. If both are set, endDateTime is ignored.</p><p><strong>totalResults:</strong> int. The maximum number of headlines to fetch (1 – 300)</p><p><strong>historicalNewsOptions:</strong> Null. Reserved for internal use. Should be defined as null.<br> )</p><p>Requests historical news headlines.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, [])</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Requesting Historical News</h3><div class="row"><h4 id="request-historical-news">24.03.01 Requesting Historical News</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract id of ticker. See Contract Details for how to retrieve conId.</p><p><strong>providerCodes:</strong> String. A ‘+’-separated list of provider codes.</p><p><strong>startDateTime:</strong> String. Marks the (exclusive) start of the date range. The format is yyyy-MM-dd HH:mm:ss.<br> You can set either startDateTime or endDateTime. If both are set, endDateTime is ignored.</p><p><strong>endDateTime:</strong> String. Marks the (inclusive) end of the date range. The format is yyyy-MM-dd HH:mm:ss.<br> You can set either startDateTime or endDateTime. If both are set, endDateTime is ignored.</p><p><strong>totalResults:</strong> int. The maximum number of headlines to fetch (1 – 300)</p><p><strong>historicalNewsOptions:</strong> Null. Reserved for internal use. Should be defined as null.<br> )</p><p>Requests historical news headlines.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

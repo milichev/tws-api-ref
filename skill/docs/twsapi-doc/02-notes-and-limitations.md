@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [02-notes-and-limitations.md](02 Notes &amp; Limitations) -> 
-
- 02 Notes & Limitations
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [02 Notes &amp; Limitations](02-notes-and-limitations.md)
 
 
 ## Notes & Limitations

@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="18-error-handling.html">18 Error Handling</a>
       </li>
       <li class="breadcrumb-item">
         <a href="18.04-error.html">18.04 Receiving Error Messages</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Error Messages</h3><div class="row"><h3 id="error">18.04 Receiving Error Messages</h3><p><strong>reqId:</strong> int. The request identifier corresponding to the most recent reqId that maintained the error stream.<br> This does not pertain to the orderId from placeOrder, but whatever the most recent requestId is.</p><p><strong>errorTime:</strong> int. The Unix timestamp of when the error took place.<br> Note: This is only implemented for TWS API 10.33+</p><p><strong>errorCode:</strong> int. The code identifying the error.</p><p><strong>errorMsg:</strong> String. The error’s description.</p><p><strong>advancedOrderRejectJson:</strong> String. Advanced order reject description in json format.<br> )</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def error(self, reqId: TickerId, errorTime: int, errorCode: int, errorString: str, advancedOrderRejectJson = ""):
-      print("Error. Id:", reqId, errorTime, "Code:", errorCode, "Msg:", errorString, "AdvancedOrderRejectJson:", advancedOrderRejectJson)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receiving Error Messages</h3><div class="row"><h3 id="error">18.04 Receiving Error Messages</h3><p><strong>reqId:</strong> int. The request identifier corresponding to the most recent reqId that maintained the error stream.<br> This does not pertain to the orderId from placeOrder, but whatever the most recent requestId is.</p><p><strong>errorTime:</strong> int. The Unix timestamp of when the error took place.<br> Note: This is only implemented for TWS API 10.33+</p><p><strong>errorCode:</strong> int. The code identifying the error.</p><p><strong>errorMsg:</strong> String. The error’s description.</p><p><strong>advancedOrderRejectJson:</strong> String. Advanced order reject description in json format.<br> )</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def error(self, reqId: TickerId, errorTime: int, errorCode: int, errorString: str, advancedOrderRejectJson = ""):
+      print("Error. Id:", reqId, errorTime, "Code:", errorCode, "Msg:", errorString, "AdvancedOrderRejectJson:", advancedOrderRejectJson)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19-financial-advisors.html">19 Financial Advisors</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19.05-allocation-format.html">19.05 Allocation Method XML Format</a>
       </li>
       <li class="breadcrumb-item">
         <a href="19.05.02-shares-xml.html">19.05.02 Contracts Or Shares</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Contracts Or Shares</h3><div class="row"><p>This method allocates the absolute number of shares you enter to each account listed. If you use this method, the order size is calculated by adding together the number of shares allocated to each account in the profile.</p><p>&nbsp;</p><p><strong>Example:</strong></p><p>Assume an order for 300 shares of stock ABC is transmitted.</p><p>In the example code shown in the right side, you can see that:</p><ol><li>Account A is set to receive 100.0 shares while Account B is set to receive 200.0 shares. Account A should receive 100 shares and Account B should receive 200 shares.</li></ol><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+     <h3 class="section-title-2">Contracts Or Shares</h3><div class="row"><p>This method allocates the absolute number of shares you enter to each account listed. If you use this method, the order size is calculated by adding together the number of shares allocated to each account in the profile.</p><p>&nbsp;</p><p><strong>Example:</strong></p><p>Assume an order for 300 shares of stock ABC is transmitted.</p><p>In the example code shown in the right side, you can see that:</p><ol><li>Account A is set to receive 100.0 shares while Account B is set to receive 200.0 shares. Account A should receive 100 shares and Account B should receive 200 shares.</li></ol><pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
     &lt;ListOfGroups&gt;
       &lt;Group&gt;
       &lt;name&gt;MyTestProfile2&lt;/name&gt;
@@ -134,6 +143,6 @@ th {
       &lt;/Account&gt;
       &lt;/ListOfAccts&gt;
       &lt;/Group&gt;
-    &lt;/ListOfGroups&gt;</pre><p>&nbsp;</p></div>
+    &lt;/ListOfGroups&gt;</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

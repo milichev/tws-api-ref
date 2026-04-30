@@ -111,15 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="28-setting-management.html">28 Setting Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="28.04-receive-config-update.html">28.04 Receive Configuration Update</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Configuration Update</h3><div class="row"><h3 id="receive-config-update">28.04 Receive Configuration Update</h3><p><strong>updateConfigResponseProto</strong>: <a href="../undefined/index.html">UpdateConfigResponseProto</a><br> Contains the Proto response object for the configuration update. Includes message, changedFields, errors, and <a href="../undefined/index.html">UpdateConfigWarning.</a></p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.protobuf.UpdateConfigResponse_pb2 import UpdateConfigResponse as UpdateConfigResponseProto
+     <h3 class="section-title-2">Receive Configuration Update</h3><div class="row"><h3 id="receive-config-update">28.04 Receive Configuration Update</h3><p><strong>updateConfigResponseProto</strong>: <a href="../undefined/index.html">UpdateConfigResponseProto</a><br> Contains the Proto response object for the configuration update. Includes message, changedFields, errors, and <a href="../undefined/index.html">UpdateConfigWarning.</a></p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">from ibapi.protobuf.UpdateConfigResponse_pb2 import UpdateConfigResponse as UpdateConfigResponseProto
     
     def updateConfigResponseProtoBuf(self, updateConfigResponseProto: UpdateConfigResponseProto):
-        print(updateConfigResponseProto)</pre><p>&nbsp;</p></div></div></div>
+        print(updateConfigResponseProto)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

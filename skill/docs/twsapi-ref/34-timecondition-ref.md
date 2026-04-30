@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [34-timecondition-ref.md](34 TimeCondition Class Reference) -> 
-
- 34 TimeCondition Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [34 TimeCondition Class Reference](34-timecondition-ref.md)
 
 
 ## TimeCondition Class Reference

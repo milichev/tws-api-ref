@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.06-request-active-orders.html">26.06 Requesting Currently Active Orders</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.06.04-order-bound-notification.html">26.06.04 Order Binding Notification</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Order Binding Notification</h3><div class="row"><h4 id="order-bound-notification">26.06.04 Order Binding Notification</h4><p><strong>orderId:</strong> long. IBKR permId.</p><p><strong>apiClientId:</strong> int. API client id.</p><p><strong>apiOrderId:</strong> int. API order id.<br> )</p><p>Response to API bind order control message.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def orderBound(self, orderId: int, apiClientId: int, apiOrderId: int):
-    	print("OrderBound.", "OrderId:", intMaxString(orderId), "ApiClientId:", intMaxString(apiClientId), "ApiOrderId:", intMaxString(apiOrderId))</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Order Binding Notification</h3><div class="row"><h4 id="order-bound-notification">26.06.04 Order Binding Notification</h4><p><strong>orderId:</strong> long. IBKR permId.</p><p><strong>apiClientId:</strong> int. API client id.</p><p><strong>apiOrderId:</strong> int. API order id.<br> )</p><p>Response to API bind order control message.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def orderBound(self, orderId: int, apiClientId: int, apiOrderId: int):
+    	print("OrderBound.", "OrderId:", intMaxString(orderId), "ApiClientId:", intMaxString(apiClientId), "ApiOrderId:", intMaxString(apiOrderId))</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

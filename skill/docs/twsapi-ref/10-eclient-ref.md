@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [10-eclient-ref.md](10 EClient Class Reference) -> 
-
- 10 EClient Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [10 EClient Class Reference](10-eclient-ref.md)
 
 
 ## EClient Class Reference
@@ -143,8 +140,8 @@ TWS/Gateway client class This client class contains all the available methods to
 | reqUserInfo (int reqId) | void | Requests user info. More… |
 | IsDataAvailable () | bool | None |
 | ReadInt () | int | None |
-| ReadAtLeastNBytes (int msgSize) | byte\[\] | None |
-| ReadByteArray (int msgSize) | byte\[\] | None |
+| ReadAtLeastNBytes (int msgSize) | byte[] | None |
+| ReadByteArray (int msgSize) | byte[] | None |
 
 ### Public Attributes
 

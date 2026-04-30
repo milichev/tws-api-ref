@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.07-option-greeks.html">22.07 Option Greeks</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.07.03-calc-historical-volatility.html">22.07.03 Calculating historical volatility</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Calculating historical volatility</h3><div class="row"><h4 id="calc-historical-volatility">22.07.03 Calculating historical volatility</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract object for which the depth is being requested</p><p><strong>optionPrice:</strong> double. Hypothetical option price.</p><p><strong>underPrice:</strong> double. Hypothetical option’s underlying price.</p><p><strong>impliedVolatilityOptions:</strong> List&lt;TagValue&gt;. Internal use only. Send an empty tag value list.<br> )</p><p>Calculate the volatility for an option. Request the calculation of the implied volatility based on hypothetical option and its underlying prices.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.calculateImpliedVolatility(5001, OptionContract, 0.5, 55, [])</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Calculating historical volatility</h3><div class="row"><h4 id="calc-historical-volatility">22.07.03 Calculating historical volatility</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract object for which the depth is being requested</p><p><strong>optionPrice:</strong> double. Hypothetical option price.</p><p><strong>underPrice:</strong> double. Hypothetical option’s underlying price.</p><p><strong>impliedVolatilityOptions:</strong> List&lt;TagValue&gt;. Internal use only. Send an empty tag value list.<br> )</p><p>Calculate the volatility for an option. Request the calculation of the implied volatility based on hypothetical option and its underlying prices.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.calculateImpliedVolatility(5001, OptionContract, 0.5, 55, [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

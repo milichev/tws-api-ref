@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [30-wsh.md](30 Wall Street Horizon) -> 
-
- 30 Wall Street Horizon
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [30 Wall Street Horizon](30-wsh.md)
 
 
 ## Wall Street Horizon
@@ -28,30 +25,30 @@ In addition to the EClient.reqWshMetaData field being mandatory prior to the [EC
 
 | Event Type Name | Event Type Tag |
 | --- | --- |
-| Board of Directors Meeting | wshe\_bod |
-| Buyback | wshe\_bybk |
-| BuyBack Modification | wshe\_bybkmod |
-| Conference Call | wshe\_cc |
-| FDA Advisory Committee Meeting | wshe\_fda\_adv\_comm |
-| Future Quarter | wshe\_fq |
-| Investors Conference | wshe\_ic |
-| Index Change | wshe\_idx |
-| Interim Dates | wshe\_interim\_dates |
-| Initial Public Offering | wshe\_ipo |
-| Movie Release | wshe\_movies |
-| Option Expiration Date | wshe\_option |
-| Merger and Acquistion | wshe\_merg\_acq |
-| Quarter End | wshe\_qe |
-| Secondary Offering | wshe\_secondary |
-| Video Release | wshe\_videos |
-| Splits | wshe\_splits |
-| Spinoff | wshe\_spinoffs |
-| Shareholder Meeting | wshe\_sh |
-| Filing Due Date | wshe\_sec |
-| WSHE Dividend | wshe\_div |
-| Dividends Suspend/Resume | wshe\_divsr |
-| Earnings Date | wshe\_ed |
-| Earnings Report | wshe\_eps |
+| Board of Directors Meeting | wshe_bod |
+| Buyback | wshe_bybk |
+| BuyBack Modification | wshe_bybkmod |
+| Conference Call | wshe_cc |
+| FDA Advisory Committee Meeting | wshe_fda_adv_comm |
+| Future Quarter | wshe_fq |
+| Investors Conference | wshe_ic |
+| Index Change | wshe_idx |
+| Interim Dates | wshe_interim_dates |
+| Initial Public Offering | wshe_ipo |
+| Movie Release | wshe_movies |
+| Option Expiration Date | wshe_option |
+| Merger and Acquistion | wshe_merg_acq |
+| Quarter End | wshe_qe |
+| Secondary Offering | wshe_secondary |
+| Video Release | wshe_videos |
+| Splits | wshe_splits |
+| Spinoff | wshe_spinoffs |
+| Shareholder Meeting | wshe_sh |
+| Filing Due Date | wshe_sec |
+| WSHE Dividend | wshe_div |
+| Dividends Suspend/Resume | wshe_divsr |
+| Earnings Date | wshe_ed |
+| Earnings Report | wshe_eps |
 
 ### Requesting Meta Data
 
@@ -62,7 +59,9 @@ In addition to the EClient.reqWshMetaData field being mandatory prior to the [EC
 
 Requests metadata from the WSH calendar.
 
+```python
 self.reqWshMetaData(1100)
+```
 
 ### Receive Meta Data
 
@@ -75,8 +74,10 @@ self.reqWshMetaData(1100)
 
 Returns meta data from the WSH calendar
 
+```python
 def wshMetaData(self, reqId: int, dataJson: str):
 	print("WshMetaData.", "ReqId:", reqId, "Data JSON:", dataJson)
+```
 
 Once the json content has been received, the specific event types used to filter [EClient.reqWshEventData()](../undefined/index.md) are listed under “meta\_data” -> “event\_types”.
 
@@ -93,7 +94,9 @@ The “tag” field will return the filter used in your JSON query. The related 
 
 Cancels pending request for WSH metadata.
 
+```python
 self.cancelWshMetaData(1100)
+```
 
 ### Event Data
 
@@ -146,7 +149,9 @@ Only one Event Type tag may be passed per request. Multiple submitted filters wi
 
 Requests event data from the WSH calendar.
 
+```python
 self.reqWshEventData(1101, eventDataObj, serverVersion)
+```
 
 ### Receive Event Data
 
@@ -159,8 +164,10 @@ self.reqWshEventData(1101, eventDataObj, serverVersion)
 
 Returns calendar events from the WSH.
 
+```python
 def wshEventData(self, reqId: int, dataJson: str):
 	print("WshEventData.", "ReqId:", reqId, "Data JSON:", dataJson)
+```
 
 ### Cancel Event Data
 
@@ -172,4 +179,6 @@ def wshEventData(self, reqId: int, dataJson: str):
 
 Cancels pending WSH event data request.
 
+```python
 self.cancelWshEventData(1101, eventDataObj)
+```

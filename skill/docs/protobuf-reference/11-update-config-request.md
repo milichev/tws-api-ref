@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [11-update-config-request.md](11 UpdateConfigRequest) -> 
-
- 11 UpdateConfigRequest
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [11 UpdateConfigRequest](11-update-config-request.md)
 
 
 ## UpdateConfigRequest
@@ -20,6 +17,7 @@
 
 **resetApiOrderSequence**: `Boolean` – Determine if the Order ID sequence should be reset to 0.
 
+```generic
 updateConfigRequest = UpdateConfigRequest()
 updateConfigRequest.reqId = 123
 updateConfigRequest.lockAndExit = LockAndExitConfig
@@ -28,3 +26,4 @@ updateConfigRequest.api = ApiConfig
 updateConfigRequest.orders = OrdersConfig
 updateConfigRequest.acceptedWarnings = UpdateConfigWarning
 updateConfigRequest.resetApiOrderSequence = True
+```

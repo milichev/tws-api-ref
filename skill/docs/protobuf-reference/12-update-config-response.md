@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [12-update-config-response.md](12 UpdateConfigResponse) -> 
-
- 12 UpdateConfigResponse
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [12 UpdateConfigResponse](12-update-config-response.md)
 
 
 ## UpdateConfigResponse
@@ -15,18 +12,22 @@
 
 Success:
 
+```generic
 reqId: 1784381601
 status: "success"
 message: "Configuration updated"
 changedFields: "configuration.api.settings.createApiMessageLogFile"
 changedFields: "configuration.api.settings.includeMarketDataInLogFile"
 changedFields: "configuration.api.settings.loggingLevel"
+```
 
 Failed:
 
+```generic
 reqId: 1784381601
 status: "error"
 message: "Validating configuration update request has failed"
 errors: "configuration.lockAndExit.autoLogoffTime"
 errors: "configuration.lockAndExit.autoLogoffPeriod"
 errors: "configuration.lockAndExit.autoLogoffType"
+```

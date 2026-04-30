@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.03-historical-news.html">24.03 Historical News Headlines</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.03.02-receive-historical-news.html">24.03.02 Receive Historical News</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Historical News</h3><div class="row"><h4 id="receive-historical-news">24.03.02 Receive Historical News</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>time:</strong> int. Epoch time of the article’s published time.</p><p><strong>providerCode:</strong> String. News provider code based on requested data.</p><p><strong>articleId:</strong> String. Identifier used to track the particular article. See <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#news-articles">News Article</a> for more.</p><p><strong>headline:</strong> String. Headline of the provided news article.<br> )</p><p>Returns news headlines for requested contracts.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def historicalNews(self, requestId: int, time: int, providerCode: str, articleId: str, headline: str):
-      print("historicalNews. RequestId:", requestId, "Time:", time, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalNewsEnd (</span></h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>hasMore:</strong> bool. Returns whether there is more data (true) or not (false).<br> )</p><p>Returns news headlines end marker</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def historicalDataEnd(self, reqId: int, hasMore: bool):
-        print("historicalDataEnd. ReqId:", reqId, "Has More:", hasMore)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Historical News</h3><div class="row"><h4 id="receive-historical-news">24.03.02 Receive Historical News</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>time:</strong> int. Epoch time of the article’s published time.</p><p><strong>providerCode:</strong> String. News provider code based on requested data.</p><p><strong>articleId:</strong> String. Identifier used to track the particular article. See <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#news-articles">News Article</a> for more.</p><p><strong>headline:</strong> String. Headline of the provided news article.<br> )</p><p>Returns news headlines for requested contracts.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def historicalNews(self, requestId: int, time: int, providerCode: str, articleId: str, headline: str):
+      print("historicalNews. RequestId:", requestId, "Time:", time, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalNewsEnd (</span></h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>hasMore:</strong> bool. Returns whether there is more data (true) or not (false).<br> )</p><p>Returns news headlines end marker</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def historicalDataEnd(self, reqId: int, hasMore: bool):
+        print("historicalDataEnd. ReqId:", reqId, "Has More:", hasMore)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

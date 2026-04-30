@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [24-orderallocation-ref.md](24 OrderAllocation Class Reference) -> 
-
- 24 OrderAllocation Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [24 OrderAllocation Class Reference](24-orderallocation-ref.md)
 
 
 ## OrderAllocation Class Reference

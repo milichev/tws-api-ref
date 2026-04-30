@@ -6,6 +6,13 @@ export function cleanupIbkrHtmlContent($: CheerioAPI): Cheerio<Element> {
 
   pageContent.find(".copy-link").remove();
 
+  pageContent.find("pre.EnlighterJSRAW").each((_, pre) => {
+    const $pre = $(pre);
+    const code = $pre.html();
+    const lang = $pre.data("enlighter-language") || "text";
+    $pre.replaceWith(`<pre><code class="language-${lang}">${code}</code></pre>`);
+  });
+
   pageContent
     .find("ul.nav-tabs > li.nav-item > button.tab-python")
     .each((_, btn) => {

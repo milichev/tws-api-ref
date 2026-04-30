@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [18-hist-tick-ref.md](18 HistoricalTick Class Reference) -> 
-
- 18 HistoricalTick Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [18 HistoricalTick Class Reference](18-hist-tick-ref.md)
 
 
 ## HistoricalTick Class Reference

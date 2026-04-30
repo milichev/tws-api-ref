@@ -111,16 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19-financial-advisors.html">19 Financial Advisors</a>
       </li>
       <li class="breadcrumb-item">
         <a href="19.08-fa-orders.html">19.08 Order Placement</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Order Placement</h3><div class="row"><p>For advisors to place orders to their <a href="../undefined/index.html">allocation groups</a> users would simply declare their allocation group name in the order object. This would be done with the Order’s faGroup field. The example to the right references a standard market order placed to our allocation group, MyTestProfile.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">order = Order()
+     <h3 class="section-title-2">Order Placement</h3><div class="row"><p>For advisors to place orders to their <a href="../undefined/index.html">allocation groups</a> users would simply declare their allocation group name in the order object. This would be done with the Order’s faGroup field. The example to the right references a standard market order placed to our allocation group, MyTestProfile.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">order = Order()
     order.action = "BUY"
     order.orderType = "MKT"
     order.totalQuantity = 50
-    order.faGroup = "MyTestProfile"</pre><p>&nbsp;</p></div></div></div>
+    order.faGroup = "MyTestProfile"</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

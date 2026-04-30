@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [14-ewrapper-ref.md](14 EWrapper Interface Reference) -> 
-
- 14 EWrapper Interface Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [14 EWrapper Interface Reference](14-ewrapper-ref.md)
 
 
 ## EWrapper Interface Reference
@@ -72,31 +69,31 @@ This interface’s methods are used by the TWS/Gateway to communicate with the A
 | accountUpdateMultiEnd (int requestId) | void | Indicates all the account updates have been transmitted. More… |
 | securityDefinitionOptionParameter (int reqId | void | string exchange |
 | securityDefinitionOptionParameterEnd (int reqId) | void | called when all callbacks to securityDefinitionOptionParameter are complete More… |
-| softDollarTiers (int reqId | void | SoftDollarTier\[\] tiers) |
-| familyCodes (FamilyCode\[\] familyCodes) | void | returns array of family codes More… |
-| symbolSamples (int reqId | void | ContractDescription\[\] contractDescriptions) |
-| mktDepthExchanges (DepthMktDataDescription\[\] depthMktDataDescriptions) | void | called when receives Depth Market Data Descriptions More… |
+| softDollarTiers (int reqId | void | SoftDollarTier[] tiers) |
+| familyCodes (FamilyCode[] familyCodes) | void | returns array of family codes More… |
+| symbolSamples (int reqId | void | ContractDescription[] contractDescriptions) |
+| mktDepthExchanges (DepthMktDataDescription[] depthMktDataDescriptions) | void | called when receives Depth Market Data Descriptions More… |
 | tickNews (int tickerId | void | long timeStamp |
 | smartComponents (int reqId | void | Dictionary< int |
 | tickReqParams (int tickerId | void | double minTick |
-| newsProviders (NewsProvider\[\] newsProviders) | void | returns array of subscribed API news providers for this user More… |
+| newsProviders (NewsProvider[] newsProviders) | void | returns array of subscribed API news providers for this user More… |
 | newsArticle (int requestId | void | int articleType |
 | historicalNews (int requestId | void | string time |
 | historicalNewsEnd (int requestId | void | bool hasMore) |
 | headTimestamp (int reqId | void | string headTimestamp) |
 | None | returns beginning of data for contract for specified data type | None |
 | None | More… | None |
-| histogramData (int reqId | void | HistogramEntry\[\] data) |
+| histogramData (int reqId | void | HistogramEntry[] data) |
 | rerouteMktDataReq (int reqId | void | int conId |
 | None | returns conId and exchange for CFD market data request re-route | None |
 | None | More… | None |
 | rerouteMktDepthReq (int reqId | void | int conId |
-| marketRule (int marketRuleId | void | PriceIncrement\[\] priceIncrements) |
+| marketRule (int marketRuleId | void | PriceIncrement[] priceIncrements) |
 | pnl (int reqId | void | double dailyPnL |
 | pnlSingle (int reqId | void | decimal pos |
-| historicalTicks (int reqId | void | HistoricalTick\[\] ticks |
-| historicalTicksBidAsk (int reqId | void | HistoricalTickBidAsk\[\] ticks |
-| historicalTicksLast (int reqId | void | HistoricalTickLast\[\] ticks |
+| historicalTicks (int reqId | void | HistoricalTick[] ticks |
+| historicalTicksBidAsk (int reqId | void | HistoricalTickBidAsk[] ticks |
+| historicalTicksLast (int reqId | void | HistoricalTickLast[] ticks |
 | tickByTickAllLast (int reqId | void | int tickType |
 | tickByTickBidAsk (int reqId | void | long time |
 | tickByTickMidPoint (int reqId | void | long time |

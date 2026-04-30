@@ -111,13 +111,16 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
     </ul>
-     <h2 class="section-title-1">Synchronous API</h2><div class="row"><p>With the release of TWS API 10.40, Interactive Brokers has introduced the Synchronous API Wrapper class. This class provides a synchronous API structure, combining the functionality of EClient and EWrapper into a beginner-friendly interface.</p><p>The current release is still in a Beta state, slowly rolling out only a portion of what is available in the larger Trader Workstation API configuration. The interface is exclusively available through the <em>Python</em> programming language.</p></div><div class="row"><p>The content shown here is an example of what the Sync Wrapper structure looks like. A larger example of all current functionality is available in the 10.40 release of the TWS API under <code>{TWS API}/samples/Python/Testbed/sync_test.py</code> .</p><p>&nbsp;</p></div><div class="row"><h2 id="sync-api">13 Synchronous API</h2><pre class="EnlighterJSRAW" data-enlighter-language="python"># Import our Sync Wrapper and Contract objects
+     <h2 class="section-title-1">Synchronous API</h2><div class="row"><p>With the release of TWS API 10.40, Interactive Brokers has introduced the Synchronous API Wrapper class. This class provides a synchronous API structure, combining the functionality of EClient and EWrapper into a beginner-friendly interface.</p><p>The current release is still in a Beta state, slowly rolling out only a portion of what is available in the larger Trader Workstation API configuration. The interface is exclusively available through the <em>Python</em> programming language.</p></div><div class="row"><p>The content shown here is an example of what the Sync Wrapper structure looks like. A larger example of all current functionality is available in the 10.40 release of the TWS API under <code>{TWS API}/samples/Python/Testbed/sync_test.py</code> .</p><p>&nbsp;</p></div><div class="row"><h2 id="sync-api">13 Synchronous API</h2><pre><code class="language-python"># Import our Sync Wrapper and Contract objects
     from ibapi.sync_wrapper_alt import *
     from datetime import datetime
     
@@ -165,7 +168,7 @@ th {
     print(app.cancel_order_sync(oid, OrderCancel()))
     
     app.disconnect_and_stop()
-    exit()</pre><h4>Response Sample</h4><pre class="EnlighterJSRAW" data-enlighter-language="generic">ERROR -1 1761170335710 2104 Market data farm connection is OK:usbond
+    exit()</code></pre><h4>Response Sample</h4><pre><code class="language-generic">ERROR -1 1761170335710 2104 Market data farm connection is OK:usbond
     ERROR -1 1761170335711 2104 Market data farm connection is OK:usfarm.nj
     ERROR -1 1761170335712 2104 Market data farm connection is OK:eufarm
     ERROR -1 1761170335712 2104 Market data farm connection is OK:usfarm
@@ -176,6 +179,6 @@ th {
     {'price': {1: {'price': 258.5, 'attrib': 2076793531408: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 2: {'price': 258.65, 'attrib': 2076793531536: CanAutoExecute: 1, PastLimit: 0, PreOpen: 0}, 4: {'price': 258.62, 'attrib': 2076793531600: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 6: {'price': 262.85, 'attrib': 2076793531856: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 7: {'price': 255.43, 'attrib': 2076793531920: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 9: {'price': 262.77, 'attrib': 2076793531984: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}, 14: {'price': 262.74, 'attrib': 2076793532048: CanAutoExecute: 0, PastLimit: 0, PreOpen: 0}}, 'size': {0: Decimal('1'), 3: Decimal('5'), 5: Decimal('3'), 8: Decimal('449348')}}
     PreSubmitted
     {'orderId': 358, 'status': 'PreSubmitted', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 1054257323, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}
-    </pre></div>
+    </code></pre></div>
   </body>
 </html>

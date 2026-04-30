@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [13-ers-ref.md](13 EReaderSignal Interface Reference) -> 
-
- 13 EReaderSignal Interface Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [13 EReaderSignal Interface Reference](13-ers-ref.md)
 
 
 ## EReaderSignal Interface Reference

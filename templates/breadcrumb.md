@@ -1,5 +1,1 @@
-{{#if length }}
-  {{#each .}}
-  [{{{fileName}}}]({{title}}) -> 
-  {{/each}}
-{{/if}}
+{{#if length}}{{#each .}}[{{title}}]({{fileName}}){{#unless @last}} · {{/unless}}{{/each}}{{/if}}

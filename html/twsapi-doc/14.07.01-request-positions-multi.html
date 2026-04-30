@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.07-positions-multi.html">14.07 Positions By Model</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.07.01-request-positions-multi.html">14.07.01 Request Positions By Model</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Positions By Model</h3><div class="row"><h4 id="request-positions-multi">14.07.01 Request Positions By Model</h4><p><strong>requestId:</strong> int. Request’s identifier.</p><p><strong>account:</strong> String. If an account Id is provided, only the account’s positions belonging to the specified model will be delivered.</p><p><strong>modelCode:</strong> String. The code of the model’s positions we are interested in.<br> )</p><p>Requests position subscription for account and/or model Initially all positions are returned, and then updates are returned for any position changes in real time.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqPositionsMulti(requestid, "U1234567", "")</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Request Positions By Model</h3><div class="row"><h4 id="request-positions-multi">14.07.01 Request Positions By Model</h4><p><strong>requestId:</strong> int. Request’s identifier.</p><p><strong>account:</strong> String. If an account Id is provided, only the account’s positions belonging to the specified model will be delivered.</p><p><strong>modelCode:</strong> String. The code of the model’s positions we are interested in.<br> )</p><p>Requests position subscription for account and/or model Initially all positions are returned, and then updates are returned for any position changes in real time.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqPositionsMulti(requestid, "U1234567", "")</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     import threading
     import time
@@ -147,6 +156,6 @@ th {
     time.sleep(1)
     
     app.reqPositionsMulti(3, "Group1", "")     #To specify a Financial Advisor Group / Profile 
-    time.sleep(1)</pre><p>&nbsp;</p></div></div></div>
+    time.sleep(1)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

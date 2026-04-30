@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [30-scannersubscription-ref.md](30 ScannerSubscription Class Reference) -> 
-
- 30 ScannerSubscription Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [30 ScannerSubscription Class Reference](30-scannersubscription-ref.md)
 
 
 ## ScannerSubscription Class Reference

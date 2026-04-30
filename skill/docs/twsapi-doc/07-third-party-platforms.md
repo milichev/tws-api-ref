@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [07-third-party-platforms.md](07 Third Party API Platforms) -> 
-
- 07 Third Party API Platforms
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [07 Third Party API Platforms](07-third-party-platforms.md)
 
 
 ## Third Party API Platforms

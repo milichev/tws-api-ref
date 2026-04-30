@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.07-positions-multi.html">14.07 Positions By Model</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.07.02-receive-positions-multi.html">14.07.02 Receive Positions By Model</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Positions By Model</h3><div class="row"><h4 id="receive-positions-multi">14.07.02 Receive Positions By Model</h4><p><strong>requestId:</strong> int. The id of request</p><p><strong>account:</strong> String. The account holding the position.</p><p><strong>modelCode:</strong> String. The model code holding the position.</p><p><strong>contract:</strong> Contract. The position’s Contract</p><p><strong>pos:</strong> decimal. The number of positions held.</p><p><strong>avgCost:</strong> double. The average cost of the position.<br> )</p><p>Provides the portfolio’s open positions.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def positionMulti(self, reqId: int, account: str, modelCode: str, contract: Contract, pos: Decimal, avgCost: float):
-      print("PositionMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Contract:", contract, ",Position:", pos, "AvgCost:", avgCost)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.positionMultiEnd(</span></h4><p><strong>requestId:</strong> int. The id of request<br> )</p><p>Indicates all the positions have been transmitted.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def positionMultiEnd(self, reqId: int):
-    	print("PositionMultiEnd. RequestId:", reqId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Positions By Model</h3><div class="row"><h4 id="receive-positions-multi">14.07.02 Receive Positions By Model</h4><p><strong>requestId:</strong> int. The id of request</p><p><strong>account:</strong> String. The account holding the position.</p><p><strong>modelCode:</strong> String. The model code holding the position.</p><p><strong>contract:</strong> Contract. The position’s Contract</p><p><strong>pos:</strong> decimal. The number of positions held.</p><p><strong>avgCost:</strong> double. The average cost of the position.<br> )</p><p>Provides the portfolio’s open positions.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def positionMulti(self, reqId: int, account: str, modelCode: str, contract: Contract, pos: Decimal, avgCost: float):
+      print("PositionMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Contract:", contract, ",Position:", pos, "AvgCost:", avgCost)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.positionMultiEnd(</span></h4><p><strong>requestId:</strong> int. The id of request<br> )</p><p>Indicates all the positions have been transmitted.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def positionMultiEnd(self, reqId: int):
+    	print("PositionMultiEnd. RequestId:", reqId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

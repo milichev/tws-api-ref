@@ -111,22 +111,25 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">Protobuf Reference</a>
       </li>
       <li class="breadcrumb-item">
         <a href="12-update-config-response.html">12 UpdateConfigResponse</a>
       </li>
     </ul>
-     <h2 class="section-title-1">UpdateConfigResponse</h2><div class="row"><p><strong>reqId:</strong> <code>Integer</code> – Request identifier<br> <strong>status:</strong> <code>String</code> – Status of the request for modification.<br> <strong>message:</strong> <code>String</code> – Response message about the changes. Successful changes will return “Configuration updated”.<br> <strong>changedFields:</strong> <code>String</code> – List of fields changed by the updateConfigProtoBuf request.<br> <strong>errors:</strong> <code>String</code> – Any errors that arose during setting changes.<br> <strong>warnings:</strong> <code>UpdateConfigWarning</code> – Any additional warnings that arose from changing settings.</p><p>Success:</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">reqId: 1784381601
+     <h2 class="section-title-1">UpdateConfigResponse</h2><div class="row"><p><strong>reqId:</strong> <code>Integer</code> – Request identifier<br> <strong>status:</strong> <code>String</code> – Status of the request for modification.<br> <strong>message:</strong> <code>String</code> – Response message about the changes. Successful changes will return “Configuration updated”.<br> <strong>changedFields:</strong> <code>String</code> – List of fields changed by the updateConfigProtoBuf request.<br> <strong>errors:</strong> <code>String</code> – Any errors that arose during setting changes.<br> <strong>warnings:</strong> <code>UpdateConfigWarning</code> – Any additional warnings that arose from changing settings.</p><p>Success:</p><pre><code class="language-generic">reqId: 1784381601
     status: "success"
     message: "Configuration updated"
     changedFields: "configuration.api.settings.createApiMessageLogFile"
     changedFields: "configuration.api.settings.includeMarketDataInLogFile"
-    changedFields: "configuration.api.settings.loggingLevel"</pre><p>Failed:</p><pre class="EnlighterJSRAW" data-enlighter-language="generic">reqId: 1784381601
+    changedFields: "configuration.api.settings.loggingLevel"</code></pre><p>Failed:</p><pre><code class="language-generic">reqId: 1784381601
     status: "error"
     message: "Validating configuration update request has failed"
     errors: "configuration.lockAndExit.autoLogoffTime"
     errors: "configuration.lockAndExit.autoLogoffPeriod"
-    errors: "configuration.lockAndExit.autoLogoffType"</pre><p>&nbsp;</p></div>
+    errors: "configuration.lockAndExit.autoLogoffType"</code></pre><p>&nbsp;</p></div>
   </body>
 </html>

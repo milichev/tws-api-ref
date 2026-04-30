@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [21-hist-md.md](21 Market Data: Historical) -> 
-
- 21 Market Data: Historical
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [21 Market Data: Historical](21-hist-md.md)
 
 
 ## Market Data: Historical
@@ -86,7 +83,9 @@ ReqHeadTimeStamp counts as an ongoing historical data request, similar to using 
 
 Returns the timestamp of earliest available historical data for a contract and data type.
 
+```python
 self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)
+```
 
 ### Receiving the Earliest Data Point
 
@@ -99,8 +98,10 @@ self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)
 
 The data requested will be returned to EWrapper.headTimeStamp.
 
+```python
 def headTimestamp(self, reqId, headTimestamp):
         print(reqId, headTimestamp)
+```
 
 ### Cancelling Timestamp Requests
 
@@ -111,7 +112,9 @@ def headTimestamp(self, reqId, headTimestamp):
 
 A reqHeadTimeStamp request can be cancelled with EClient.cancelHeadTimestamp
 
+```python
 self.cancelHeadTimeStamp(reqId)
+```
 
 ### Historical Bars
 
@@ -145,7 +148,9 @@ Supported whatToShow values: Trades, Midpoint, Bid, Ask.
 
 )
 
-self.reqHistoricalData(4102, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, False, \[\])
+```generic
+self.reqHistoricalData(4102, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, False, [])
+```
 
 ### Duration
 
@@ -182,11 +187,11 @@ The functionality of market data requests are predicated on preset step sizes. A
 
 | Duration Unit | Bar units allowed | Bar size Interval (Min/Max) |
 | --- | --- | --- |
-| S | secs | mins | 1 secs -> 1mins |
-| D | secs | mins | hrs | 5 secs -> 1 hours |
-| W | sec | mins | hrs | 10 secs -> 4 hrs |
-| M | sec | mins | hrs | 30 secs -> 8 hrs |
-| Y | mins | hrs   | d | 1 mins-> 1 day |
+| S | secs \| mins | 1 secs -> 1mins |
+| D | secs \| mins \| hrs | 5 secs -> 1 hours |
+| W | sec \| mins \| hrs | 10 secs -> 4 hrs |
+| M | sec \| mins \| hrs | 30 secs -> 8 hrs |
+| Y | mins \| hrs   \| d | 1 mins-> 1 day |
 
 ### Max Duration Per Bar Size
 
@@ -226,9 +231,9 @@ Interactive Brokers will return historical market data based on the format set f
 
 | Value | Description | Example |
 | --- | --- | --- |
-| 1 | String Time Zone Date | “20231019 16:11:48 America/New\_York” |
+| 1 | String Time Zone Date | “20231019 16:11:48 America/New_York” |
 | 2 | Epoch Date | 1697746308 |
-| 3 | Day & Time Date | “1019 16:11:48 America/New\_York” |
+| 3 | Day & Time Date | “1019 16:11:48 America/New_York” |
 
 ### Keep Up To Date
 
@@ -240,6 +245,7 @@ In our example to the below, 15 second bars are requested, and we can see the 30
 
 keepUpToDate is only available for whatToShow: Trades, Midpoint, Bid, Ask
 
+```raw
 Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.56, Low: 188.54, Close: 188.55
 Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.56, Low: 188.54, Close: 188.55
 Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.56, Low: 188.54, Close: 188.55
@@ -249,6 +255,7 @@ Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.56, Low: 188.54, Clo
 Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.56, Low: 188.54, Close: 188.56
 Date: 20231204 13:30:30 US/Eastern, Open: 188.56, High: 188.57, Low: 188.54, Close: 188.55
 Date: 20231204 13:30:45 US/Eastern, Open: 188.54, High: 188.54, Low: 188.54, Close: 188.54
+```
 
 ### Receiving Historical Bars
 
@@ -261,8 +268,10 @@ Date: 20231204 13:30:45 US/Eastern, Open: 188.54, High: 188.54, Low: 188.54, Clo
 
 The historical data will be delivered via the EWrapper.historicalData method in the form of candlesticks. The time zone of returned bars is the time zone chosen in TWS on the login screen.
 
+```python
 def historicalData(self, reqId:int, bar: BarData):
 	print("HistoricalData. ReqId:", reqId, "BarData.", bar)
+```
 
 #### Default Return Format
 
@@ -272,10 +281,12 @@ The datetime value here was [modified to return UTC datetime](../undefined/index
 
 **Note:** The datetime value indicates the **beginning** of the request range rather than the end. The last bar on the right would then indicate data that took place between 20241111-16:53:15 to 20241111-16:53:20.
 
+```text
 Date: 20241111-16:53:00, Open: 222.97, High: 222.97, Low: 222.96, Close: 222.97, Volume: 300, WAP: 222.965, BarCount: 2
 Date: 20241111-16:53:05, Open: 222.97, High: 223.01, Low: 222.96, Close: 223.01, Volume: 5378, WAP: 222.981, BarCount: 38
 Date: 20241111-16:53:10, Open: 223.02, High: 223.02, Low: 222.98, Close: 222.98, Volume: 3659, WAP: 222.997, BarCount: 24
 Date: 20241111-16:53:15, Open: 222.98, High: 222.98, Low: 222.96, Close: 222.97, Volume: 2585, WAP: 222.963, BarCount: 24
+```
 
 #### EWrapper.historicalSchedule (
 
@@ -292,10 +303,12 @@ Date: 20241111-16:53:15, Open: 222.98, High: 222.98, Low: 222.96, Close: 222.97,
 
 In the case of whatToShow=”schedule”, you will need to also define the EWrapper.historicalSchedule value. This is a unique method that will only be called in the case of the unique whatToShow value to display calendar information.
 
+```python
 def historicalSchedule(self, reqId: int, startDateTime: str, endDateTime: str, timeZone: str, sessions: ListOfHistoricalSessions):
 	print("HistoricalSchedule. ReqId:", reqId, "Start:", startDateTime, "End:", endDateTime, "TimeZone:", timeZone)
 	for session in sessions:
-		print("\\tSession. Start:", session.startDateTime, "End:", session.endDateTime, "Ref Date:", session.refDate)
+		print("\tSession. Start:", session.startDateTime, "End:", session.endDateTime, "Ref Date:", session.refDate)
+```
 
 #### EWrapper.historicalDataUpdate (
 
@@ -306,8 +319,10 @@ def historicalSchedule(self, reqId: int, startDateTime: str, endDateTime: str, t
 
 Receives bars in real time if keepUpToDate is set as True in reqHistoricalData. Similar to realTimeBars function, except returned data is a composite of historical data and real time data that is equivalent to TWS chart functionality to keep charts up to date. Returned bars are successfully updated using real time data.
 
+```python
 def historicalDataUpdate(self, reqId: int, bar: BarData):
 	print("HistoricalDataUpdate. ReqId:", reqId, "BarData.", bar)
+```
 
 #### EWrapper.historicalDataEnd (
 
@@ -320,8 +335,10 @@ def historicalDataUpdate(self, reqId: int, bar: BarData):
 
 Marks the ending of the historical bars reception.
 
+```python
 def historicalDataEnd(self, reqId: int, start: str, end: str):
 	print("HistoricalDataEnd. ReqId:", reqId, "from", start, "to", end)
+```
 
 ### Historical Bar whatToShow
 
@@ -510,7 +527,9 @@ Instead of returned data points as a function of time as with the function IBApi
 
 Returns data histogram of specified contract.
 
+```python
 self.reqHistogramData(4004, contract, false, "3 days")
+```
 
 ### Receiving Histogram Data
 
@@ -523,8 +542,10 @@ self.reqHistogramData(4004, contract, false, "3 days")
 
 Returns relevant histogram data.
 
+```python
 def histogramData(self, reqId:int, items:HistogramDataList):
 	print("HistogramData. reqid, items)
+```
 
 ### Cancelling Histogram Data
 
@@ -535,7 +556,9 @@ def histogramData(self, reqId:int, items:HistogramDataList):
 
 An active histogram request which has not returned data can be cancelled with EClient.cancelHistogramData
 
+```python
 self.reqHistogramData(4004)
+```
 
 ### Historical Time & Sales
 
@@ -573,7 +596,9 @@ The highest granularity of historical data from IB’s database can be retrieved
 
 Requests historical Time & Sales data for an instrument.
 
-self.reqHistoricalTicks(18001, contract, "20170712 21:39:33 US/Eastern", "", 10, "TRADES", 1, True, \[\])
+```python
+self.reqHistoricalTicks(18001, contract, "20170712 21:39:33 US/Eastern", "", 10, "TRADES", 1, True, [])
+```
 
 ### Receiving Time and Sales data
 
@@ -594,9 +619,11 @@ Data is returned to unique functions based on what is requested in the whatToSho
 
 For whatToShow=MIDPOINT
 
+```python
 def historicalTicks(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
 	for tick in ticks:
 		print("historicalTicks. ReqId:", reqId, tick)
+```
 
 #### EWrapper.historicalTicksBidAsk (
 
@@ -609,9 +636,11 @@ def historicalTicks(self, reqId: int, ticks: ListOfHistoricalTickLast, done: boo
 
 For whatToShow=BidAsk
 
+```python
 def historicalTicksBidAsk(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
 	for tick in ticks:
 		print("historicalTicksBidAsk. ReqId:", reqId, tick)
+```
 
 #### EWrapper.historicalTicksLast (
 
@@ -624,9 +653,11 @@ def historicalTicksBidAsk(self, reqId: int, ticks: ListOfHistoricalTickLast, don
 
 For whatToShow=Last & AllLast
 
+```python
 def historicalTicksLast(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
 	for tick in ticks:
 		print("HistoricalTickLast. ReqId:", reqId, tick)
+```
 
 ### Historical Halted and Unhalted ticks
 

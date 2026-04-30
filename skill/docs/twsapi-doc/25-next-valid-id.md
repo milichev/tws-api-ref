@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [25-next-valid-id.md](25 Next Valid ID) -> 
-
- 25 Next Valid ID
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [25 Next Valid ID](25-next-valid-id.md)
 
 
 ## Next Valid ID
@@ -19,7 +16,9 @@ The nextValidId value may be queried on each request. However, it is often recom
 
 Requests the next valid order ID at the current moment be returned to the EWrapper.nextValidId function.
 
+```python
 self.reqIds(-1)
+```
 
 ### Receive Next Valid ID
 
@@ -30,8 +29,10 @@ self.reqIds(-1)
 
 Will be invoked automatically upon successful API client connection, or after call to EClient.reqIds.
 
+```python
 def nextValidId(self, orderId: int):
     print("NextValidId:", orderId)
+```
 
 ### Reset Order ID Sequence
 

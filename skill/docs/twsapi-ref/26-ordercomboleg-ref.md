@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [26-ordercomboleg-ref.md](26 OrderComboLeg Class Reference) -> 
-
- 26 OrderComboLeg Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [26 OrderComboLeg Class Reference](26-ordercomboleg-ref.md)
 
 
 ## OrderComboLeg Class Reference
@@ -16,5 +13,5 @@ Allows to specify a price on an order’s leg.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| OrderComboLeg (double p\_price) | override bool |  |
+| OrderComboLeg (double p_price) | override bool |  |
 | GetHashCode () | override int |  |

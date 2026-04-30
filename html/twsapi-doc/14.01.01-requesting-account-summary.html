@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.01-account-summary.html">14.01 Account Summary</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.01.01-requesting-account-summary.html">14.01.01 Requesting Account Summary</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Account Summary</h3><div class="row"><p>Requests a specific account’s summary. This method will subscribe to the account summary as presented in the TWS’ Account Summary tab.&nbsp;Customers can specify the data received by using a specific tags value. See the Account Summary Tags section for available options.</p><p>Alternatively, many languages offer the import of AccountSummaryTags with a method to retrieve all tag values.</p></div><div class="row"><h4 id="requesting-account-summary">14.01.01 Requesting Account Summary</h4><p><strong>reqId:</strong> int. The unique request identifier.</p><p><strong>group:</strong> String. set to “All” to return account summary data for all accounts, or set to a specific Advisor Account Group name that has already been created in TWS Global Configuration.</p><p><strong>tags:</strong> String. A comma separated list with the <a href="14.01.02-account-summary-tags">desired tags</a></p><p>)</p><p><b>Important:</b>&nbsp;only&nbsp;<b>two</b>&nbsp;active summary subscriptions are allowed at a time!</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAccountSummary(9001, "All", AccountSummaryTags.AllTags)</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Requesting Account Summary</h3><div class="row"><p>Requests a specific account’s summary. This method will subscribe to the account summary as presented in the TWS’ Account Summary tab.&nbsp;Customers can specify the data received by using a specific tags value. See the Account Summary Tags section for available options.</p><p>Alternatively, many languages offer the import of AccountSummaryTags with a method to retrieve all tag values.</p></div><div class="row"><h4 id="requesting-account-summary">14.01.01 Requesting Account Summary</h4><p><strong>reqId:</strong> int. The unique request identifier.</p><p><strong>group:</strong> String. set to “All” to return account summary data for all accounts, or set to a specific Advisor Account Group name that has already been created in TWS Global Configuration.</p><p><strong>tags:</strong> String. A comma separated list with the <a href="14.01.02-account-summary-tags">desired tags</a></p><p>)</p><p><b>Important:</b>&nbsp;only&nbsp;<b>two</b>&nbsp;active summary subscriptions are allowed at a time!</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqAccountSummary(9001, "All", AccountSummaryTags.AllTags)</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     from ibapi.contract import Contract
     import time
@@ -138,6 +147,6 @@ th {
     time.sleep(1)
     
     app.reqAccountSummary(9001, "All", 'NetLiquidation')
-    app.run()</pre><p>&nbsp;</p></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

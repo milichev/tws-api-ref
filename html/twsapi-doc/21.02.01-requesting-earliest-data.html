@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.02-earliest-data.html">21.02 Finding the Earliest Available Data Point</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.02.01-requesting-earliest-data.html">21.02.01 Requesting the Earliest Data Point</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting the Earliest Data Point</h3><div class="row"><h4 id="requesting-earliest-data">21.02.01 Requesting the Earliest Data Point</h4><p><strong>tickerId:</strong> int., A unique identifier which will serve to identify the incoming data.</p><p><strong>contract: </strong>Contract<strong>.</strong>&nbsp;The&nbsp;IBApi.Contract&nbsp;you are interested in.</p><p><strong>whatToShow:</strong> String.&nbsp;The type of data to retrieve. See&nbsp;Historical Data Types</p><p><strong>useRTH:</strong> int.&nbsp;Whether (1) or not (0) to retrieve data generated only within Regular Trading Hours (RTH)</p><p><strong>formatDate: </strong>int. Using 1 will return UTC time in YYYYMMDD-hh:mm:ss format. Using 2 will return epoch time.<br> )</p><p>Returns the timestamp of earliest available historical data for a contract and data type.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Requesting the Earliest Data Point</h3><div class="row"><h4 id="requesting-earliest-data">21.02.01 Requesting the Earliest Data Point</h4><p><strong>tickerId:</strong> int., A unique identifier which will serve to identify the incoming data.</p><p><strong>contract: </strong>Contract<strong>.</strong>&nbsp;The&nbsp;IBApi.Contract&nbsp;you are interested in.</p><p><strong>whatToShow:</strong> String.&nbsp;The type of data to retrieve. See&nbsp;Historical Data Types</p><p><strong>useRTH:</strong> int.&nbsp;Whether (1) or not (0) to retrieve data generated only within Regular Trading Hours (RTH)</p><p><strong>formatDate: </strong>int. Using 1 will return UTC time in YYYYMMDD-hh:mm:ss format. Using 2 will return epoch time.<br> )</p><p>Returns the timestamp of earliest available historical data for a contract and data type.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

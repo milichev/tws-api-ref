@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.05-stock-symbol-search.html">16.05 Stock Symbol Search</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.05.02-receive-stock-symbol.html">16.05.02 Receive Searched Stock Contract</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Searched Stock Contract</h3><div class="row"><h4 id="receive-stock-symbol">16.05.02 Receive Searched Stock Contract</h4><p><strong>reqID:</strong> int. Request identifier used to track data.</p><p><strong>contractDescription:</strong> ContractDescription[]. Provide an array of contract objects matching the requested descriptoin.<br> )</p><p>Returns array of sample contract descriptions</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def symbolSamples(self, reqId: int, contractDescriptions: ListOfContractDescription):
+     <h3 class="section-title-2">Receive Searched Stock Contract</h3><div class="row"><h4 id="receive-stock-symbol">16.05.02 Receive Searched Stock Contract</h4><p><strong>reqID:</strong> int. Request identifier used to track data.</p><p><strong>contractDescription:</strong> ContractDescription[]. Provide an array of contract objects matching the requested descriptoin.<br> )</p><p>Returns array of sample contract descriptions</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def symbolSamples(self, reqId: int, contractDescriptions: ListOfContractDescription):
     	print("Symbol Samples. Request Id: ", reqId)
     	for contractDescription in contractDescriptions:
     		derivSecTypes = ""
@@ -132,6 +141,6 @@ th {
     				contractDescription.contract.primaryExchange,
     				contractDescription.contract.currency, derivSecTypes,
     				contractDescription.contract.description,
-    				contractDescription.contract.issuerId))</pre><p>&nbsp;</p></div></div></div>
+    				contractDescription.contract.issuerId))</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

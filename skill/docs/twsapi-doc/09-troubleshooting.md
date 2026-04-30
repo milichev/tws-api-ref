@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [09-troubleshooting.md](09 Troubleshooting &amp; Support) -> 
-
- 09 Troubleshooting & Support
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [09 Troubleshooting &amp; Support](09-troubleshooting.md)
 
 
 ## Troubleshooting & Support

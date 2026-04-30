@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.02-contract-specific-news.html">24.02 Live News Headlines</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.02.03-receive-live-news-headlines.html">24.02.03 Receive Live News Headlines</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Live News Headlines</h3><div class="row"><h4 id="receive-live-news-headlines">24.02.03 Receive Live News Headlines</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>timeStamp:</strong> int. Epoch time of the article’s published time.</p><p><strong>providerCode:</strong> String. News provider code based on requested data.</p><p><strong>articleId:</strong> String. Identifier used to track the particular article. See <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#news-articles">News Article</a> for more.</p><p><strong>headline:</strong> String. Headline of the provided news article.</p><p><strong>extraData:</strong> String. Returns any additional data available about the article.<br> )</p><p>Returns news headlines for requested contracts.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def tickNews(self, tickerId: int, timeStamp: int, providerCode: str, articleId: str, headline: str, extraData: str):
-      print("TickNews. TickerId:", tickerId, "TimeStamp:", timeStamp, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline, "ExtraData:", extraData)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Live News Headlines</h3><div class="row"><h4 id="receive-live-news-headlines">24.02.03 Receive Live News Headlines</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>timeStamp:</strong> int. Epoch time of the article’s published time.</p><p><strong>providerCode:</strong> String. News provider code based on requested data.</p><p><strong>articleId:</strong> String. Identifier used to track the particular article. See <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#news-articles">News Article</a> for more.</p><p><strong>headline:</strong> String. Headline of the provided news article.</p><p><strong>extraData:</strong> String. Returns any additional data available about the article.<br> )</p><p>Returns news headlines for requested contracts.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def tickNews(self, tickerId: int, timeStamp: int, providerCode: str, articleId: str, headline: str, extraData: str):
+      print("TickNews. TickerId:", tickerId, "TimeStamp:", timeStamp, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline, "ExtraData:", extraData)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

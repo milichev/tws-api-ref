@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16-contracts.html">16 Contracts (Financial Instruments)</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="16.03-contract-details.html">16.03 Contract Details</a>
       </li>
       <li class="breadcrumb-item">
         <a href="16.03.02-receive-contract-details.html">16.03.02 Receive Contract Details</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Contract Details</h3><div class="row"><h4 id="receive-contract-details">16.03.02 Receive Contract Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. Contains the full contract object contents including all information about a specific traded instrument.<br> )</p><p>Receives the full contract’s definitions This method will return all contracts matching the requested via EClientSocket::reqContractDetails. For example, one can obtain the whole option chain with it.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def contractDetails(self, reqId: int, contractDetails: ContractDetails):
-      print(reqId, contractDetails)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.contractDetailsEnd (</span></h4><p><strong>reqId:</strong> int. Request identifier to track data.<br> )</p><p>After all contracts matching the request were returned, this method will mark the end of their reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def contractDetailsEnd(self, reqId: int):
-    	print("ContractDetailsEnd. ReqId:", reqId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Contract Details</h3><div class="row"><h4 id="receive-contract-details">16.03.02 Receive Contract Details</h4><p><strong>reqId:</strong> int. Request identifier to track data.</p><p><strong>contract:</strong> ContractDetails. Contains the full contract object contents including all information about a specific traded instrument.<br> )</p><p>Receives the full contract’s definitions This method will return all contracts matching the requested via EClientSocket::reqContractDetails. For example, one can obtain the whole option chain with it.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def contractDetails(self, reqId: int, contractDetails: ContractDetails):
+      print(reqId, contractDetails)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.contractDetailsEnd (</span></h4><p><strong>reqId:</strong> int. Request identifier to track data.<br> )</p><p>After all contracts matching the request were returned, this method will mark the end of their reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def contractDetailsEnd(self, reqId: int):
+    	print("ContractDetailsEnd. ReqId:", reqId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

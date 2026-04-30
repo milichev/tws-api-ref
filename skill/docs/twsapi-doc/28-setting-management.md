@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [28-setting-management.md](28 Setting Management) -> 
-
- 28 Setting Management
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [28 Setting Management](28-setting-management.md)
 
 
 ## Setting Management
@@ -19,11 +16,13 @@ Must have the reqId field passed.
 
 #### )
 
-from ibapi.protobuf.ConfigRequest\_pb2 import ConfigRequest as ConfigRequestProto
+```python
+from ibapi.protobuf.ConfigRequest_pb2 import ConfigRequest as ConfigRequestProto
 
 configRequestProto = ConfigRequestProto()
 configRequestProto.reqId = 123
 self.reqConfigProtoBuf(configRequestProto)
+```
 
 ### Receive Configuration
 
@@ -34,10 +33,12 @@ Contains the Proto response object for the configuration. Includes [LockAndExitC
 
 #### )
 
-from ibapi.protobuf.ConfigResponse\_pb2 import ConfigResponse as ConfigResponseProto
+```python
+from ibapi.protobuf.ConfigResponse_pb2 import ConfigResponse as ConfigResponseProto
 
 def configResponseProtoBuf(self, configResponseProto: ConfigResponseProto):
     print(configResponseProto)
+```
 
 ### Request Configuration Update
 
@@ -49,9 +50,10 @@ Must have the reqId field passed.
 
 #### )
 
-from ibapi.protobuf.UpdateConfigRequest\_pb2 import UpdateConfigRequest as UpdateConfigRequestProto
-from ibapi.protobuf.ApiConfig\_pb2 import ApiConfig as ApiConfigProto
-from ibapi.protobuf.ApiSettingsConfig\_pb2 import ApiSettingsConfig as ApiSettingsConfigProto
+```python
+from ibapi.protobuf.UpdateConfigRequest_pb2 import UpdateConfigRequest as UpdateConfigRequestProto
+from ibapi.protobuf.ApiConfig_pb2 import ApiConfig as ApiConfigProto
+from ibapi.protobuf.ApiSettingsConfig_pb2 import ApiSettingsConfig as ApiSettingsConfigProto
 
 # Instantiate Proto Classes...
 updateConfigRequestProto = UpdateConfigRequestProto()
@@ -70,6 +72,7 @@ updateConfigRequestProto.api.CopyFrom(apiConfigProto)
 
 # Submit updates
 self.updateConfigProtoBuf(updateConfigRequestProto)
+```
 
 ### Receive Configuration Update
 
@@ -80,7 +83,9 @@ Contains the Proto response object for the configuration update. Includes messag
 
 #### )
 
-from ibapi.protobuf.UpdateConfigResponse\_pb2 import UpdateConfigResponse as UpdateConfigResponseProto
+```python
+from ibapi.protobuf.UpdateConfigResponse_pb2 import UpdateConfigResponse as UpdateConfigResponseProto
 
 def updateConfigResponseProtoBuf(self, updateConfigResponseProto: UpdateConfigResponseProto):
     print(updateConfigResponseProto)
+```

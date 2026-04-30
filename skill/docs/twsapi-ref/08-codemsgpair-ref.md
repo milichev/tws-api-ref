@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [08-codemsgpair-ref.md](08 CodeMsgPair Class Reference) -> 
-
- 08 CodeMsgPair Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [08 CodeMsgPair Class Reference](08-codemsgpair-ref.md)
 
 
 ## CodeMsgPair Class Reference

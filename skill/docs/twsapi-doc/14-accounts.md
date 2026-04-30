@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [14-accounts.md](14 Account &amp; Portfolio Data) -> 
-
- 14 Account & Portfolio Data
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [14 Account &amp; Portfolio Data](14-accounts.md)
 
 
 ## Account & Portfolio Data
@@ -32,18 +29,21 @@ Alternatively, many languages offer the import of AccountSummaryTags with a meth
 
 **Important:** only **two** active summary subscriptions are allowed at a time!
 
+```python
 self.reqAccountSummary(9001, "All", AccountSummaryTags.AllTags)
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 from ibapi.contract import Contract
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
     def accountSummary(self, reqId: int, account: str, tag: str, value: str,currency: str):
         print("AccountSummary. ReqId:", reqId, "Account:", account,"Tag: ", tag, "Value:", value, "Currency:", currency)
@@ -58,10 +58,43 @@ time.sleep(1)
 
 app.reqAccountSummary(9001, "All", 'NetLiquidation')
 app.run()
+```
 
 ### Account Summary Tags
 
-<table><tbody><tr><td>AccountType</td><td>Identifies the IB account structure</td></tr><tr><td>NetLiquidation</td><td>The basis for determining the price of the assets in your account. Total cash value + stock value + options value + bond value</td></tr><tr><td>TotalCashValue</td><td>Total cash balance recognized at the time of trade + futures PNL</td></tr><tr><td>SettledCash</td><td>Cash recognized at the time of settlement – purchases at the time of trade – commissions – taxes – fees</td></tr><tr><td>AccruedCash</td><td>Total accrued cash value of stock, commodities and securities</td></tr><tr><td>BuyingPower</td><td>Buying power serves as a measurement of the dollar value of securities that one may purchase in a securities account without depositing additional funds</td></tr><tr><td>EquityWithLoanValue</td><td>Forms the basis for determining whether a client has the necessary assets to either initiate or maintain security positions. Cash + stocks + bonds + mutual funds</td></tr><tr><td>PreviousEquityWithLoanValue</td><td>Marginable Equity with Loan value as of 16:00 ET the previous day</td></tr><tr><td>GrossPositionValue</td><td>The sum of the absolute value of all stock and equity option positions</td></tr><tr><td>RegTEquity</td><td>Regulation T equity for universal account</td></tr><tr><td>RegTMargin</td><td>Regulation T margin for universal account</td></tr><tr><td>SMA</td><td>Special Memorandum Account: Line of credit created when the market value of securities in a Regulation T account increase in value</td></tr><tr><td>InitMarginReq</td><td>Initial Margin requirement of whole portfolio</td></tr><tr><td>MaintMarginReq</td><td>Maintenance Margin requirement of whole portfolio</td></tr><tr><td>AvailableFunds</td><td>This value tells what you have available for trading</td></tr><tr><td>ExcessLiquidity</td><td>This value shows your margin cushion, before liquidation</td></tr><tr><td>Cushion</td><td>Excess liquidity as a percentage of net liquidation value</td></tr><tr><td>FullInitMarginReq</td><td>Initial Margin of whole portfolio with no discounts or intraday credits</td></tr><tr><td>FullMaintMarginReq</td><td>Maintenance Margin of whole portfolio with no discounts or intraday credits</td></tr><tr><td>FullAvailableFunds</td><td>Available funds of whole portfolio with no discounts or intraday credits</td></tr><tr><td>FullExcessLiquidity</td><td>Excess liquidity of whole portfolio with no discounts or intraday credits</td></tr><tr><td>LookAheadNextChange</td><td>Time when look-ahead values take effect</td></tr><tr><td>LookAheadInitMarginReq</td><td>Initial Margin requirement of whole portfolio as of next period’s margin change</td></tr><tr><td>LookAheadMaintMarginReq</td><td>Maintenance Margin requirement of whole portfolio as of next period’s margin change</td></tr><tr><td>LookAheadAvailableFunds</td><td>This value reflects your available funds at the next margin change</td></tr><tr><td>LookAheadExcessLiquidity</td><td>This value reflects your excess liquidity at the next margin change</td></tr><tr><td>HighestSeverity</td><td>A measure of how close the account is to liquidation</td></tr><tr><td>DayTradesRemaining</td><td>The Number of Open/Close trades a user could put on before Pattern Day Trading is detected. A value of “-1” means that the user can put on unlimited day trades.</td></tr><tr><td>Leverage</td><td>GrossPositionValue / NetLiquidation</td></tr><tr><td>$LEDGER</td><td>Single flag to relay all cash balance tags*, only in base currency.</td></tr><tr><td>$LEDGER:CURRENCY</td><td>Single flag to relay all cash balance tags*, only in the specified currency.</td></tr><tr><td>$LEDGER:ALL</td><td>Single flag to relay all cash balance tags* in all currencies.</td></tr></tbody></table>
+| AccountType | Identifies the IB account structure |
+| --- | --- |
+| NetLiquidation | The basis for determining the price of the assets in your account. Total cash value + stock value + options value + bond value |
+| TotalCashValue | Total cash balance recognized at the time of trade + futures PNL |
+| SettledCash | Cash recognized at the time of settlement – purchases at the time of trade – commissions – taxes – fees |
+| AccruedCash | Total accrued cash value of stock, commodities and securities |
+| BuyingPower | Buying power serves as a measurement of the dollar value of securities that one may purchase in a securities account without depositing additional funds |
+| EquityWithLoanValue | Forms the basis for determining whether a client has the necessary assets to either initiate or maintain security positions. Cash + stocks + bonds + mutual funds |
+| PreviousEquityWithLoanValue | Marginable Equity with Loan value as of 16:00 ET the previous day |
+| GrossPositionValue | The sum of the absolute value of all stock and equity option positions |
+| RegTEquity | Regulation T equity for universal account |
+| RegTMargin | Regulation T margin for universal account |
+| SMA | Special Memorandum Account: Line of credit created when the market value of securities in a Regulation T account increase in value |
+| InitMarginReq | Initial Margin requirement of whole portfolio |
+| MaintMarginReq | Maintenance Margin requirement of whole portfolio |
+| AvailableFunds | This value tells what you have available for trading |
+| ExcessLiquidity | This value shows your margin cushion, before liquidation |
+| Cushion | Excess liquidity as a percentage of net liquidation value |
+| FullInitMarginReq | Initial Margin of whole portfolio with no discounts or intraday credits |
+| FullMaintMarginReq | Maintenance Margin of whole portfolio with no discounts or intraday credits |
+| FullAvailableFunds | Available funds of whole portfolio with no discounts or intraday credits |
+| FullExcessLiquidity | Excess liquidity of whole portfolio with no discounts or intraday credits |
+| LookAheadNextChange | Time when look-ahead values take effect |
+| LookAheadInitMarginReq | Initial Margin requirement of whole portfolio as of next period’s margin change |
+| LookAheadMaintMarginReq | Maintenance Margin requirement of whole portfolio as of next period’s margin change |
+| LookAheadAvailableFunds | This value reflects your available funds at the next margin change |
+| LookAheadExcessLiquidity | This value reflects your excess liquidity at the next margin change |
+| HighestSeverity | A measure of how close the account is to liquidation |
+| DayTradesRemaining | The Number of Open/Close trades a user could put on before Pattern Day Trading is detected. A value of “-1” means that the user can put on unlimited day trades. |
+| Leverage | GrossPositionValue / NetLiquidation |
+| $LEDGER | Single flag to relay all cash balance tags*, only in base currency. |
+| $LEDGER:CURRENCY | Single flag to relay all cash balance tags*, only in the specified currency. |
+| $LEDGER:ALL | Single flag to relay all cash balance tags* in all currencies. |
 
 ### Receiving Account Summary
 
@@ -81,8 +114,10 @@ app.run()
 
 Receives the account information. This method will receive the account information just as it appears in the TWS’ Account Summary Window.
 
+```python
 def accountSummary(self, reqId: int, account: str, tag: str, value: str,currency: str):
   print("AccountSummary. ReqId:", reqId, "Account:", account,"Tag: ", tag, "Value:", value, "Currency:", currency)
+```
 
 #### EWrapper.accountSummaryEnd(
 
@@ -92,8 +127,10 @@ def accountSummary(self, reqId: int, account: str, tag: str, value: str,currency
 
 Notifies when all the accounts’ information has ben received. Requires TWS 967+ to receive accountSummaryEnd in linked account structures.
 
+```python
 def accountSummaryEnd(self, reqId: int):
     print("AccountSummaryEnd. ReqId:", reqId)
+```
 
 ### Cancel Account Summary
 
@@ -105,7 +142,9 @@ Once the subscription to account summary is no longer needed, it can be cancelle
 
 )
 
+```python
 self.cancelAccountSummary(9001)
+```
 
 ### Account Updates
 
@@ -129,18 +168,21 @@ Subscribes to a specific account’s information and portfolio. Through this met
 
 )
 
+```python
 self.reqAccountUpdates(True, self.account)
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 from ibapi.contract import Contract
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
     def updateAccountValue(self, key: str, val: str, currency: str,accountName: str):
         print("UpdateAccountValue. Key:", key, "Value:", val, "Currency:", currency, "AccountName:", accountName)
@@ -161,6 +203,7 @@ time.sleep(1)
 
 app.reqAccountUpdates(True, 'U123456')
 app.run()
+```
 
 ### Receiving Account Updates
 
@@ -181,8 +224,10 @@ Receives the subscribed account’s information. Only one account can be subscri
 
 **Note:** An important key passed back in EWrapper.updateAccountValue after a call to EClient.reqAccountUpdates is a boolean value ‘accountReady’. If an accountReady value of false is returned that means that the IB server is in the process of resetting at that moment, i.e. the account is ‘not ready’. When this occurs subsequent key values returned to EWrapper.updateAccountValue in the current update can be out of date or incorrect.
 
+```python
 def updateAccountValue(self, key: str, val: str, currency: str,accountName: str):
     print("UpdateAccountValue. Key:", key, "Value:", val, "Currency:", currency, "AccountName:", accountName)
+```
 
 #### EWrapper.updatePortfolio (
 
@@ -206,8 +251,10 @@ def updateAccountValue(self, key: str, val: str, currency: str,accountName: str)
 
 Receives the subscribed account’s portfolio. This function will receive only the portfolio of the subscribed account. After the initial callback to updatePortfolio, callbacks only occur for positions which have changed.
 
+```python
 def updatePortfolio(self, contract: Contract, position: Decimal,marketPrice: float, marketValue: float, averageCost: float, unrealizedPNL: float, realizedPNL: float, accountName: str):
     print("UpdatePortfolio.", "Symbol:", contract.symbol, "SecType:", contract.secType, "Exchange:",contract.exchange, "Position:", decimalMaxString(position), "MarketPrice:", floatMaxString(marketPrice),"MarketValue:", floatMaxString(marketValue), "AverageCost:", floatMaxString(averageCost), "UnrealizedPNL:", floatMaxString(unrealizedPNL), "RealizedPNL:", floatMaxString(realizedPNL), "AccountName:", accountName)
+```
 
 #### EWrapper.updateAccountTime (
 
@@ -217,8 +264,10 @@ def updatePortfolio(self, contract: Contract, position: Decimal,marketPrice: flo
 
 Receives the last time on which the account was updated.
 
+```python
 def updateAccountTime(self, timeStamp: str):
      print("UpdateAccountTime. Time:", timeStamp)
+```
 
 #### EWrapper.accountDownloadEnd (
 
@@ -228,8 +277,10 @@ def updateAccountTime(self, timeStamp: str):
 
 Notifies when all the account’s information has finished.
 
+```python
 def accountDownloadEnd(self, accountName: str):
     print("AccountDownloadEnd. Account:", accountName)
+```
 
 ### Account Value Keys
 
@@ -259,7 +310,7 @@ Account values delivered via [IBApi.EWrapper.updateAccountValue](https://www.in
 | Billable | Total portfolio value of treasury bills |
 | Billable-C | Value of treasury bills in commodity segment |
 | Billable-S | Value of treasury bills in security segment |
-| BuyingPower | Cash Account: Minimum (Equity with Loan Value, Previous Day Equity with Loan Value)-Initial Margin, Standard Margin Account: Minimum (Equity with Loan Value, Previous Day Equity with Loan Value) – Initial Margin \*4 |
+| BuyingPower | Cash Account: Minimum (Equity with Loan Value, Previous Day Equity with Loan Value)-Initial Margin, Standard Margin Account: Minimum (Equity with Loan Value, Previous Day Equity with Loan Value) – Initial Margin *4 |
 | CashBalance | Cash recognized at the time of trade + futures PNL |
 | CorporateBondValue | Value of non-Government bonds such as corporate bonds and municipal bonds |
 | Currency | Open positions are grouped by currency |
@@ -370,7 +421,9 @@ Once the subscription to account updates is no longer needed, it can be cancelle
 
 )
 
+```python
 self.reqAccountUpdates(False, self.account)
+```
 
 ### Account Update by Model
 
@@ -396,17 +449,20 @@ IBApi.EClient.reqAccountUpdatesMulti cannot be used with Account=”All” in IB
 
 A profile name can be accepted in place of group in the account parameter for [Financial Advisors](https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#financial-advisors)
 
+```python
 self.reqAccountUpdatesMulti(reqId, self.account, "", True)
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
     def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str, value: str, currency: str):
         print("AccountUpdateMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Key:", key, "Value:", value, "Currency:", currency)
@@ -422,6 +478,7 @@ time.sleep(1)
 app.reqAccountUpdatesMulti(103, 'U123456', "", True)
 
 app.run()
+```
 
 ### Receiving Account Updates by Model
 
@@ -444,8 +501,10 @@ The resulting account and portfolio information will be delivered via the IBApi.
 
 Provides the account updates.
 
+```python
 def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str, value: str, currency: str):
   print("AccountUpdateMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Key:", key, "Value:", value, "Currency:", currency)
+```
 
 #### EWrapper.accountUpdateMultiEnd (
 
@@ -455,8 +514,10 @@ def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str,
 
 Indicates all the account updates have been transmitted.
 
+```python
 def accountUpdateMultiEnd(self, reqId: int):
     print("AccountUpdateMultiEnd. RequestId:", reqId)
+```
 
 ### Cancel Account Updates by Model
 
@@ -472,7 +533,9 @@ def accountUpdateMultiEnd(self, reqId: int):
 
 )
 
+```python
 self.reqAccountUpdatesMulti(reqId, self.account, "", False)
+```
 
 ### Family Codes
 
@@ -486,7 +549,9 @@ For instance, if individual account U112233 is under a financial advisor with ac
 
 Requests family codes for an account, for instance if it is a FA, IBroker, or associated account.
 
+```python
 self.reqFamilyCodes()
+```
 
 ### Receive Family Codes
 
@@ -498,8 +563,10 @@ self.reqFamilyCodes()
 
 Returns array of family codes.
 
+```python
 def familyCodes(self, familyCodes: ListOfFamilyCode):
     print("Family Codes:", familyCode)
+```
 
 ### Managed Accounts
 
@@ -511,7 +578,9 @@ A single user name can handle more than one account. As mentioned in the [Conne
 
 Requests the accounts to which the logged user has access to.
 
+```python
 self.reqManagedAccts()
+```
 
 ### Receive Managed Accounts
 
@@ -523,8 +592,10 @@ self.reqManagedAccts()
 
 Returns a string of all available accounts for the logged in user. Occurs automatically on initial API client connection.
 
+```python
 def managedAccounts(self, accountsList: str):
     print("Account list:", accountsList)
+```
 
 ### Positions
 
@@ -540,18 +611,21 @@ After initially invoking reqPositions, information about all positions in all as
 
 Subscribes to position updates for all accessible accounts. All positions sent initially, and then only updates as positions change.
 
+```python
 self.reqPositions()
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 import threading
 import time
 
 class TradingApp(EWrapper, EClient):
-    def \_\_init\_\_(self):
-        EClient.\_\_init\_\_(self,self)
+    def __init__(self):
+        EClient.__init__(self,self)
 
     def position(self, account: str, contract: Contract, position: Decimal, avgCost: float):
         print("Position.", "Account:", account, "Contract:", contract, "Position:", position, "Avg cost:", avgCost)
@@ -559,18 +633,19 @@ class TradingApp(EWrapper, EClient):
     def positionEnd(self):
        print("PositionEnd")
        
-def websocket\_con():
+def websocket_con():
     app.run()
     
 app = TradingApp()      
 app.connect("127.0.0.1", 7496, clientId=1)
 
-con\_thread = threading.Thread(target=websocket\_con, daemon=True)
-con\_thread.start()
+con_thread = threading.Thread(target=websocket_con, daemon=True)
+con_thread.start()
 time.sleep(1) 
 
 app.reqPositions()
 time.sleep(1)
+```
 
 ### Receive Positions
 
@@ -589,15 +664,19 @@ Provides the portfolio’s open positions. After the initial callback (only) of 
 
 For futures, the exchange field will not be populated in the position callback as some futures trade on multiple exchanges
 
+```python
 def position(self, account: str, contract: Contract, position: Decimal, avgCost: float):
   print("Position.", "Account:", account, "Contract:", contract, "Position:", position, "Avg cost:", avgCost)
+```
 
 #### Ewrapper.positionEnd() 
 
 Indicates all the positions have been transmitted. Only returned after the initial callback of EWrapper.position.
 
+```python
 def positionEnd(self):
   print("PositionEnd")
+```
 
 ### Cancel Positions Request
 
@@ -605,7 +684,9 @@ def positionEnd(self):
 
 Cancels a previous position subscription request made with EClient.reqPositions().
 
+```python
 self.cancelPositions()
+```
 
 ### Positions By Model
 
@@ -624,18 +705,21 @@ The function IBApi.EClient.reqPositionsMulti can be used with any account struct
 
 Requests position subscription for account and/or model Initially all positions are returned, and then updates are returned for any position changes in real time.
 
+```python
 self.reqPositionsMulti(requestid, "U1234567", "")
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 import threading
 import time
 
 class TradingApp(EWrapper, EClient):
-    def \_\_init\_\_(self):
-        EClient.\_\_init\_\_(self,self)
+    def __init__(self):
+        EClient.__init__(self,self)
             
     def positionMulti(self, reqId: int, account: str, modelCode: str, contract: Contract, pos: Decimal, avgCost: float):
        print("PositionMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Contract:", contract, ",Position:", pos, "AvgCost:", avgCost)         
@@ -644,14 +728,14 @@ class TradingApp(EWrapper, EClient):
         print("")
         print("PositionMultiEnd. RequestId:", reqId)       
 
-def websocket\_con():
+def websocket_con():
     app.run()
     
 app = TradingApp()      
 app.connect("127.0.0.1", 7497, clientId=1)
 
-con\_thread = threading.Thread(target=websocket\_con, daemon=True)
-con\_thread.start()
+con_thread = threading.Thread(target=websocket_con, daemon=True)
+con_thread.start()
 time.sleep(1) 
 
 app.reqPositionsMulti(2, "DU1234567", "")  #To specify a U-account number
@@ -659,6 +743,7 @@ time.sleep(1)
 
 app.reqPositionsMulti(3, "Group1", "")     #To specify a Financial Advisor Group / Profile 
 time.sleep(1)
+```
 
 ### Receive Positions By Model
 
@@ -679,8 +764,10 @@ time.sleep(1)
 
 Provides the portfolio’s open positions.
 
+```python
 def positionMulti(self, reqId: int, account: str, modelCode: str, contract: Contract, pos: Decimal, avgCost: float):
   print("PositionMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Contract:", contract, ",Position:", pos, "AvgCost:", avgCost)
+```
 
 #### EWrapper.positionMultiEnd(
 
@@ -689,8 +776,10 @@ def positionMulti(self, reqId: int, account: str, modelCode: str, contract: Cont
 
 Indicates all the positions have been transmitted.
 
+```python
 def positionMultiEnd(self, reqId: int):
 	print("PositionMultiEnd. RequestId:", reqId)
+```
 
 ### Cancel Positions By Model
 
@@ -702,7 +791,9 @@ def positionMultiEnd(self, reqId: int):
 
 Cancels positions request for account and/or model.
 
+```python
 self.cancelPositionsMulti(requestid)
+```
 
 ### Profit & Loss (PnL)
 
@@ -737,17 +828,20 @@ Subscribe using the IBApi::EClient::reqPnLSingle function Cannot be used with IB
 
 Requests real time updates for daily PnL of individual positions.
 
+```python
 self.reqPnLSingle(requestId, "U1234567", "", 265598)
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
     def pnlSingle(self, reqId: int, pos: Decimal, dailyPnL: float, unrealizedPnL: float, realizedPnL: float, value: float):
         print("Daily PnL Single. ReqId:", reqId, "Position:", pos, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL, "Value:", value)
@@ -759,6 +853,7 @@ time.sleep(1)
 app.reqPnLSingle(101, "U123456", "", 8314) #IBM conId: 8314
 
 app.run()
+```
 
 ### Receive P&L for individual positions
 
@@ -779,8 +874,10 @@ app.run()
 
 Receives real time updates for single position daily PnL values
 
+```python
 def pnlSingle(self, reqId: int, pos: Decimal, dailyPnL: float, unrealizedPnL: float, realizedPnL: float, value: float):
   print("Daily PnL Single. ReqId:", reqId, "Position:", pos, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL, "Value:", value)
+```
 
 ### Cancel P&L request for individual positions
 
@@ -791,7 +888,9 @@ def pnlSingle(self, reqId: int, pos: Decimal, dailyPnL: float, unrealizedPnL: fl
 
 Cancels real time subscription for a positions daily PnL information.
 
+```python
 self.cancelPnLSingle(requestId);
+```
 
 ### Request P&L for accounts
 
@@ -812,17 +911,20 @@ Subscribe using the IBApi::EClient::reqPnL function. Updates are sent to IBApi.E
 
 Creates subscription for real time daily PnL and unrealized PnL updates.
 
+```python
 self.reqPnL(reqId, "U1234567", "")
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
     def pnl(self, reqId: int, dailyPnL: float, unrealizedPnL: float, realizedPnL: float):
         print("Daily PnL. ReqId:", reqId, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL)
@@ -834,6 +936,7 @@ time.sleep(1)
 app.reqPnL(102, "U123456", "")
 
 app.run()
+```
 
 ### Receive P&L for accounts
 
@@ -849,8 +952,10 @@ app.run()
 
 )
 
+```python
 def pnl(self, reqId: int, dailyPnL: float, unrealizedPnL: float, realizedPnL: float):
   print("Daily PnL. ReqId:", reqId, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL)
+```
 
 ### Cancel P&L subscription requests for accounts
 
@@ -861,7 +966,9 @@ def pnl(self, reqId: int, dailyPnL: float, unrealizedPnL: float, realizedPnL: fl
 
 Cancels subscription for real time updated daily PnL params reqId
 
+```python
 self.cancelPnL(reqId)
+```
 
 ### White Branding User Info
 
@@ -877,7 +984,9 @@ Please note, that nothing will be returned if requesting username is not associa
 
 )
 
+```python
 self.reqUserInfo(reqId)
+```
 
 ### Receiving White Branding Info
 
@@ -888,5 +997,7 @@ self.reqUserInfo(reqId)
 **whiteBrandingId:** String. Identifier for the white branded entity.  
 )
 
+```python
 def userInfo(self, reqId: int, whiteBrandingId: str):
 	print("UserInfo.", "ReqId:", reqId, "WhiteBrandingId:", whiteBrandingId)
+```

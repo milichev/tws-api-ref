@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [29-display-groups.md](29 TWS UI Display Groups) -> 
-
- 29 TWS UI Display Groups
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [29 TWS UI Display Groups](29-display-groups.md)
 
 
 ## TWS UI Display Groups
@@ -27,7 +24,9 @@ Example: “4|1|2|5|3|6|7”
 
 Requests all available Display Groups in TWS.
 
+```python
 self.queryDisplayGroups(requestId)
+```
 
 ### Receive Query Display Groups
 
@@ -40,8 +39,10 @@ self.queryDisplayGroups(requestId)
 
 A one-time response to querying the display groups.
 
+```python
 def displayGroupList(self, reqId: int, groups: str):
   print("DisplayGroupList. ReqId:", reqId, "Groups", groups)
+```
 
 ### Subscribe To Group Events
 
@@ -58,7 +59,9 @@ To integrate with a specific Group, you need to first subscribe to the group num
 
 Integrates API client and TWS window grouping.
 
+```python
 self.subscribeToGroupEvents(19002, 1)
+```
 
 ### Receive Group Events Subscription
 
@@ -71,8 +74,10 @@ self.subscribeToGroupEvents(19002, 1)
 )  
 Call triggered once after receiving the subscription request, and will be sent again if the selected contract in the subscribed \* display group has changed.
 
+```python
 def displayGroupUpdated(self, reqId: int, contractInfo: str):
 	print("DisplayGroupUpdated. ReqId:", reqId, "ContractInfo:", contractInfo)
+```
 
 ### Unsubscribe From Group Events
 
@@ -83,7 +88,9 @@ def displayGroupUpdated(self, reqId: int, contractInfo: str):
 
 Cancels a TWS Window Group subscription.
 
+```python
 self.unsubscribeFromGroupEvents(19002)
+```
 
 ### Update Display Group
 
@@ -100,7 +107,9 @@ self.unsubscribeFromGroupEvents(19002)
 
 Updates the contract displayed in a TWS Window Group.
 
+```python
 self.updateDisplayGroup(19002, "8314@SMART")
+```
 
 **Note:** This request from the API does not get a response from TWS unless an error occurs.
 

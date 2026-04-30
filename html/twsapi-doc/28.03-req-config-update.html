@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="28-setting-management.html">28 Setting Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="28.03-req-config-update.html">28.03 Request Configuration Update</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Configuration Update</h3><div class="row"><h3 id="req-config-update">28.03 Request Configuration Update</h3><p><strong>updateConfigRequestProto</strong>: <a href="../undefined/index.html">UpdateConfigRequestProto</a><br> Contains the Proto object for updating the configuration request.<br> Must have the reqId field passed.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.protobuf.UpdateConfigRequest_pb2 import UpdateConfigRequest as UpdateConfigRequestProto
+     <h3 class="section-title-2">Request Configuration Update</h3><div class="row"><h3 id="req-config-update">28.03 Request Configuration Update</h3><p><strong>updateConfigRequestProto</strong>: <a href="../undefined/index.html">UpdateConfigRequestProto</a><br> Contains the Proto object for updating the configuration request.<br> Must have the reqId field passed.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">from ibapi.protobuf.UpdateConfigRequest_pb2 import UpdateConfigRequest as UpdateConfigRequestProto
     from ibapi.protobuf.ApiConfig_pb2 import ApiConfig as ApiConfigProto
     from ibapi.protobuf.ApiSettingsConfig_pb2 import ApiSettingsConfig as ApiSettingsConfigProto
     
@@ -137,6 +143,6 @@ th {
     updateConfigRequestProto.api.CopyFrom(apiConfigProto)
     
     # Submit updates
-    self.updateConfigProtoBuf(updateConfigRequestProto)</pre><p>&nbsp;</p></div></div></div>
+    self.updateConfigProtoBuf(updateConfigRequestProto)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.04-news-articles.html">24.04 News Articles</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.04.01-request-news-articles.html">24.04.01 Request News Articles</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request News Articles</h3><div class="row"><h4 id="request-news-articles">24.04.01 Request News Articles</h4><p><strong>requestId:</strong> int. id of the request.</p><p><strong>providerCode:</strong> String. Short code indicating news provider, e.g. FLY.</p><p><strong>articleId:</strong> String. Id of the specific article.</p><p><strong>newsArticleOptions:</strong> List. Reserved for internal use. Should be defined as null.<br> )</p><p>Requests news article body given articleId.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", [])</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request News Articles</h3><div class="row"><h4 id="request-news-articles">24.04.01 Request News Articles</h4><p><strong>requestId:</strong> int. id of the request.</p><p><strong>providerCode:</strong> String. Short code indicating news provider, e.g. FLY.</p><p><strong>articleId:</strong> String. Id of the specific article.</p><p><strong>newsArticleOptions:</strong> List. Reserved for internal use. Should be defined as null.<br> )</p><p>Requests news article body given articleId.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

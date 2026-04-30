@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.04-market-price-increment.html">27.04 Minimum Price Increment</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.04.01-request-market-rule.html">27.04.01 Request Market Rule</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Market Rule</h3><div class="row"><h4 id="request-market-rule">27.04.01 Request Market Rule</h4><p><strong>marketRuleId</strong>: int. The id of market rule<br> )</p><p>Requests details about a given market rule. The market rule for an instrument on a particular exchange provides details about how the minimum price increment changes with price.</p><p>A list of market rule ids can be obtained by invoking <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details">EClient.reqContractDetails</a> on a particular contract. The returned market rule ID list will provide the market rule ID for the instrument in the correspond valid exchange list in contractDetails.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqMarketRule(26)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Request Market Rule</h3><div class="row"><h4 id="request-market-rule">27.04.01 Request Market Rule</h4><p><strong>marketRuleId</strong>: int. The id of market rule<br> )</p><p>Requests details about a given market rule. The market rule for an instrument on a particular exchange provides details about how the minimum price increment changes with price.</p><p>A list of market rule ids can be obtained by invoking <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#contract-details">EClient.reqContractDetails</a> on a particular contract. The returned market rule ID list will provide the market rule ID for the instrument in the correspond valid exchange list in contractDetails.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqMarketRule(26)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

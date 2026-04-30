@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [07-lock-and-exit.md](07 LockAndExit) -> 
-
- 07 LockAndExit
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [07 LockAndExit](07-lock-and-exit.md)
 
 
 ## LockAndExit
@@ -12,7 +9,9 @@
 
 **autoLogoffType:** `String` – Declare if platform should logout or restart and continue running.
 
+```generic
 lockAndExitProto = LockAndExitConfigProto()
 lockAndExitProto.autoLogoffTime = "11:59"
 lockAndExitProto.autoLogoffPeriod = "PM"
 lockAndExitProto.autoLogoffType = "restart"
+```

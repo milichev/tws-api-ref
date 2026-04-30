@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [36-wsh-ref.md](36 WshEventData Class Reference) -> 
-
- 36 WshEventData Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [36 WshEventData Class Reference](36-wsh-ref.md)
 
 
 ## WshEventData Class Reference

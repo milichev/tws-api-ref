@@ -111,15 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="28-setting-management.html">28 Setting Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="28.02-receive-config.html">28.02 Receive Configuration</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Configuration</h3><div class="row"><h3 id="receive-config">28.02 Receive Configuration</h3><p><strong>configResponseProto</strong>: <a href="../undefined/index.html">ConfigResponseProto</a><br> Contains the Proto response object for the configuration. Includes <a href="../undefined/index.html">LockAndExitConfig</a>, <a href="../undefined/index.html">MessageConfig</a>, <a href="../undefined/index.html">ApiConfig</a>, and <a href="../undefined/index.html">OrdersConfig</a>.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.protobuf.ConfigResponse_pb2 import ConfigResponse as ConfigResponseProto
+     <h3 class="section-title-2">Receive Configuration</h3><div class="row"><h3 id="receive-config">28.02 Receive Configuration</h3><p><strong>configResponseProto</strong>: <a href="../undefined/index.html">ConfigResponseProto</a><br> Contains the Proto response object for the configuration. Includes <a href="../undefined/index.html">LockAndExitConfig</a>, <a href="../undefined/index.html">MessageConfig</a>, <a href="../undefined/index.html">ApiConfig</a>, and <a href="../undefined/index.html">OrdersConfig</a>.</p><h4><span style="color: #800000">)</span></h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">from ibapi.protobuf.ConfigResponse_pb2 import ConfigResponse as ConfigResponseProto
     
     def configResponseProtoBuf(self, configResponseProto: ConfigResponseProto):
-        print(configResponseProto)</pre><p>&nbsp;</p></div></div></div>
+        print(configResponseProto)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

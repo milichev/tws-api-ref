@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [06-contract-ref.md](06 Contract Class Reference) -> 
-
- 06 Contract Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [06 Contract Class Reference](06-contract-ref.md)
 
 
 ## Contract Class Reference
@@ -16,19 +13,8 @@ Class describing an instrument’s definition.
 | LastTradeDateOrContractMonth | string | The contract’s last trading day or contract month (for Options and Futures). Strings with format YYYYMM will be interpreted as the Contract Month whereas YYYYMMDD will be interpreted as Last Trading Day. |
 | LastTradeDate | string | The contract’s last trading day. |
 | Strike | double | The option’s strike price. |
-| Right | string | 
-Either Put or Call (i.e. Options). Valid values are P, PUT, C, CALL.
-
-
-
- |
-| Multiplier | string | 
-
-The instrument’s multiplier (i.e. options, futures).
-
-
-
- |
+| Right | string | Either Put or Call (i.e. Options). Valid values are P, PUT, C, CALL. |
+| Multiplier | string | The instrument’s multiplier (i.e. options, futures). |
 | Exchange | string | The destination exchange. |
 | Currency | string | The underlying’s currency. |
 | LocalSymbol | string | The contract’s symbol within its primary exchange. For options, this will be the OCC symbol |

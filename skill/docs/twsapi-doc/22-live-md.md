@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [22-live-md.md](22 Market Data: Live) -> 
-
- 22 Market Data: Live
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [22 Market Data: Live](22-live-md.md)
 
 
 ## Market Data: Live
@@ -53,21 +50,24 @@ Only 5 seconds bars are provided. This request is subject to the same pacing as 
 
 Real time bars subscriptions are also included in the calculation of the number of Level 1 market data subscriptions allowed in an account.
 
-self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, \[\])
+```python
+self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, [])
+```
 
 Code example:
 
-from ibapi.client import \*
-from ibapi.wrapper import \*
+```python
+from ibapi.client import *
+from ibapi.wrapper import *
 from ibapi.contract import Contract
 import time
 
 class TradeApp(EWrapper, EClient): 
-    def \_\_init\_\_(self): 
-        EClient.\_\_init\_\_(self, self) 
+    def __init__(self): 
+        EClient.__init__(self, self) 
 
-    def realtimeBar(self, reqId: TickerId, time:int, open\_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
-        print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open\_, high, low, close, volume, wap, count))
+    def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
+        print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))
     
 app = TradeApp()      
 app.connect("127.0.0.1", 7496, clientId=1)
@@ -78,9 +78,10 @@ contract.secType = "STK"
 contract.currency = "USD" 
 contract.exchange = "SMART" 
 
-app.reqRealTimeBars(3001, contract, 5, "TRADES", 0, \[\])
+app.reqRealTimeBars(3001, contract, 5, "TRADES", 0, [])
 
 app.run()
+```
 
 ### Receive Real Time Bars
 
@@ -107,8 +108,10 @@ app.run()
 
 Receives the real time 5 second bars.
 
-def realtimeBar(self, reqId: TickerId, time:int, open\_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
-	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open\_, high, low, close, volume, wap, count))
+```python
+def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
+	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))
+```
 
 ### Cancel Real Time Bars
 
@@ -119,7 +122,9 @@ def realtimeBar(self, reqId: TickerId, time:int, open\_: float, high: float, low
 
 Cancels Real Time Bars’ subscription.
 
+```python
 self.cancelRealTimeBars(3001)
+```
 
 ### Component Exchanges
 
@@ -140,7 +145,9 @@ For instance, a market data request for the IBKR US contract may return the exch
 
 Returns the mapping of single letter codes to exchange names given the mapping identifier.
 
+```python
 self.reqSmartComponents(1018, "a6")
+```
 
 ### Receive Component Exchanges
 
@@ -153,10 +160,12 @@ self.reqSmartComponents(1018, "a6")
 
 Containing a bit number to exchange + exchange abbreviation dictionary. All IDs can be initially retrieved using [reqTickParams](22.08.07-exchange-component-mapping).
 
+```python
 def smartComponents(self, reqId:int, smartComponentMap:SmartComponentMap):
 	print("SmartComponents:")
 	for smartComponent in smartComponentMap:
 		print("SmartComponent.", smartComponent)
+```
 
 ### Market Depth Exchanges
 
@@ -170,7 +179,9 @@ API ‘Exchange’ fields for which a market depth request would return market m
 
 Requests venues for which market data is returned to updateMktDepthL2 (those with market makers).
 
+```python
 self.reqMktDepthExchanges()
+```
 
 ### Receive Market Depth Exchanges
 
@@ -181,10 +192,12 @@ self.reqMktDepthExchanges()
 
 Called when receives Depth Market Data Descriptions.
 
+```python
 def mktDepthExchanges(self, depthMktDataDescriptions:ListOfDepthExchanges):
 	print("MktDepthExchanges:")
 	for desc in depthMktDataDescriptions:
 		print("DepthMktDataDescription.", desc)
+```
 
 ### Market Depth (L2)
 
@@ -221,7 +234,9 @@ The Python, Java, and C++ APIs use **reqMktDepth()**.
 
 Requests the contract’s market depth (order book).
 
-self.reqMktDepth(2001, contract, 5, False, \[\])
+```python
+self.reqMktDepth(2001, contract, 5, False, [])
+```
 
 ### Receive Market Depth
 
@@ -247,8 +262,10 @@ self.reqMktDepth(2001, contract, 5, False, \[\])
 Returns the order book. Used for direct routed requests only.  
  
 
+```python
 def updateMktDepth(self, reqId: TickerId, position: int, operation: int, side: int, price: float, size: Decimal):
 		print("UpdateMarketDepth. ReqId:", reqId, "Position:", position, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size))
+```
 
 #### EWrapper.updateMktDepthL2 (
 
@@ -276,8 +293,10 @@ def updateMktDepth(self, reqId: TickerId, position: int, operation: int, side: i
 Returns the order book.  
  
 
+```python
 def updateMktDepthL2(self, reqId: TickerId, position: int, marketMaker: str, operation: int, side: int, price: float, size: Decimal, isSmartDepth: bool):
 	print("UpdateMarketDepthL2. ReqId:", reqId, "Position:", position, "MarketMaker:", marketMaker, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size), "isSmartDepth:", isSmartDepth)
+```
 
 ### Cancel Market Depth
 
@@ -291,7 +310,9 @@ def updateMktDepthL2(self, reqId: TickerId, position: int, marketMaker: str, ope
 
 Cancel’s market depth’s request.
 
+```python
 self.cancelMktDepth(2001, False)
+```
 
 ### Market Indicators
 
@@ -311,10 +332,12 @@ The Advanced-Decline index must be requested with [EClient.reqMktData()](../unde
 *   Advancing values correlate to the “BID” and “BID\_SIZE”.
 *   Declining values correlate to the “ASK” and “ASK\_SIZE”.
 
+```generic
 Symbol = "AD-NYSE"
 SecType = "IND"
 Exchange = "NYSE"
 Currency = "USD"
+```
 
 ### NYSE Volume Index
 
@@ -325,10 +348,12 @@ The Volume index must be requested with [EClient.reqMktData()](../undefined/inde
 *   Bid Size correlates to “Unchanged Volume”
 *   Ask Size will always return as 1.
 
+```generic
 Symbol = "VOL-NYSE"
 SecType = "IND"
 Exchange = "NYSE"
 Currency = "USD"
+```
 
 ### NYSE Trading Index (TRIN)
 
@@ -338,10 +363,12 @@ The Trade index must be requested with [EClient.reqMktData()](../undefined/index
 *   Close price correlates to the final calculation of the value from the previous day.
 *   Bid, Ask, and all Size data that returns will come as -1 or 0. These values are passed automatically and are non-representative.
 
+```generic
 Symbol = "TRIN-NYSE"
 SecType = "IND"
 Exchange = "NYSE"
 Currency = "USD"
+```
 
 ### NYSE TICK Index
 
@@ -350,10 +377,12 @@ The TICK index must be requested with [EClient.reqMktData()](../undefined/index.
 *   Last Price correlates to the calculation of rising stocks minus declining stocks.
 *   Bid, Ask, Close, and all Size data that returns will come as -1 or 0. These values are passed automatically and are non-representative.
 
+```generic
 Symbol = "TICK-NYSE"
 SecType = "IND"
 Exchange = "NYSE"
 Currency = "USD"
+```
 
 ### Option Greeks
 
@@ -392,7 +421,9 @@ Greeks are requested automatically when pulling market data for an Options contr
 Users that do not have a valid [Market Data Subscription](/campus/ibkr-api-page/market-data-subscriptions/#popular-md-subscriptions) for the underlying contract will receive an error that Market Data Is Not Subscribed. This error can be ignored if Greeks are not wanted.  
  
 
-self.reqMktData(reqId, OptionContract, "", False, False, \[\])
+```python
+self.reqMktData(reqId, OptionContract, "", False, False, [])
+```
 
 ### Calculating option prices
 
@@ -411,7 +442,9 @@ self.reqMktData(reqId, OptionContract, "", False, False, \[\])
 
 Calculates an option’s price based on the provided volatility and its underlying’s price.
 
-self.calculateOptionPrice(5002, OptionContract, 0.6, 55, \[\])
+```python
+self.calculateOptionPrice(5002, OptionContract, 0.6, 55, [])
+```
 
 ### Calculating historical volatility
 
@@ -430,7 +463,9 @@ self.calculateOptionPrice(5002, OptionContract, 0.6, 55, \[\])
 
 Calculate the volatility for an option. Request the calculation of the implied volatility based on hypothetical option and its underlying prices.
 
-self.calculateImpliedVolatility(5001, OptionContract, 0.5, 55, \[\])
+```python
+self.calculateImpliedVolatility(5001, OptionContract, 0.5, 55, [])
+```
 
 ### Receiving Options Data
 
@@ -463,8 +498,10 @@ TickType.getField(int tickType) to retrieve the field description. For example, 
 
 Receives option specific market data. This method is called when the market in an option or its underlier moves. TWS’s option model volatilities, prices, and deltas, along with the present value of dividends expected on that options underlier are received.
 
+```python
 def tickOptionComputation(self, reqId: TickerId, tickType: TickType, tickAttrib: int, impliedVol: float, delta: float, optPrice: float, pvDividend: float, gamma: float, vega: float, theta: float, undPrice: float):
 	print("TickOptionComputation. TickerId:", reqId, "TickType:", tickType, "TickAttrib:", intMaxString(tickAttrib), "ImpliedVolatility:", floatMaxString(impliedVol), "Delta:", floatMaxString(delta), "OptionPrice:", floatMaxString(optPrice), "pvDividend:", floatMaxString(pvDividend), "Gamma: ", floatMaxString(gamma), "Vega:", floatMaxString(vega), "Theta:", floatMaxString(theta), "UnderlyingPrice:", floatMaxString(undPrice))
+```
 
 ### Top of Book (L1)
 
@@ -490,7 +527,9 @@ See [here](/campus/ibkr-api-page/market-data-subscriptions/#reg-snapshot) for mo
 
 Requests real time market data. Returns market data for an instrument either in real time or [10-15 minutes delayed data.](https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#delayed-market-data)
 
-self.reqMktData(reqId, contract, "", False, False, \[\])
+```python
+self.reqMktData(reqId, contract, "", False, False, [])
+```
 
 ### Market Data Update Frequency
 
@@ -524,8 +563,10 @@ With an exchange market data subscription, such as Network A (NYSE), Network B(A
 
 When requesting market data snapshots, this market will indicate the snapshot reception is finished. Expected to occur 11 seconds after beginning of request.
 
+```python
 def tickSnapshotEnd(self, reqId: int):
   print("TickSnapshotEnd. TickerId:", reqId)
+```
 
 ### Regulatory Snapshots
 
@@ -567,8 +608,10 @@ The following table lists the cost and maximum allocation for regulatory snapsho
 
 Returns generic data back to requester. Used for an array of tick types and is used to represent general evaluations.
 
+```python
 def tickGeneric(self, reqId: TickerId, tickType: TickType, value: float):
 	print("TickGeneric. TickerId:", reqId, "TickType:", tickType, "Value:", floatMaxString(value))
+```
 
 #### EWrapper.tickPrice (
 
@@ -583,8 +626,10 @@ def tickGeneric(self, reqId: TickerId, tickType: TickType, value: float):
 
 Market data tick price callback. Handles all price related ticks. Every tickPrice callback is followed by a tickSize. A tickPrice value of -1 or 0 followed by a tickSize of 0 indicates there is no data for this field currently available, whereas a tickPrice with a positive tickSize indicates an active quote of 0 (typically for a combo contract).
 
+```python
 def tickPrice(self, reqId: TickerId, tickType: TickType, price: float, attrib: TickAttrib):
 	print(reqId, tickType, price, attrib)
+```
 
 #### EWrapper.tickSize (
 
@@ -597,8 +642,10 @@ def tickPrice(self, reqId: TickerId, tickType: TickType, price: float, attrib: T
 
 Market data tick size callback. Handles all size-related ticks.
 
+```python
 def tickSize(self, reqId: TickerId, tickType: TickType, size: Decimal):
 	print("TickSize. TickerId:", reqId, "TickType:", tickType, "Size: ", decimalMaxString(size))
+```
 
 #### EWrapper.tickString (
 
@@ -613,8 +660,10 @@ Market data callback.
 
 **Note:** Every tickPrice is followed by a tickSize. There are also independent tickSize callbacks anytime the tickSize changes, and so there will be duplicate tickSize messages following a tickPrice.
 
+```python
 def tickString(self, reqId: TickerId, tickType: TickType, value: str):
 	print("TickString. TickerId:", reqId, "Type:", tickType, "Value:", value)
+```
 
 ### Exchange Component Mapping
 
@@ -637,8 +686,10 @@ The minTick returned to tickReqParams indicates the minimum increment in market 
 
 Displays the ticker with BBO exchange.
 
+```python
 def tickReqParams(self, tickerId:int, minTick:float, bboExchange:str, snapshotPermissions:int):
 	print("TickReqParams. TickerId:", tickerId, "MinTick:", floatMaxString(minTick), "BboExchange:", bboExchange, "SnapshotPermissions:", intMaxString(snapshotPermissions))
+```
 
 ### Re-Routing CFDs
 
@@ -657,8 +708,10 @@ From the API, when level 1 or level 2 market data is requested for a stock CFD o
 
 Returns conid and exchange for CFD market data request re-route.
 
+```python
 def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
 	print("Re-route market data request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
+```
 
 #### EWrapper.rerouteMktDepthReq (
 
@@ -671,8 +724,10 @@ def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
 
 Returns the conId and exchange for an underlying contract when a request is made for level 2 data for an instrument which does not have data in IB’s database. For example stock CFDs and index CFDs.
 
+```python
 def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
 	print("Re-route market depth request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
+```
 
 ### Cancel Watchlist Data
 
@@ -683,7 +738,9 @@ def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
 
 Cancels a watchlist market data request.
 
+```python
 self.cancelMktData(2001)
+```
 
 ### Available Tick Types
 
@@ -704,7 +761,7 @@ EClient.reqMktData will return data to various methods such as EWrapper.tickPric
 | Last Size | Number of contracts or lots traded at the last price. | – | IBApi.EWrapper.tickSize | 5 |
 | High | High price for the day. | – | IBApi.EWrapper.tickPrice | 6 |
 | Low | Low price for the day. | – | IBApi.EWrapper.tickPrice | 7 |
-| Volume | Trading volume for the day for the selected contract (US Stocks volume is display as [Round Lots](https://www.investopedia.com/terms/r/roundlot.asp)). | – | IBApi.EWrapper.tickSize | 8 |
+| Volume | Trading volume for the day for the selected contract (US Stocks volume is display as Round Lots). | – | IBApi.EWrapper.tickSize | 8 |
 | Close Price | “The last available closing price for the previous day. For US Equities we use corporate action processing to get the closing price so the close price is adjusted to reflect forward and reverse splits and cash and stock dividends.” | – | IBApi.EWrapper.tickPrice | 9 |
 | Bid Option Computation | Computed Greeks and implied volatility based on the underlying stock price and the option bid price. See Option Greeks | – | IBApi.EWrapper.tickOptionComputation | 10 |
 | Ask Option Computation | Computed Greeks and implied volatility based on the underlying stock price and the option ask price. See Option Greeks | – | IBApi.EWrapper.tickOptionComputation | 11 |
@@ -761,29 +818,29 @@ EClient.reqMktData will return data to various methods such as EWrapper.tickPric
 | Short-Term Volume 3 Minutes | The past three minutes volume. Interpolation may be applied. For stocks only. | 595 | IBApi.EWrapper.tickSize | 63 |
 | Short-Term Volume 5 Minutes | The past five minutes volume. Interpolation may be applied. For stocks only. | 595 | IBApi.EWrapper.tickSize | 64 |
 | Short-Term Volume 10 Minutes | The past ten minutes volume. Interpolation may be applied. For stocks only. | 595 | IBApi.EWrapper.tickSize | 65 |
-| Delayed Bid | Delayed bid price. See Market Data Types. | \*RDD | IBApi.EWrapper.tickPrice | 66 |
-| Delayed Ask | Delayed ask price. See Market Data Types. | \*RDD | IBApi.EWrapper.tickPrice | 67 |
-| Delayed Last | Delayed last traded price. See Market Data Types. | \*RDD | IBApi.EWrapper.tickPrice | 68 |
-| Delayed Bid Size | Delayed bid size. See Market Data Types. | \*RDD | IBApi.EWrapper.tickSize | 69 |
-| Delayed Ask Size | Delayed ask size. See Market Data Types. | \*RDD | IBApi.EWrapper.tickSize | 70 |
-| Delayed Last Size | Delayed last size. See Market Data Types. | \*RDD | IBApi.EWrapper.tickSize | 71 |
-| Delayed High Price | Delayed highest price of the day. See Market Data Types. | \*RDD | IBApi.EWrapper.tickPrice | 72 |
-| Delayed Low Price | Delayed lowest price of the day. See Market Data Types | \*RDD | IBApi.EWrapper.tickPrice | 73 |
-| Delayed Volume | Delayed traded volume of the day. See Market Data Types | \*RDD | IBApi.EWrapper.tickSize | 74 |
-| Delayed Close | The prior day’s closing price. | \*RDD | IBApi.EWrapper.tickPrice | 75 |
-| Delayed Open | Displays the current day’s Open price. The price will return 15 minutes after the Open price is made available. | \*RDD | IBApi.EWrapper.tickPrice | 76 |
+| Delayed Bid | Delayed bid price. See Market Data Types. | *RDD | IBApi.EWrapper.tickPrice | 66 |
+| Delayed Ask | Delayed ask price. See Market Data Types. | *RDD | IBApi.EWrapper.tickPrice | 67 |
+| Delayed Last | Delayed last traded price. See Market Data Types. | *RDD | IBApi.EWrapper.tickPrice | 68 |
+| Delayed Bid Size | Delayed bid size. See Market Data Types. | *RDD | IBApi.EWrapper.tickSize | 69 |
+| Delayed Ask Size | Delayed ask size. See Market Data Types. | *RDD | IBApi.EWrapper.tickSize | 70 |
+| Delayed Last Size | Delayed last size. See Market Data Types. | *RDD | IBApi.EWrapper.tickSize | 71 |
+| Delayed High Price | Delayed highest price of the day. See Market Data Types. | *RDD | IBApi.EWrapper.tickPrice | 72 |
+| Delayed Low Price | Delayed lowest price of the day. See Market Data Types | *RDD | IBApi.EWrapper.tickPrice | 73 |
+| Delayed Volume | Delayed traded volume of the day. See Market Data Types | *RDD | IBApi.EWrapper.tickSize | 74 |
+| Delayed Close | The prior day’s closing price. | *RDD | IBApi.EWrapper.tickPrice | 75 |
+| Delayed Open | Displays the current day’s Open price. The price will return 15 minutes after the Open price is made available. | *RDD | IBApi.EWrapper.tickPrice | 76 |
 | RT Trade Volume | “Last trade details that excludes “”Unreportable Trades””. See RT Trade Volume” | 375 | IBApi.EWrapper.tickString | 77 |
 | Creditman mark price | Not currently available | – | IBApi.EWrapper.tickPrice | 78 |
 | Creditman slow mark price | Slower mark price update used in system calculations | 619 | IBApi.EWrapper.tickPrice | 79 |
-| Delayed Bid Option | Computed greeks based on delayed bid price. See Market Data Types and Option Greeks. | \*RDD | IBApi.EWrapper.tickOptionComputation | 80 |
-| Delayed Ask Option | Computed greeks based on delayed ask price. See Market Data Types and Option Greeks. | \*RDD | IBApi.EWrapper.tickOptionComputation | 81 |
-| Delayed Last Option | Computed greeks based on delayed last price. See Market Data Types and Option Greeks. | \*RDD | IBApi.EWrapper.tickOptionComputation | 82 |
-| Delayed Model Option | Computed Greeks and model’s implied volatility based on delayed stock and option prices. | \*RDD | IBApi.EWrapper.tickOptionComputation | 83 |
+| Delayed Bid Option | Computed greeks based on delayed bid price. See Market Data Types and Option Greeks. | *RDD | IBApi.EWrapper.tickOptionComputation | 80 |
+| Delayed Ask Option | Computed greeks based on delayed ask price. See Market Data Types and Option Greeks. | *RDD | IBApi.EWrapper.tickOptionComputation | 81 |
+| Delayed Last Option | Computed greeks based on delayed last price. See Market Data Types and Option Greeks. | *RDD | IBApi.EWrapper.tickOptionComputation | 82 |
+| Delayed Model Option | Computed Greeks and model’s implied volatility based on delayed stock and option prices. | *RDD | IBApi.EWrapper.tickOptionComputation | 83 |
 | Last Exchange | Exchange of last traded price | – | IBApi.EWrapper.tickString | 84 |
 | Last Regulatory Time | Timestamp (in Unix ms time) of last trade returned with regulatory snapshot | – | IBApi.EWrapper.tickString | 85 |
-| Futures Open Interest | Total number of outstanding futures contracts. \*HSI open interest requested with generic tick 101 | 588 | IBApi.EWrapper.tickSize | 86 |
+| Futures Open Interest | Total number of outstanding futures contracts. *HSI open interest requested with generic tick 101 | 588 | IBApi.EWrapper.tickSize | 86 |
 | Average Option Volume | Average volume of the corresponding option contracts(TWS Build 970+ is required) | 105 | IBApi.EWrapper.tickSize | 87 |
-| Delayed Last Timestamp | Delayed time of the last trade (in UNIX time) (TWS Build 970+ is required) | \*RDD | IBApi.EWrapper.tickString | 88 |
+| Delayed Last Timestamp | Delayed time of the last trade (in UNIX time) (TWS Build 970+ is required) | *RDD | IBApi.EWrapper.tickString | 88 |
 | Shortable Shares | Number of shares available to short (TWS Build 974+ is required) | 236 | IBApi.EWrapper.tickSize | 89 |
 | ETF Nav Last | The last price of Net Asset Value (NAV). For ETFs: Calculation is based on prices of ETF’s underlying securities. For NextShares: Value is provided by NASDAQ | 577 | IBApi.EWrapper.tickPrice | 96 |
 | ETF Nav Frozen Last | ETF Nav Last for Frozen data | 623 | IBApi.EWrapper.tickPrice | 97 |
@@ -791,8 +848,8 @@ EClient.reqMktData will return data to various methods such as EWrapper.tickPric
 | ETF Nav Low | The low price of ETF’s Net Asset Value (NAV) | 614 | IBApi.EWrapper.tickPrice | 99 |
 | Estimated IPO – Midpoint | Midpoint is calculated based on IPO price range | 586 | IBApi.EWrapper.tickGeneric | 101 |
 | Final IPO Price | Final price for IPO | 586 | IBApi.EWrapper.tickGeneric | 102 |
-| Delayed Yield Bid | Delayed implied yield of the bond if it is purchased at the current bid. | \*RDD | IBApi.EWrapper.tickPrice | 103 |
-| Delayed Yield Ask | Delayed implied yield of the bond if it is purchased at the current ask. | \*RDD | IBApi.EWrapper.tickPrice | 104 |
+| Delayed Yield Bid | Delayed implied yield of the bond if it is purchased at the current bid. | *RDD | IBApi.EWrapper.tickPrice | 103 |
+| Delayed Yield Ask | Delayed implied yield of the bond if it is purchased at the current ask. | *RDD | IBApi.EWrapper.tickPrice | 104 |
 | Odd Lot Bid Price | Returns bid price of odd lots. Requires TWS & API version 10.46 or higher. | 787 | IBApi.EWrapper.tickPrice | 105 |
 | Odd Lot Ask Price | Returns ask price of odd lots. Requires TWS & API version 10.46 or higher. | 787 | IBApi.EWrapper.tickPrice | 106 |
 | Odd Lot Bid Size | Returns bid size of odd lots. Requires TWS & API version 10.46 or higher. | 787 | IBApi.EWrapper.tickSize | 107 |
@@ -806,8 +863,8 @@ The Halted tick type indicates if a contract has been halted for trading. It c
 
 | Value | Description |
 | --- | --- |
-| \-1 | Halted status not available. Usually returned with frozen data. |
-| 0 | Not halted. This value will **only** be returned if the contract is in a TWS watchlist. |
+| -1 | Halted status not available. Usually returned with frozen data. |
+| 0 | Not halted. This value will only be returned if the contract is in a TWS watchlist. |
 | 1 | General halt. Trading halt is imposed for purely regulatory reasons with/without volatility halt. |
 | 2 | Volatility halt. Trading halt is imposed by the exchange to protect against extreme volatility. |
 
@@ -899,7 +956,9 @@ Note:
 
 The maximum number of simultaneous tick-by-tick subscriptions allowed for a user is 5% of the user’s total market data lines. See [Specialized Market Data Lines](/campus/ibkr-api-page/market-data-subscriptions/#market-data-lines) for more information.
 
+```python
 self.reqTickByTickData(19001, contract, "Last", 0, True)
+```
 
 ### Receive Tick By Tick Data
 
@@ -924,8 +983,10 @@ self.reqTickByTickData(19001, contract, "Last", 0, True)
 
 Returns “Last” or “AllLast” tick-by-tick real-time tick.
 
+```python
 def tickByTickAllLast(self, reqId: int, tickType: int, time: int, price: float, size: Decimal, tickAtrribLast: TickAttribLast, exchange: str,specialConditions: str):
 	print(" ReqId:", reqId, "Time:", time, "Price:", floatMaxString(price), "Size:", size, "Exch:" , exchange, "Spec Cond:", specialConditions, "PastLimit:", tickAtrribLast.pastLimit, "Unreported:", tickAtrribLast.unreported)
+```
 
 #### EWrapper.tickByTickBidAsk (
 
@@ -946,8 +1007,10 @@ def tickByTickAllLast(self, reqId: int, tickType: int, time: int, price: float, 
 
 Returns “BidAsk” tick-by-tick real-time tick.
 
+```python
  def tickByTickBidAsk(self, reqId: int, time: int, bidPrice: float, askPrice: float, bidSize: Decimal, askSize: Decimal, tickAttribBidAsk: TickAttribBidAsk):
 	print("BidAsk. ReqId:", reqId, "Time:", time, "BidPrice:", floatMaxString(bidPrice), "AskPrice:", floatMaxString(askPrice), "BidSize:", decimalMaxString(bidSize), "AskSize:", decimalMaxString(askSize), "BidPastLow:", tickAttribBidAsk.bidPastLow, "AskPastHigh:", tickAttribBidAsk.askPastHigh)
+```
 
 #### EWrapper.tickByTickMidPoint (
 
@@ -960,8 +1023,10 @@ Returns “BidAsk” tick-by-tick real-time tick.
 
 Returns “MidPoint” tick-by-tick real-time tick.
 
+```python
 def tickByTickMidPoint(self, reqId: int, time: int, midPoint: float):
 	print("Midpoint. ReqId:", reqId, "Time:", time, "MidPoint:", floatMaxString(midPoint))
+```
 
 ### Cancel Tick By Tick Data
 
@@ -972,7 +1037,9 @@ def tickByTickMidPoint(self, reqId: int, time: int, midPoint: float):
 
 Cancels specified tick-by-tick data.
 
+```python
 self.cancelTickByTickData(19001)
+```
 
 ### Halted and Unhalted ticks
 

@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19-financial-advisors.html">19 Financial Advisors</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="19.05-allocation-format.html">19.05 Allocation Method XML Format</a>
       </li>
       <li class="breadcrumb-item">
         <a href="19.05.03-equal-quantity-xml.html">19.05.03 Equal Quantity</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Equal Quantity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares equally between all accounts in the group.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 400 shares of stock ABC. If your Account Group includes four accounts, each account receives 100 shares. If your Account Group includes six accounts, each account receives 66 shares, and then 1 share is allocated to each account until all are distributed.</p><pre class="EnlighterJSRAW" data-enlighter-language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+     <h3 class="section-title-2">Equal Quantity</h3><div class="row"><p>Requires you to specify an order size. This method distributes shares equally between all accounts in the group.</p><p>&nbsp;</p><p><strong>Example:</strong> You transmit an order for 400 shares of stock ABC. If your Account Group includes four accounts, each account receives 100 shares. If your Account Group includes six accounts, each account receives 66 shares, and then 1 share is allocated to each account until all are distributed.</p><pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
     &lt;ListOfGroups&gt;
       &lt;Group&gt;
         &lt;name&gt;MyTestProfile2&lt;/name&gt;
@@ -131,6 +140,6 @@ th {
           &lt;/Account&gt;
         &lt;/ListOfAccts&gt;
       &lt;/Group&gt;
-    &lt;/ListOfGroups&gt;</pre></div>
+    &lt;/ListOfGroups&gt;</code></pre></div>
   </body>
 </html>

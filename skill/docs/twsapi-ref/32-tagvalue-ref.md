@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [32-tagvalue-ref.md](32 TagValue Class Reference) -> 
-
- 32 TagValue Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [32 TagValue Class Reference](32-tagvalue-ref.md)
 
 
 ## TagValue Class Reference

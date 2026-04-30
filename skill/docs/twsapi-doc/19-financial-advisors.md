@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [19-financial-advisors.md](19 Financial Advisors) -> 
-
- 19 Financial Advisors
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [19 Financial Advisors](19-financial-advisors.md)
 
 
 ## Financial Advisors
@@ -19,7 +16,9 @@ Financial Advisors are able to manage their allocation groups from the TWS API.
 
 Requests the FA configuration as set in TWS for the given FA Group or Profile.
 
+```python
 self.requestFA(1)
+```
 
 #### requestFA FA Data Types
 
@@ -39,9 +38,11 @@ self.requestFA(1)
 
 Receives the Financial Advisor’s configuration available in the TWS.
 
+```python
 def receiveFA(self, faData: FaDataType, cxml: str):
 	print("Receiving FA: ", faData)
 	open('log/fa.xml', 'w').write(cxml)
+```
 
 ### Replace FA Allocations
 
@@ -54,7 +55,9 @@ def receiveFA(self, faData: FaDataType, cxml: str):
 **xml:** String. XML configuration for allocation profiles or group. See [Allocation Method XML Format](../undefined/index.md) for more details.  
 )
 
+```python
 self.replaceFa(reqId, 1, xml)
+```
 
 #### replaceFA FA Data Types
 
@@ -79,9 +82,11 @@ In order to confirm that your FA changes were saved, you may wait for the [EWrap
 
 Marks the ending of the replaceFA reception.
 
+```python
 def replaceFAEnd(self, reqId: int, text: str):
     super().replaceFAEnd(reqId, text)
     print("ReplaceFAEnd.", "ReqId:", reqId, "Text:", text)
+```
 
 ### Allocation Methods and Groups
 
@@ -118,6 +123,7 @@ Requires you to specify an order size. This method distributes shares based on t
 
 **Example:** You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with available equity in the amounts of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -133,6 +139,7 @@ Requires you to specify an order size. This method distributes shares based on t
     </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Contracts Or Shares
 
@@ -146,6 +153,7 @@ In the example code shown in the right side, you can see that:
 
 1.  Account A is set to receive 100.0 shares while Account B is set to receive 200.0 shares. Account A should receive 100 shares and Account B should receive 200 shares.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -164,6 +172,7 @@ In the example code shown in the right side, you can see that:
   </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Equal Quantity
 
@@ -171,6 +180,7 @@ Requires you to specify an order size. This method distributes shares equally be
 
 **Example:** You transmit an order for 400 shares of stock ABC. If your Account Group includes four accounts, each account receives 100 shares. If your Account Group includes six accounts, each account receives 66 shares, and then 1 share is allocated to each account until all are distributed.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -186,11 +196,13 @@ Requires you to specify an order size. This method distributes shares equally be
     </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### MonetaryAmount
 
 The Monetary Amount method calculates the number of units to be allocated based on the monetary value assigned to each account.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -209,6 +221,7 @@ The Monetary Amount method calculates the number of units to be allocated based 
   </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Net Liquidation Value
 
@@ -216,6 +229,7 @@ Requires you to specify an order size. This method distributes shares based on 
 
 **Example:** You transmit an order for 700 shares of stock XYZ. The account group includes three accounts, A, B and C with Net Liquidation values of $25,000, $50,000 and $100,000 respectively. The system calculates a ratio of 1:2:4 and allocates 100 shares to Client A, 200 shares to Client B, and 400 shares to Client C.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -231,6 +245,7 @@ Requires you to specify an order size. This method distributes shares based on 
     </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Percentages
 
@@ -246,13 +261,20 @@ In the example code shown in the right side, you can see that:
 
 While making modifications to allocations for profiles, the method uses an enumerated value. The number shown below demonstrates precisely what profile corresponds to which value.
 
-<table class="doxtable"><tbody><tr><th><b>BUY ORDER</b></th><td><em>Positive Percent</em></td><td><em>Negative Percent</em></td></tr><tr><td>Long Position</td><td>Increases position</td><td>No effect</td></tr><tr><td>Short Position</td><td>No effect</td><td>Decreases position</td></tr></tbody></table>
+| BUY ORDER | Positive Percent | Negative Percent |
+| --- | --- | --- |
+| Long Position | Increases position | No effect |
+| Short Position | No effect | Decreases position |
 
-<table class="doxtable"><tbody><tr><th><b>SELL ORDER</b></th><td><em>Positive Percent</em></td><td><em>Negative Percent</em></td></tr><tr><td>Long Position</td><td>No effect</td><td>Decreases position</td></tr><tr><td>Short Position</td><td>Increases position</td><td>No effect</td></tr></tbody></table>
+| SELL ORDER | Positive Percent | Negative Percent |
+| --- | --- | --- |
+| Long Position | No effect | Decreases position |
+| Short Position | Increases position | No effect |
 
 **Note:**  
 Do not specify an order size. Since the quantity is calculated by the system, the order size is displayed in the Quantity field after the order is acknowledged. This method increases or decreases an already existing position. Positive percents will increase a position, negative percents will decrease a position. For exmaple, to fully close out a position, you just need to specify percentage to be -100.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -270,6 +292,7 @@ Do not specify an order size. Since the quantity is calculated by the system, th
   </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Ratios
 
@@ -283,6 +306,7 @@ In the example code shown in the right side, you can see that:
 
 1.  A ratio of 1.0 and 2.0 is set to Account A and Account B. Account A should receive 100 shares and Account B should receive 200 shares.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListOfGroups>
   <Group>
@@ -301,6 +325,7 @@ In the example code shown in the right side, you can see that:
   </ListOfAccts>
   </Group>
 </ListOfGroups>
+```
 
 ### Model Portfolios and the API
 
@@ -322,10 +347,12 @@ To request model account updates, there is the function [IBApi::EClient::reqAcc
 
 To place an order to a model, the IBApi.Order.ModelCode field must be set accordingly, for example:
 
+```python
 modelOrder = Order()
 modelOrder.account = "DF12345"
 modelOrder.modelCode = "Technology" # model for tech stocks first created in TWS
 self.placeOrder(self.nextOrderId(), contract, modelOrder)
+```
 
 ### Unification of Groups and Profiles
 
@@ -337,8 +364,10 @@ With TWS/IBGW Build 10.20+, this setting is now enabled by default, and moving f
 
 For advisors to place orders to their [allocation groups](../undefined/index.md) users would simply declare their allocation group name in the order object. This would be done with the Order’s faGroup field. The example to the right references a standard market order placed to our allocation group, MyTestProfile.
 
+```python
 order = Order()
 order.action = "BUY"
 order.orderType = "MKT"
 order.totalQuantity = 50
 order.faGroup = "MyTestProfile"
+```

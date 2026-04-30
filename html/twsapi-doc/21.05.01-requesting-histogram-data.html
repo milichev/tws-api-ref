@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.05-histograms.html">21.05 Histogram Data</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.05.01-requesting-histogram-data.html">21.05.01 Requesting Histogram Data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Requesting Histogram Data</h3><div class="row"><h4 id="requesting-histogram-data">21.05.01 Requesting Histogram Data</h4><p><strong>requestId:</strong> int, id of the request</p><p><strong>contract:</strong> Contract, Contract object that is subject of query.</p><p><strong>useRth:</strong> bool, Data from regular trading hours (1), or all available hours (0).</p><p><strong>period:</strong> String, string value of requested date range. This will be tied to the same bar size strings as the <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#hist-bar-size">historical bar sizes</a><br> )</p><p>Returns data histogram of specified contract.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqHistogramData(4004, contract, false, "3 days")</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Requesting Histogram Data</h3><div class="row"><h4 id="requesting-histogram-data">21.05.01 Requesting Histogram Data</h4><p><strong>requestId:</strong> int, id of the request</p><p><strong>contract:</strong> Contract, Contract object that is subject of query.</p><p><strong>useRth:</strong> bool, Data from regular trading hours (1), or all available hours (0).</p><p><strong>period:</strong> String, string value of requested date range. This will be tied to the same bar size strings as the <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#hist-bar-size">historical bar sizes</a><br> )</p><p>Returns data histogram of specified contract.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqHistogramData(4004, contract, false, "3 days")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

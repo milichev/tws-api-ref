@@ -111,19 +111,25 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13.02-sync-connect.html">13.02 Connect &amp; Start Connection</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Connect &amp; Start Connection</h3><div class="row"><p>After creating the class object reference with sync wrapper, connect_and_start() must be used to connect the Python program with the active Trader Workstation implementation. Identical to EClient’s connect() function, connect_and_start() supports arguments for host, port, and client_id.</p><h3 id="sync-connect">13.02 Connect &amp; Start Connection</h3><p style="padding-left: 40px"><strong>host:</strong> String. Determine the connecting host IP for the API to connect to. Connections on the same computer should use “localhost” or “127.0.0.1”.</p><p style="padding-left: 40px"><strong>port:</strong> Integer. Determine the connecting port number configured in the Global Configuration in the “Socket Port” field.</p><p style="padding-left: 80px">Defaults: {TWS Live: 7496; TWS Paper: 7497; IBG Live: 4001; IBG Paper: 4002′}</p><p style="padding-left: 40px"><strong>client_id:</strong> Integer. Determine the connecting client ID. TWS Supports up to 32 simultaneous API connections.</p><p style="padding-left: 80px">Users should connect with a client_id of 0 for <a href="../undefined/index.html">optimal order management functionality</a>.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">app.connect_and_start(host="127.0.0.1", port=7496, client_id=0)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4>Response Object</h4><p>While it is not necessary to handle the response from connect_and_start(), the function will return the result of EClient.isConnected() to help with connection validation.</p><p>The function call will return a single Boolean value, True or False, in reference to the connection status at the time of reference.</p></div><div class="row"><p>Developers may look to implement code such as this that will gracefully handle the connection procedure should it fail to connect rather than proceeding with the rest of the code implementation.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python"># Connect to TWS
+     <h3 class="section-title-2">Connect &amp; Start Connection</h3><div class="row"><p>After creating the class object reference with sync wrapper, connect_and_start() must be used to connect the Python program with the active Trader Workstation implementation. Identical to EClient’s connect() function, connect_and_start() supports arguments for host, port, and client_id.</p><h3 id="sync-connect">13.02 Connect &amp; Start Connection</h3><p style="padding-left: 40px"><strong>host:</strong> String. Determine the connecting host IP for the API to connect to. Connections on the same computer should use “localhost” or “127.0.0.1”.</p><p style="padding-left: 40px"><strong>port:</strong> Integer. Determine the connecting port number configured in the Global Configuration in the “Socket Port” field.</p><p style="padding-left: 80px">Defaults: {TWS Live: 7496; TWS Paper: 7497; IBG Live: 4001; IBG Paper: 4002′}</p><p style="padding-left: 40px"><strong>client_id:</strong> Integer. Determine the connecting client ID. TWS Supports up to 32 simultaneous API connections.</p><p style="padding-left: 80px">Users should connect with a client_id of 0 for <a href="../undefined/index.html">optimal order management functionality</a>.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">app.connect_and_start(host="127.0.0.1", port=7496, client_id=0)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4>Response Object</h4><p>While it is not necessary to handle the response from connect_and_start(), the function will return the result of EClient.isConnected() to help with connection validation.</p><p>The function call will return a single Boolean value, True or False, in reference to the connection status at the time of reference.</p></div><div class="row"><p>Developers may look to implement code such as this that will gracefully handle the connection procedure should it fail to connect rather than proceeding with the rest of the code implementation.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python"># Connect to TWS
     # If the connection succeeded, notify the user.
     # If the connection fails and False is returned, notify the user and gracefully exit the application.
     if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
         print("Failed to connect to TWS")
         exit(1)
     else:
-        print("Connected to TWS")</pre><p>&nbsp;</p></div></div></div>
+        print("Connected to TWS")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

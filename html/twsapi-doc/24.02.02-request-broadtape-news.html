@@ -111,15 +111,24 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.02-contract-specific-news.html">24.02 Live News Headlines</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.02.02-request-broadtape-news.html">24.02.02 Request BroadTape News</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request BroadTape News</h3><div class="row"><h4 id="request-broadtape-news">24.02.02 Request BroadTape News</h4><p>For BroadTape News you specify the contract for the specific news source. This is uniquely identified by the symbol and exchange. The symbol of an instrument can easily be obtained via the <a href="../ib-async/402-request-contract-details">EClientSocket.reqContractDetails</a> request.</p><p>The symbol is typically the provider code, a colon, then the news provider codes appended with “_ALL”</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><h4>Example news contract</h4><pre class="EnlighterJSRAW" data-enlighter-language="python">contract = Contract()
+     <h3 class="section-title-2">Request BroadTape News</h3><div class="row"><h4 id="request-broadtape-news">24.02.02 Request BroadTape News</h4><p>For BroadTape News you specify the contract for the specific news source. This is uniquely identified by the symbol and exchange. The symbol of an instrument can easily be obtained via the <a href="../ib-async/402-request-contract-details">EClientSocket.reqContractDetails</a> request.</p><p>The symbol is typically the provider code, a colon, then the news provider codes appended with “_ALL”</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><h4>Example news contract</h4><pre><code class="language-python">contract = Contract()
     contract.symbol  = "BRF:BRF_ALL"
     contract.secType = "NEWS"
-    contract.exchange = "BRF"</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EClient.reqMktData (</span></h4><p><strong>reqId:</strong> int. Request identifier for tracking data.</p><p><strong>contract:</strong> Contract. Contract object used for specifying an instrument.</p><p><strong>genericTickList:</strong> String. Comma separated ids of the available generic ticks.</p><p><strong>snapshot:</strong> bool. Always set to false for news data.</p><p><strong>regulatorySnapshot:</strong> bool. Always set to false for news data.</p><p><strong>mktDataOptions:</strong> List&lt;TagValue&gt;. Internal use only.<br> )</p><p>Used to request market data typically, but can also be used to retrieve news. “mdoff” can be specified to disable standard market data while retrieving news.</p><p>For news sources, genericTick 292 needs to be specified.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqMktData(reqId, contract, "mdoff,292", False, False, [])</pre><p>&nbsp;</p></div></div></div>
+    contract.exchange = "BRF"</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EClient.reqMktData (</span></h4><p><strong>reqId:</strong> int. Request identifier for tracking data.</p><p><strong>contract:</strong> Contract. Contract object used for specifying an instrument.</p><p><strong>genericTickList:</strong> String. Comma separated ids of the available generic ticks.</p><p><strong>snapshot:</strong> bool. Always set to false for news data.</p><p><strong>regulatorySnapshot:</strong> bool. Always set to false for news data.</p><p><strong>mktDataOptions:</strong> List&lt;TagValue&gt;. Internal use only.<br> )</p><p>Used to request market data typically, but can also be used to retrieve news. “mdoff” can be specified to disable standard market data while retrieving news.</p><p>For news sources, genericTick 292 needs to be specified.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqMktData(reqId, contract, "mdoff,292", False, False, [])</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

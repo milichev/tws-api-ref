@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [28-percchange-ref.md](28 PercentChangeCondition Class Reference) -> 
-
- 28 PercentChangeCondition Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [28 PercentChangeCondition Class Reference](28-percchange-ref.md)
 
 
 ## PercentChangeCondition Class Reference

@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.08-pnl.html">14.08 Profit &amp; Loss (PnL)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.08.02-receive-pnl-position.html">14.08.02 Receive P&amp;L for individual positions</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive P&amp;L for individual positions</h3><div class="row"><h4 id="receive-pnl-position">14.08.02 Receive P&amp;L for individual positions</h4><p><strong>reqId:</strong> int. Request identifier used for tracking.</p><p><strong>pos:</strong> decimal. Current size of the position</p><p><strong>dailyPnL:</strong> double. DailyPnL for the position</p><p><strong>unrealizedPnL:</strong> double. Total unrealized PnL for the position (since inception) updating in real time</p><p><strong>realizedPnL:</strong> double. Total realized PnL for the position (since inception) updating in real time</p><p><strong>value:</strong> double. Current market value of the position.<br> )</p><p>Receives real time updates for single position daily PnL values</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def pnlSingle(self, reqId: int, pos: Decimal, dailyPnL: float, unrealizedPnL: float, realizedPnL: float, value: float):
-      print("Daily PnL Single. ReqId:", reqId, "Position:", pos, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL, "Value:", value)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive P&amp;L for individual positions</h3><div class="row"><h4 id="receive-pnl-position">14.08.02 Receive P&amp;L for individual positions</h4><p><strong>reqId:</strong> int. Request identifier used for tracking.</p><p><strong>pos:</strong> decimal. Current size of the position</p><p><strong>dailyPnL:</strong> double. DailyPnL for the position</p><p><strong>unrealizedPnL:</strong> double. Total unrealized PnL for the position (since inception) updating in real time</p><p><strong>realizedPnL:</strong> double. Total realized PnL for the position (since inception) updating in real time</p><p><strong>value:</strong> double. Current market value of the position.<br> )</p><p>Receives real time updates for single position daily PnL values</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def pnlSingle(self, reqId: int, pos: Decimal, dailyPnL: float, unrealizedPnL: float, realizedPnL: float, value: float):
+      print("Daily PnL Single. ReqId:", reqId, "Position:", pos, "DailyPnL:", dailyPnL, "UnrealizedPnL:", unrealizedPnL, "RealizedPnL:", realizedPnL, "Value:", value)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

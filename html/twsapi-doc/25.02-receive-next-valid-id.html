@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="25-next-valid-id.html">25 Next Valid ID</a>
       </li>
       <li class="breadcrumb-item">
         <a href="25.02-receive-next-valid-id.html">25.02 Receive Next Valid ID</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Next Valid ID</h3><div class="row"><h3 id="receive-next-valid-id">25.02 Receive Next Valid ID</h3><p><strong>orderId:</strong> int. Receives next valid order id.<br> )</p><p>Will be invoked automatically upon successful API client connection, or after call to EClient.reqIds.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def nextValidId(self, orderId: int):
-        print("NextValidId:", orderId)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Next Valid ID</h3><div class="row"><h3 id="receive-next-valid-id">25.02 Receive Next Valid ID</h3><p><strong>orderId:</strong> int. Receives next valid order id.<br> )</p><p>Will be invoked automatically upon successful API client connection, or after call to EClient.reqIds.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def nextValidId(self, orderId: int):
+        print("NextValidId:", orderId)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

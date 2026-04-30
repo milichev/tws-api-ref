@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.02-live-bars.html">22.02 5 Second Bars</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.02.02-receive-live-bars.html">22.02.02 Receive Real Time Bars</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Real Time Bars</h3><div class="row"><h4 id="receive-live-bars">22.02.02 Receive Real Time Bars</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>time:</strong> long. The bar’s start date and time (Epoch/Unix time)</p><p><strong>open:</strong> double. The bar’s open point</p><p><strong>high:</strong> double. The bar’s high point</p><p><strong>low:</strong> double. The bar’s low point</p><p><strong>close:</strong> double. The bar’s closing point</p><p><strong>volume:</strong> decimal. The bar’s traded volume (only returned for TRADES data)</p><p><strong>WAP:</strong> decimal. The bar’s Weighted Average Price rounded to minimum increment (only available for TRADES).</p><p><strong>count:</strong> int. The number of trades during the bar’s timespan (only available for TRADES).<br> )</p><p>Receives the real time 5 second bars.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
-    	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Real Time Bars</h3><div class="row"><h4 id="receive-live-bars">22.02.02 Receive Real Time Bars</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>time:</strong> long. The bar’s start date and time (Epoch/Unix time)</p><p><strong>open:</strong> double. The bar’s open point</p><p><strong>high:</strong> double. The bar’s high point</p><p><strong>low:</strong> double. The bar’s low point</p><p><strong>close:</strong> double. The bar’s closing point</p><p><strong>volume:</strong> decimal. The bar’s traded volume (only returned for TRADES data)</p><p><strong>WAP:</strong> decimal. The bar’s Weighted Average Price rounded to minimum increment (only available for TRADES).</p><p><strong>count:</strong> int. The number of trades during the bar’s timespan (only available for TRADES).<br> )</p><p>Receives the real time 5 second bars.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
+    	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

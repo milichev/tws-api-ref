@@ -111,10 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
       </li>
       <li class="breadcrumb-item">
-        <a href="12.03.02-.html">12.03.02 Python Implementation</a>
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="12-connectivity.html">12 Connectivity</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="12.03-The-EReader-Thread.html">12.03 The EReader Thread</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="12.03.02.html">12.03.02 Python Implementation</a>
       </li>
     </ul>
      <h3 class="section-title-2">Python Implementation</h3><div class="row"><p>In Python IB API, the EReader logic is handled in the EClient.connect so the EReader thread is automatically started upon connection. There is&nbsp;<b>no need</b>&nbsp;for user to start the reader.</p><p>Once the client is connected, a reader thread will be automatically created to handle incoming messages and put the messages into a message queue for further process. User&nbsp;<b>is required</b>&nbsp;to trigger Client::run() below, where the message queue is processed in an infinite loop and the EWrapper call-back functions are automatically triggered.</p><p>Now it is time to revisit the role of IBApi.EReaderSignal initially introduced in The EClientSocket Class. As mentioned in the previous paragraph, after the EReader thread places a message in the queue, a notification is issued to make known that a message is ready for processing. In the Python API, this is handled automatically by the Queue class.</p></div>

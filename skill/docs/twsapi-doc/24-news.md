@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [24-news.md](24 News) -> 
-
- 24 News
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [24 News](24-news.md)
 
 
 ## News
@@ -30,7 +27,9 @@ Adding or removing API news subscriptions from an account is accomplished throug
 
 Requests news providers which the user has subscribed to.
 
+```python
 self.reqNewsProviders()
+```
 
 ### Receive News Providers
 
@@ -41,8 +40,10 @@ self.reqNewsProviders()
 
 Returns array of subscribed API news providers for this user
 
+```python
 def newsProviders(self, newsProviders: ListOfNewsProviders):
 	print("NewsProviders: ", newsProviders)
+```
 
 ### Live News Headlines
 
@@ -76,7 +77,9 @@ When invoking IBApi.EClient.reqMktData, for a specific IBApi.Contract you will
 Used to request market data typically, but can also be used to retrieve news. “mdoff” can be specified to disable standard market data while retrieving news.  
 For news sources, genericTick 292 needs to be specified followed by a colon and the news provider’s code.
 
-self.reqMktData(reqId, contract, "mdoff,292:BRFG", False, False, \[\])
+```python
+self.reqMktData(reqId, contract, "mdoff,292:BRFG", False, False, [])
+```
 
 ### Request BroadTape News
 
@@ -88,10 +91,12 @@ The symbol is typically the provider code, a colon, then the news provider codes
 
 #### Example news contract
 
+```python
 contract = Contract()
-contract.symbol  = "BRF:BRF\_ALL"
+contract.symbol  = "BRF:BRF_ALL"
 contract.secType = "NEWS"
 contract.exchange = "BRF"
+```
 
 #### EClient.reqMktData (
 
@@ -112,7 +117,9 @@ Used to request market data typically, but can also be used to retrieve news. �
 
 For news sources, genericTick 292 needs to be specified.
 
-self.reqMktData(reqId, contract, "mdoff,292", False, False, \[\])
+```python
+self.reqMktData(reqId, contract, "mdoff,292", False, False, [])
+```
 
 ### Receive Live News Headlines
 
@@ -133,8 +140,10 @@ self.reqMktData(reqId, contract, "mdoff,292", False, False, \[\])
 
 Returns news headlines for requested contracts.
 
+```python
 def tickNews(self, tickerId: int, timeStamp: int, providerCode: str, articleId: str, headline: str, extraData: str):
   print("TickNews. TickerId:", tickerId, "TimeStamp:", timeStamp, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline, "ExtraData:", extraData)
+```
 
 ### Historical News Headlines
 
@@ -163,7 +172,9 @@ You can set either startDateTime or endDateTime. If both are set, endDateTime is
 
 Requests historical news headlines.
 
-self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, \[\])
+```python
+self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, [])
+```
 
 ### Receive Historical News
 
@@ -182,8 +193,10 @@ self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, \[\])
 
 Returns news headlines for requested contracts.
 
+```python
 def historicalNews(self, requestId: int, time: int, providerCode: str, articleId: str, headline: str):
   print("historicalNews. RequestId:", requestId, "Time:", time, "ProviderCode:", providerCode, "ArticleId:", articleId, "Headline:", headline)
+```
 
 #### EWrapper.historicalNewsEnd (
 
@@ -194,8 +207,10 @@ def historicalNews(self, requestId: int, time: int, providerCode: str, articleId
 
 Returns news headlines end marker
 
+```python
 def historicalDataEnd(self, reqId: int, hasMore: bool):
     print("historicalDataEnd. ReqId:", reqId, "Has More:", hasMore)
+```
 
 ### News Articles
 
@@ -216,7 +231,9 @@ After requesting news headlines using one of the above functions, the body of a 
 
 Requests news article body given articleId.
 
-self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", \[\])
+```python
+self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", [])
+```
 
 ### Receive News Articles
 
@@ -231,5 +248,7 @@ self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", \[\])
 
 Called when receiving a News Article in response to reqNewsArticle().
 
+```python
 def newsArticle(self, requestId: int, articleType: int, articleText: str):
   print("requestId: ", requestId, "articleType: ", articleType, "articleText: ", articleText)
+```

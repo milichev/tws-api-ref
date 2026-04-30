@@ -111,13 +111,19 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.02-commission-report.html">26.02 Commission And Fees Report</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Commission And Fees Report</h3><div class="row"><p>When an order is filled either fully or partially, the&nbsp;<a class="el" href="26.03-exec-details">IBApi.EWrapper.execDetails</a>&nbsp;and&nbsp;IBApi.EWrapper.commissionReport&nbsp;events will deliver&nbsp;<a class="el" href="26.03-exec-details">IBApi.Execution</a>&nbsp;and&nbsp;IBApi.CommissionAndFeesReport&nbsp;objects. This allows to obtain the full picture of the order’s execution and the resulting commissions.</p><ul><li>Advisors executing allocation orders will receive execution details and commissions for the allocation order itself. To receive allocation details and commissions for a specific subaccount&nbsp;<a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#request-exec-details">IBApi.EClient.reqExecutions</a>&nbsp;can be used.</li></ul></div><div class="row"><h3 id="commission-report">26.02 Commission And Fees Report</h3><p><strong>commissionAndFeesReport:</strong> <a href="../undefined/index.html">CommissionAndFeesReport</a>. Returns a commissions report object containing the fields execId, commission, currency, realizedPnl, yield, and yieldRedemptionDate.<br> )</p><p>Provides the Commission Report of an Execution</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def commissionAndFeesReport(self, commissionAndFeesReport: CommissionAndFeesReport):
-        print("CommissionReport.", commissionAndFeesReport)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Commission And Fees Report</h3><div class="row"><p>When an order is filled either fully or partially, the&nbsp;<a class="el" href="26.03-exec-details">IBApi.EWrapper.execDetails</a>&nbsp;and&nbsp;IBApi.EWrapper.commissionReport&nbsp;events will deliver&nbsp;<a class="el" href="26.03-exec-details">IBApi.Execution</a>&nbsp;and&nbsp;IBApi.CommissionAndFeesReport&nbsp;objects. This allows to obtain the full picture of the order’s execution and the resulting commissions.</p><ul><li>Advisors executing allocation orders will receive execution details and commissions for the allocation order itself. To receive allocation details and commissions for a specific subaccount&nbsp;<a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#request-exec-details">IBApi.EClient.reqExecutions</a>&nbsp;can be used.</li></ul></div><div class="row"><h3 id="commission-report">26.02 Commission And Fees Report</h3><p><strong>commissionAndFeesReport:</strong> <a href="../undefined/index.html">CommissionAndFeesReport</a>. Returns a commissions report object containing the fields execId, commission, currency, realizedPnl, yield, and yieldRedemptionDate.<br> )</p><p>Provides the Commission Report of an Execution</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def commissionAndFeesReport(self, commissionAndFeesReport: CommissionAndFeesReport):
+        print("CommissionReport.", commissionAndFeesReport)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

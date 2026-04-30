@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [31-softdollartier-ref.md](31 SoftDollarTier Class Reference) -> 
-
- 31 SoftDollarTier Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [31 SoftDollarTier Class Reference](31-softdollartier-ref.md)
 
 
 ## SoftDollarTier Class Reference

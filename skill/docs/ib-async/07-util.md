@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [07-util.md](Utilities &amp; Reports) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [Utilities &amp; Reports](07-util.md)
 
- Utilities & Reports
 
+# Utilities & Reports
 
 ### Basic ib_async Setup and Report Usage
 

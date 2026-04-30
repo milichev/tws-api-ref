@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [26-order-management.md](26 Order Management) -> 
-
- 26 Order Management
+[IBKR TWS API](../../SKILL.md) · [TWS API Documentation](index.md) · [26 Order Management](26-order-management.md)
 
 
 ## Order Management
@@ -30,8 +27,10 @@ When an order is filled either fully or partially, the [IBApi.EWrapper.execDeta
 
 Provides the Commission Report of an Execution
 
+```python
 def commissionAndFeesReport(self, commissionAndFeesReport: CommissionAndFeesReport):
     print("CommissionReport.", commissionAndFeesReport)
+```
 
 ### Execution Details
 
@@ -106,7 +105,9 @@ Given additional structures for executions are ever evolving, it is recommended 
 
 Requests current day’s (since midnight) executions and commission report matching the filter. Only the current day’s executions can be retrieved.
 
+```python
 self.reqExecutions(10001, ExecutionFilter())
+```
 
 ### Receive Execution Details
 
@@ -121,8 +122,10 @@ self.reqExecutions(10001, ExecutionFilter())
 
 Provides the executions which happened in the last 24 hours.
 
+```python
 def execDetails(self, reqId: int, contract: Contract, execution: Execution):
   print("ExecDetails. ReqId:", reqId, "Symbol:", contract.symbol, "SecType:", contract.secType, "Currency:", contract.currency, execution)
+```
 
 #### EWrapper.execDetailsEnd (
 
@@ -131,8 +134,10 @@ def execDetails(self, reqId: int, contract: Contract, execution: Execution):
 
 Indicates the end of the Execution reception.
 
+```python
 def execDetailsEnd(self, reqId: int):
 	print("ExecDetailsEnd. ReqId:", reqId)
+```
 
 ### Open Orders
 
@@ -149,15 +154,19 @@ def execDetailsEnd(self, reqId: int):
 
 Feeds in currently open orders.
 
+```python
 def openOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
     print(orderId, contract, order, orderState)
+```
 
 #### EWrapper.openOrderEnd ()
 
 Notifies the end of the open orders’ reception.
 
+```python
 def openOrderEnd(self):
 	print("OpenOrderEnd")
+```
 
 ### Order Status
 
@@ -188,8 +197,10 @@ def openOrderEnd(self):
 
 Gives the up-to-date information of an order every time it changes. Often there are duplicate orderStatus messages.
 
+```python
 def orderStatus(self, orderId: OrderId, status: str, filled: Decimal, remaining: Decimal, avgFillPrice: float, permId: int, parentId: int, lastFillPrice: float, clientId: int, whyHeld: str, mktCapPrice: float):
 	super().orderStatus(orderId, status, filled, remaining, avgFillPrice, permId, parentId, lastFillPrice, clientId, whyHeld, mktCapPrice)
+```
 
 ### Understanding Order Status Message
 
@@ -223,7 +234,9 @@ Because binding the order will change the order ID, this function will be reject
 
 Requests all open orders places by this specific API client (identified by the API client id). For client ID 0, this will bind previous manual TWS orders.
 
+```python
 self.reqOpenOrders()
+```
 
 ### All submitted orders
 
@@ -231,7 +244,9 @@ self.reqOpenOrders()
 
 Requests all current open orders in associated accounts at the current moment. The existing orders will be received via the [openOrder](#open-order) and [orderStatus](26.05-order-status) events. Open orders are returned once; this function does not initiate a subscription.
 
+```python
 self.reqAllOpenOrders()
+```
 
 ### Manually Submitted TWS Orders
 
@@ -244,7 +259,9 @@ Requests status updates about future orders placed from TWS. Can only be used wi
 
 **Important:** only those applications connecting with client Id 0 will be able to take over manually submitted orders
 
+```python
 self.reqAutoOpenOrders(True)
+```
 
 ### Order Binding Notification
 
@@ -259,8 +276,10 @@ self.reqAutoOpenOrders(True)
 
 Response to API bind order control message.
 
+```python
 def orderBound(self, orderId: int, apiClientId: int, apiOrderId: int):
 	print("OrderBound.", "OrderId:", intMaxString(orderId), "ApiClientId:", intMaxString(apiClientId), "ApiOrderId:", intMaxString(apiOrderId))
+```
 
 ### Retrieving Completed Orders
 
@@ -274,7 +293,9 @@ EClient.reqCompletedOrders allows users to request all orders for the given day 
 
 )
 
+```python
 self.reqCompletedOrders(True)
+```
 
 ### Receiving Completed Orders
 
@@ -285,5 +306,7 @@ self.reqCompletedOrders(True)
 **orderState:** OrderState. The order’s OrderState  
 )
 
+```python
 def completedOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
     print(orderId, contract, order, orderState)
+```

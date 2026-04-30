@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.06-positions.html">14.06 Positions</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.06.01-request-positions.html">14.06.01 Request Positions</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Positions</h3><div class="row"><h4 id="request-positions">14.06.01 Request Positions</h4><p>Subscribes to position updates for all accessible accounts. All positions sent initially, and then only updates as positions change.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqPositions()</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Request Positions</h3><div class="row"><h4 id="request-positions">14.06.01 Request Positions</h4><p>Subscribes to position updates for all accessible accounts. All positions sent initially, and then only updates as positions change.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqPositions()</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     import threading
     import time
@@ -143,6 +152,6 @@ th {
     time.sleep(1) 
     
     app.reqPositions()
-    time.sleep(1)</pre><p>&nbsp;</p></div></div></div>
+    time.sleep(1)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

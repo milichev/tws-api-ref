@@ -111,14 +111,20 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26-order-management.html">26 Order Management</a>
       </li>
       <li class="breadcrumb-item">
         <a href="26.04-open-orders.html">26.04 Open Orders</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Open Orders</h3><div class="row"><h3 id="open-orders">26.04 Open Orders</h3><p><strong>orderId:</strong> int. The order’s unique id</p><p><strong>contract:</strong> Contract. The order’s Contract.</p><p><strong>order:</strong> Order. The currently active Order.</p><p><strong>orderState:</strong> OrderState. The order’s OrderState<br> )</p><p>Feeds in currently open orders.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def openOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
-        print(orderId, contract, order, orderState)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.openOrderEnd ()</span></h4><p>Notifies the end of the open orders’ reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def openOrderEnd(self):
-    	print("OpenOrderEnd")</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Open Orders</h3><div class="row"><h3 id="open-orders">26.04 Open Orders</h3><p><strong>orderId:</strong> int. The order’s unique id</p><p><strong>contract:</strong> Contract. The order’s Contract.</p><p><strong>order:</strong> Order. The currently active Order.</p><p><strong>orderState:</strong> OrderState. The order’s OrderState<br> )</p><p>Feeds in currently open orders.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def openOrder(self, orderId: OrderId, contract: Contract, order: Order, orderState: OrderState):
+        print(orderId, contract, order, orderState)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.openOrderEnd ()</span></h4><p>Notifies the end of the open orders’ reception.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def openOrderEnd(self):
+    	print("OpenOrderEnd")</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

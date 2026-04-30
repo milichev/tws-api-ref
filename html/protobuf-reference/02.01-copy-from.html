@@ -111,19 +111,25 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">Protobuf Reference</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="02-functions.html">02 Important Protobuf Functions</a>
       </li>
       <li class="breadcrumb-item">
         <a href="02.01-copy-from.html">02.01 CopyFrom</a>
       </li>
     </ul>
-     <h3 class="section-title-2">CopyFrom</h3><div class="row"><h3 id="copy-from">02.01 CopyFrom</h3><p>A standard method of the Message class of protobuf. Is used to copy items in a field from one object to another.<br> See <a href="https://protobuf.dev/getting-started/pythontutorial/#:~:text=the%20value%202.-,Standard%20Message%20Methods,-Each%20message%20class">See Details</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">apiConfigProto = ApiConfigProto()
+     <h3 class="section-title-2">CopyFrom</h3><div class="row"><h3 id="copy-from">02.01 CopyFrom</h3><p>A standard method of the Message class of protobuf. Is used to copy items in a field from one object to another.<br> See <a href="https://protobuf.dev/getting-started/pythontutorial/#:~:text=the%20value%202.-,Standard%20Message%20Methods,-Each%20message%20class">See Details</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">apiConfigProto = ApiConfigProto()
     apiSettingsConfigProto = ApiSettingsConfigProto()
     
     apiSettingsConfigProto.createApiMessageLogFile = True
     apiSettingsConfigProto.includeMarketDataInLogFile = True
     apiSettingsConfigProto.loggingLevel = "Detail"
             
-    apiConfigProto.settings.CopyFrom(apiSettingsConfigProto)</pre><p>&nbsp;</p></div></div></div>
+    apiConfigProto.settings.CopyFrom(apiSettingsConfigProto)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

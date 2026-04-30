@@ -111,14 +111,23 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.08-watchlist-data.html">22.08 Top of Book (L1)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.08.08-re-route-cfds.html">22.08.08 Re-Routing CFDs</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Re-Routing CFDs</h3><div class="row"><p>IB does not provide market data for certain types of instruments, such as stock CFDs and forex CFDs. If a stock CFD or forex CFD is entered into a TWS watchlist, TWS will automatically display market data for the underlying ticker and show a ‘U’ icon next to the instrument name to indicate that the data is for the underlying instrument.</p><p>From the API, when level 1 or level 2 market data is requested for a stock CFD or a forex CFD, a callback is made to the functions EWrapper.rerouteMktDataReq or EWrapper.rerouteMktDepthReq respectively with details about the underlying instrument in IB’s database which does have market data.</p></div><div class="row"><h4 id="re-route-cfds">22.08.08 Re-Routing CFDs</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract identifier of the underlying instrument which has market data.</p><p><strong>exchange:</strong> int. Primary exchange of the underlying.<br> )</p><p>Returns conid and exchange for CFD market data request re-route.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
-    	print("Re-route market data request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.rerouteMktDepthReq (</span></h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract identifier of the underlying instrument which has market data.</p><p><strong>exchange:</strong> int. Primary exchange of the underlying.<br> )</p><p>Returns the conId and exchange for an underlying contract when a request is made for level 2 data for an instrument which does not have data in IB’s database. For example stock CFDs and index CFDs.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
-    	print("Re-route market depth request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Re-Routing CFDs</h3><div class="row"><p>IB does not provide market data for certain types of instruments, such as stock CFDs and forex CFDs. If a stock CFD or forex CFD is entered into a TWS watchlist, TWS will automatically display market data for the underlying ticker and show a ‘U’ icon next to the instrument name to indicate that the data is for the underlying instrument.</p><p>From the API, when level 1 or level 2 market data is requested for a stock CFD or a forex CFD, a callback is made to the functions EWrapper.rerouteMktDataReq or EWrapper.rerouteMktDepthReq respectively with details about the underlying instrument in IB’s database which does have market data.</p></div><div class="row"><h4 id="re-route-cfds">22.08.08 Re-Routing CFDs</h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract identifier of the underlying instrument which has market data.</p><p><strong>exchange:</strong> int. Primary exchange of the underlying.<br> )</p><p>Returns conid and exchange for CFD market data request re-route.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
+    	print("Re-route market data request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.rerouteMktDepthReq (</span></h4><p><strong>reqId:</strong> int. Request identifier used to track data.</p><p><strong>conId:</strong> int. Contract identifier of the underlying instrument which has market data.</p><p><strong>exchange:</strong> int. Primary exchange of the underlying.<br> )</p><p>Returns the conId and exchange for an underlying contract when a request is made for level 2 data for an instrument which does not have data in IB’s database. For example stock CFDs and index CFDs.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
+    	print("Re-route market depth request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

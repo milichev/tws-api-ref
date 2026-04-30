@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.02-live-bars.html">22.02 5 Second Bars</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.02.01-request-live-bars.html">22.02.01 Request Real Time Bars</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Real Time Bars</h3><div class="row"><h4 id="request-live-bars">22.02.01 Request Real Time Bars</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract object for which the depth is being requested</p><p><strong>barSize:</strong> int. Currently being ignored</p><p><strong>whatToShow:</strong> String. The nature of the data being retrieved:<br> Available Values: TRADES, MIDPOINT, BID, ASK</p><p><strong>useRTH:</strong> int. Set to 0 to obtain the data which was also generated outside of the Regular Trading Hours, set to 1 to obtain only the RTH data<br> )</p><p><strong>realTimeBarOptions</strong>: List&lt;TagValue&gt;. Internal use only.</p><div class="docs"><div class="rendered-markdown markdown-docs"><p>&nbsp;</p></div></div><p>Requests real time bars.</p><p>Only 5 seconds bars are provided. This request is subject to the same pacing as any historical data request: no more than 60 API queries in more than 600 seconds.</p><p>Real time bars subscriptions are also included in the calculation of the number of Level 1 market data subscriptions allowed in an account.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, [])</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Request Real Time Bars</h3><div class="row"><h4 id="request-live-bars">22.02.01 Request Real Time Bars</h4><p><strong>tickerId:</strong> int. Request identifier used to track data.</p><p><strong>contract:</strong> Contract. The Contract object for which the depth is being requested</p><p><strong>barSize:</strong> int. Currently being ignored</p><p><strong>whatToShow:</strong> String. The nature of the data being retrieved:<br> Available Values: TRADES, MIDPOINT, BID, ASK</p><p><strong>useRTH:</strong> int. Set to 0 to obtain the data which was also generated outside of the Regular Trading Hours, set to 1 to obtain only the RTH data<br> )</p><p><strong>realTimeBarOptions</strong>: List&lt;TagValue&gt;. Internal use only.</p><div class="docs"><div class="rendered-markdown markdown-docs"><p>&nbsp;</p></div></div><p>Requests real time bars.</p><p>Only 5 seconds bars are provided. This request is subject to the same pacing as any historical data request: no more than 60 API queries in more than 600 seconds.</p><p>Real time bars subscriptions are also included in the calculation of the number of Level 1 market data subscriptions allowed in an account.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, [])</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     from ibapi.contract import Contract
     import time
@@ -140,6 +149,6 @@ th {
     
     app.reqRealTimeBars(3001, contract, 5, "TRADES", 0, [])
     
-    app.run()</pre><p>&nbsp;</p></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

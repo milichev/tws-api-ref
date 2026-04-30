@@ -61,7 +61,7 @@ export function assignBaseFilenames(
     s.num = i + 1;
     const pos = s.num.toString().padStart(2, "0");
     s.pos = parentPrefix ? `${parentPrefix}.${pos}` : pos;
-    s.fileName = `${s.pos}-${s.slug}`; // Base name without extension
+    s.fileName = s.slug ? `${s.pos}-${s.slug}` : s.pos;
     if (s.children.length > 0) {
       assignBaseFilenames(s.children, s.pos);
     }

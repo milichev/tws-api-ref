@@ -9,6 +9,11 @@ export async function writeMdSections(
   console.log(`Writing ${sectionName} with topical routing...`);
   if (!fs.existsSync(outDirMd)) fs.mkdirSync(outDirMd, { recursive: true });
 
+  const sectionBreadcrumbMd: Breadcrumb<any>[] = [
+    { title: "IBKR TWS API", fileName: "../../SKILL.md" },
+    { title, fileName: "index.md" },
+  ];
+
   const buckets: Record<string, { title: string; content: string[] }> = {
     ib: { title: "IB Module", content: [] },
     client: { title: "Client Module", content: [] },
@@ -63,31 +68,28 @@ export async function writeMdSections(
     .filter(([_, data]) => data.content.length > 0)
     .map(([key, data], i) => {
       const fileName = `${(i + 1).toString().padStart(2, "0")}-${key}.md`;
-      const fullContent = data.content.join("\n\n---\n\n");
+      const fullContent = `# ${data.title}\n\n` + data.content.join("\n\n---\n\n");
       
-      breadcrumb.push({ title: data.title, fileName });
+      const nextBreadcrumb = [...sectionBreadcrumbMd, { title: data.title, fileName }];
       const fileMd = pageMdTpl({
         layout: "layout-chapter-md",
         title: data.title,
-        breadcrumb,
+        breadcrumb: nextBreadcrumb,
         content: fullContent,
       });
       writeFile(fileName, fileMd, outDirMd);
-      breadcrumb.pop();
 
       return { title: data.title, fileName };
     });
 
   // Section Index
-  breadcrumb.push({ title, fileName: "index.md" });
   const indexMd = pageMdTpl({
     title,
     layout: "layout-index-md",
     children: bucketList,
-    breadcrumb,
+    breadcrumb: sectionBreadcrumbMd,
     isMd: true,
     flat: true,
   });
-  breadcrumb.pop();
   writeFile("index.md", indexMd, outDirMd);
 }

@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [11-ecs-ref.md](11 EClientSocket Class Reference) -> 
-
- 11 EClientSocket Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [11 EClientSocket Class Reference](11-ecs-ref.md)
 
 
 ## EClientSocket Class Reference

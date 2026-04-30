@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14-accounts.html">14 Account &amp; Portfolio Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.08-pnl.html">14.08 Profit &amp; Loss (PnL)</a>
       </li>
       <li class="breadcrumb-item">
         <a href="14.08.01-request-pnl-position.html">14.08.01 Request P&amp;L for individual positions</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request P&amp;L for individual positions</h3><div class="row"><p>Subscribe using the IBApi::EClient::reqPnLSingle function Cannot be used with IBroker accounts configured for on-demand lookup with account = ‘All’. Currently updates are returned to IBApi.EWrapper.pnlSingle approximately once per second*.</p><ul><li>If a P&amp;L subscription request is made for an invalid conId or contract not in the account, there will not be a response.</li><li>As elsewhere in the API, a max double value will indicate an ‘unset’ value. This corresponds to an empty cell in TWS.</li><li>Introducing broker accounts without a large number of subaccounts (&lt;50) can receive aggregate data by specifying the account as “All”.</li><li>*Cannot be used with IBroker accounts configured for on-demand lookup with account = ‘All’</li></ul><p>*subject to change in the future.</p></div><div class="row"><h4 id="request-pnl-position">14.08.01 Request P&amp;L for individual positions</h4><p><strong>reqId:</strong> int. Request identifier for to track the data.</p><p><strong>account:</strong> String. Account in which position exists</p><p><strong>modelCode:</strong> String. Model in which position exists</p><p><strong>conId:</strong> int. Contract ID (conId) of contract to receive daily PnL updates for. Note: does not return message if invalid conId is entered</p><p>)</p><p>Requests real time updates for daily PnL of individual positions.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqPnLSingle(requestId, "U1234567", "", 265598)</pre><p>&nbsp;</p><p>Code example:</p><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+     <h3 class="section-title-2">Request P&amp;L for individual positions</h3><div class="row"><p>Subscribe using the IBApi::EClient::reqPnLSingle function Cannot be used with IBroker accounts configured for on-demand lookup with account = ‘All’. Currently updates are returned to IBApi.EWrapper.pnlSingle approximately once per second*.</p><ul><li>If a P&amp;L subscription request is made for an invalid conId or contract not in the account, there will not be a response.</li><li>As elsewhere in the API, a max double value will indicate an ‘unset’ value. This corresponds to an empty cell in TWS.</li><li>Introducing broker accounts without a large number of subaccounts (&lt;50) can receive aggregate data by specifying the account as “All”.</li><li>*Cannot be used with IBroker accounts configured for on-demand lookup with account = ‘All’</li></ul><p>*subject to change in the future.</p></div><div class="row"><h4 id="request-pnl-position">14.08.01 Request P&amp;L for individual positions</h4><p><strong>reqId:</strong> int. Request identifier for to track the data.</p><p><strong>account:</strong> String. Account in which position exists</p><p><strong>modelCode:</strong> String. Model in which position exists</p><p><strong>conId:</strong> int. Contract ID (conId) of contract to receive daily PnL updates for. Note: does not return message if invalid conId is entered</p><p>)</p><p>Requests real time updates for daily PnL of individual positions.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqPnLSingle(requestId, "U1234567", "", 265598)</code></pre><p>&nbsp;</p><p>Code example:</p><pre><code class="language-python">from ibapi.client import *
     from ibapi.wrapper import *
     import time
     
@@ -134,6 +143,6 @@ th {
     time.sleep(1)
     app.reqPnLSingle(101, "U123456", "", 8314) #IBM conId: 8314
     
-    app.run()</pre><p>&nbsp;</p></div></div></div>
+    app.run()</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

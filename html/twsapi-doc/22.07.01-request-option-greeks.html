@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22-live-md.html">22 Market Data: Live</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="22.07-option-greeks.html">22.07 Option Greeks</a>
       </li>
       <li class="breadcrumb-item">
         <a href="22.07.01-request-option-greeks.html">22.07.01 Request Options Greeks</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Request Options Greeks</h3><div class="row"><h4 id="request-option-greeks">22.07.01 Request Options Greeks</h4><p><strong>reqId:</strong>&nbsp;int. Request identifier for tracking data.</p><p><strong>contract:</strong>&nbsp;Contract. Contract object used for specifying an instrument.</p><p><strong>genericTickList:</strong>&nbsp;String. Comma separated ids of the available generic ticks.</p><p><strong>snapshot:</strong> bool. Set to True for snapshot data with a relevant subscription or False for live data.</p><p><strong>regulatorySnapshot:</strong> bool. Set to True for a paid, regulatory snapshot or False for live data.</p><p><strong>mktDataOptions:</strong>&nbsp;List&lt;TagValue&gt;. Internal use only.<br> )</p><p>Greeks are requested automatically when pulling market data for an Options contract.<br> Users that do not have a valid <a href="/campus/ibkr-api-page/market-data-subscriptions/#popular-md-subscriptions">Market Data Subscription</a> for the underlying contract will receive an error that Market Data Is Not Subscribed. This error can be ignored if Greeks are not wanted.<br> &nbsp;</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqMktData(reqId, OptionContract, "", False, False, [])</pre></div></div></div>
+     <h3 class="section-title-2">Request Options Greeks</h3><div class="row"><h4 id="request-option-greeks">22.07.01 Request Options Greeks</h4><p><strong>reqId:</strong>&nbsp;int. Request identifier for tracking data.</p><p><strong>contract:</strong>&nbsp;Contract. Contract object used for specifying an instrument.</p><p><strong>genericTickList:</strong>&nbsp;String. Comma separated ids of the available generic ticks.</p><p><strong>snapshot:</strong> bool. Set to True for snapshot data with a relevant subscription or False for live data.</p><p><strong>regulatorySnapshot:</strong> bool. Set to True for a paid, regulatory snapshot or False for live data.</p><p><strong>mktDataOptions:</strong>&nbsp;List&lt;TagValue&gt;. Internal use only.<br> )</p><p>Greeks are requested automatically when pulling market data for an Options contract.<br> Users that do not have a valid <a href="/campus/ibkr-api-page/market-data-subscriptions/#popular-md-subscriptions">Market Data Subscription</a> for the underlying contract will receive an error that Market Data Is Not Subscribed. This error can be ignored if Greeks are not wanted.<br> &nbsp;</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.reqMktData(reqId, OptionContract, "", False, False, [])</code></pre></div></div></div>
   </body>
 </html>

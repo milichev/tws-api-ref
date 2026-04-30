@@ -111,12 +111,21 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27-orders.html">27 Orders</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.02-cancel-order.html">27.02 Cancelling an Order</a>
       </li>
       <li class="breadcrumb-item">
         <a href="27.02.01-cancel-order.html">27.02.01 Cancel Individual Order</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Cancel Individual Order</h3><div class="row"><h4 id="cancel-order">27.02.01 Cancel Individual Order</h4><p><strong>orderId:</strong> int. Specify which order should be cancelled by its identifier.</p><p><strong>orderCancel:</strong> orderCancel. An OrderCancel object that can receive the manualOrderCancelTime, manualOrderIndicator, and extOperator fields. See <a href="../undefined/index.html">OrderCancel Reference</a> for more insight on the OrderCancel class.<br> )</p><p>Cancels an active order placed by from the same API client ID.</p><p><strong>Note:</strong> API clients cannot cancel individual orders placed by other clients. Only reqGlobalCancel is available.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.cancelOrder(orderId, OrderCancel())</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Cancel Individual Order</h3><div class="row"><h4 id="cancel-order">27.02.01 Cancel Individual Order</h4><p><strong>orderId:</strong> int. Specify which order should be cancelled by its identifier.</p><p><strong>orderCancel:</strong> orderCancel. An OrderCancel object that can receive the manualOrderCancelTime, manualOrderIndicator, and extOperator fields. See <a href="../undefined/index.html">OrderCancel Reference</a> for more insight on the OrderCancel class.<br> )</p><p>Cancels an active order placed by from the same API client ID.</p><p><strong>Note:</strong> API clients cannot cancel individual orders placed by other clients. Only reqGlobalCancel is available.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">self.cancelOrder(orderId, OrderCancel())</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

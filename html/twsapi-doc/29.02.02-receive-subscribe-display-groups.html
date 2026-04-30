@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="29-display-groups.html">29 TWS UI Display Groups</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="29.02-subscribe-display-groups.html">29.02 Subscribe To Group Events</a>
       </li>
       <li class="breadcrumb-item">
         <a href="29.02.02-receive-subscribe-display-groups.html">29.02.02 Receive Group Events Subscription</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive Group Events Subscription</h3><div class="row"><h4 id="receive-subscribe-display-groups">29.02.02 Receive Group Events Subscription</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>contractInfo:</strong> String. Contract information produced for the active display group.</p><p>)<br> Call triggered once after receiving the subscription request, and will be sent again if the selected contract in the subscribed * display group has changed.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def displayGroupUpdated(self, reqId: int, contractInfo: str):
-    	print("DisplayGroupUpdated. ReqId:", reqId, "ContractInfo:", contractInfo)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive Group Events Subscription</h3><div class="row"><h4 id="receive-subscribe-display-groups">29.02.02 Receive Group Events Subscription</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>contractInfo:</strong> String. Contract information produced for the active display group.</p><p>)<br> Call triggered once after receiving the subscription request, and will be sent again if the selected contract in the subscribed * display group has changed.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def displayGroupUpdated(self, reqId: int, contractInfo: str):
+    	print("DisplayGroupUpdated. ReqId:", reqId, "ContractInfo:", contractInfo)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

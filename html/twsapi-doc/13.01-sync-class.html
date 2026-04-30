@@ -111,14 +111,20 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13-sync-api.html">13 Synchronous API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="13.01-sync-class.html">13.01 TWSSyncWrapper Class</a>
       </li>
     </ul>
-     <h3 class="section-title-2">TWSSyncWrapper Class</h3><div class="row"><p>The TWSSyncWrapper class is produced from the ibapi/sync_wrapper file. Clients looking to utilize the class may seek to replace their typical imports for ibapi/client and ibapi/wrapper with an import for “from ibapi.sync_wrapper import TWSSyncWrapper”.</p><p>The TWSSyncWrapper class accepts a single argument, timeout. This will provide a default timeout integer in seconds for all connected functions to work with. If no timeout is specified, a default value of 30 seconds is passed instead.</p><p>Each function supports a timeout argument for unique endpoint timeout behavior.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.sync_wrapper import TWSSyncWrapper
+     <h3 class="section-title-2">TWSSyncWrapper Class</h3><div class="row"><p>The TWSSyncWrapper class is produced from the ibapi/sync_wrapper file. Clients looking to utilize the class may seek to replace their typical imports for ibapi/client and ibapi/wrapper with an import for “from ibapi.sync_wrapper import TWSSyncWrapper”.</p><p>The TWSSyncWrapper class accepts a single argument, timeout. This will provide a default timeout integer in seconds for all connected functions to work with. If no timeout is specified, a default value of 30 seconds is passed instead.</p><p>Each function supports a timeout argument for unique endpoint timeout behavior.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">from ibapi.sync_wrapper import TWSSyncWrapper
     
-    app = TWSSyncWrapper(timeout=30)</pre><p>&nbsp;</p></div></div></div>
+    app = TWSSyncWrapper(timeout=30)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

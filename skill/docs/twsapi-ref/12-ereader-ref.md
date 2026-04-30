@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [12-ereader-ref.md](12 EReader Class Reference) -> 
-
- 12 EReader Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [12 EReader Class Reference](12-ereader-ref.md)
 
 
 ## EReader Class Reference

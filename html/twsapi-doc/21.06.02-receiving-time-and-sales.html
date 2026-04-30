@@ -111,18 +111,27 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21-hist-md.html">21 Market Data: Historical</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.06-historical-time-and-sales.html">21.06 Historical Time &amp; Sales</a>
       </li>
       <li class="breadcrumb-item">
         <a href="21.06.02-receiving-time-and-sales.html">21.06.02 Receiving Time and Sales data</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receiving Time and Sales data</h3><div class="row"><p>Data is returned to unique functions based on what is requested in the whatToShow field.</p><ul><li>IBApi.EWrapper.historicalTicks for whatToShow=MIDPOINT</li><li>IBApi.EWrapper.historicalTicksBidAsk for whatToShow=BID_ASK</li><li>IBApi.EWrapper.historicalTicksLast for for whatToShow=TRADES</li></ul></div><div class="row"><h4 id="receiving-time-and-sales">21.06.02 Receiving Time and Sales data</h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=MIDPOINT</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def historicalTicks(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+     <h3 class="section-title-2">Receiving Time and Sales data</h3><div class="row"><p>Data is returned to unique functions based on what is requested in the whatToShow field.</p><ul><li>IBApi.EWrapper.historicalTicks for whatToShow=MIDPOINT</li><li>IBApi.EWrapper.historicalTicksBidAsk for whatToShow=BID_ASK</li><li>IBApi.EWrapper.historicalTicksLast for for whatToShow=TRADES</li></ul></div><div class="row"><h4 id="receiving-time-and-sales">21.06.02 Receiving Time and Sales data</h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=MIDPOINT</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def historicalTicks(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
     	for tick in ticks:
-    		print("historicalTicks. ReqId:", reqId, tick)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalTicksBidAsk (</span></h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=BidAsk</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def historicalTicksBidAsk(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+    		print("historicalTicks. ReqId:", reqId, tick)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalTicksBidAsk (</span></h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=BidAsk</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def historicalTicksBidAsk(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
     	for tick in ticks:
-    		print("historicalTicksBidAsk. ReqId:", reqId, tick)</pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalTicksLast (</span></h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=Last &amp; AllLast</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def historicalTicksLast(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+    		print("historicalTicksBidAsk. ReqId:", reqId, tick)</code></pre><p>&nbsp;</p></div></div></div><div class="row"><h4><span style="color: #800000">EWrapper.historicalTicksLast (</span></h4><p><strong>reqId:</strong> int, id of the request</p><p><strong>ticks:</strong> ListOfHistoricalTick, object containing a list of tick values for the requested timeframe.</p><p><strong>done:</strong> bool, return whether or not this is the end of the historical ticks requested.<br> )</p><p>For whatToShow=Last &amp; AllLast</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def historicalTicksLast(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
     	for tick in ticks:
-    		print("HistoricalTickLast. ReqId:", reqId, tick)</pre><p>&nbsp;</p></div></div></div>
+    		print("HistoricalTickLast. ReqId:", reqId, tick)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

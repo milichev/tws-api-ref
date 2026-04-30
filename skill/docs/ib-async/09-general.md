@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [09-general.md](General Reference) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [General Reference](09-general.md)
 
- General Reference
 
+# General Reference
 
 ### Install Everything with Poetry
 

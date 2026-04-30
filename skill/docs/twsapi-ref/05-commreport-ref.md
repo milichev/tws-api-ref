@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [05-commreport-ref.md](05 CommissionAndFeesReport Class Reference) -> 
-
- 05 CommissionAndFeesReport Class Reference
+[IBKR TWS API](../../SKILL.md) · [TWS API Reference](index.md) · [05 CommissionAndFeesReport Class Reference](05-commreport-ref.md)
 
 
 ## CommissionAndFeesReport Class Reference

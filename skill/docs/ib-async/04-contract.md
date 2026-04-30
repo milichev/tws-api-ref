@@ -1,8 +1,7 @@
-  [index.html](IBKR TWS API) -> 
-  [04-contract.md](Contract Module) -> 
+[IBKR TWS API](../../SKILL.md) · [ib_async Reference](index.md) · [Contract Module](04-contract.md)
 
- Contract Module
 
+# Contract Module
 
 ### Example Contract Instantiations
 

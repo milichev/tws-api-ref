@@ -111,13 +111,22 @@ th {
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">IBKR TWS API</a>
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="index.html">TWS API Documentation</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24-news.html">24 News</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="24.04-news-articles.html">24.04 News Articles</a>
       </li>
       <li class="breadcrumb-item">
         <a href="24.04.02-receive-news-articles.html">24.04.02 Receive News Articles</a>
       </li>
     </ul>
-     <h3 class="section-title-2">Receive News Articles</h3><div class="row"><h4 id="receive-news-articles">24.04.02 Receive News Articles</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>articleType:</strong> int. The type of news article (0 – plain text or html, 1 – binary data / pdf).</p><p><strong>articleText:</strong> String. The body of article (if articleType == 1, the binary data is encoded using the Base64 scheme).<br> )</p><p>Called when receiving a News Article in response to reqNewsArticle().</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def newsArticle(self, requestId: int, articleType: int, articleText: str):
-      print("requestId: ", requestId, "articleType: ", articleType, "articleText: ", articleText)</pre><p>&nbsp;</p></div></div></div>
+     <h3 class="section-title-2">Receive News Articles</h3><div class="row"><h4 id="receive-news-articles">24.04.02 Receive News Articles</h4><p><strong>requestId:</strong> int. Request identifier used to track data.</p><p><strong>articleType:</strong> int. The type of news article (0 – plain text or html, 1 – binary data / pdf).</p><p><strong>articleText:</strong> String. The body of article (if articleType == 1, the binary data is encoded using the Base64 scheme).<br> )</p><p>Called when receiving a News Article in response to reqNewsArticle().</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre><code class="language-python">def newsArticle(self, requestId: int, articleType: int, articleText: str):
+      print("requestId: ", requestId, "articleType: ", articleType, "articleText: ", articleText)</code></pre><p>&nbsp;</p></div></div></div>
   </body>
 </html>

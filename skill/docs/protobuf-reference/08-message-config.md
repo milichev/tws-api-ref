@@ -1,7 +1,4 @@
-  [index.html](IBKR TWS API) -> 
-  [08-message-config.md](08 MessageConfig) -> 
-
- 08 MessageConfig
+[IBKR TWS API](../../SKILL.md) · [Protobuf Reference](index.md) · [08 MessageConfig](08-message-config.md)
 
 
 ## MessageConfig
@@ -10,5 +7,7 @@
 
 **enabled**: `Boolean` – Controls whether the specified message type is active and will be transmitted to the API client.
 
+```generic
 messageConfigProto.id = 131
 messageConfigProto.enabled = False
+```
