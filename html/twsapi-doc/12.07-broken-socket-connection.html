@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>12.07 Broken API socket connection</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="12.07-broken-socket-connection.html">12.07 Broken API socket connection</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Broken API socket connection</h3><div class="row"><p>If there is a problem with the socket connection between TWS and the API client, for instance if TWS suddenly closes, this will trigger an exception in the EReader thread which is reading from the socket. This exception will also occur if an API client attempts to connect with a client ID that is already in use.</p><p>The socket EOF is handled slightly differently in different API languages. For instance in Java, it is caught and sent to the client application to IBApi::EWrapper::error with errorCode 507: “Bad Message”. In C# it is caught and sent to IBApi::EWrapper::error with errorCode -1. The client application needs to handle this error message and use it to indicate that an exception has been thrown in the socket connection.</p><p>Clients can validate a broken connection with the EWrapper.connectionClosed and EClient.isConnected functions.</p></div><div class="row"><p>Once a connection fails for any reason, the EWrapper.connectionClosed function will be called. This function can be used to build reconnection logic or affirm a system disconnect.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">def connectClosed(self):
+        print("API Connection Lost.")
+    </pre><p>&nbsp;</p></div></div></div>
+  </body>
+</html>

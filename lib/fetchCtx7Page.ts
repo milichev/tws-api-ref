@@ -1,21 +1,35 @@
 import fs from "node:fs";
+import path from "node:path";
 import { SectionInfo } from "./generate";
-import { fetchText, writeFile } from "./utils";
+import { fetchText, HTML_DIR, writeFile } from "./utils";
 import { chopLargeMd } from "./chopLargeMd";
+import { SKILL_DIR } from "./utils";
 
-export async function fetchCtx7Section(
-  info: Omit<SectionInfo, "type"> & { type: "ctx7" },
-) {
-  const { url, dir, file, name } = info;
-  fs.mkdirSync(dir, { recursive: true });
-  const rawContent = await fetchText(url);
-  writeFile(file, rawContent, dir);
+export async function fetchCtx7Section(info: SectionInfo) {
+  const { url, sectionName } = info;
+  const outDirMd = path.join(SKILL_DIR, "docs", sectionName);
+  const rawFilename = path.join(outDirMd, `${sectionName}.raw.md`);
+  const indexFilename = path.join(outDirMd, `index.md`);
+  const outDirHtml = path.join(HTML_DIR, sectionName);
 
-  const chapters = await chopLargeMd({
-    source: file,
-    outDir: dir,
-    sectionName: name,
+  fs.mkdirSync(outDirMd, { recursive: true });
+  const rawMd = await fetchText(url);
+  writeFile(rawFilename, rawMd);
+
+  const children = await chopLargeMd({
+    source: rawFilename,
+    outDir: outDirMd,
+    sectionName,
   });
 
-  return { ...info, title: name, chapters };
+  return {
+    ...info,
+    type: "md",
+    title: sectionName,
+    children,
+    outDirHtml,
+    outDirMd,
+    rawFilename,
+    indexFilename,
+  } as const;
 }

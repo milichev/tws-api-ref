@@ -20,4 +20,4 @@ description: Reference for Python development with IBKR TWS/Gateway API and ib_a
 
 ## Contents
 
-{{TOC}}
+{{> toc-level-md children}}

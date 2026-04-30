@@ -1,39 +1,29 @@
 import fs from "node:fs";
-import path from "node:path";
 import { fetchIbkrSection } from "./fetchIbkrPage";
-import { pageTpl, REPO_ROOT, writeFile } from "./utils";
-import { makeMarkdown } from "./makeMarkdown";
+import { pageHtmlTpl, writeFile, HTML_DIR, SKILL_DIR } from "./utils";
 import { fetchCtx7Section } from "./fetchCtx7Page";
-import { relinkIbkrSections } from "./relinkIbkrSections";
-
-export const HTML_DIR = path.join(REPO_ROOT, "html");
-export const SKILL_DIR = path.join(REPO_ROOT, "skill");
+import { writeSections } from "./writeSections";
+import { writeRoot } from "./writeRoot";
 
 [HTML_DIR, SKILL_DIR].forEach((dir) => {
+  console.log(`Cleaning ${dir}`);
   if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
   fs.mkdirSync(dir, { recursive: true });
 });
 
-export const SKILL_TPL = path.join(REPO_ROOT, "templates/SKILL.md");
-
 export type SectionUrls = typeof SECTION_URLS;
 export type SectionName = SectionUrls[number]["name"];
-export type SourceType = keyof typeof InTypeMap;
+export type SectionType = "html" | "md";
 
 export type SectionInfo = {
-  [K in SourceType]: {
-    name: SectionName;
-    type: K;
-    url: string;
-    dir: string;
-    file: string;
-    imageDir: string;
-  };
-}[SourceType];
+  sectionName: SectionName;
+  type: SectionType;
+  url: string;
+};
 
 export type FetchInfo = (typeof fetchInfos)[number];
-export type IbkrFetchInfo = Extract<FetchInfo, { type: "ibkr" }>;
-export type Ctx7FetchInfo = Extract<FetchInfo, { type: "ctx7" }>;
+export type HtmlFetchInfo = Extract<FetchInfo, { type: "html" }>;
+export type MdFetchInfo = Extract<FetchInfo, { type: "md" }>;
 
 export type Chapter<Content> = {
   sectionName: SectionName;
@@ -62,15 +52,6 @@ export interface TocItem {
   pos: string;
 }
 
-const InTypeMap = {
-  ibkr: { ext: "html", out: HTML_DIR, fetch: fetchIbkrSection },
-  ctx7: {
-    ext: "md",
-    out: path.join(SKILL_DIR, "docs"),
-    fetch: fetchCtx7Section,
-  },
-} as const;
-
 export const IBKR_CAMPUS = "https://ibkrcampus.com/campus/ibkr-api-page";
 
 const SECTION_URLS = [
@@ -98,54 +79,65 @@ const SECTION_URLS = [
 ] as const;
 
 const sectionInfos = SECTION_URLS.map((info): SectionInfo => {
-  const { out, ext } = InTypeMap[info.type];
-  const dir = path.join(out, info.name);
-  const url = info.type === "ibkr" ? `${IBKR_CAMPUS}/${info.name}` : info.url;
+  const type: SectionType = info.type === "ibkr" ? "html" : "md";
   return {
-    type: info.type,
-    name: info.name,
-    url,
-    dir,
-    file: `${info.name}.${ext}`,
-    imageDir: path.join(dir, "images"),
+    type,
+    sectionName: info.name,
+    url: info.type === "ibkr" ? `${IBKR_CAMPUS}/${info.name}` : info.url,
   };
 });
 
 const fetchInfos = await Promise.all(
   sectionInfos.map((info) => {
-    console.info(`Fetching page: ${info.name} from ${info.url}...`);
+    console.info(`Fetching page: ${info.sectionName} from ${info.url}...`);
     switch (info.type) {
-      case "ibkr":
+      case "html":
         return fetchIbkrSection(info);
-      case "ctx7":
+      case "md":
         return fetchCtx7Section(info);
     }
   }),
 );
 
-const title = "IBKR TWS API";
-const breadcrumb: Breadcrumb<unknown>[] = [
-  { title, fileName: "../index.html" },
-];
+await writeRoot(fetchInfos);
 
-await relinkIbkrSections(
-  fetchInfos.filter((s) => s.type === "ibkr") as IbkrFetchInfo[],
-  breadcrumb,
-);
+// await writeSections(fetchInfos, breadcrumb);
 
-const indexHtml = pageTpl({
-  layout: "layout-index",
-  title,
-  children: fetchInfos.map(
-    (info, i): TocItem => ({
-      title: info.title,
-      fileName: `${info.name}/index.html`,
-      num: i + 1,
-      pos: `${i + 1}`.padStart(2, "0"),
-    }),
-  ),
-});
+// Generate HTML index (excluding Ctx7)
+// const ibkrInfos = fetchInfos.filter((s) => s.type === "html");
+// const indexHtml = pageHtmlTpl({
+//   layout: "layout-index-html",
+//   title,
+//   children: ibkrInfos.map(
+//     (info, i): TocItem => ({
+//       title: info.title,
+//       fileName: `${info.sectionName}/index.html`,
+//       num: i + 1,
+//       pos: `${i + 1}`.padStart(2, "0"),
+//     }),
+//   ),
+// });
 
-writeFile("index.html", indexHtml, HTML_DIR);
+// writeFile("index.html", indexHtml, HTML_DIR);
 
-await makeMarkdown();
+// const skillRoot: Chapter<unknown> = {
+//   children: [
+//     ...ibkrInfos.map((info) => ({ ...info, fileName: "index.html" })),
+//     ...ctx7Infos.map((info) => ({ ...info, fileName: "index.md" })),
+//   ],
+// };
+
+// Generate SKILL.md
+// writeFile(
+//   "SKILL.md",
+//   skillTpl({
+//     children,
+//   }),
+//   SKILL_DIR,
+// );
+// const tocMd = fetchInfos
+//   .map((info) => `- [${info.title}](./docs/${info.name}/index.md)`)
+//   .join("\n");
+// // const skillTpl = fs.readFileSync(SKILL_TPL, "utf8");
+// const skillMd = skillTpl.replace("{{TOC}}", tocMd);
+// fs.writeFileSync(path.join(SKILL_DIR, "SKILL.md"), skillMd);

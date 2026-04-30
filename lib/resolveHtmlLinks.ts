@@ -1,6 +1,6 @@
 import type { CheerioAPI } from "cheerio";
 import type { Chapter, SectionInfo, SlugMap } from "./generate";
-import type { HtmlContent } from "./splitHtml";
+import { HtmlContent } from "./writeHtmlSections";
 
 /**
  * Resolves links between chapters and sources.
@@ -12,7 +12,7 @@ export function resolveHtmlLinks(
   sectionInfos: SectionInfo[],
 ) {
   const sectionHrefRegex = new RegExp(
-    `\/${sectionInfos.map((s) => s.name).join("|")}\/(?:#([^/]+))?$`,
+    `\/${sectionInfos.map((s) => s.sectionName).join("|")}\/(?:#([^/]+))?$`,
   );
 
   function walk(list: Chapter<HtmlContent>[]) {

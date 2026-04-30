@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>13.06 Account Summary</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13.06-sync-account-summary.html">13.06 Account Summary</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Account Summary</h3><div class="row"><p>The get_account_summary() function returns all relevant account details identical to Trader Workstation’s “Account” window. Users may query to receive all available data or a narrow window based on the <a href="../undefined/index.html">Account Summary Tag</a>.</p><h3 id="sync-account-summary">13.06 Account Summary</h3><p style="padding-left: 40px"><strong>tags:</strong> String. Account summary key value to receive data for. See <a href="../undefined/index.html">Account Summary Tags</a> for details.</p><p style="padding-left: 40px"><strong>group:</strong> String. Indicates a Financial Advisor’s allocation group to reference account details for. Non-advisor account structures should always pass “All”.</p><p style="padding-left: 80px">Default value passed, “All”.</p><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Timeout before the request disconnects. Function-specific timeout default of 5 second.</p><h4>)</h4><p>&nbsp;</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.account_summary_tags import AccountSummaryTags
+    
+    app.get_account_summary(AccountSummaryTags.AllTags, "All")</pre><p>&nbsp;</p></div></div></div><div class="row"><p>Total size of the request may vary depending on number of accounts held in the account, and the number of tags requested.</p><h4>Response Object</h4><p><strong>{AccountId}:</strong> Dictionary. Contains all tag value pairs for the designated accountId.</p><p>{</p><p><strong>{Tag}:</strong> Dictionary. Contains the value of the affiliated tag along with the relevant currency.</p><p><strong>value:</strong> String. Contains the alphanumeric value affiliated with the designated tag.</p><p><strong>currency:</strong> String. Returns the currency used to denote the value. May return an empty string if returning value does not contain a price.</p><p>}</p><pre class="EnlighterJSRAW" data-enlighter-language="json">{'U1234567': {'AccountType': {'value': 'LLC', 'currency': ''}, 'Cushion': {'value': '0.993764', 'currency': ''}, 'DayTradesRemaining': {'value': '-1', 'currency': ''}, 'LookAheadNextChange': {'value': '1760558400', 'currency': ''}, 'AccruedCash': {'value': '262079.00', 'currency': 'USD'}, 'AvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'BuyingPower': {'value': '1466299088.69', 'currency': 'USD'}, 'EquityWithLoanValue': {'value': '221042710.95', 'currency': 'USD'}, 'ExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'FullAvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'FullExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'FullInitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'FullMaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'GrossPositionValue': {'value': '2982965.22', 'currency': 'USD'}, 'InitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'LookAheadAvailableFunds': {'value': '219944453.18', 'currency': 'USD'}, 'LookAheadExcessLiquidity': {'value': '220044618.70', 'currency': 'USD'}, 'LookAheadInitMarginReq': {'value': '1101020.27', 'currency': 'USD'}, 'LookAheadMaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'MaintMarginReq': {'value': '1000859.00', 'currency': 'USD'}, 'NetLiquidation': {'value': '221425500.56', 'currency': 'USD'}, 'PreviousDayEquityWithLoanValue': {'value': '205659145.23', 'currency': 'USD'}, 'TotalCashValue': {'value': '218181198.71', 'currency': 'USD'}}</pre><p>&nbsp;</p></div>
+  </body>
+</html>

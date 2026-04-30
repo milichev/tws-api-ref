@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 Introduction</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="01-api-introduction.html">01 Introduction</a>
+      </li>
+    </ul>
+     <h2 class="section-title-1">Introduction</h2><div class="row"><p>The TWS API is a TCP Socket Protocol API based on connectivity to the Trader Workstation or IB Gateway. The API acts as an interface to retrieve and send data autonomously to Interactive Brokers. Interactive Brokers provides code systems in Python, Java, C++, C#, and VisualBasic.</p><p>The TWS API is a message protocol as its core, and any library that implements the TWS API, whether created by IB or someone else, is a tool to send and receive these messages over a TCP socket connection with the IB host platform (TWS or IB Gateway). As such the system can be tweaked and modified into any language of interest given the intention to translate the underlying decoder.</p><p>In short, a library written in any other languages must be sending and receiving the same data in the same format as any other conformant TWS API library, so users can look at the documentation for our libraries to see what a given request or response consists of (what it must include, in what form, etc.) and implement them in their own structure.</p></div><div class="row"><p>Our TWS API components are aimed at experienced professional developers willing to enhance the current TWS functionality. Before you use TWS API, please make sure you fully understand the concepts of OOP (<a href="https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/">https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/</a>) and other Computer Science Concepts. Regrettably, Interactive Brokers cannot offer any programming consulting. Before contacting our API support, please always refer to our available documentation, sample applications and Recorded Webinars</p><p>This guide references the Java, VB, C#, C++ and Python Testbed sample projects to demonstrate the TWS API functionality. Code snippets are extracted from these projects and we suggest all those users new to the TWS API to get familiar with them in order to quickly understand the fundamentals of our programming interface. The Testbed sample projects can be found within the samples folder of the TWS API’s installation directory.</p></div>
+  </body>
+</html>

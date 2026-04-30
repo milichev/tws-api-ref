@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>13.10 Place Order</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="../index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="13.10-sync-place-order.html">13.10 Place Order</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Place Order</h3><div class="row"><h3 id="sync-place-order">13.10 Place Order</h3><p style="padding-left: 40px"><strong>contract:</strong> <a href="../undefined/index.html">Contract Object</a>. Contract to trade.</p><p style="padding-left: 40px"><strong>order:</strong> <a href="../undefined/index.html">Order Object</a>. Order parameters to be traded.</p><p style="padding-left: 40px"><strong>timeout:</strong> Integer. Uses default timeout value passed to TWSSyncClass. Please be aware the timeout is only relevant for the response details. The order will submit in accordance with the order object’s details.</p><h4>)</h4><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">contract = Contract()
+    contract.symbol = "AAPL"
+    contract.secType = "STK"
+    contract.exchange = "SMART"
+    contract.primaryExchange = "NASDAQ"
+    contract.currency = "USD"
+    
+    order = Order()
+    order.action = "BUY"
+    order.orderType = "LMT"
+    order.totalQuantity = 100
+    order.lmtPrice = 250
+    
+    app.place_order_sync(contract, order)</pre><p>&nbsp;</p></div></div></div><div class="row"><p>Upon placing an order, a dictionary containing all of the order status’s information will be returned. As the response is static, refer to the <a href="../undefined/index.html">get_open_orders</a> function more more details on the current order status.</p><h4>Response Object</h4><p>{<br> orderId: Integer. The identifier for the order. Relevant for order tracking, modification, and cancellation.<br> status: String. The current status of the order. See <a href="../undefined/index.html">Order Status</a> for more details.<br> filled: Decimal. The total quantity of executed shares for the order.<br> remaining: Decimal. The total quantity of shares that have yet to execute for the order.<br> avgFillPrice: Float. The average execution price across fills.<br> permId: Integer. The permanent identifier for the order. This is calculated based on orderId and client ID for internal order tracking.<br> parentId: Integer. The orderId for the parent of this contract. Will return 0 unless trading a <a href="/campus/ibkr-api-page/order-types/#bracket-orders">bracket or </a><a href="/campus/ibkr-api-page/order-types/#one-cancels-all-orders">OCA</a> order.<br> lastFillPrice: Float. The price of the most recent execution for the order.<br> clientId: Integer. The identifier for which client ID the order was placed through. Orders can only be cancelled or modified by their on the <a href="../undefined/index.html">clientId they are bound to</a>.<br> whyHeld: String. In the event an order is held instead of being transmitted, the reason will be documented here.<br> mktCapPrice: Float. If an order is capped due to it exceeding the market price and the price is automatically modified, the modified price will be returned. Otherwise 0.0 is displayed.<br> }<br> &nbsp;</p><pre class="EnlighterJSRAW" data-enlighter-language="python">{'orderId': 347, 'status': 'PreSubmitted', 'filled': Decimal('0'), 'remaining': Decimal('100'), 'avgFillPrice': 0.0, 'permId': 979867961, 'parentId': 0, 'lastFillPrice': 0.0, 'clientId': 8675309, 'whyHeld': '', 'mktCapPrice': 0.0}</pre><p>&nbsp;</p></div>
+  </body>
+</html>

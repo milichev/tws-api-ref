@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>10 Architecture</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+      [../index.html](IBKR TWS API) -> 
+      [10-architecture.md](10 Architecture) -> 
+    
+     10 Architecture
+    
+    
+    ## Architecture
+    
+    The TWS API is a BSD implementation that communicates request and response values across TCP socket using a end-line-delimited message protocol. While the underlying structure of the message will vary by request, requests typically follow a patter of indicating a message identifier, request identifier, and then directly relevant content for the request such as contract details or market data parameters.
+    
+    The provided TWS API package use two distinct classes to accommodate the request / response functionality of the socket protocol, EClient and EWrapper respectively.
+    
+    The EWrapper class is used to receive all messages from the host and distribute them amongst the affiliated response functions. The EReader class will retrieve the messages from the socket connection and decode them for distribution by the EWrapper class.
+    
+    class TestWrapper(wrapper.EWrapper):
+    
+    EClient or EClientSocket is used to send requests to the Trader Workstation. This client class contains all the available methods to communicate with the host. Up to 32 clients can be connected to a single instance of the host Trader Workstation or IB Gateway simultaneously.
+    
+    The primary distinction in EClient and EClientSocket is the involvement of the EReader Class to trigger when requests should be processed. EClient is unique to the Python implementation and utilizes the Python Queue module in place of the EReaderSignal directly. Both the EReaderSignal and Python Queue module handle the queueing process for submitting messages across the socket connection. In either scenario, the EWrapper class must be implemented first to acknowledge the EClient requests.
+    
+    class TestClient(EClient):
+         def \_\_init\_\_(self, wrapper):
+             EClient.\_\_init\_\_(self, wrapper)
+    ...
+    class TestApp(TestWrapper, TestClient):
+    	def \_\_init\_\_(self):
+    	TestWrapper.\_\_init\_\_(self)
+             TestClient.\_\_init\_\_(self, wrapper=self)
+    
+    **Note**: The EReaderSignal class is not used for Python API. The Python Queue module is used for inter-thread communication and data exchange.
+  </body>
+</html>

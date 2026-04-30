@@ -3,17 +3,17 @@ import { join, dirname } from "node:path";
 import { homedir } from "node:os";
 
 const REPO_ROOT = dirname(import.meta.dirname);
-const BASE = join(homedir(), ".gemini/antigravity");
-const SKILLS = join(BASE, "skills");
-const TARGET = join(SKILLS, "ibkr-tws-api");
-const SOURCE = join(REPO_ROOT, "md-out");
+const AGY_BASE = join(homedir(), ".gemini/antigravity");
+const AGY_SKILLS = join(AGY_BASE, "skills");
+const TARGET = join(AGY_SKILLS, "ibkr-tws-api");
+const SOURCE = join(REPO_ROOT, "skill");
 
-if (!existsSync(BASE)) {
-  console.error(`Error: ${BASE} not found.`);
+if (!existsSync(AGY_BASE)) {
+  console.error(`Error: ${AGY_BASE} not found.`);
   process.exit(1);
 }
 
-if (!existsSync(SKILLS)) mkdirSync(SKILLS);
+if (!existsSync(AGY_SKILLS)) mkdirSync(AGY_SKILLS);
 
 if (existsSync(TARGET)) {
   const s = lstatSync(TARGET);

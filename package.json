@@ -7,9 +7,11 @@
   "private": true,
   "scripts": {
     "generate": "tsx lib/generate.ts",
-    "serve": "npx -y http-server ./out",
+    "serve-html": "npx -y http-server ./html",
+    "serve-skill": "npx -y docsify-cli serve ./skill",
+    "serve-skill-old": "npx -y vitepress dev ./skill",
     "install-skill": "tsx lib/install-skill.ts",
-    "mcp": "npx -y @modelcontextprotocol/server-filesystem ./out"
+    "mcp": "npx -y @modelcontextprotocol/server-filesystem ./skill"
   },
   "keywords": [
     "tws",

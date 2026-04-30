@@ -3,11 +3,16 @@ import path from "node:path";
 import H from "handlebars";
 
 export const REPO_ROOT = path.dirname(import.meta.dirname);
+export const HTML_DIR = path.join(REPO_ROOT, "html");
+export const SKILL_DIR = path.join(REPO_ROOT, "skill");
 
-export const pageTpl = getTpl("templates/page.html");
+export const pageHtmlTpl = getTpl("templates/page.html");
+export const skillMdTpl = getTpl("templates/SKILL.md");
 
-H.registerPartial("toc-level", readFile("templates/toc-level.html"));
-H.registerPartial("layout-index", readFile("templates/layout-index.html"));
+H.registerPartial("toc-level-html", readFile("templates/toc-level.html"));
+H.registerPartial("toc-level-md", readFile("templates/toc-level.md"));
+H.registerPartial("layout-index-html", readFile("templates/layout-index.html"));
+H.registerPartial("layout-index-md", readFile("templates/layout-index.md"));
 H.registerPartial(
   "layout-chapter-html",
   readFile("templates/layout-chapter.html"),

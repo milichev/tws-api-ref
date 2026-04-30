@@ -1,3 +1,5 @@
-{{> breadcrumb breadcrumb }}
+{{> breadcrumb-html breadcrumb }}
 <h1>{{title}}</h1>
-<section class="toc">{{#if children}}{{> toc-level children}}{{/if}}</section>
+<section class="toc">
+  {{#if children}}{{> toc-level-html children}}{{/if}}
+</section>
