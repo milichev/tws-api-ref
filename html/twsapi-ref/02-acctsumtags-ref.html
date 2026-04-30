@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02 AccountSummaryTags Class</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="02-acctsumtags-ref.html">02 AccountSummaryTags Class</a>
+      </li>
+    </ul>
+     <h2 class="section-title-1">AccountSummaryTags Class</h2><div class="row"><p>Class containing all existing values being reported by EClientSocket::reqAccountSummary.</p></div><div class="row"><p>Public Attributes</p><table><tbody><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td>AccountType = “AccountType”</td><td>&nbsp;string</td><td></td></tr><tr><td>NetLiquidation = “NetLiquidation”</td><td>&nbsp;string</td><td></td></tr><tr><td>TotalCashValue = “TotalCashValue”</td><td>&nbsp;string</td><td><div><div>Total cash including futures pnl</div></div></td></tr><tr><td>SettledCash = “SettledCash”</td><td>&nbsp;string</td><td><div><div>For cash accounts, this is the same as TotalCashValue</div></div></td></tr><tr><td>AccruedCash = “AccruedCash”</td><td>&nbsp;string</td><td><div><div>Net accrued interest</div></div></td></tr><tr><td>BuyingPower = “BuyingPower”</td><td>&nbsp;string</td><td><div><div>The maximum amount of marginable US stocks the account can buy</div></div></td></tr><tr><td>EquityWithLoanValue = “EquityWithLoanValue”</td><td>&nbsp;string</td><td><div><div>Cash + stocks + bonds + mutual funds</div></div></td></tr><tr><td>PreviousDayEquityWithLoanValue = “PreviousDayEquityWithLoanValue”</td><td>&nbsp;string</td><td></td></tr><tr><td>GrossPositionValue = “GrossPositionValue”</td><td>&nbsp;string</td><td><div><div>The sum of the absolute value of all stock and equity option positions</div></div></td></tr><tr><td>ReqTEquity = “ReqTEquity”</td><td>&nbsp;string</td><td></td></tr><tr><td>ReqTMargin = “ReqTMargin”</td><td>&nbsp;string</td><td></td></tr><tr><td>SMA = “SMA”</td><td>&nbsp;string</td><td><div><div>Special Memorandum Account</div></div></td></tr><tr><td>InitMarginReq = “InitMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>MaintMarginReq = “MaintMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>AvailableFunds = “AvailableFunds”</td><td>&nbsp;string</td><td></td></tr><tr><td>ExcessLiquidity = “ExcessLiquidity”</td><td>&nbsp;string</td><td></td></tr><tr><td>Cushion = “Cushion”</td><td>&nbsp;string</td><td><div><div>Excess liquidity as a percentage of net liquidation value</div></div></td></tr><tr><td>FullInitMarginReq = “FullInitMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>FullMaintMarginReq = “FullMaintMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>FullAvailableFunds = “FullAvailableFunds”</td><td>&nbsp;string</td><td></td></tr><tr><td>FullExcessLiquidity = “FullExcessLiquidity”</td><td>&nbsp;string</td><td></td></tr><tr><td>LookAheadNextChange = “LookAheadNextChange”</td><td>&nbsp;string</td><td><div><div>Time when look-ahead values take effect</div></div></td></tr><tr><td>LookAheadInitMarginReq = “LookAheadInitMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>LookAheadMaintMarginReq = “LookAheadMaintMarginReq”</td><td>&nbsp;string</td><td></td></tr><tr><td>LookAheadAvailableFunds = “LookAheadAvailableFunds”</td><td>&nbsp;string</td><td></td></tr><tr><td>LookAheadExcessLiquidity = “LookAheadExcessLiquidity”</td><td>&nbsp;string</td><td></td></tr><tr><td>HighestSeverity = “HighestSeverity”</td><td>&nbsp;string</td><td><div><div>A measure of how close the account is to liquidation</div></div></td></tr><tr><td>DayTradesRemaining = “DayTradesRemaining”</td><td>&nbsp;string</td><td><div><div>The Number of Open/Close trades one could do before Pattern Day Trading is detected; a value of “-1” means user can do unlimited day trades.</div></div></td></tr><tr><td>Leverage = “Leverage”</td><td>&nbsp;string</td><td><div><div>GrossPositionValue / NetLiquidation</div></div></td></tr></tbody></table></div>
+  </body>
+</html>

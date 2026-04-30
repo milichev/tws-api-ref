@@ -1,11 +1,13 @@
-{{#if length }}
+{{#if length}}
 <ul>
   {{#each .}}
   <li>
     <div class="toc-text">
-      <code>{{num}}</code><a href="./{{fileName}}">{{title}}</a>
+      <code>{{#if pos}}{{pos}}{{else}}{{num}}{{/if}}</code><a href="{{#if (startsWith fileName "http")}}{{fileName}}{{else}}{{#if (startsWith fileName "./")}}{{fileName}}{{else}}./{{fileName}}{{/if}}{{/if}}">{{title}}</a>
     </div>
+    {{#unless @root.flat}}
     {{#if children}}{{> toc-level-html children}}{{/if}}
+    {{/unless}}
   </li>
   {{/each}}
 </ul>

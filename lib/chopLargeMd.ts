@@ -48,28 +48,17 @@ export async function chopLargeMd({
   let chapterCount = 0;
 
   const saveChapter = () => {
-    // Filter out trailing/leading empty lines but preserve content
     const content = currentChapterLines.join("\n").trim();
     if (!content) return;
 
     chapterCount++;
-    // Extract title from the first heading found
     const titleMatch = content.match(/^#+ +([^\n]+)/m);
     const title = titleMatch ? titleMatch[1].trim() : `Chapter ${chapterCount}`;
-
-    // TODO: add lookahead for https?:\/\/ or qualified URL pattern to the end of the line
     const sourceLink = content.match(/^Source: ([^\n]+)/m)?.[1];
-
-    const numStr = String(chapterCount).padStart(3, "0");
     const slug = getSlug(title);
-    const fileName = `${numStr}-${slug}.md`;
-    const fullPath = path.join(absOutDir, fileName);
-
-    fs.writeFileSync(fullPath, content + "\n");
 
     chapters.push({
       title,
-      fileName,
       num: chapterCount,
       content,
       level: 1,

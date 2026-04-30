@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>07 ContractDetails Class Reference</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="07-contractdetails-ref.html">07 ContractDetails Class Reference</a>
+      </li>
+    </ul>
+     <h2 class="section-title-1">ContractDetails Class Reference</h2><div class="row"><p>Extended contract details.</p></div><div class="row"><table><tbody><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td>Contract</td><td>Contract</td><td>A fully-defined Contract object.</td></tr><tr><td>MarketName</td><td>string</td><td>The market name for this product.</td></tr><tr><td>MinTick</td><td>double</td><td>The minimum allowed price variation. Note that many securities vary their minimum tick size according to their price. This value will only show the smallest of the different minimum tick sizes regardless of the product’s price. Full information about the minimum increment price structure can be obtained with the reqMarketRule function or the IB Contract and Security Search site.</td></tr><tr><td>PriceMagnifier</td><td>int</td><td>Allows execution and strike prices to be reported consistently with market data</td></tr><tr><td>OrderTypes</td><td>string</td><td>Supported order types for this product.</td></tr><tr><td>ValidExchanges</td><td>string</td><td>Valid exchange fields when placing an order for this contract.</td></tr><tr><td>None</td><td>The list of exchanges will is provided in the same order as the corresponding MarketRuleIds list.</td><td>None</td></tr><tr><td>UnderConId</td><td>int</td><td>For derivatives</td></tr><tr><td>LongName</td><td>string</td><td>Descriptive name of the product.</td></tr><tr><td>ContractMonth</td><td>string</td><td>Typically the contract month of the underlying for a Future contract.</td></tr><tr><td>Industry</td><td>string</td><td>The industry classification of the underlying/product. For example</td></tr><tr><td>Category</td><td>string</td><td>The industry category of the underlying. For example</td></tr><tr><td>Subcategory</td><td>string</td><td>The industry subcategory of the underlying. For example</td></tr><tr><td>TimeZoneId</td><td>string</td><td>The time zone for the trading hours of the product. For example</td></tr><tr><td>TradingHours</td><td>string</td><td>The trading hours of the product. This value will contain the trading hours of the current day as well as the next’s. For example</td></tr><tr><td>LiquidHours</td><td>string</td><td>The liquid hours of the product. This value will contain the liquid hours (regular trading hours) of the contract on the specified exchange. Format for TWS versions until 969: 20090507:0700-1830</td></tr><tr><td>EvRule</td><td>string</td><td>Contains the Economic Value Rule name and the respective optional argument. The two values should be separated by a colon. For example</td></tr><tr><td>EvMultiplier</td><td>double</td><td>Tells you approximately how much the market value of a contract would change if the price were to change by 1. It cannot be used to get market value by multiplying the price by the approximate multiplier.</td></tr><tr><td>AggGroup</td><td>int</td><td>Aggregated group Indicates the smart-routing group to which a contract belongs. contracts which cannot be smart-routed have aggGroup = -1.</td></tr><tr><td>SecIdList</td><td>List</td><td>A list of contract identifiers that the customer is allowed to view. CUSIP/ISIN/etc. For US stocks</td></tr><tr><td>UnderSymbol</td><td>string</td><td>For derivatives</td></tr><tr><td>UnderSecType</td><td>string</td><td>For derivatives</td></tr><tr><td>MarketRuleIds</td><td>string</td><td>The list of market rule IDs separated by comma Market rule IDs can be used to determine the minimum price increment at a given price.</td></tr><tr><td>RealExpirationDate</td><td>string</td><td>Real expiration date. Requires TWS 968+ and API v973.04+. Python API specifically requires API v973.06+.</td></tr><tr><td>LastTradeTime</td><td>string</td><td>Last trade time.</td></tr><tr><td>StockType</td><td>string</td><td>Stock type.</td></tr><tr><td>Cusip</td><td>string</td><td>The nine-character bond CUSIP. For Bonds only. Receiving CUSIPs requires a CUSIP market data subscription.</td></tr><tr><td>Ratings</td><td>string</td><td>Identifies the credit rating of the issuer. This field is not currently available from the TWS API. For Bonds only. A higher credit rating generally indicates a less risky investment. Bond ratings are from Moody’s and S&amp;P respectively. Not currently implemented due to bond market data restrictions.</td></tr><tr><td>DescAppend</td><td>string</td><td>A description string containing further descriptive information about the bond. For Bonds only.</td></tr><tr><td>BondType</td><td>string</td><td>The type of bond</td></tr><tr><td>CouponType</td><td>string</td><td>The type of bond coupon. This field is currently not available from the TWS API. For Bonds only.</td></tr><tr><td>Callable</td><td>bool</td><td>If true</td></tr><tr><td>Putable</td><td>bool</td><td>Values are True or False. If true</td></tr><tr><td>Coupon</td><td>double</td><td>The interest rate used to calculate the amount you will receive in interest payments over the course of the year. This field is currently not available from the TWS API. For Bonds only.</td></tr><tr><td>Convertible</td><td>bool</td><td>Values are True or False. If true</td></tr><tr><td>Maturity</td><td>string</td><td>he date on which the issuer must repay the face value of the bond. This field is currently not available from the TWS API. For Bonds only. Not currently implemented due to bond market data restrictions.</td></tr><tr><td>IssueDate</td><td>string</td><td>The date the bond was issued. This field is currently not available from the TWS API. For Bonds only. Not currently implemented due to bond market data restrictions.</td></tr><tr><td>NextOptionDate</td><td>string</td><td>Only if bond has embedded options. This field is currently not available from the TWS API. Refers to callable bonds and puttable bonds. Available in TWS description window for bonds.</td></tr><tr><td>NextOptionType</td><td>string</td><td>Type of embedded option. This field is currently not available from the TWS API. Only if bond has embedded options.</td></tr><tr><td>NextOptionPartial</td><td>bool</td><td>Only if bond has embedded options. This field is currently not available from the TWS API. For Bonds only.</td></tr><tr><td>Notes</td><td>string</td><td>If populated for the bond in IB’s database. For Bonds only.</td></tr><tr><td>MinSize</td><td>decimal</td><td>Order’s minimal size.</td></tr><tr><td>SizeIncrement</td><td>decimal</td><td>Order’s size increment.</td></tr><tr><td>SuggestedSizeIncrement</td><td>decimal</td><td>Order’s suggested size increment.</td></tr><tr><td>FundName</td><td>string</td><td>Fund’s name.</td></tr><tr><td>FundFamily</td><td>string</td><td>Fund’s family.</td></tr><tr><td>FundType</td><td>string</td><td>Fund’s type.</td></tr><tr><td>FundFrontLoad</td><td>string</td><td>Fund’s front load.</td></tr><tr><td>FundBackLoad</td><td>string</td><td>Fund’s back load.</td></tr><tr><td>FundBackLoadTimeInterval</td><td>string</td><td>Fund’s back load time interval.</td></tr><tr><td>FundManagementFee</td><td>string</td><td>Fund’s management fee.</td></tr><tr><td>FundClosed</td><td>bool</td><td>Fund closed flag.</td></tr><tr><td>FundClosedForNewInvestors</td><td>bool</td><td>Fund closed for new investors flag.</td></tr><tr><td>FundClosedForNewMoney</td><td>bool</td><td>Fund closed for new money flag.</td></tr><tr><td>FundNotifyAmount</td><td>string</td><td>Fund’s notify amount.</td></tr><tr><td>FundMinimumInitialPurchase</td><td>string</td><td>Fund’s minimum initial purchase.</td></tr><tr><td>FundSubsequentMinimumPurchase</td><td>string</td><td>Fund’s subsequent minimum purchase.</td></tr><tr><td>FundBlueSkyStates</td><td>string</td><td>Fund’s blue sky states.</td></tr><tr><td>FundBlueSkyTerritories</td><td>string</td><td>Fund’s blue sky territories.</td></tr><tr><td>FundDistributionPolicyIndicator</td><td>FundDistributionPolicyIndicator</td><td>Fund’s distribution policy indicator.</td></tr><tr><td>FundAssetType</td><td>FundAssetType</td><td>Fund’s asset type.</td></tr></tbody></table></div>
+  </body>
+</html>

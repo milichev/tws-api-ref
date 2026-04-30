@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>27.03 Exercise Options</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="27.03-exercise-options.html">27.03 Exercise Options</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Exercise Options</h3><div class="row"><p>Options are exercised or lapsed from the API with the function EClient.exerciseOptions.</p><ul><li>Option exercise will appear with order status side = “BUY” and limit price of 0, but only at the time the request is made</li><li>Option exercise can be distinguished by price = 0</li></ul></div><div class="row"><h3 id="exercise-options">27.03 Exercise Options</h3><p><strong>tickerId:</strong> int. Exercise request’s identifier</p><p><strong>contract:</strong> Contract. the option Contract to be exercised.</p><p><strong>exerciseAction:</strong> int. Set to 1 to exercise the option, set to 2 to let the option lapse.</p><p><strong>exerciseQuantity:</strong> int. Number of contracts to be exercised</p><p><strong>account:</strong> String. Destination account</p><p><strong>ovrd:</strong> int. Specifies whether your setting will override the system’s natural action.<br> Set to 1 to override, set to 0 not to.</p><p>For example, if your action is “exercise” and the option is not in-the-money, by natural action the option would not exercise. If you have override set to “yes” the natural action would be overridden and the out-of-the money option would be exercised.</p><p><strong>manualOrderTime:</strong> String. Specify the time at which the options should be exercised. An empty string will assume the current time.<br> Required TWS API 10.26 or higher.<br> )</p><p>Exercises an options contract.</p><p><strong>Note:</strong> this function is affected by a TWS setting which specifies if an exercise request must be finalized.</p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.exerciseOptions(5003, contract, 1, 1, self.account, 1, "")</pre><p>&nbsp;</p></div></div></div>
+  </body>
+</html>

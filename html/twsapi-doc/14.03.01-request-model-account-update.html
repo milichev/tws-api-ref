@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>14.03.01 Requesting Account Update by Model</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.03.01-request-model-account-update.html">14.03.01 Requesting Account Update by Model</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Requesting Account Update by Model</h3><div class="row"><p>The IBApi.EClient.reqAccountUpdatesMulti can be used in any account structure to create simultaneous account value subscriptions from one or multiple accounts and/or models. As with IBApi.EClient.reqAccountUpdates the data returned will match that displayed within the TWS Account Window.</p></div><div class="row"><h4 id="request-model-account-update">14.03.01 Requesting Account Update by Model</h4><p><strong>reqId:</strong> int. Identifier to label the request</p><p><strong>account:</strong> String. Account values can be requested for a particular account</p><p><strong>modelCode:</strong> String. Values can also be requested for a model</p><p><strong>ledgerAndNLV:</strong> bool. returns light-weight request; only currency positions as opposed to account values and currency positions</p><p>)</p><p>Requests account updates for account and/or model.</p><p>IBApi.EClient.reqAccountUpdatesMulti cannot be used with Account=”All” in IBroker accounts with more than 50 subaccounts.</p><p>A profile name can be accepted in place of group in the account parameter for <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#financial-advisors">Financial Advisors</a></p><div class="col-12 col-lg-12 col-xl-6 "><div class="row"><pre class="EnlighterJSRAW" data-enlighter-language="python">self.reqAccountUpdatesMulti(reqId, self.account, "", True)</pre><p>&nbsp;</p><p>Code example:</p><div><div><pre class="EnlighterJSRAW" data-enlighter-language="python">from ibapi.client import *
+    from ibapi.wrapper import *
+    import time
+    
+    class TradeApp(EWrapper, EClient): 
+        def __init__(self): 
+            EClient.__init__(self, self) 
+    
+        def accountUpdateMulti(self, reqId: int, account: str, modelCode: str, key: str, value: str, currency: str):
+            print("AccountUpdateMulti. RequestId:", reqId, "Account:", account, "ModelCode:", modelCode, "Key:", key, "Value:", value, "Currency:", currency)
+    
+        def accountUpdateMultiEnd(self, reqId: int):
+            print("AccountUpdateMultiEnd. RequestId:", reqId)
+        
+    app = TradeApp()      
+    app.connect("127.0.0.1", 7496, clientId=1)
+    
+    time.sleep(1)
+    
+    app.reqAccountUpdatesMulti(103, 'U123456', "", True)
+    
+    app.run()</pre><p>&nbsp;</p></div></div></div></div></div>
+  </body>
+</html>

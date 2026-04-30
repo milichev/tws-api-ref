@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>17.02 Contract Definition &amp; Discovery</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="17.02-ec-contracts.html">17.02 Contract Definition &amp; Discovery</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Contract Definition &amp; Discovery</h3><div class="row"><p>IB’s Event Contract instrument records use the following fields inherited from the options model:</p><ul class="code-line" dir="auto" data-line="5"><li class="code-line" dir="auto" data-line="5">An&nbsp;<strong>underlier</strong>, which may or may not be artificial:<ul class="code-line" dir="auto" data-line="6"><li class="code-line" dir="auto" data-line="6">For&nbsp;<strong>CME products</strong>, a tradable Event Contract will have the relevant CME future as its underlier. Therefore, the security type of the CME contract will be a futures option, or “FOP”.</li><li class="code-line" dir="auto" data-line="7">For&nbsp;<strong>ForecastEx products</strong>, IB has generated an artificial underlying index which serves as a container for related Event Contracts in the same product class. These artificial indices do not have any associated reference values and are purely an artifact of the option instrument model used to represent these Event Contracts. However, these artificial underlying indices can be used to search for groups of related Event Contracts, just as with index options. Therefore, the security type of ForecastEx products are always options, or “OPT”.</li></ul></li><li dir="auto" data-line="7">An&nbsp;<strong>Exchange</strong> value will reflect the listing exchange of the given Event contract.<ul class="code-line" dir="auto" data-line="5"><li dir="auto" data-line="7">ForecastEx contracts will always use “FORECASTX” as the exchange value. Note the value does not include the final “E” in “ForecastEx”.</li><li dir="auto" data-line="7">A CME product may use “CBOT”, “CME”, “COMEX”, or “NYMEX” depending on the contract’s listing.</li></ul></li><li class="code-line" dir="auto" data-line="8">A&nbsp;<strong>Symbol</strong>&nbsp;value which matches the symbol of the underlier, and which reflects the issuer’s product code.</li><li class="code-line" dir="auto" data-line="9">A&nbsp;<strong>Trading Class</strong>&nbsp;which also reflects the issuer’s product code for the instrument, and in the case of CME Group products, is used to differentiate Event Contracts from CME futures options.<ul class="code-line" dir="auto" data-line="10"><li class="code-line" dir="auto" data-line="10">Note that many CME Group Event Contracts, which resolve against CME Group futures, are assigned a Trading Class prefixed with “EC” and followed by the symbol of the relevant futures product, to avoid naming collisions with other derivatives (i.e., proper futures options listed on the same future).</li></ul></li><li class="code-line" dir="auto" data-line="11">A&nbsp;<strong>Put or Call (Right)</strong>&nbsp;value, where Call = Yes and Put = No.<ul class="code-line" dir="auto" data-line="12"><li class="code-line" dir="auto" data-line="12">Note that ForecastEx instruments do not permit Sell orders. Instead, ForecastEx positions are flattened or reduced by buying the opposing contract. CME Group Event Contracts permit both buying and selling.</li></ul></li><li class="code-line" dir="auto" data-line="13">An artificial&nbsp;<strong>Contract Month</strong>&nbsp;value, again used primarily for searching and filtering available instruments. Most Event Contract products do not follow monthly series as is common with index or equity options, so these Contract Month values are typically not a meaningful attribute of the instrument. Rather, they permit filtering of instruments by calendar month.<ul class="code-line" dir="auto" data-line="5"><li dir="auto" data-line="13">Requesting Contract Details for a given instrument will return a “realExpirationDate”, which will correspond with the same values printed in the ForecastTrader page.</li></ul></li><li class="code-line" dir="auto" data-line="14">A&nbsp;<strong>Last Trade Date, Time, and Millisecond</strong>&nbsp;values, which together indicate precisely when trading in an Event Contract will cease, just as with index options.</li><li class="code-line" dir="auto" data-line="15">A&nbsp;<strong>Strike</strong>&nbsp;value, which is the numerical value on which the event resolution hinges. Though numerical, this value need not represent a price.</li><li class="code-line" dir="auto" data-line="16">An&nbsp;<strong>instrument description (or “local symbol”)</strong>&nbsp;in the form&nbsp;<code>"PRODUCT EXPIRATION STRIKE RIGHT"</code>, where:<ul class="code-line" dir="auto" data-line="17"><li class="code-line" dir="auto" data-line="17"><code>PRODUCT</code>&nbsp;is the issuer’s product identifier</li><li class="code-line" dir="auto" data-line="18"><code>EXPIRATION</code>&nbsp;is the date of the instrument’s resolution in the form&nbsp;<code>MmmDD'YY</code>, e.g., “Sep26’24”</li><li class="code-line" dir="auto" data-line="19"><code>STRIKE</code>&nbsp;is the numerical value that determines the contract’s moneyness at expiration</li><li class="code-line" dir="auto" data-line="20"><code>RIGHT</code>&nbsp;is a value YES or NO</li></ul></li></ul></div>
+  </body>
+</html>

@@ -1,8 +1,7 @@
 import fs from "node:fs";
 import { fetchIbkrSection } from "./fetchIbkrPage";
-import { pageHtmlTpl, writeFile, HTML_DIR, SKILL_DIR } from "./utils";
+import { HTML_DIR, SKILL_DIR } from "./utils";
 import { fetchCtx7Section } from "./fetchCtx7Page";
-import { writeSections } from "./writeSections";
 import { writeRoot } from "./writeRoot";
 
 [HTML_DIR, SKILL_DIR].forEach((dir) => {
@@ -58,23 +57,24 @@ const SECTION_URLS = [
   {
     type: "ibkr",
     name: "twsapi-doc",
-    instruction: "TODO: when to use this docs",
+    title: "TWS API Documentation",
   },
   {
     type: "ibkr",
     name: "twsapi-ref",
-    instruction: "TODO: when to use this docs",
+    title: "TWS API Reference",
   },
   {
     type: "ibkr",
     name: "protobuf-reference",
-    instruction: "TODO: when to use this docs",
+    title: "Protobuf Reference",
   },
   {
     type: "ctx7",
     name: "ib-async",
-    instruction: "TODO: when to use this docs",
+    title: "ib_async Reference",
     url: "https://context7.com/websites/ib-api-reloaded_github_io_ib_async/llms.txt?tokens=100000",
+    externalUrl: "https://ib-api-reloaded.github.io/ib_async",
   },
 ] as const;
 
@@ -88,56 +88,24 @@ const sectionInfos = SECTION_URLS.map((info): SectionInfo => {
 });
 
 const fetchInfos = await Promise.all(
-  sectionInfos.map((info) => {
+  sectionInfos.map(async (info) => {
     console.info(`Fetching page: ${info.sectionName} from ${info.url}...`);
+    const config = SECTION_URLS.find((s) => s.name === info.sectionName)!;
     switch (info.type) {
-      case "html":
-        return fetchIbkrSection(info);
-      case "md":
-        return fetchCtx7Section(info);
+      case "html": {
+        const fetched = await fetchIbkrSection(info);
+        return { ...fetched, title: config.title };
+      }
+      case "md": {
+        const fetched = await fetchCtx7Section(info);
+        return {
+          ...fetched,
+          title: config.title,
+          externalUrl: "externalUrl" in config ? config.externalUrl : undefined,
+        };
+      }
     }
   }),
 );
 
 await writeRoot(fetchInfos);
-
-// await writeSections(fetchInfos, breadcrumb);
-
-// Generate HTML index (excluding Ctx7)
-// const ibkrInfos = fetchInfos.filter((s) => s.type === "html");
-// const indexHtml = pageHtmlTpl({
-//   layout: "layout-index-html",
-//   title,
-//   children: ibkrInfos.map(
-//     (info, i): TocItem => ({
-//       title: info.title,
-//       fileName: `${info.sectionName}/index.html`,
-//       num: i + 1,
-//       pos: `${i + 1}`.padStart(2, "0"),
-//     }),
-//   ),
-// });
-
-// writeFile("index.html", indexHtml, HTML_DIR);
-
-// const skillRoot: Chapter<unknown> = {
-//   children: [
-//     ...ibkrInfos.map((info) => ({ ...info, fileName: "index.html" })),
-//     ...ctx7Infos.map((info) => ({ ...info, fileName: "index.md" })),
-//   ],
-// };
-
-// Generate SKILL.md
-// writeFile(
-//   "SKILL.md",
-//   skillTpl({
-//     children,
-//   }),
-//   SKILL_DIR,
-// );
-// const tocMd = fetchInfos
-//   .map((info) => `- [${info.title}](./docs/${info.name}/index.md)`)
-//   .join("\n");
-// // const skillTpl = fs.readFileSync(SKILL_TPL, "utf8");
-// const skillMd = skillTpl.replace("{{TOC}}", tocMd);
-// fs.writeFileSync(path.join(SKILL_DIR, "SKILL.md"), skillMd);

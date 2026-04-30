@@ -7,6 +7,7 @@ export const HTML_DIR = path.join(REPO_ROOT, "html");
 export const SKILL_DIR = path.join(REPO_ROOT, "skill");
 
 export const pageHtmlTpl = getTpl("templates/page.html");
+export const pageMdTpl = getTpl("templates/page.md");
 export const skillMdTpl = getTpl("templates/SKILL.md");
 
 H.registerPartial("toc-level-html", readFile("templates/toc-level.html"));
@@ -20,6 +21,10 @@ H.registerPartial(
 H.registerPartial("layout-chapter-md", readFile("templates/layout-chapter.md"));
 H.registerPartial("breadcrumb-html", readFile("templates/breadcrumb.html"));
 H.registerPartial("breadcrumb-md", readFile("templates/breadcrumb.md"));
+
+H.registerHelper("startsWith", function (str, prefix) {
+  return typeof str === "string" && str.startsWith(prefix);
+});
 
 H.registerHelper(
   "md-heading",
@@ -48,7 +53,9 @@ export function writeFile(
   content: string,
   basePath = REPO_ROOT,
 ) {
-  const fileName = path.join(basePath, relPath);
+  const fileName = path.isAbsolute(relPath)
+    ? relPath
+    : path.join(basePath, relPath);
   fs.writeFileSync(fileName, content);
 }
 

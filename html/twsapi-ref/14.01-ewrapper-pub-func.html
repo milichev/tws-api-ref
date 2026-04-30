@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>14.01 Public Member Functions</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="14.01-ewrapper-pub-func.html">14.01 Public Member Functions</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Public Member Functions</h3><div class="row"><table><tbody><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td>error (Exception e)</td><td>void</td><td>Handles errors generated within the API itself. If an exception is thrown within the API code it will be notified here. Possible cases include errors while reading the information from the socket or even mishandling at EWrapper’s implementing class. More…</td></tr><tr><td>error (string str)</td><td>void</td><td>None</td></tr><tr><td>error (int id</td><td>void</td><td> int errorCode</td></tr><tr><td>currentTime (long time)</td><td>void</td><td>TWS’s current time. TWS is synchronized with the server (not local computer) using NTP and this function will receive the current time in TWS. More…</td></tr><tr><td>tickPrice (int tickerId</td><td>void</td><td> int field</td></tr><tr><td>tickSize (int tickerId</td><td>void</td><td> int field</td></tr><tr><td>tickString (int tickerId</td><td>void</td><td> int field</td></tr><tr><td>tickGeneric (int tickerId</td><td>void</td><td> int field</td></tr><tr><td>tickEFP (int tickerId</td><td>void</td><td> int tickType</td></tr><tr><td>deltaNeutralValidation (int reqId</td><td>void</td><td> DeltaNeutralContract deltaNeutralContract)</td></tr><tr><td> the server sends a deltaNeutralValidation() message with the DeltaNeutralContract structure. If the delta and price fields are empty in the original request</td><td>Upon accepting a Delta-Neutral DN RFQ(request for quote)</td><td> the confirmation will contain the current values from the server. These values are locked when RFQ is processed and remain locked until the RFQ is cancelled.</td></tr><tr><td>None</td><td>More…</td><td>None</td></tr><tr><td>tickOptionComputation (int tickerId</td><td>void</td><td> int field</td></tr><tr><td>tickSnapshotEnd (int tickerId)</td><td>void</td><td>When requesting market data snapshots</td></tr><tr><td>nextValidId (int orderId)</td><td>void</td><td>Receives next valid order id. Will be invoked automatically upon successfull API client connection</td></tr><tr><td>managedAccounts (string accountsList)</td><td>void</td><td>Receives a comma-separated string with the managed account ids. Occurs automatically on initial API client connection. More…</td></tr><tr><td>connectionClosed ()</td><td>void</td><td>Callback to indicate the API connection has closed. Following a API  TWS broken socket connection</td></tr><tr><td>accountSummary (int reqId</td><td>void</td><td> string account</td></tr><tr><td>accountSummaryEnd (int reqId)</td><td>void</td><td>notifies when all the accounts’ information has ben received. Requires TWS 967+ to receive accountSummaryEnd in linked account structures. More…</td></tr><tr><td>bondContractDetails (int reqId</td><td>void</td><td> ContractDetails contract)</td></tr><tr><td>updateAccountValue (string key</td><td>void</td><td> string value</td></tr><tr><td>updatePortfolio (Contract contract</td><td>void</td><td> decimal position</td></tr><tr><td>updateAccountTime (string timestamp)</td><td>void</td><td>Receives the last time on which the account was updated. More…</td></tr><tr><td>accountDownloadEnd (string account)</td><td>void</td><td>Notifies when all the account’s information has finished. More…</td></tr><tr><td>orderStatus (int orderId</td><td>void</td><td> string status</td></tr><tr><td>openOrder (int orderId</td><td>void</td><td> Contract contract</td></tr><tr><td>openOrderEnd ()</td><td>void</td><td>Notifies the end of the open orders’ reception. More…</td></tr><tr><td>contractDetails (int reqId</td><td>void</td><td> ContractDetails contractDetails)</td></tr><tr><td>contractDetailsEnd (int reqId)</td><td>void</td><td>After all contracts matching the request were returned</td></tr><tr><td>execDetails (int reqId</td><td>void</td><td> Contract contract</td></tr><tr><td>execDetailsEnd (int reqId)</td><td>void</td><td>indicates the end of the Execution reception. More…</td></tr><tr><td>commissionReport (CommissionReport commissionReport)</td><td>void</td><td>provides the CommissionReport of an Execution More…</td></tr><tr><td>fundamentalData (int reqId</td><td>void</td><td> string data)</td></tr><tr><td>historicalData (int reqId</td><td>void</td><td> Bar bar)</td></tr><tr><td>historicalDataUpdate (int reqId</td><td>void</td><td> Bar bar)</td></tr><tr><td>historicalDataEnd (int reqId</td><td>void</td><td> string start</td></tr><tr><td>marketDataType (int reqId</td><td>void</td><td> int marketDataType)</td></tr><tr><td>updateMktDepth (int tickerId</td><td>void</td><td> int position</td></tr><tr><td>updateMktDepthL2 (int tickerId</td><td>void</td><td> int position</td></tr><tr><td>updateNewsBulletin (int msgId</td><td>void</td><td> int msgType</td></tr><tr><td>position (string account</td><td>void</td><td> Contract contract</td></tr><tr><td>positionEnd ()</td><td>void</td><td>Indicates all the positions have been transmitted. More…</td></tr><tr><td>realtimeBar (int reqId</td><td>void</td><td> long date</td></tr><tr><td>scannerParameters (string xml)</td><td>void</td><td>provides the xml-formatted parameters available from TWS market scanners (not all available in API). More…</td></tr><tr><td>scannerData (int reqId</td><td>void</td><td> int rank</td></tr><tr><td>scannerDataEnd (int reqId)</td><td>void</td><td>Indicates the scanner data reception has terminated. More…</td></tr><tr><td>receiveFA (int faDataType</td><td>void</td><td> string faXmlData)</td></tr><tr><td>verifyMessageAPI (string apiData)</td><td>void</td><td>Not generally available.</td></tr><tr><td>verifyCompleted (bool isSuccessful</td><td>void</td><td> string errorText)</td></tr><tr><td>verifyAndAuthMessageAPI (string apiData</td><td>void</td><td> string xyzChallenge)</td></tr><tr><td>verifyAndAuthCompleted (bool isSuccessful</td><td>void</td><td> string errorText)</td></tr><tr><td>displayGroupList (int reqId</td><td>void</td><td> string groups)</td></tr><tr><td>displayGroupUpdated (int reqId</td><td>void</td><td> string contractInfo)</td></tr><tr><td>connectAck ()</td><td>void</td><td>callback initially acknowledging connection attempt connection handshake not complete until nextValidID is received</td></tr><tr><td>positionMulti (int requestId</td><td>void</td><td> string account</td></tr><tr><td>positionMultiEnd (int requestId)</td><td>void</td><td>Indicates all the positions have been transmitted. More…</td></tr><tr><td>accountUpdateMulti (int requestId</td><td>void</td><td> string account</td></tr><tr><td>accountUpdateMultiEnd (int requestId)</td><td>void</td><td>Indicates all the account updates have been transmitted. More…</td></tr><tr><td>securityDefinitionOptionParameter (int reqId</td><td>void</td><td> string exchange</td></tr><tr><td>securityDefinitionOptionParameterEnd (int reqId)</td><td>void</td><td>called when all callbacks to securityDefinitionOptionParameter are complete More…</td></tr><tr><td>softDollarTiers (int reqId</td><td>void</td><td> SoftDollarTier[] tiers)</td></tr><tr><td>familyCodes (FamilyCode[] familyCodes)</td><td>void</td><td>returns array of family codes More…</td></tr><tr><td>symbolSamples (int reqId</td><td>void</td><td> ContractDescription[] contractDescriptions)</td></tr><tr><td>mktDepthExchanges (DepthMktDataDescription[] depthMktDataDescriptions)</td><td>void</td><td>called when receives Depth Market Data Descriptions More…</td></tr><tr><td>tickNews (int tickerId</td><td>void</td><td> long timeStamp</td></tr><tr><td>smartComponents (int reqId</td><td>void</td><td> Dictionary&lt; int</td></tr><tr><td>tickReqParams (int tickerId</td><td>void</td><td> double minTick</td></tr><tr><td>newsProviders (NewsProvider[] newsProviders)</td><td>void</td><td>returns array of subscribed API news providers for this user More…</td></tr><tr><td>newsArticle (int requestId</td><td>void</td><td> int articleType</td></tr><tr><td>historicalNews (int requestId</td><td>void</td><td> string time</td></tr><tr><td>historicalNewsEnd (int requestId</td><td>void</td><td> bool hasMore)</td></tr><tr><td>headTimestamp (int reqId</td><td>void</td><td> string headTimestamp)</td></tr><tr><td>None</td><td>returns beginning of data for contract for specified data type</td><td>None</td></tr><tr><td>None</td><td>More…</td><td>None</td></tr><tr><td>histogramData (int reqId</td><td>void</td><td> HistogramEntry[] data)</td></tr><tr><td>rerouteMktDataReq (int reqId</td><td>void</td><td> int conId</td></tr><tr><td>None</td><td>returns conId and exchange for CFD market data request re-route</td><td>None</td></tr><tr><td>None</td><td>More…</td><td>None</td></tr><tr><td>rerouteMktDepthReq (int reqId</td><td>void</td><td> int conId</td></tr><tr><td>marketRule (int marketRuleId</td><td>void</td><td> PriceIncrement[] priceIncrements)</td></tr><tr><td>pnl (int reqId</td><td>void</td><td> double dailyPnL</td></tr><tr><td>pnlSingle (int reqId</td><td>void</td><td> decimal pos</td></tr><tr><td>historicalTicks (int reqId</td><td>void</td><td> HistoricalTick[] ticks</td></tr><tr><td>historicalTicksBidAsk (int reqId</td><td>void</td><td> HistoricalTickBidAsk[] ticks</td></tr><tr><td>historicalTicksLast (int reqId</td><td>void</td><td> HistoricalTickLast[] ticks</td></tr><tr><td>tickByTickAllLast (int reqId</td><td>void</td><td> int tickType</td></tr><tr><td>tickByTickBidAsk (int reqId</td><td>void</td><td> long time</td></tr><tr><td>tickByTickMidPoint (int reqId</td><td>void</td><td> long time</td></tr><tr><td>orderBound (long orderId</td><td>void</td><td> int apiClientId</td></tr><tr><td>completedOrder (Contract contract</td><td>void</td><td> Order order</td></tr><tr><td>completedOrdersEnd ()</td><td>void</td><td>Notifies the end of the completed orders’ reception. More…</td></tr><tr><td>replaceFAEnd (int reqId</td><td>void</td><td> string text)</td></tr><tr><td>wshMetaData (int reqId</td><td>void</td><td> string dataJson)</td></tr><tr><td>wshEventData (int reqId</td><td>void</td><td> string dataJson)</td></tr><tr><td>historicalSchedule (int reqId</td><td>void</td><td> string startDateTime</td></tr><tr><td>userInfo (int reqId</td><td>void</td><td> string whiteBrandingId)</td></tr></tbody></table></div>
+  </body>
+</html>

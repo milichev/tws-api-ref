@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>21.06 Historical Time &amp; Sales</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="21.06-historical-time-and-sales.html">21.06 Historical Time &amp; Sales</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">Historical Time &amp; Sales</h3><div class="row"><p>The highest granularity of historical data from IB’s database can be retrieved using the API function <a href="../undefined/index.html">EClient.reqHistoricalTicks</a> for historical time and sales values. Historical Time &amp; Sales will return the same data as what is available in Trader Workstation under the Time and Sales window. This is a series of ticks indicating each trade based on the requested values.</p><ul><li>Historical Tick-By-Tick data is not available for combos.</li><li>Historical tick data is only available for the last 3 years.</li><li>Data will not be returned from multiple trading sessions in a single request; Multiple requests must be used.</li><li>To complete a full second, more ticks may be returned than requested.</li><li>Time &amp; Sales data requires a Level 1, Top Of Book market data subscription. This would be the same subscription as <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#watchlist-data">EClient.reqMktData()</a> or <a href="https://www.interactivebrokers.com/campus/ibkr-api-page/trader-workstation-api/#historical-bars">EClient.reqHistoricalData()</a>.</li></ul></div>
+  </body>
+</html>

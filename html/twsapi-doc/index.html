@@ -4,114 +4,113 @@
     <meta charset="UTF-8" />
     <title>TWS API Documentation</title>
     <style>
-body {
-  font-family: sans-serif;
-  line-height: 1.6;
-  padding: 2rem;
-  color: #1a1a1a;
-  max-width: 900px;
-  margin: auto;
-}
-pre {
-  background: #f6f8fa;
-  padding: 1rem;
-  border-radius: 6px;
-  overflow-x: auto;
-  border: 1px solid #d0d7de;
-}
-code {
-  font-family: monospace;
-  font-size: 85%;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem 0;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1rem 0;
-}
-th,
-td {
-  border: 1px solid #d0d7de;
-  padding: 8px 12px;
-  text-align: left;
-}
-th {
-  background: #f6f8fa;
-}
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        padding: 2rem;
+        color: #1a1a1a;
+        max-width: 900px;
+        margin: auto;
+      }
+      pre {
+        background: #f6f8fa;
+        padding: 1rem;
+        border-radius: 6px;
+        overflow-x: auto;
+        border: 1px solid #d0d7de;
+      }
+      code {
+        font-family: monospace;
+        font-size: 85%;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1rem 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1rem 0;
+      }
+      th,
+      td {
+        border: 1px solid #d0d7de;
+        padding: 8px 12px;
+        text-align: left;
+      }
+      th {
+        background: #f6f8fa;
+      }
 
-.toc {
-  ul {
-    list-style: none;
-    padding-inline-start: 0;
-  }
+      .toc {
+        ul {
+          list-style: none;
+          padding-inline-start: 0;
+        }
 
-  li ul {
-    margin-inline-start: 40px;
-  }
+        li ul {
+          margin-inline-start: 40px;
+        }
 
-  .toc-text {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
+        .toc-text {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
 
-    a {
-      text-decoration: none;
-    }
+          a {
+            text-decoration: none;
+          }
 
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-}
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+      }
 
-.breadcrumb {
-  display: flex;
-  list-style: none;
-  padding: 0 0 1em 0;
-  margin: 0;
-  font-size: 0.6rem;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #bbb;
-}
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        padding: 0 0 1em 0;
+        margin: 0;
+        font-size: 0.6rem;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #bbb;
+      }
 
-.breadcrumb-item {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+      .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
 
-  a {
-    text-decoration: none;
-  }
+        a {
+          text-decoration: none;
+        }
 
-  a:hover {
-    text-decoration: underline;
-  }
-}
+        a:hover {
+          text-decoration: underline;
+        }
+      }
 
-.breadcrumb-item:not(:last-child)::after {
-  content: "›";
-  margin: 0 0.25rem;
-}
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin: 0 0.25rem;
+      }
 
-.breadcrumb-item:last-child a {
-  font-weight: bold;
-}
+      .breadcrumb-item:last-child a {
+        font-weight: bold;
+      }
 
-.breadcrumb-item:last-child a:hover {
-  text-decoration: none;
-}
-
-</style>
+      .breadcrumb-item:last-child a:hover {
+        text-decoration: none;
+      }
+    </style>
   </head>
   <body>
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="../index.html">IBKR TWS API</a>
+        <a href="index.html">IBKR TWS API</a>
       </li>
       <li class="breadcrumb-item">
         <a href="index.html">TWS API Documentation</a>
@@ -120,2344 +119,2731 @@ th {
     <h1>TWS API Documentation</h1>
     <section class="toc">
       <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./01-api-introduction.html">Introduction</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./02-notes-and-limitations.html">Notes &amp; Limitations</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./02.01-tws-api-requirements.html">Requirements</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./02.02-supported-2fa.html">Supported Two Factor Authentication (2FA)</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./02.03-limitations.html">Limitations</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./02.03.01-csharp-macos.html">C# for MacOS</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./02.03.02-cpp-static-linking.html">C++ DLLs and Static Linking</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./02.03.03-canadian-trading.html">Canadian Residents Restricted From Programmatically Trading Canadian Products</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./02.03.04-paper-trading-limitations.html">Paper Trading</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./03-tws-download.html">Download TWS or IB Gateway</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./03.01-tws-offline.html">TWS Online or Offline Version?</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./04-tws-settings.html">TWS Settings</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./04.01-tws-config-api.html">TWS Configuration For API Use</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./04.02-tws-config.html">Best Practice: Configure TWS / IB Gateway</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./04.02.01-nltws.html">&quot;Never Lock Trader Workstation&quot; Setting</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./04.02.02-bp-memory-alloc.html">Memory Allocation</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./04.02.03-bp-reauthenticate.html">Daily &amp; Weekly Reauthentication</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./04.02.04-bp-order-precautions.html">Order Precautions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./04.02.05-bp-ib-servers.html">Connected IB Server Location in TWS</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./04.02.06-bp-smart-algo.html">SMART Algorithm</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./04.02.07-bp-alloc-setup.html">Allocation Setup (For Financial Advisors)</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./04.03-int-order-resubmit.html">Intelligent Order Resubmission</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./04.04-invalid-format-disconnect.html">Disconnect on Invalid Format</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./05-find-the-api.html">Download the TWS API</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./05.01-windows-install.html">Install the TWS API on Windows</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./05.02-unix-install.html">Install the TWS API on MacOs / Linux</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./05.03-tws-api-folder-files-tools.html">TWS API File Location &amp; Tools</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./06-twsapi-tutorial.html">TWSAPI Basics Tutorial</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./07-third-party-platforms.html">Third Party API Platforms</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./07.01-non-tws-api-support.html">Non-Standard TWS API Languages and Packages</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./07.01.01-ib-insync.html">ib_insync and ib_async</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./08-unqiue-configurations.html">Unique Configurations</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./08.01-cpp-linux.html">Implementing the Intel Decimal Library for MacOS and Linux</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./08.02-setup-python.html">Updating The Python Interpreter</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./08.02.01-setup-py-terminal.html">1. Open Command Prompt or Terminal</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./08.02.02-setup-py-navigate.html">2. Navigate to Python Source</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./08.02.03-setup-py-run.html">3. Run The setup.py File</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./08.02.04-setup-py-updates.html">4. Confirm Updates</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./08.02.05-setup-py-confirm-install.html">5. Confirm your installation</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./08.02.06-protobuf-warning.html">Protobuf UserWarning messages</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./08.03-vb-impl.html">Implementing Visual Basic .NET</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./09-troubleshooting.html">Troubleshooting &amp; Support</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./09.01-log-files.html">Log Files</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./09.01.01-api-logs.html">API Logs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./09.01.02-debug-logging.html">How To Enable Debug Logging</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./09.01.03-log-location.html">Location of Interactive Brokers Logs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./09.01.04-delete-logs.html">How To Delete Logs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./09.01.05-log-upload.html">Uploading Logs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./09.01.06-export-logs.html">Exporting Logs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./09.01.07-reading-logs.html">Reading Exported Logs</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./09.02-unset-values.html">Unset Values</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>10</code><a href="./10-architecture.html">Architecture</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./10.01-The-Trader-Workstation.html">The Trader Workstation</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./10.01.01-The-IB-Gateway.html">The IB Gateway</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>11</code><a href="./11-requests-limitations.html">Pacing Limitations</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./11.01-paceapi.html">Pacing Behavior</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>12</code><a href="./12-connectivity.html">Connectivity</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./12.01-establish-connection.html">Establishing an API connection</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./12.02-verify-connection.html">Verify API Connection</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./12.03-The-EReader-Thread.html">The EReader Thread</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./12.03.01-.html">C++, C#, and Java Implementations</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./12.03.02-.html">Python Implementation</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./12.04-remote-connection.html">Remote TWS API Connections with Trader Workstation</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./12.05-incoming-api-connections.html">Accepting an API connection from TWS</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./12.06-Logging-into-multiple-applications.html">Logging into multiple applications</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./12.07-broken-socket-connection.html">Broken API socket connection</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>13</code><a href="./13-sync-api.html">Synchronous API</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./13.01-sync-class.html">TWSSyncWrapper Class</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./13.02-sync-connect.html">Connect &amp; Start Connection</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./13.03-sync-disconnect.html">Disconnect &amp; Stop Connection</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./13.04-sync-time.html">Current Time</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./13.05-sync-valid-id.html">Next Valid ID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./13.06-sync-account-summary.html">Account Summary</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./13.07-sync-contract.html">Contract Details</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./13.08-sync-live-data.html">Live Market Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./13.09-sync-historical-data.html">Historical Market Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>10</code><a href="./13.10-sync-place-order.html">Place Order</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>11</code><a href="./13.11-sync-cancel-order.html">Cancel Order</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>12</code><a href="./13.12-sync-open-orders.html">Open Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>13</code><a href="./13.13-sync-executions.html">Executions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>14</code><a href="./13.14-sync-positions.html">Positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>15</code><a href="./13.15-sync-portfolio.html">Portfolio</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>14</code><a href="./14-accounts.html">Account &amp; Portfolio Data</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.01-account-summary.html">Account Summary</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.01.01-requesting-account-summary.html">Requesting Account Summary</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.01.02-account-summary-tags.html">Account Summary Tags</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.01.03-receiving-account-summary.html">Receiving Account Summary</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./14.01.04-cancel-account-summary.html">Cancel Account Summary</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.02-account-updates.html">Account Updates</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.02.01-request-account-updates.html">Requesting Account Updates</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.02.02-receive-account-updates.html">Receiving Account Updates</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.02.03-account-value-keys.html">Account Value Keys</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./14.02.04-cancel-account-updates.html">Cancel Account Updates</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.03-model-account-update.html">Account Update by Model</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.03.01-request-model-account-update.html">Requesting Account Update by Model</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.03.02-receive-model-account-update.html">Receiving Account Updates by Model</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.03.03-cancel-model-account-update.html">Cancel Account Updates by Model</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./14.04-family-codes.html">Family Codes</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.04.01-request-family-code.html">Request Family Codes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.04.02-receive-family-code.html">Receive Family Codes</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./14.05-managed-accounts.html">Managed Accounts</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.05.01-request-managed-accounts.html">Request Managed Accounts</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.05.02-receive-managed-accounts.html">Receive Managed Accounts</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./14.06-positions.html">Positions</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.06.01-request-positions.html">Request Positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.06.02-receive-positions.html">Receive Positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.06.03-cancel-positions-request.html">Cancel Positions Request</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./14.07-positions-multi.html">Positions By Model</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.07.01-request-positions-multi.html">Request Positions By Model</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.07.02-receive-positions-multi.html">Receive Positions By Model</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.07.03-cancel-positions-multi.html">Cancel Positions By Model</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./14.08-pnl.html">Profit &amp; Loss (PnL)</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.08.01-request-pnl-position.html">Request P&amp;L for individual positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.08.02-receive-pnl-position.html">Receive P&amp;L for individual positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./14.08.03-cancel-pnl-position.html">Cancel P&amp;L request for individual positions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./14.08.04-request-pnl-account.html">Request P&amp;L for accounts</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./14.08.05-receive-pnl-account.html">Receive P&amp;L for accounts</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./14.08.06-cancel-pnl-account.html">Cancel P&amp;L subscription requests for accounts</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./14.09-white-branding.html">White Branding User Info</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./14.09.01-request-white-brand.html">Requesting White Branding Info</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./14.09.02-receive-white-brand.html">Receiving White Branding Info</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>15</code><a href="./15-bulletins.html">Bulletins</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./15.01-request-ib-bulletins.html">Request IB Bulletins</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./15.02-receive-ib-bulletins.html">Receive IB Bulletins</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./15.03-cancel-ib-bulletins.html">Cancel Bulletin Request</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>16</code><a href="./16-contracts.html">Contracts (Financial Instruments)</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./16.01-contract-object.html">The Contract Object</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./16.02-tws-contract-details.html">Finding Contract Details in Trader Workstation</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./16.03-contract-details.html">Contract Details</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./16.03.01-request-contract-details.html">Request Contract Details</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./16.03.02-receive-contract-details.html">Receive Contract Details</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./16.03.03-receive-bond-details.html">Receive Bond Details</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./16.04-option-chain.html">Option Chains</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./16.04.01-request-opt-chain.html">Request Option Chains</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./16.04.02-receive-opt-chain.html">Receive Option Chains</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./16.05-stock-symbol-search.html">Stock Symbol Search</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./16.05.01-request-stock-symbol.html">Request Stock Contract Search</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./16.05.02-receive-stock-symbol.html">Receive Searched Stock Contract</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>17</code><a href="./17-ec.html">Event Trading</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./17.01-ec-intro.html">Introduction</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./17.01.01-ec-forecastex.html">ForecastEx Forecast Contracts</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./17.01.02-ec-cme.html">CME Event Contracts</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./17.02-ec-contracts.html">Contract Definition &amp; Discovery</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./17.02.01-ec-contract-example.html">ForecastEx Contract Example</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./17.03-ec-market-data.html">Market Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./17.04-ec-orders.html">Order Submission</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./17.04.01-ec-order-example.html">Order Example</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./17.05-ec-misc.html">Other Functionality</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>18</code><a href="./18-error-handling.html">Error Handling</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./18.01-understanding-error-codes.html">Understanding Message Codes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./18.02-system-message-codes.html">System Message Codes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./18.03-api-error-codes.html">Error Codes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./18.04-error.html">Receiving Error Messages</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./18.05-common-errors.html">Common Error Resolution</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./18.05.01-error-md-farm.html">Market data farm connection is OK</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./18.05.02-error-add-subs.html">Requested market data requires additional subscription for API. See link in &#x27;Market Data Connections&#x27; dialog for more details.Delayed market data is available.</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>19</code><a href="./19-financial-advisors.html">Financial Advisors</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./19.01-request-fa.html">Request FA Groups and Profiles</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./19.02-receive-fa.html">Receiving FA Groups and Profiles</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./19.03-replace-fa.html">Replace FA Allocations</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./19.04-fa-allocation-methods.html">Allocation Methods and Groups</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./19.05-allocation-format.html">Allocation Method XML Format</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./19.05.01-available-equity-xml.html">Available Equity</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./19.05.02-shares-xml.html">Contracts Or Shares</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./19.05.03-equal-quantity-xml.html">Equal Quantity</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./19.05.04-cash-xml.html">MonetaryAmount</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./19.05.05-nlv-xml.html">Net Liquidation Value</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./19.05.06-percentage-xml.html">Percentages</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./19.05.07-ratio-xml.html">Ratios</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./19.06-model-portfolios.html">Model Portfolios and the API</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./19.07-unification-groups-profiles.html">Unification of Groups and Profiles</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./19.08-fa-orders.html">Order Placement</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>20</code><a href="./20-delayed-market-data.html">Market Data: Delayed</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./20.01-md-type-behavior.html">Market Data Type Behavior</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./20.02-request-md-type.html">Request Market Data Type</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./20.03-receive-md-type.html">Receive Market Data Type</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>21</code><a href="./21-hist-md.html">Market Data: Historical</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.01-historical-limitations.html">Historical Data Limitations</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.01.01-filtered-hist-data.html">Historical Data Filtering</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.01.02-hist-volume.html">Historical Volume Scaling</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.01.03-historical-pacing-limitations.html">Pacing Violations for Small Bars (30 secs or less)</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./21.01.04-unavailable-historical-data.html">Unavailable Historical Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.02-earliest-data.html">Finding the Earliest Available Data Point</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.02.01-requesting-earliest-data.html">Requesting the Earliest Data Point</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.02.02-receiving-earliest-data.html">Receiving the Earliest Data Point</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.02.03-cancelling-earliest-data.html">Cancelling Timestamp Requests</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.03-historical-bars.html">Historical Bars</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.03.01-requesting-historical-bars.html">Requesting Historical Bars</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.03.02-hist-duration.html">Duration</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.03.03-hist-bar-size.html">Historical Bar Sizes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./21.03.04-hist-step-size.html">Step Sizes</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./21.03.05-duration-per-bar.html">Max Duration Per Bar Size</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./21.03.06-hist-format-date.html">Format Date Received</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./21.03.07-hist-keepUp-date.html">Keep Up To Date</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./21.03.08-receiving-historical-bars.html">Receiving Historical Bars</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./21.04-historical-whattoshow.html">Historical Bar whatToShow</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.04.01-hist-aggtrades .html">AGGTRADES</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.04.02-hist-adj-last.html">ADJUSTED_LAST</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.04.03-hist-ask.html">ASK</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./21.04.04-hist-bid .html">BID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./21.04.05-hist-bid-ask.html">BID_ASK</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./21.04.06-hist-fee-rate.html">FEE_RATE</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./21.04.07-hist-volatility.html">HISTORICAL_VOLATILITY</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./21.04.08-hist-midpoint.html">MIDPOINT</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./21.04.09-hist-opt-imp-vol.html">OPTION_IMPLIED_VOLATILITY</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>10</code><a href="./21.04.10-hist-schedule.html">SCHEDULE</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>11</code><a href="./21.04.11-hist-trades.html">TRADES</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>12</code><a href="./21.04.12-hist-yield-ask.html">YIELD_ASK</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>13</code><a href="./21.04.13-hist-yield-bid.html">YIELD_BID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>14</code><a href="./21.04.14-hist-yield-bid-ask.html">YIELD_BID_ASK</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>15</code><a href="./21.04.15-hist-yield-last.html">YIELD_LAST</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./21.05-histograms.html">Histogram Data</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.05.01-requesting-histogram-data.html">Requesting Histogram Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.05.02-receiving-histogram-data.html">Receiving Histogram Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.05.03-cancelling-histogram-data.html">Cancelling Histogram Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./21.06-historical-time-and-sales.html">Historical Time &amp; Sales</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.06.01-requesting-time-and-sales.html">Requesting Time and Sales data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.06.02-receiving-time-and-sales.html">Receiving Time and Sales data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.06.03-halted-and-unhalted-ticks.html">Historical Halted and Unhalted ticks</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./21.07-hist-date-format.html">Historical Date Formatting</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./21.07.01-operator-tz.html">Operator Time Zone</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./21.07.02-exchange-tz.html">Exchange Time Zone</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./21.07.03-utc-tz.html">Coordinated Universal Time (UTC)</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./21.08-modify-return-date.html">Modifying Returned Date</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>22</code><a href="./22-live-md.html">Market Data: Live</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.01-live-data-limitations.html">Live Data Limitations</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.02-live-bars.html">5 Second Bars</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.02.01-request-live-bars.html">Request Real Time Bars</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.02.02-receive-live-bars.html">Receive Real Time Bars</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.02.03-cancel-live-bars.html">Cancel Real Time Bars</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.03-component-exchange.html">Component Exchanges</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.03.01-request-component-exchange.html">Request Component Exchanges</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.03.02-receive-component-exchange.html">Receive Component Exchanges</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.04-market-depth-exchanges.html">Market Depth Exchanges</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.04.01-request-depth-exchanges.html">Requesting Market Depth Exchanges</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.04.02-receive-depth-exchanges.html">Receive Market Depth Exchanges</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./22.05-market-depth.html">Market Depth (L2)</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.05.01-request-market-depth.html">Request Market Depth</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.05.02-receive-market-depth.html">Receive Market Depth</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.05.03-cancel-market-depth.html">Cancel Market Depth</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./22.06-indicators.html">Market Indicators</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.06.01-ad-indicator.html">NYSE Advance-Decline</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.06.02-ad-indicator.html">NYSE Volume Index</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.06.03-ad-indicator.html">NYSE Trading Index (TRIN)</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.06.04-ad-indicator.html">NYSE TICK Index</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./22.07-option-greeks.html">Option Greeks</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.07.01-request-option-greeks.html">Request Options Greeks</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.07.02-calc-opt-price.html">Calculating option prices</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.07.03-calc-historical-volatility.html">Calculating historical volatility</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.07.04-receive-options-data.html">Receiving Options Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./22.08-watchlist-data.html">Top of Book (L1)</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.08.01-request-watchlist-data.html">Request Watchlist Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.08.02-md-update-freq.html">Market Data Update Frequency</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.08.03-generic-tick-types.html">Generic Tick Types</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.08.04-streaming-data-snapshot.html">Streaming Data Snapshots</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./22.08.05-regulatory-snapshot.html">Regulatory Snapshots</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./22.08.06-receive-live-data.html">Receive Live Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./22.08.07-exchange-component-mapping.html">Exchange Component Mapping</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./22.08.08-re-route-cfds.html">Re-Routing CFDs</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./22.08.09-cancel-mkt-data.html">Cancel Watchlist Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./22.09-available-tick-types.html">Available Tick Types</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.09.01-halted.html">Halted</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.09.02-shortable.html">Shortable</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.09.03-volume-data.html">Volume Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.09.04-rt-volume.html">RT Volume</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./22.09.05-ib-dividends.html">IB Dividends</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>10</code><a href="./22.10-tick-by-tick.html">Tick By Tick Data</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./22.10.01-request-tick-data.html">Request Tick By Tick Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./22.10.02-receive-tick-data.html">Receive Tick By Tick Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./22.10.03-cancel-tick-data.html">Cancel Tick By Tick Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./22.10.04-halted-ticks.html">Halted and Unhalted ticks</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>23</code><a href="./23-market-scanner.html">Market Scanner</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./23.01-market-scan-params.html">Market Scanner Parameters</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./23.01.01-request-market-scan-params.html">Request Market Scanner Parameters</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./23.01.02-receive-market-scan-params.html">Receive Market Scanner Parameters</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./23.02-market-scanner-subscription.html">Market Scanner Subscription</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./23.02.01-request-scanner-subscription.html">Request Market Scanner Subscription</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./23.02.02-receive-scanner-subscription.html">Receive Market Scanner Subscription</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./23.02.03-cancel-scanner-subscription.html">Cancel Market Scanner Subscription</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>24</code><a href="./24-news.html">News</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./24.01-news-providers.html">News Providers</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./24.01.01-request-news-providers.html">Request News Providers</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./24.01.02-receive-news-providers.html">Receive News Providers</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./24.02-contract-specific-news.html">Live News Headlines</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./24.02.01-request-contract-specific-news.html">Request Contract Specific News</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./24.02.02-request-broadtape-news.html">Request BroadTape News</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./24.02.03-receive-live-news-headlines.html">Receive Live News Headlines</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./24.03-historical-news.html">Historical News Headlines</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./24.03.01-request-historical-news.html">Requesting Historical News</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./24.03.02-receive-historical-news.html">Receive Historical News</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./24.04-news-articles.html">News Articles</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./24.04.01-request-news-articles.html">Request News Articles</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./24.04.02-receive-news-articles.html">Receive News Articles</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>25</code><a href="./25-next-valid-id.html">Next Valid ID</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./25.01-request-next-valid-id.html">Request Next Valid ID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./25.02-receive-next-valid-id.html">Receive Next Valid ID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./25.03-reset-id-sequence..html">Reset Order ID Sequence</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>26</code><a href="./26-order-management.html">Order Management</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./26.01-master-client-id.html">ClientId 0 and the Master Client ID</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./26.02-commission-report.html">Commission And Fees Report</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./26.03-exec-details.html">Execution Details</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./26.03.01-exec-id.html">ExecID Behavior</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./26.03.02-execution-object.html">The Execution Object</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./26.03.03-request-exec-details.html">Request Execution Details</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./26.03.04-receive-exec-details.html">Receive Execution Details</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./26.04-open-orders.html">Open Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./26.05-order-status.html">Order Status</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./26.05.01-order-status-message.html">Understanding Order Status Message</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./26.06-request-active-orders.html">Requesting Currently Active Orders</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./26.06.01-request-api-orders.html">API client&#x27;s orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./26.06.02-request-all-orders.html">All submitted orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./26.06.03-receive-tws-orders.html">Manually Submitted TWS Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./26.06.04-order-bound-notification.html">Order Binding Notification</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./26.07-completed-orders.html">Retrieving Completed Orders</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./26.07.01-req-completed-orders.html">Requesting Completed Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./26.07.02-rec-completed-orders.html">Receiving Completed Orders</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>27</code><a href="./27-orders.html">Orders</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./27.01-order-object.html">The Order Object</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./27.02-cancel-order.html">Cancelling an Order</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./27.02.01-cancel-order.html">Cancel Individual Order</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./27.02.02-global-order-cancel.html">Cancel All Open Orders</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./27.03-exercise-options.html">Exercise Options</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./27.04-market-price-increment.html">Minimum Price Increment</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./27.04.01-request-market-rule.html">Request Market Rule</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./27.04.02-receive-market-rule.html">Receive Market Rule</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./27.05-mifir-reporting.html">MiFIR Transaction Reporting Fields</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>6</code><a href="./27.06-modify-order.html">Modifying Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>7</code><a href="./27.07-place-order.html">Place Order</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./27.07.01-pt-sl.html">Adding a Profit Taker and Stop Loss</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./27.07.02-combo-order.html">Combo Orders</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./27.07.03-overnight-trading.html">Trading The Overnight Session</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./27.07.04-precaution-settings.html">Understanding Order Precautions</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>5</code><a href="./27.07.05-order-considerations.html">Order Placement Considerations</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>8</code><a href="./27.08-preborrow.html">Pre-Borrow Shares For Shorting</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>9</code><a href="./27.09-whatif.html">Test Order Impact (WhatIf)</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>10</code><a href="./27.10-trigger-methods.html">Trigger Methods</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>28</code><a href="./28-setting-management.html">Setting Management</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./28.01-req-config.html">Request Configuration</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./28.02-receive-config.html">Receive Configuration</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./28.03-req-config-update.html">Request Configuration Update</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./28.04-receive-config-update.html">Receive Configuration Update</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>29</code><a href="./29-display-groups.html">TWS UI Display Groups</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./29.01-query-display-groups.html">Query Display Groups</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./29.01.01-request-query-display-groups.html">Request Query Display Groups</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./29.01.02-receive-query-display-groups.html">Receive Query Display Groups</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./29.02-subscribe-display-groups.html">Subscribe To Group Events</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./29.02.01-request-subscribe-display-groups.html">Request Group Events Subscription</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./29.02.02-receive-subscribe-display-groups.html">Receive Group Events Subscription</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./29.02.03-cancel-display-groups.html">Unsubscribe From Group Events</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./29.03-update-display-groups.html">Update Display Group</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>30</code><a href="./30-wsh.html">Wall Street Horizon</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./30.01-meta-data.html">Meta Data</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./30.01.01-meta-data-filters.html">Meta Data Filters</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./30.01.02-request-meta-data.html">Requesting Meta Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./30.01.03-receive-meta-data.html">Receive Meta Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./30.01.04-cancel-meta-data.html">Cancel Meta Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./30.02-event-data.html">Event Data</a>
-        </div>
-        <ul>
-      <li>
-        <div class="toc-text">
-          <code>1</code><a href="./30.02.01-wsheventdata-object.html">WshEventData Object</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>2</code><a href="./30.02.02-request-event-data.html">Request Event Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>3</code><a href="./30.02.03-receive-event-data.html">Receive Event Data</a>
-        </div>
-        
-      </li>
-      <li>
-        <div class="toc-text">
-          <code>4</code><a href="./30.02.04-cancel-event-data.html">Cancel Event Data</a>
-        </div>
-        
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
-      </li>
-    </ul>
-    
+        <li>
+          <div class="toc-text">
+            <code>01</code><a href="./01-api-introduction.html">Introduction</a>
+          </div>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>02</code
+            ><a href="./02-notes-and-limitations.html"
+              >Notes &amp; Limitations</a
+            >
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>02.01</code
+                ><a href="./02.01-tws-api-requirements">Requirements</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>02.02</code
+                ><a href="./02.02-supported-2fa"
+                  >Supported Two Factor Authentication (2FA)</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>02.03</code><a href="./02.03-limitations">Limitations</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>02.03.01</code
+                    ><a href="./02.03.01-csharp-macos">C# for MacOS</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>02.03.02</code
+                    ><a href="./02.03.02-cpp-static-linking"
+                      >C++ DLLs and Static Linking</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>02.03.03</code
+                    ><a href="./02.03.03-canadian-trading"
+                      >Canadian Residents Restricted From Programmatically
+                      Trading Canadian Products</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>02.03.04</code
+                    ><a href="./02.03.04-paper-trading-limitations"
+                      >Paper Trading</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>03</code
+            ><a href="./03-tws-download.html">Download TWS or IB Gateway</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>03.01</code
+                ><a href="./03.01-tws-offline"
+                  >TWS Online or Offline Version?</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>04</code><a href="./04-tws-settings.html">TWS Settings</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>04.01</code
+                ><a href="./04.01-tws-config-api"
+                  >TWS Configuration For API Use</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>04.02</code
+                ><a href="./04.02-tws-config"
+                  >Best Practice: Configure TWS / IB Gateway</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.01</code
+                    ><a href="./04.02.01-nltws"
+                      >&quot;Never Lock Trader Workstation&quot; Setting</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.02</code
+                    ><a href="./04.02.02-bp-memory-alloc">Memory Allocation</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.03</code
+                    ><a href="./04.02.03-bp-reauthenticate"
+                      >Daily &amp; Weekly Reauthentication</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.04</code
+                    ><a href="./04.02.04-bp-order-precautions"
+                      >Order Precautions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.05</code
+                    ><a href="./04.02.05-bp-ib-servers"
+                      >Connected IB Server Location in TWS</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.06</code
+                    ><a href="./04.02.06-bp-smart-algo">SMART Algorithm</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>04.02.07</code
+                    ><a href="./04.02.07-bp-alloc-setup"
+                      >Allocation Setup (For Financial Advisors)</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>04.03</code
+                ><a href="./04.03-int-order-resubmit"
+                  >Intelligent Order Resubmission</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>04.04</code
+                ><a href="./04.04-invalid-format-disconnect"
+                  >Disconnect on Invalid Format</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>05</code
+            ><a href="./05-find-the-api.html">Download the TWS API</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>05.01</code
+                ><a href="./05.01-windows-install"
+                  >Install the TWS API on Windows</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>05.02</code
+                ><a href="./05.02-unix-install"
+                  >Install the TWS API on MacOs / Linux</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>05.03</code
+                ><a href="./05.03-tws-api-folder-files-tools"
+                  >TWS API File Location &amp; Tools</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>06</code
+            ><a href="./06-twsapi-tutorial.html">TWSAPI Basics Tutorial</a>
+          </div>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>07</code
+            ><a href="./07-third-party-platforms.html"
+              >Third Party API Platforms</a
+            >
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>07.01</code
+                ><a href="./07.01-non-tws-api-support"
+                  >Non-Standard TWS API Languages and Packages</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>07.01.01</code
+                    ><a href="./07.01.01-ib-insync">ib_insync and ib_async</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>08</code
+            ><a href="./08-unqiue-configurations.html">Unique Configurations</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>08.01</code
+                ><a href="./08.01-cpp-linux"
+                  >Implementing the Intel Decimal Library for MacOS and Linux</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>08.02</code
+                ><a href="./08.02-setup-python"
+                  >Updating The Python Interpreter</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.01</code
+                    ><a href="./08.02.01-setup-py-terminal"
+                      >1. Open Command Prompt or Terminal</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.02</code
+                    ><a href="./08.02.02-setup-py-navigate"
+                      >2. Navigate to Python Source</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.03</code
+                    ><a href="./08.02.03-setup-py-run"
+                      >3. Run The setup.py File</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.04</code
+                    ><a href="./08.02.04-setup-py-updates"
+                      >4. Confirm Updates</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.05</code
+                    ><a href="./08.02.05-setup-py-confirm-install"
+                      >5. Confirm your installation</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>08.02.06</code
+                    ><a href="./08.02.06-protobuf-warning"
+                      >Protobuf UserWarning messages</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>08.03</code
+                ><a href="./08.03-vb-impl">Implementing Visual Basic .NET</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>09</code
+            ><a href="./09-troubleshooting.html"
+              >Troubleshooting &amp; Support</a
+            >
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>09.01</code><a href="./09.01-log-files">Log Files</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.01</code
+                    ><a href="./09.01.01-api-logs">API Logs</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.02</code
+                    ><a href="./09.01.02-debug-logging"
+                      >How To Enable Debug Logging</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.03</code
+                    ><a href="./09.01.03-log-location"
+                      >Location of Interactive Brokers Logs</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.04</code
+                    ><a href="./09.01.04-delete-logs">How To Delete Logs</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.05</code
+                    ><a href="./09.01.05-log-upload">Uploading Logs</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.06</code
+                    ><a href="./09.01.06-export-logs">Exporting Logs</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>09.01.07</code
+                    ><a href="./09.01.07-reading-logs">Reading Exported Logs</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>09.02</code
+                ><a href="./09.02-unset-values">Unset Values</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>10</code><a href="./10-architecture.html">Architecture</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>10.01</code
+                ><a href="./10.01-The-Trader-Workstation"
+                  >The Trader Workstation</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>10.01.01</code
+                    ><a href="./10.01.01-The-IB-Gateway">The IB Gateway</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>11</code
+            ><a href="./11-requests-limitations.html">Pacing Limitations</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>11.01</code><a href="./11.01-paceapi">Pacing Behavior</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>12</code><a href="./12-connectivity.html">Connectivity</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>12.01</code
+                ><a href="./12.01-establish-connection"
+                  >Establishing an API connection</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.02</code
+                ><a href="./12.02-verify-connection">Verify API Connection</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.03</code
+                ><a href="./12.03-The-EReader-Thread">The EReader Thread</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>12.03.01</code
+                    ><a href="./12.03.01-">C++, C#, and Java Implementations</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>12.03.02</code
+                    ><a href="./12.03.02-">Python Implementation</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.04</code
+                ><a href="./12.04-remote-connection"
+                  >Remote TWS API Connections with Trader Workstation</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.05</code
+                ><a href="./12.05-incoming-api-connections"
+                  >Accepting an API connection from TWS</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.06</code
+                ><a href="./12.06-Logging-into-multiple-applications"
+                  >Logging into multiple applications</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>12.07</code
+                ><a href="./12.07-broken-socket-connection"
+                  >Broken API socket connection</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>13</code><a href="./13-sync-api.html">Synchronous API</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>13.01</code
+                ><a href="./13.01-sync-class">TWSSyncWrapper Class</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.02</code
+                ><a href="./13.02-sync-connect"
+                  >Connect &amp; Start Connection</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.03</code
+                ><a href="./13.03-sync-disconnect"
+                  >Disconnect &amp; Stop Connection</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.04</code><a href="./13.04-sync-time">Current Time</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.05</code
+                ><a href="./13.05-sync-valid-id">Next Valid ID</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.06</code
+                ><a href="./13.06-sync-account-summary">Account Summary</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.07</code
+                ><a href="./13.07-sync-contract">Contract Details</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.08</code
+                ><a href="./13.08-sync-live-data">Live Market Data</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.09</code
+                ><a href="./13.09-sync-historical-data"
+                  >Historical Market Data</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.10</code
+                ><a href="./13.10-sync-place-order">Place Order</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.11</code
+                ><a href="./13.11-sync-cancel-order">Cancel Order</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.12</code
+                ><a href="./13.12-sync-open-orders">Open Orders</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.13</code
+                ><a href="./13.13-sync-executions">Executions</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.14</code><a href="./13.14-sync-positions">Positions</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>13.15</code><a href="./13.15-sync-portfolio">Portfolio</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>14</code
+            ><a href="./14-accounts.html">Account &amp; Portfolio Data</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>14.01</code
+                ><a href="./14.01-account-summary">Account Summary</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.01.01</code
+                    ><a href="./14.01.01-requesting-account-summary"
+                      >Requesting Account Summary</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.01.02</code
+                    ><a href="./14.01.02-account-summary-tags"
+                      >Account Summary Tags</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.01.03</code
+                    ><a href="./14.01.03-receiving-account-summary"
+                      >Receiving Account Summary</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.01.04</code
+                    ><a href="./14.01.04-cancel-account-summary"
+                      >Cancel Account Summary</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.02</code
+                ><a href="./14.02-account-updates">Account Updates</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.02.01</code
+                    ><a href="./14.02.01-request-account-updates"
+                      >Requesting Account Updates</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.02.02</code
+                    ><a href="./14.02.02-receive-account-updates"
+                      >Receiving Account Updates</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.02.03</code
+                    ><a href="./14.02.03-account-value-keys"
+                      >Account Value Keys</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.02.04</code
+                    ><a href="./14.02.04-cancel-account-updates"
+                      >Cancel Account Updates</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.03</code
+                ><a href="./14.03-model-account-update"
+                  >Account Update by Model</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.03.01</code
+                    ><a href="./14.03.01-request-model-account-update"
+                      >Requesting Account Update by Model</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.03.02</code
+                    ><a href="./14.03.02-receive-model-account-update"
+                      >Receiving Account Updates by Model</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.03.03</code
+                    ><a href="./14.03.03-cancel-model-account-update"
+                      >Cancel Account Updates by Model</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.04</code
+                ><a href="./14.04-family-codes">Family Codes</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.04.01</code
+                    ><a href="./14.04.01-request-family-code"
+                      >Request Family Codes</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.04.02</code
+                    ><a href="./14.04.02-receive-family-code"
+                      >Receive Family Codes</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.05</code
+                ><a href="./14.05-managed-accounts">Managed Accounts</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.05.01</code
+                    ><a href="./14.05.01-request-managed-accounts"
+                      >Request Managed Accounts</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.05.02</code
+                    ><a href="./14.05.02-receive-managed-accounts"
+                      >Receive Managed Accounts</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.06</code><a href="./14.06-positions">Positions</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.06.01</code
+                    ><a href="./14.06.01-request-positions"
+                      >Request Positions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.06.02</code
+                    ><a href="./14.06.02-receive-positions"
+                      >Receive Positions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.06.03</code
+                    ><a href="./14.06.03-cancel-positions-request"
+                      >Cancel Positions Request</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.07</code
+                ><a href="./14.07-positions-multi">Positions By Model</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.07.01</code
+                    ><a href="./14.07.01-request-positions-multi"
+                      >Request Positions By Model</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.07.02</code
+                    ><a href="./14.07.02-receive-positions-multi"
+                      >Receive Positions By Model</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.07.03</code
+                    ><a href="./14.07.03-cancel-positions-multi"
+                      >Cancel Positions By Model</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.08</code
+                ><a href="./14.08-pnl">Profit &amp; Loss (PnL)</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.01</code
+                    ><a href="./14.08.01-request-pnl-position"
+                      >Request P&amp;L for individual positions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.02</code
+                    ><a href="./14.08.02-receive-pnl-position"
+                      >Receive P&amp;L for individual positions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.03</code
+                    ><a href="./14.08.03-cancel-pnl-position"
+                      >Cancel P&amp;L request for individual positions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.04</code
+                    ><a href="./14.08.04-request-pnl-account"
+                      >Request P&amp;L for accounts</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.05</code
+                    ><a href="./14.08.05-receive-pnl-account"
+                      >Receive P&amp;L for accounts</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.08.06</code
+                    ><a href="./14.08.06-cancel-pnl-account"
+                      >Cancel P&amp;L subscription requests for accounts</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>14.09</code
+                ><a href="./14.09-white-branding">White Branding User Info</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>14.09.01</code
+                    ><a href="./14.09.01-request-white-brand"
+                      >Requesting White Branding Info</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>14.09.02</code
+                    ><a href="./14.09.02-receive-white-brand"
+                      >Receiving White Branding Info</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>15</code><a href="./15-bulletins.html">Bulletins</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>15.01</code
+                ><a href="./15.01-request-ib-bulletins">Request IB Bulletins</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>15.02</code
+                ><a href="./15.02-receive-ib-bulletins">Receive IB Bulletins</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>15.03</code
+                ><a href="./15.03-cancel-ib-bulletins"
+                  >Cancel Bulletin Request</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>16</code
+            ><a href="./16-contracts.html">Contracts (Financial Instruments)</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>16.01</code
+                ><a href="./16.01-contract-object">The Contract Object</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>16.02</code
+                ><a href="./16.02-tws-contract-details"
+                  >Finding Contract Details in Trader Workstation</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>16.03</code
+                ><a href="./16.03-contract-details">Contract Details</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>16.03.01</code
+                    ><a href="./16.03.01-request-contract-details"
+                      >Request Contract Details</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>16.03.02</code
+                    ><a href="./16.03.02-receive-contract-details"
+                      >Receive Contract Details</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>16.03.03</code
+                    ><a href="./16.03.03-receive-bond-details"
+                      >Receive Bond Details</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>16.04</code
+                ><a href="./16.04-option-chain">Option Chains</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>16.04.01</code
+                    ><a href="./16.04.01-request-opt-chain"
+                      >Request Option Chains</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>16.04.02</code
+                    ><a href="./16.04.02-receive-opt-chain"
+                      >Receive Option Chains</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>16.05</code
+                ><a href="./16.05-stock-symbol-search">Stock Symbol Search</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>16.05.01</code
+                    ><a href="./16.05.01-request-stock-symbol"
+                      >Request Stock Contract Search</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>16.05.02</code
+                    ><a href="./16.05.02-receive-stock-symbol"
+                      >Receive Searched Stock Contract</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>17</code><a href="./17-ec.html">Event Trading</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>17.01</code><a href="./17.01-ec-intro">Introduction</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>17.01.01</code
+                    ><a href="./17.01.01-ec-forecastex"
+                      >ForecastEx Forecast Contracts</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>17.01.02</code
+                    ><a href="./17.01.02-ec-cme">CME Event Contracts</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>17.02</code
+                ><a href="./17.02-ec-contracts"
+                  >Contract Definition &amp; Discovery</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>17.02.01</code
+                    ><a href="./17.02.01-ec-contract-example"
+                      >ForecastEx Contract Example</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>17.03</code
+                ><a href="./17.03-ec-market-data">Market Data</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>17.04</code
+                ><a href="./17.04-ec-orders">Order Submission</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>17.04.01</code
+                    ><a href="./17.04.01-ec-order-example">Order Example</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>17.05</code
+                ><a href="./17.05-ec-misc">Other Functionality</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>18</code><a href="./18-error-handling.html">Error Handling</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>18.01</code
+                ><a href="./18.01-understanding-error-codes"
+                  >Understanding Message Codes</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>18.02</code
+                ><a href="./18.02-system-message-codes">System Message Codes</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>18.03</code
+                ><a href="./18.03-api-error-codes">Error Codes</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>18.04</code
+                ><a href="./18.04-error">Receiving Error Messages</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>18.05</code
+                ><a href="./18.05-common-errors">Common Error Resolution</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>18.05.01</code
+                    ><a href="./18.05.01-error-md-farm"
+                      >Market data farm connection is OK</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>18.05.02</code
+                    ><a href="./18.05.02-error-add-subs"
+                      >Requested market data requires additional subscription
+                      for API. See link in &#x27;Market Data Connections&#x27;
+                      dialog for more details.Delayed market data is
+                      available.</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>19</code
+            ><a href="./19-financial-advisors.html">Financial Advisors</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>19.01</code
+                ><a href="./19.01-request-fa">Request FA Groups and Profiles</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.02</code
+                ><a href="./19.02-receive-fa"
+                  >Receiving FA Groups and Profiles</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.03</code
+                ><a href="./19.03-replace-fa">Replace FA Allocations</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.04</code
+                ><a href="./19.04-fa-allocation-methods"
+                  >Allocation Methods and Groups</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.05</code
+                ><a href="./19.05-allocation-format"
+                  >Allocation Method XML Format</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.01</code
+                    ><a href="./19.05.01-available-equity-xml"
+                      >Available Equity</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.02</code
+                    ><a href="./19.05.02-shares-xml">Contracts Or Shares</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.03</code
+                    ><a href="./19.05.03-equal-quantity-xml">Equal Quantity</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.04</code
+                    ><a href="./19.05.04-cash-xml">MonetaryAmount</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.05</code
+                    ><a href="./19.05.05-nlv-xml">Net Liquidation Value</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.06</code
+                    ><a href="./19.05.06-percentage-xml">Percentages</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>19.05.07</code
+                    ><a href="./19.05.07-ratio-xml">Ratios</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.06</code
+                ><a href="./19.06-model-portfolios"
+                  >Model Portfolios and the API</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.07</code
+                ><a href="./19.07-unification-groups-profiles"
+                  >Unification of Groups and Profiles</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>19.08</code
+                ><a href="./19.08-fa-orders">Order Placement</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>20</code
+            ><a href="./20-delayed-market-data.html">Market Data: Delayed</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>20.01</code
+                ><a href="./20.01-md-type-behavior"
+                  >Market Data Type Behavior</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>20.02</code
+                ><a href="./20.02-request-md-type">Request Market Data Type</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>20.03</code
+                ><a href="./20.03-receive-md-type">Receive Market Data Type</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>21</code
+            ><a href="./21-hist-md.html">Market Data: Historical</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>21.01</code
+                ><a href="./21.01-historical-limitations"
+                  >Historical Data Limitations</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.01.01</code
+                    ><a href="./21.01.01-filtered-hist-data"
+                      >Historical Data Filtering</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.01.02</code
+                    ><a href="./21.01.02-hist-volume"
+                      >Historical Volume Scaling</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.01.03</code
+                    ><a href="./21.01.03-historical-pacing-limitations"
+                      >Pacing Violations for Small Bars (30 secs or less)</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.01.04</code
+                    ><a href="./21.01.04-unavailable-historical-data"
+                      >Unavailable Historical Data</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.02</code
+                ><a href="./21.02-earliest-data"
+                  >Finding the Earliest Available Data Point</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.02.01</code
+                    ><a href="./21.02.01-requesting-earliest-data"
+                      >Requesting the Earliest Data Point</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.02.02</code
+                    ><a href="./21.02.02-receiving-earliest-data"
+                      >Receiving the Earliest Data Point</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.02.03</code
+                    ><a href="./21.02.03-cancelling-earliest-data"
+                      >Cancelling Timestamp Requests</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.03</code
+                ><a href="./21.03-historical-bars">Historical Bars</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.01</code
+                    ><a href="./21.03.01-requesting-historical-bars"
+                      >Requesting Historical Bars</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.02</code
+                    ><a href="./21.03.02-hist-duration">Duration</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.03</code
+                    ><a href="./21.03.03-hist-bar-size">Historical Bar Sizes</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.04</code
+                    ><a href="./21.03.04-hist-step-size">Step Sizes</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.05</code
+                    ><a href="./21.03.05-duration-per-bar"
+                      >Max Duration Per Bar Size</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.06</code
+                    ><a href="./21.03.06-hist-format-date"
+                      >Format Date Received</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.07</code
+                    ><a href="./21.03.07-hist-keepUp-date">Keep Up To Date</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.03.08</code
+                    ><a href="./21.03.08-receiving-historical-bars"
+                      >Receiving Historical Bars</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.04</code
+                ><a href="./21.04-historical-whattoshow"
+                  >Historical Bar whatToShow</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.01</code
+                    ><a href="./21.04.01-hist-aggtrades ">AGGTRADES</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.02</code
+                    ><a href="./21.04.02-hist-adj-last">ADJUSTED_LAST</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.03</code><a href="./21.04.03-hist-ask">ASK</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.04</code><a href="./21.04.04-hist-bid ">BID</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.05</code
+                    ><a href="./21.04.05-hist-bid-ask">BID_ASK</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.06</code
+                    ><a href="./21.04.06-hist-fee-rate">FEE_RATE</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.07</code
+                    ><a href="./21.04.07-hist-volatility"
+                      >HISTORICAL_VOLATILITY</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.08</code
+                    ><a href="./21.04.08-hist-midpoint">MIDPOINT</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.09</code
+                    ><a href="./21.04.09-hist-opt-imp-vol"
+                      >OPTION_IMPLIED_VOLATILITY</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.10</code
+                    ><a href="./21.04.10-hist-schedule">SCHEDULE</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.11</code
+                    ><a href="./21.04.11-hist-trades">TRADES</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.12</code
+                    ><a href="./21.04.12-hist-yield-ask">YIELD_ASK</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.13</code
+                    ><a href="./21.04.13-hist-yield-bid">YIELD_BID</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.14</code
+                    ><a href="./21.04.14-hist-yield-bid-ask">YIELD_BID_ASK</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.04.15</code
+                    ><a href="./21.04.15-hist-yield-last">YIELD_LAST</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.05</code
+                ><a href="./21.05-histograms">Histogram Data</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.05.01</code
+                    ><a href="./21.05.01-requesting-histogram-data"
+                      >Requesting Histogram Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.05.02</code
+                    ><a href="./21.05.02-receiving-histogram-data"
+                      >Receiving Histogram Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.05.03</code
+                    ><a href="./21.05.03-cancelling-histogram-data"
+                      >Cancelling Histogram Data</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.06</code
+                ><a href="./21.06-historical-time-and-sales"
+                  >Historical Time &amp; Sales</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.06.01</code
+                    ><a href="./21.06.01-requesting-time-and-sales"
+                      >Requesting Time and Sales data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.06.02</code
+                    ><a href="./21.06.02-receiving-time-and-sales"
+                      >Receiving Time and Sales data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.06.03</code
+                    ><a href="./21.06.03-halted-and-unhalted-ticks"
+                      >Historical Halted and Unhalted ticks</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.07</code
+                ><a href="./21.07-hist-date-format"
+                  >Historical Date Formatting</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>21.07.01</code
+                    ><a href="./21.07.01-operator-tz">Operator Time Zone</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.07.02</code
+                    ><a href="./21.07.02-exchange-tz">Exchange Time Zone</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>21.07.03</code
+                    ><a href="./21.07.03-utc-tz"
+                      >Coordinated Universal Time (UTC)</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>21.08</code
+                ><a href="./21.08-modify-return-date"
+                  >Modifying Returned Date</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>22</code><a href="./22-live-md.html">Market Data: Live</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>22.01</code
+                ><a href="./22.01-live-data-limitations"
+                  >Live Data Limitations</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.02</code><a href="./22.02-live-bars">5 Second Bars</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.02.01</code
+                    ><a href="./22.02.01-request-live-bars"
+                      >Request Real Time Bars</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.02.02</code
+                    ><a href="./22.02.02-receive-live-bars"
+                      >Receive Real Time Bars</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.02.03</code
+                    ><a href="./22.02.03-cancel-live-bars"
+                      >Cancel Real Time Bars</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.03</code
+                ><a href="./22.03-component-exchange">Component Exchanges</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.03.01</code
+                    ><a href="./22.03.01-request-component-exchange"
+                      >Request Component Exchanges</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.03.02</code
+                    ><a href="./22.03.02-receive-component-exchange"
+                      >Receive Component Exchanges</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.04</code
+                ><a href="./22.04-market-depth-exchanges"
+                  >Market Depth Exchanges</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.04.01</code
+                    ><a href="./22.04.01-request-depth-exchanges"
+                      >Requesting Market Depth Exchanges</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.04.02</code
+                    ><a href="./22.04.02-receive-depth-exchanges"
+                      >Receive Market Depth Exchanges</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.05</code
+                ><a href="./22.05-market-depth">Market Depth (L2)</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.05.01</code
+                    ><a href="./22.05.01-request-market-depth"
+                      >Request Market Depth</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.05.02</code
+                    ><a href="./22.05.02-receive-market-depth"
+                      >Receive Market Depth</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.05.03</code
+                    ><a href="./22.05.03-cancel-market-depth"
+                      >Cancel Market Depth</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.06</code
+                ><a href="./22.06-indicators">Market Indicators</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.06.01</code
+                    ><a href="./22.06.01-ad-indicator">NYSE Advance-Decline</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.06.02</code
+                    ><a href="./22.06.02-ad-indicator">NYSE Volume Index</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.06.03</code
+                    ><a href="./22.06.03-ad-indicator"
+                      >NYSE Trading Index (TRIN)</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.06.04</code
+                    ><a href="./22.06.04-ad-indicator">NYSE TICK Index</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.07</code
+                ><a href="./22.07-option-greeks">Option Greeks</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.07.01</code
+                    ><a href="./22.07.01-request-option-greeks"
+                      >Request Options Greeks</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.07.02</code
+                    ><a href="./22.07.02-calc-opt-price"
+                      >Calculating option prices</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.07.03</code
+                    ><a href="./22.07.03-calc-historical-volatility"
+                      >Calculating historical volatility</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.07.04</code
+                    ><a href="./22.07.04-receive-options-data"
+                      >Receiving Options Data</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.08</code
+                ><a href="./22.08-watchlist-data">Top of Book (L1)</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.01</code
+                    ><a href="./22.08.01-request-watchlist-data"
+                      >Request Watchlist Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.02</code
+                    ><a href="./22.08.02-md-update-freq"
+                      >Market Data Update Frequency</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.03</code
+                    ><a href="./22.08.03-generic-tick-types"
+                      >Generic Tick Types</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.04</code
+                    ><a href="./22.08.04-streaming-data-snapshot"
+                      >Streaming Data Snapshots</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.05</code
+                    ><a href="./22.08.05-regulatory-snapshot"
+                      >Regulatory Snapshots</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.06</code
+                    ><a href="./22.08.06-receive-live-data"
+                      >Receive Live Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.07</code
+                    ><a href="./22.08.07-exchange-component-mapping"
+                      >Exchange Component Mapping</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.08</code
+                    ><a href="./22.08.08-re-route-cfds">Re-Routing CFDs</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.08.09</code
+                    ><a href="./22.08.09-cancel-mkt-data"
+                      >Cancel Watchlist Data</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.09</code
+                ><a href="./22.09-available-tick-types">Available Tick Types</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.09.01</code><a href="./22.09.01-halted">Halted</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.09.02</code
+                    ><a href="./22.09.02-shortable">Shortable</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.09.03</code
+                    ><a href="./22.09.03-volume-data">Volume Data</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.09.04</code
+                    ><a href="./22.09.04-rt-volume">RT Volume</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.09.05</code
+                    ><a href="./22.09.05-ib-dividends">IB Dividends</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>22.10</code
+                ><a href="./22.10-tick-by-tick">Tick By Tick Data</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>22.10.01</code
+                    ><a href="./22.10.01-request-tick-data"
+                      >Request Tick By Tick Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.10.02</code
+                    ><a href="./22.10.02-receive-tick-data"
+                      >Receive Tick By Tick Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.10.03</code
+                    ><a href="./22.10.03-cancel-tick-data"
+                      >Cancel Tick By Tick Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>22.10.04</code
+                    ><a href="./22.10.04-halted-ticks"
+                      >Halted and Unhalted ticks</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>23</code><a href="./23-market-scanner.html">Market Scanner</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>23.01</code
+                ><a href="./23.01-market-scan-params"
+                  >Market Scanner Parameters</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>23.01.01</code
+                    ><a href="./23.01.01-request-market-scan-params"
+                      >Request Market Scanner Parameters</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>23.01.02</code
+                    ><a href="./23.01.02-receive-market-scan-params"
+                      >Receive Market Scanner Parameters</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>23.02</code
+                ><a href="./23.02-market-scanner-subscription"
+                  >Market Scanner Subscription</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>23.02.01</code
+                    ><a href="./23.02.01-request-scanner-subscription"
+                      >Request Market Scanner Subscription</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>23.02.02</code
+                    ><a href="./23.02.02-receive-scanner-subscription"
+                      >Receive Market Scanner Subscription</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>23.02.03</code
+                    ><a href="./23.02.03-cancel-scanner-subscription"
+                      >Cancel Market Scanner Subscription</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>24</code><a href="./24-news.html">News</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>24.01</code
+                ><a href="./24.01-news-providers">News Providers</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>24.01.01</code
+                    ><a href="./24.01.01-request-news-providers"
+                      >Request News Providers</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>24.01.02</code
+                    ><a href="./24.01.02-receive-news-providers"
+                      >Receive News Providers</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>24.02</code
+                ><a href="./24.02-contract-specific-news"
+                  >Live News Headlines</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>24.02.01</code
+                    ><a href="./24.02.01-request-contract-specific-news"
+                      >Request Contract Specific News</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>24.02.02</code
+                    ><a href="./24.02.02-request-broadtape-news"
+                      >Request BroadTape News</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>24.02.03</code
+                    ><a href="./24.02.03-receive-live-news-headlines"
+                      >Receive Live News Headlines</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>24.03</code
+                ><a href="./24.03-historical-news">Historical News Headlines</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>24.03.01</code
+                    ><a href="./24.03.01-request-historical-news"
+                      >Requesting Historical News</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>24.03.02</code
+                    ><a href="./24.03.02-receive-historical-news"
+                      >Receive Historical News</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>24.04</code
+                ><a href="./24.04-news-articles">News Articles</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>24.04.01</code
+                    ><a href="./24.04.01-request-news-articles"
+                      >Request News Articles</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>24.04.02</code
+                    ><a href="./24.04.02-receive-news-articles"
+                      >Receive News Articles</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>25</code><a href="./25-next-valid-id.html">Next Valid ID</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>25.01</code
+                ><a href="./25.01-request-next-valid-id"
+                  >Request Next Valid ID</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>25.02</code
+                ><a href="./25.02-receive-next-valid-id"
+                  >Receive Next Valid ID</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>25.03</code
+                ><a href="./25.03-reset-id-sequence."
+                  >Reset Order ID Sequence</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>26</code
+            ><a href="./26-order-management.html">Order Management</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>26.01</code
+                ><a href="./26.01-master-client-id"
+                  >ClientId 0 and the Master Client ID</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.02</code
+                ><a href="./26.02-commission-report"
+                  >Commission And Fees Report</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.03</code
+                ><a href="./26.03-exec-details">Execution Details</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>26.03.01</code
+                    ><a href="./26.03.01-exec-id">ExecID Behavior</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.03.02</code
+                    ><a href="./26.03.02-execution-object"
+                      >The Execution Object</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.03.03</code
+                    ><a href="./26.03.03-request-exec-details"
+                      >Request Execution Details</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.03.04</code
+                    ><a href="./26.03.04-receive-exec-details"
+                      >Receive Execution Details</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.04</code><a href="./26.04-open-orders">Open Orders</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.05</code
+                ><a href="./26.05-order-status">Order Status</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>26.05.01</code
+                    ><a href="./26.05.01-order-status-message"
+                      >Understanding Order Status Message</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.06</code
+                ><a href="./26.06-request-active-orders"
+                  >Requesting Currently Active Orders</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>26.06.01</code
+                    ><a href="./26.06.01-request-api-orders"
+                      >API client&#x27;s orders</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.06.02</code
+                    ><a href="./26.06.02-request-all-orders"
+                      >All submitted orders</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.06.03</code
+                    ><a href="./26.06.03-receive-tws-orders"
+                      >Manually Submitted TWS Orders</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.06.04</code
+                    ><a href="./26.06.04-order-bound-notification"
+                      >Order Binding Notification</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>26.07</code
+                ><a href="./26.07-completed-orders"
+                  >Retrieving Completed Orders</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>26.07.01</code
+                    ><a href="./26.07.01-req-completed-orders"
+                      >Requesting Completed Orders</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>26.07.02</code
+                    ><a href="./26.07.02-rec-completed-orders"
+                      >Receiving Completed Orders</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>27</code><a href="./27-orders.html">Orders</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>27.01</code
+                ><a href="./27.01-order-object">The Order Object</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.02</code
+                ><a href="./27.02-cancel-order">Cancelling an Order</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>27.02.01</code
+                    ><a href="./27.02.01-cancel-order"
+                      >Cancel Individual Order</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.02.02</code
+                    ><a href="./27.02.02-global-order-cancel"
+                      >Cancel All Open Orders</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.03</code
+                ><a href="./27.03-exercise-options">Exercise Options</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.04</code
+                ><a href="./27.04-market-price-increment"
+                  >Minimum Price Increment</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>27.04.01</code
+                    ><a href="./27.04.01-request-market-rule"
+                      >Request Market Rule</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.04.02</code
+                    ><a href="./27.04.02-receive-market-rule"
+                      >Receive Market Rule</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.05</code
+                ><a href="./27.05-mifir-reporting"
+                  >MiFIR Transaction Reporting Fields</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.06</code
+                ><a href="./27.06-modify-order">Modifying Orders</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.07</code><a href="./27.07-place-order">Place Order</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>27.07.01</code
+                    ><a href="./27.07.01-pt-sl"
+                      >Adding a Profit Taker and Stop Loss</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.07.02</code
+                    ><a href="./27.07.02-combo-order">Combo Orders</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.07.03</code
+                    ><a href="./27.07.03-overnight-trading"
+                      >Trading The Overnight Session</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.07.04</code
+                    ><a href="./27.07.04-precaution-settings"
+                      >Understanding Order Precautions</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>27.07.05</code
+                    ><a href="./27.07.05-order-considerations"
+                      >Order Placement Considerations</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.08</code
+                ><a href="./27.08-preborrow">Pre-Borrow Shares For Shorting</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.09</code
+                ><a href="./27.09-whatif">Test Order Impact (WhatIf)</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>27.10</code
+                ><a href="./27.10-trigger-methods">Trigger Methods</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>28</code
+            ><a href="./28-setting-management.html">Setting Management</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>28.01</code
+                ><a href="./28.01-req-config">Request Configuration</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>28.02</code
+                ><a href="./28.02-receive-config">Receive Configuration</a>
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>28.03</code
+                ><a href="./28.03-req-config-update"
+                  >Request Configuration Update</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>28.04</code
+                ><a href="./28.04-receive-config-update"
+                  >Receive Configuration Update</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>29</code
+            ><a href="./29-display-groups.html">TWS UI Display Groups</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>29.01</code
+                ><a href="./29.01-query-display-groups">Query Display Groups</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>29.01.01</code
+                    ><a href="./29.01.01-request-query-display-groups"
+                      >Request Query Display Groups</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>29.01.02</code
+                    ><a href="./29.01.02-receive-query-display-groups"
+                      >Receive Query Display Groups</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>29.02</code
+                ><a href="./29.02-subscribe-display-groups"
+                  >Subscribe To Group Events</a
+                >
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>29.02.01</code
+                    ><a href="./29.02.01-request-subscribe-display-groups"
+                      >Request Group Events Subscription</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>29.02.02</code
+                    ><a href="./29.02.02-receive-subscribe-display-groups"
+                      >Receive Group Events Subscription</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>29.02.03</code
+                    ><a href="./29.02.03-cancel-display-groups"
+                      >Unsubscribe From Group Events</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>29.03</code
+                ><a href="./29.03-update-display-groups"
+                  >Update Display Group</a
+                >
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="toc-text">
+            <code>30</code><a href="./30-wsh.html">Wall Street Horizon</a>
+          </div>
+          <ul>
+            <li>
+              <div class="toc-text">
+                <code>30.01</code><a href="./30.01-meta-data">Meta Data</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>30.01.01</code
+                    ><a href="./30.01.01-meta-data-filters"
+                      >Meta Data Filters</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.01.02</code
+                    ><a href="./30.01.02-request-meta-data"
+                      >Requesting Meta Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.01.03</code
+                    ><a href="./30.01.03-receive-meta-data"
+                      >Receive Meta Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.01.04</code
+                    ><a href="./30.01.04-cancel-meta-data">Cancel Meta Data</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="toc-text">
+                <code>30.02</code><a href="./30.02-event-data">Event Data</a>
+              </div>
+              <ul>
+                <li>
+                  <div class="toc-text">
+                    <code>30.02.01</code
+                    ><a href="./30.02.01-wsheventdata-object"
+                      >WshEventData Object</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.02.02</code
+                    ><a href="./30.02.02-request-event-data"
+                      >Request Event Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.02.03</code
+                    ><a href="./30.02.03-receive-event-data"
+                      >Receive Event Data</a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="toc-text">
+                    <code>30.02.04</code
+                    ><a href="./30.02.04-cancel-event-data"
+                      >Cancel Event Data</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
   </body>
 </html>

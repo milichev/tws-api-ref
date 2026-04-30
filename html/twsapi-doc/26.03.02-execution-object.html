@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>26.03.02 The Execution Object</title>
+    <style>
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: auto;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #d0d7de;
+}
+code {
+  font-family: monospace;
+  font-size: 85%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f6f8fa;
+}
+
+.toc {
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  li ul {
+    margin-inline-start: 40px;
+  }
+
+  .toc-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bbb;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-item:last-child a {
+  font-weight: bold;
+}
+
+.breadcrumb-item:last-child a:hover {
+  text-decoration: none;
+}
+
+</style>
+  </head>
+  <body>
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">IBKR TWS API</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="26.03.02-execution-object.html">26.03.02 The Execution Object</a>
+      </li>
+    </ul>
+     <h3 class="section-title-2">The Execution Object</h3><div class="row"><p>The Execution object is used to maintain all data related to a user’s traded orders. This can be used in both querying execution details and navigating received data. The details provided will display all information pertaining to the execution, including how many shares were filled, the price of the execution, and what time it took place.</p><h4 id="execution-object">26.03.02 The Execution Object</h4><p><strong>OrderId:</strong> int. The API client’s order Id. May not be unique to an account.</p><p><strong>ClientId:</strong> int. The API client identifier which placed the order which originated this execution.</p><p><strong>ExecId:</strong> String. The execution’s identifier. Each partial fill has a separate ExecId. A correction is indicated by an ExecId which differs from a previous ExecId in only the digits after the final period, e.g. an ExecId ending in “.02” would be a correction of a previous execution with an ExecId ending in “.01”.</p><p><strong>Time:</strong> String. The execution’s server time.</p><p><strong>AcctNumber:</strong> String. The account to which the order was allocated.</p><p><strong>Exchange:</strong> String. The exchange where the execution took place.</p><p><strong>Side:</strong> String. Specifies if the transaction was buy or sale BOT for bought, SLD for sold.</p><p><strong>Shares:</strong> decimal. The number of shares filled.</p><p><strong>Price:</strong> double. The order’s execution price excluding commissions.</p><p><strong>PermId:</strong> int. The TWS order identifier. The PermId can be 0 for trades originating outside IB.</p><p><strong>Liquidation:</strong> int. Identifies whether an execution occurred because of an IB-initiated liquidation.</p><p><strong>CumQty:</strong> decimal. Cumulative quantity. Used in regular trades, combo trades and legs of the combo.</p><p><strong>AvgPrice:</strong> double. Average price. Used in regular trades, combo trades and legs of the combo. Does not include commissions.</p><p><strong>OrderRef:</strong> String. The OrderRef is a user-customizable string that can be set from the API or TWS and will be associated with an order for its lifetime.</p><p><strong>EvRule:</strong> String. The Economic Value Rule name and the respective optional argument. The two values should be separated by a colon. For example, aussieBond:YearsToExpiration=3. When the optional argument is not present, the first value will be followed by a colon.</p><p><strong>EvMultiplier:</strong> double. Tells you approximately how much the market value of a contract would change if the price were to change by 1. It cannot be used to get market value by multiplying the price by the approximate multiplier.</p><p><strong>ModelCode:</strong> String. model code</p><p><strong>LastLiquidity:</strong> Liquidity. The liquidity type of the execution.</p><p><strong>pendingPriceRevision:</strong> bool. Describes if the execution is still pending price revision.</p></div><div class="row"><p>Given additional structures for executions are ever evolving, it is recommended to review the relevant Execution class in your programming language for a comprehensive review of what fields are available.</p> <a href="../undefined/index.html" target="_self" class="btn btn-xl btn-success btn-block">Execution Class Reference</a></div>
+  </body>
+</html>

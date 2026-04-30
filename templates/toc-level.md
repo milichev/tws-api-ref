@@ -1,10 +1,8 @@
-{{#if length }}
+{{#if length}}
 {{#each .}}
-{{#if @root.isCtx7}}
-- [{{title}}](./{{fileName}})
-{{else}}
-- [{{pos}} {{title}}](./{{fileName}})
+- [{{#if pos}}{{pos}} {{/if}}{{title}}]({{#if (startsWith fileName "http")}}{{fileName}}{{else}}{{#if (startsWith fileName "./")}}{{fileName}}{{else}}./{{fileName}}{{/if}}{{/if}})
+{{#unless @root.flat}}
 {{#if children}}{{> toc-level-md children}}{{/if}}
-{{/if}}
+{{/unless}}
 {{/each}}
 {{/if}}

@@ -1,128 +1,29 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>07 Third Party API Platforms</title>
-    <style>
-body {
-  font-family: sans-serif;
-  line-height: 1.6;
-  padding: 2rem;
-  color: #1a1a1a;
-  max-width: 900px;
-  margin: auto;
-}
-pre {
-  background: #f6f8fa;
-  padding: 1rem;
-  border-radius: 6px;
-  overflow-x: auto;
-  border: 1px solid #d0d7de;
-}
-code {
-  font-family: monospace;
-  font-size: 85%;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem 0;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1rem 0;
-}
-th,
-td {
-  border: 1px solid #d0d7de;
-  padding: 8px 12px;
-  text-align: left;
-}
-th {
-  background: #f6f8fa;
-}
+  [index.html](IBKR TWS API) -> 
+  [07-third-party-platforms.md](07 Third Party API Platforms) -> 
 
-.toc {
-  ul {
-    list-style: none;
-    padding-inline-start: 0;
-  }
+ 07 Third Party API Platforms
 
-  li ul {
-    margin-inline-start: 40px;
-  }
 
-  .toc-text {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
+## Third Party API Platforms
 
-    a {
-      text-decoration: none;
-    }
+Third party software vendors make use of the TWS’ programming interface (API) to integrate their platforms with Interactive Broker’s. Thanks to the TWS API, well known platforms such as Ninja Trader or Multicharts can interact with the TWS to fetch market data, place orders and/or manage account and portfolio information.
 
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-}
+**It is important to keep in mind that most third party API platforms are not compatible with all IBKR account structures**. Always check first with the software vendor before opening a specific account type or converting an IBKR account type. For instance, many third party API platforms such as NinjaTrader and TradeNavigator are **not** compatible with IBKR linked account structures, so it is highly recommended to first check with the third party vendor before linking your IBKR accounts.
 
-.breadcrumb {
-  display: flex;
-  list-style: none;
-  padding: 0 0 1em 0;
-  margin: 0;
-  font-size: 0.6rem;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #bbb;
-}
+An ongoing list of common [Third Party Connections](https://www.interactivebrokers.com/campus/ibkr-api-page/third-party-connections/) are available within our documentation. This resource will also link out to connection guides detailing how a user can connect with a given platform.
 
-.breadcrumb-item {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+A non-exhaustive list of third party platforms implementing our interface can be found in our [Investor’s Marketplace](https://www.interactivebrokers.com/Universal/servlet/MarketPlace.MarketPlaceServlet). As stated in the marketplace, the vendors’ list is in no way a recommendation from Interactive Brokers. If you are interested in a given platform that is not listed, please contact the platform’s vendor directly for further information.
 
-  a {
-    text-decoration: none;
-  }
+### Non-Standard TWS API Languages and Packages
 
-  a:hover {
-    text-decoration: underline;
-  }
-}
+Noted in further depth through our [Architecture](../undefined/index.md) section, the TWS API is built using standardized socket protocol. As a result, users may develop or access alternative third party modules and classes in place of Interactive Brokers default modules through the [TWS API Download](../undefined/index.md). While the API is adaptable for client implementations, please understand that **Interactive Brokers API Support cannot provide support for non-standard implementations.** While we can review your [API logs](../undefined/index.md) to affirm what content is being submitted, any further assistance will need to take place with the module’s original developer.
 
-.breadcrumb-item:not(:last-child)::after {
-  content: "›";
-  margin: 0 0.25rem;
-}
+_This is neither an endorsement or admonishment of third party implementations. Interactive Brokers will always advise clients use our direct TWS API implementation whenever possible._
 
-.breadcrumb-item:last-child a {
-  font-weight: bold;
-}
+### ib\_insync and ib\_async
 
-.breadcrumb-item:last-child a:hover {
-  text-decoration: none;
-}
+While Interactive Brokers’ API Support is aware of the ib\_insync package, we [cannot provide coding assistance](../undefined/index.md) for the package.
 
-</style>
-  </head>
-  <body>
-      [../index.html](IBKR TWS API) -> 
-      [07-third-party-platforms.md](07 Third Party API Platforms) -> 
-    
-     07 Third Party API Platforms
-    
-    
-    ## Third Party API Platforms
-    
-    Third party software vendors make use of the TWS’ programming interface (API) to integrate their platforms with Interactive Broker’s. Thanks to the TWS API, well known platforms such as Ninja Trader or Multicharts can interact with the TWS to fetch market data, place orders and/or manage account and portfolio information.
-    
-    **It is important to keep in mind that most third party API platforms are not compatible with all IBKR account structures**. Always check first with the software vendor before opening a specific account type or converting an IBKR account type. For instance, many third party API platforms such as NinjaTrader and TradeNavigator are **not** compatible with IBKR linked account structures, so it is highly recommended to first check with the third party vendor before linking your IBKR accounts.
-    
-    An ongoing list of common [Third Party Connections](https://www.interactivebrokers.com/campus/ibkr-api-page/third-party-connections/) are available within our documentation. This resource will also link out to connection guides detailing how a user can connect with a given platform.
-    
-    A non-exhaustive list of third party platforms implementing our interface can be found in our [Investor’s Marketplace](https://www.interactivebrokers.com/Universal/servlet/MarketPlace.MarketPlaceServlet). As stated in the marketplace, the vendors’ list is in no way a recommendation from Interactive Brokers. If you are interested in a given platform that is not listed, please contact the platform’s vendor directly for further information.
-  </body>
-</html>
+With that in mind, users should be aware that the original ib\_insync package is built using a legacy release of the TWS API and is no longer updated. Users who wish to implement the ib\_insync structure using supported releases of the Trader Workstation should migrate to the [ib\_async package](https://pypi.org/project/ib_async/), which is a modernized implementation of the package by one of its original developers.
+
+_This is neither an endorsement or admonishment of either the ib\_insync or ib\_async library. Interactive Brokers will always advise clients use our direct TWS API implementation whenever possible._
