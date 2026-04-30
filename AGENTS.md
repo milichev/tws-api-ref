@@ -11,42 +11,46 @@
   <pre style="white-space: pre;">
   ./
     html/
-      index.html -- HTML page with links to all sections below
+      index.html -- HTML page with links to all sections titles only
       twsapi-doc/
-        index.html -- section page with links to all subsections below
+        index.html -- section page with links to all subsections (full hierarchy)
         01-api-introduction.html
         ...
       .../
     skill/
-      SKILL.md -- skill file with TOC with sections titles (linked to docs/ files)
+      SKILL.md -- skill file with TOC with sections titles only (linked to docs/index.md or docs/<section>/index.md)
       docs/
-        index.md -- markdown page with links to all MD sections below
+        index.md -- markdown page with links to all section index.md files
         twsapi-doc/
-          index.md -- section page with links to all subsections
-          01-api-introduction.md
+          index.md -- section page with links to top-level chapters only
+          01-api-introduction.md -- content of this chapter AND all its children (merged as subheadings)
           ...
         .../
   </pre>
 
-* Since the source docs are in different format (some in HTML, other in MD), the sections should be generated in both `html` and `skill` directories (with the conversion to the opposite format).
+* Format Parity:
+  * IBKR Campus sources are generated in both `html` and `skill`.
+  * `ib-async` (Ctx7) is generated as Markdown in `skill`, but the HTML version is just a link to the source website (https://ib-api-reloaded.github.io/ib_async) in the root HTML TOC.
 
 * TOC requirements:
   * In `html` output directory:
-    * `./index.html` - TOC of all sections titles only (don't render sections subsections);
-    * ./<section_name>/index.html` - the full hierarchy
+    * `./index.html` - TOC of all sections titles only;
+    * `./<section_name>/index.html` - the full hierarchy
   * In `skill` output directory:
-    * `./skill/SKILL.md` - TOC of all sections titles only (don't render sections subsections);
-    * `./skill/docs/<section_name>/index.md` - only the top-level TOC (no subsections/sections); sections should be linked from here,
-    * `./skill/docs/<section_name>/<subsection_name>.md` - the full hierarchy of the subsection, e.g. `08-unqiue-configurations.md`, including nested subheadings, if any.
+    * `./skill/SKILL.md` - TOC of all sections titles only;
+    * `./skill/docs/index.md` - TOC of all sections titles only;
+    * `./skill/docs/<section_name>/index.md` - links to top-level chapters only (e.g. `01-...md`, `02-...md`);
+    * `./skill/docs/<section_name>/<chapter_name>.md` - the content of the chapter AND the content of all its children (merged as subheadings). This flattens the hierarchy to Level 2 to prevent "tiny document" fragmentation while keeping it optimized for LLMs.
 
 * So, there is two goals we aim here:
 
-  1. Build a skill for LLM agents (Claude, Antigravity, etc.), which would be highly optimized to prevent context bloating.
+  1. Build a skill for LLM agents (Claude, Antigravity, etc.), which would be highly optimized to prevent context bloating and excessive roundtrips by merging sub-chapters into parent chapter files.
 
-  2. Generate a human-readable documentation in HTML format for interactive use.
+  2. Generate a human-readable documentation in HTML format for interactive use, maintaining the full hierarchy.
 
 * NEXT PHASES:
   1. Relink pages from heterogeneous documents (TWS API Campus and ib_async Context7 pages) so that the resulting HTML and MD pages reference each other where needed.
+  2. Resolve Markdown links in `skill/` (stubbed for now).
 
 ## RULES 
 
