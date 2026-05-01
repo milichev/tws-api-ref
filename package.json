@@ -9,7 +9,6 @@
     "generate": "tsx lib/generate.ts",
     "serve-html": "npx -y http-server ./html",
     "serve-skill": "npx -y docsify-cli serve ./skill",
-    "serve-skill-old": "npx -y vitepress dev ./skill",
     "install-skill": "tsx lib/install-skill.ts",
     "mcp": "npx -y @modelcontextprotocol/server-filesystem ./skill"
   },
