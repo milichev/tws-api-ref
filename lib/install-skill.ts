@@ -3,23 +3,40 @@ import { join, dirname } from "node:path";
 import { homedir } from "node:os";
 
 const REPO_ROOT = dirname(import.meta.dirname);
-const AGY_BASE = join(homedir(), ".gemini/antigravity");
-const AGY_SKILLS = join(AGY_BASE, "skills");
-const TARGET = join(AGY_SKILLS, "ibkr-tws-api");
 const SOURCE = join(REPO_ROOT, "skill");
 
-if (!existsSync(AGY_BASE)) {
-  console.error(`Error: ${AGY_BASE} not found.`);
-  process.exit(1);
+// Target folders with their base directories
+const TARGETS = [
+  { base: join(homedir(), ".gemini/antigravity"), name: "antigravity" },
+  { base: join(homedir(), ".gemini/antigravity-ide"), name: "antigravity-ide" },
+  { base: join(homedir(), ".kiro"), name: "kiro" },
+];
+
+// First pass: check if all base directories exist, skip with message if not
+const validTargets = TARGETS.filter((target) => {
+  if (!existsSync(target.base)) {
+    console.log(`Skipping ${target.name}: ${target.base} not found.`);
+    return false;
+  }
+  return true;
+});
+
+// Second pass: create skills directories and symlinks
+for (const target of validTargets) {
+  const skillsDir = join(target.base, "skills");
+  const linkPath = join(skillsDir, "ibkr-tws-api");
+
+  if (!existsSync(skillsDir)) {
+    mkdirSync(skillsDir, { recursive: true });
+  }
+
+  if (existsSync(linkPath)) {
+    const s = lstatSync(linkPath);
+    if (s.isSymbolicLink() || s.isDirectory()) {
+      rmSync(linkPath, { recursive: true, force: true });
+    }
+  }
+
+  symlinkSync(SOURCE, linkPath, "dir");
+  console.log(`Linked: ${linkPath} -> ${SOURCE}`);
 }
-
-if (!existsSync(AGY_SKILLS)) mkdirSync(AGY_SKILLS);
-
-if (existsSync(TARGET)) {
-  const s = lstatSync(TARGET);
-  if (s.isSymbolicLink() || s.isDirectory())
-    rmSync(TARGET, { recursive: true, force: true });
-}
-
-symlinkSync(SOURCE, TARGET, "dir");
-console.log(`Linked: ${TARGET} -> ${SOURCE}`);
