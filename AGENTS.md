@@ -53,14 +53,7 @@
   2. Resolve Markdown links in `skill/` (stubbed for now).
   3. Resolve broken image links in `skill/` (currently pointing to relative paths not present in `skill/docs/`).
 
-## RULES 
-
-* First thing, run this script once to initialize terminal session:
-  ```bash
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  eval "$(/Users/milichev/.local/bin/mise activate zsh)"
-  source ~/.orbstack/shell/init.zsh 2>/dev/null || :
-  ```
+## RULES
 
 * All outputs should be rendered with `handlebars` templates:
   * Template sources are in `./templates`, with respective extensions: html or md.
