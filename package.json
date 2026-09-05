@@ -24,14 +24,14 @@
     "email": "vadim.milichev@gmail.com"
   },
   "license": "ISC",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.25.0",
   "devDependencies": {
-    "@types/node": "^25.6.0",
+    "@types/node": "^26.4.1",
     "@types/turndown": "^5.0.6",
     "cheerio": "^1.2.0",
     "domhandler": "^6.0.1",
     "handlebars": "^4.7.9",
-    "tsx": "^4.21.0",
+    "tsx": "^4.23.13",
     "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2"
   }
