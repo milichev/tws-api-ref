@@ -1,4 +1,4 @@
-# IBKR TWS API Reference (MCP Optimized)
+# `tws-api-ref`: IBKR TWS API Reference (MCP Optimized)
 
 Cleaned, section-split, and Markdown-formatted IBKR TWS API documentation. Optimized for LLM context windows and Agentic workflows.
 
@@ -13,7 +13,7 @@ Add this to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "tws-api-reference": {
+    "tws-api-ref": {
       "command": "/absolute/path/to/npx",
       "args": [
         "-y",
